@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		52A423CB285119D9007549BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423CA285119D9007549BB /* AppDelegate.swift */; };
-		52A423CD285119D9007549BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423CC285119D9007549BB /* SceneDelegate.swift */; };
-		52A423CF285119D9007549BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423CE285119D9007549BB /* ViewController.swift */; };
-		52A423D2285119D9007549BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D0285119D9007549BB /* Main.storyboard */; };
 		52A423D4285119DF007549BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D3285119DF007549BB /* Assets.xcassets */; };
 		52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D5285119DF007549BB /* LaunchScreen.storyboard */; };
+		52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423E128512B04007549BB /* UIViewExtensions.swift */; };
+		52A423E528512C02007549BB /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423E428512C02007549BB /* StringConstants.swift */; };
+		52A423E828512E42007549BB /* QueueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423E728512E42007549BB /* QueueConfig.swift */; };
+		52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423E928512EB5007549BB /* ColorConfig.swift */; };
+		52A423ED2851D025007549BB /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A423EC2851D025007549BB /* Register.storyboard */; };
+		52A423F02851E245007549BB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423EE2851E245007549BB /* Coordinator.swift */; };
+		52A423F12851E245007549BB /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423EF2851E245007549BB /* Observable.swift */; };
+		52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F32851E28D007549BB /* RegistrationViewController.swift */; };
+		52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F52851E29E007549BB /* RegistrationViewModel.swift */; };
+		52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */; };
+		A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharemil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F25767DDDBA81A0903B7CE3 /* Pods-Sharemil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.release.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.release.xcconfig"; sourceTree = "<group>"; };
 		52A423C7285119D9007549BB /* Sharemil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharemil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A423CA285119D9007549BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52A423CC285119D9007549BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52A423CE285119D9007549BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		52A423D1285119D9007549BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52A423D3285119DF007549BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52A423D6285119DF007549BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52A423D8285119E0007549BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A423E128512B04007549BB /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		52A423E428512C02007549BB /* StringConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		52A423E728512E42007549BB /* QueueConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueConfig.swift; sourceTree = "<group>"; };
+		52A423E928512EB5007549BB /* ColorConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConfig.swift; sourceTree = "<group>"; };
+		52A423EC2851D025007549BB /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		52A423EE2851E245007549BB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		52A423EF2851E245007549BB /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		52A423F32851E28D007549BB /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		52A423F52851E29E007549BB /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
+		9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.debug.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		454E21101C2C27F66512AC9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */,
+				3F25767DDDBA81A0903B7CE3 /* Pods-Sharemil.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		51BA570F4EA87D1522C67AE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52A423BE285119D9007549BB = {
 			isa = PBXGroup;
 			children = (
 				52A423C9285119D9007549BB /* Sharemil */,
 				52A423C8285119D9007549BB /* Products */,
+				454E21101C2C27F66512AC9E /* Pods */,
+				51BA570F4EA87D1522C67AE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +94,110 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
+				52A423FC2851E34C007549BB /* Services */,
+				52A423FB2851E336007549BB /* Models */,
+				52A423F22851E248007549BB /* Architectures */,
+				52A423E628512E35007549BB /* Configs */,
+				52A423E328512BF3007549BB /* Constants */,
+				52A423DE28511A6A007549BB /* Extensions */,
+				52A423DF285129E0007549BB /* Modules */,
 				52A423CA285119D9007549BB /* AppDelegate.swift */,
-				52A423CC285119D9007549BB /* SceneDelegate.swift */,
-				52A423CE285119D9007549BB /* ViewController.swift */,
-				52A423D0285119D9007549BB /* Main.storyboard */,
 				52A423D3285119DF007549BB /* Assets.xcassets */,
 				52A423D5285119DF007549BB /* LaunchScreen.storyboard */,
 				52A423D8285119E0007549BB /* Info.plist */,
 			);
 			path = Sharemil;
+			sourceTree = "<group>";
+		};
+		52A423DE28511A6A007549BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52A423E028512A3D007549BB /* UIExtensions */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52A423DF285129E0007549BB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				52A423EB2851D002007549BB /* Register */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		52A423E028512A3D007549BB /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				52A423E128512B04007549BB /* UIViewExtensions.swift */,
+			);
+			path = UIExtensions;
+			sourceTree = "<group>";
+		};
+		52A423E328512BF3007549BB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				52A423E428512C02007549BB /* StringConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		52A423E628512E35007549BB /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				52A423E928512EB5007549BB /* ColorConfig.swift */,
+				52A423E728512E42007549BB /* QueueConfig.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		52A423EB2851D002007549BB /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				52A423FA2851E322007549BB /* ViewModel */,
+				52A423F92851E2FC007549BB /* View */,
+				52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		52A423F22851E248007549BB /* Architectures */ = {
+			isa = PBXGroup;
+			children = (
+				52A423EE2851E245007549BB /* Coordinator.swift */,
+				52A423EF2851E245007549BB /* Observable.swift */,
+			);
+			path = Architectures;
+			sourceTree = "<group>";
+		};
+		52A423F92851E2FC007549BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52A423EC2851D025007549BB /* Register.storyboard */,
+				52A423F32851E28D007549BB /* RegistrationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52A423FA2851E322007549BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52A423F52851E29E007549BB /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52A423FB2851E336007549BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52A423FC2851E34C007549BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52A423DB285119E0007549BB /* Build configuration list for PBXNativeTarget "Sharemil" */;
 			buildPhases = (
+				C84F21EC95A7C55FB24C7CB7 /* [CP] Check Pods Manifest.lock */,
 				52A423C3285119D9007549BB /* Sources */,
 				52A423C4285119D9007549BB /* Frameworks */,
 				52A423C5285119D9007549BB /* Resources */,
+				538E96DA7075ED9B435D149F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +262,75 @@
 			files = (
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
-				52A423D2285119D9007549BB /* Main.storyboard in Resources */,
+				52A423ED2851D025007549BB /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		538E96DA7075ED9B435D149F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C84F21EC95A7C55FB24C7CB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sharemil-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52A423C3285119D9007549BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A423CF285119D9007549BB /* ViewController.swift in Sources */,
+				52A423F12851E245007549BB /* Observable.swift in Sources */,
+				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
+				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
+				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
+				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
+				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
+				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
-				52A423CD285119D9007549BB /* SceneDelegate.swift in Sources */,
+				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
+				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		52A423D0285119D9007549BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52A423D1285119D9007549BB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		52A423D5285119DF007549BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +458,7 @@
 		};
 		52A423DC285119E0007549BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +487,7 @@
 		};
 		52A423DD285119E0007549BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F25767DDDBA81A0903B7CE3 /* Pods-Sharemil.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
