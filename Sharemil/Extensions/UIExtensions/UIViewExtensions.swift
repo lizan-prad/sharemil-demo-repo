@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 extension UIViewController {
     
@@ -79,9 +80,8 @@ extension UIView {
     }
     
     func addStandardBorder() {
-        self.layer.borderColor = UIColor.init(hex: "C0C0C0").cgColor
+        self.layer.borderColor = UIColor.init(hex: "000000").cgColor
         self.layer.borderWidth = 1.0
-        self.layer.cornerRadius = 4
     }
     
     func addHighlightedBorder() {
@@ -210,4 +210,74 @@ extension UIColor {
         
         return NSString(format: "#%06x", rgb) as String
     }
+}
+
+extension UIView {
+    
+    func addCornerRadius(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
+    }
+    
+    func rounded() {
+        self.layer.cornerRadius = self.frame.height/2
+    }
+    
+    func addBorder(_ color: UIColor) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = 1
+    }
+    
+    func addBorderwith(_ color: UIColor, width: CGFloat) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+}
+
+struct Associate {
+    static var hud: UInt8 = 0
+    static var empty: UInt8 = 0
+}
+
+extension UIViewController{
+    private func setProgressHud() -> MBProgressHUD {
+        
+        let progressHud:  MBProgressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+        progressHud.tintColor = UIColor.darkGray
+        progressHud.removeFromSuperViewOnHide = true
+        objc_setAssociatedObject(self, &Associate.hud, progressHud, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return progressHud
+    }
+    
+    var progressHud: MBProgressHUD {
+        if let progressHud = objc_getAssociatedObject(self, &Associate.hud) as? MBProgressHUD {
+            progressHud.isUserInteractionEnabled = true
+            return progressHud
+        }
+        return setProgressHud()
+    }
+    
+    var progressHudIsShowing: Bool {
+        return self.progressHud.isHidden
+    }
+    
+    func showProgressHud() {
+        self.progressHud.show(animated: false)
+    }
+    func showMessageHud(_ message: String) {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.label.text = message
+        hud.isUserInteractionEnabled = false
+    }
+    func hideHUD() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
+    func hideProgressHud() {
+        self.progressHud.label.text = ""
+        self.progressHud.completionBlock = {
+            objc_setAssociatedObject(self, &Associate.hud, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        self.progressHud.hide(animated: false)
+    }
+    
 }

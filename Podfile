@@ -10,5 +10,11 @@ target 'Sharemil' do
   pod 'SwiftyJSON'
   pod 'ObjectMapper'
   pod 'Stripe'
-
+  pod 'Firebase/Auth'
+  pod 'PhoneNumberKit'
+  pod 'CountryList'
+  pod 'IQKeyboardManager'
+  pod 'SVPinView'
+  pod 'MBProgressHUD'
+  
 end

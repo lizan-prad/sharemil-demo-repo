@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Otp Verification View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OtpVerificationViewController" id="Y6W-OH-hqX" customClass="OtpVerificationViewController" customModule="Sharemil" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the 4-digit code sent to you at (213) 422-7924" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTG-bC-wYy">
+                                <rect key="frame" x="20" y="64" width="374" height="48.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZt-Ek-Gl9" customClass="SVPinView" customModule="SVPinView">
+                                <rect key="frame" x="20" y="142.5" width="300" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="9wG-4U-Rof"/>
+                                    <constraint firstAttribute="height" constant="40" id="MbS-yS-hgB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pinLength">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="interSpace">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBorderLineColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fieldBackgroundColor">
+                                        <color key="value" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeFieldBackgroundColor">
+                                        <color key="value" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldSecureText" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byz-sa-2T3">
+                                <rect key="frame" x="20" y="202.5" width="150" height="36"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="ESW-KJ-FNZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="sAC-oS-8c6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="I didn’t receive a code"/>
+                                <connections>
+                                    <action selector="resendCodeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gGd-1w-Km4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hZt-Ek-Gl9" firstAttribute="top" secondItem="yTG-bC-wYy" secondAttribute="bottom" constant="30" id="2Tl-P1-nqh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yTG-bC-wYy" secondAttribute="trailing" constant="20" id="8pV-6v-4bg"/>
+                            <constraint firstItem="yTG-bC-wYy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="8zu-5v-GqO"/>
+                            <constraint firstItem="yTG-bC-wYy" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="BBE-0K-n2Q"/>
+                            <constraint firstItem="hZt-Ek-Gl9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="nya-Jd-t16"/>
+                            <constraint firstItem="Byz-sa-2T3" firstAttribute="top" secondItem="hZt-Ek-Gl9" secondAttribute="bottom" constant="20" id="o7o-6L-OjG"/>
+                            <constraint firstItem="Byz-sa-2T3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="tjn-wh-GXT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pinView" destination="hZt-Ek-Gl9" id="pFv-ut-2fF"/>
+                        <outlet property="resendCodeBtn" destination="Byz-sa-2T3" id="kdY-Xc-4P2"/>
+                        <outlet property="titleDescLabel" destination="yTG-bC-wYy" id="YF0-HO-XKH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="99"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
