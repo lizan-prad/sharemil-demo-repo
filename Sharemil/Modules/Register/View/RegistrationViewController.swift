@@ -23,11 +23,31 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     var countryList = CountryList()
     
+    var viewModel: RegistrationViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setup()
         setupPhoneField()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.loading.bind { status in
+            (status ?? false) ? self.showProgressHud() : self.hideProgressHud()
+        }
+        
+        viewModel.signInSuccess.bind { msg in
+            guard let nav = self.navigationController, let number = self.phoneField.phoneNumber?.nationalNumber, let code = self.phoneField.phoneNumber?.countryCode else {return}
+            let coordinator = OtpVerificationCoordinator.init(navigationController: nav)
+            coordinator.phoneNumber = "+\(code)\(number)"
+            coordinator.start()
+        }
+        
+        viewModel.error.bind { msg in
+            print(msg)
+        }
     }
     
     private func setup() {
@@ -46,7 +66,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     @objc func googleSignAction() {
         GIDSignIn.sharedInstance.signIn(
-            with: GIDConfiguration.init(clientID: "611582434850-06t2huj2ktponrqmur4eka39gf5vb0kh.apps.googleusercontent.com"),
+            with: GIDConfiguration.init(clientID: StringConstants.googleClientID),
             presenting: self) { user, error in
                 guard let signInUser = user else {return}
                 print(signInUser)
@@ -75,7 +95,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     @objc func textCHanged() {
            
            if !phoneField.isValidNumber {
-               self.errorLabel.text = "Please enter valid number."
+               self.errorLabel.text = StringConstants.ErrorMessages.invalidNumber
            } else {
                self.errorLabel.text = ""
                
@@ -96,16 +116,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
 
     @IBAction func nextAction(_ sender: Any) {
         guard let number = phoneField.phoneNumber?.nationalNumber, let code = phoneField.phoneNumber?.countryCode else {return}
-        self.showProgressHud()
-        FirebaseService.shared.verifyPhone("+\(code)\(number)") {
-            self.hideProgressHud()
-            guard let nav = self.navigationController else {return}
-            let coordinator = OtpVerificationCoordinator.init(navigationController: nav)
-            coordinator.start()
-        } failure: { error in
-            self.hideProgressHud()
-        }
-
+        self.viewModel.verifyPhone("+\(code)\(number)")
     }
 }
 

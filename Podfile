@@ -16,5 +16,5 @@ target 'Sharemil' do
   pod 'IQKeyboardManager'
   pod 'SVPinView'
   pod 'MBProgressHUD'
-  
+  pod 'Loaf'
 end

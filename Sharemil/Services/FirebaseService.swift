@@ -19,28 +19,24 @@ class FirebaseService {
                 failure(error)
                 return
             }
-            UserDefaults.standard.set(verificationID ?? "", forKey: "VERIFYID")
+            UserDefaults.standard.set(verificationID ?? "", forKey: StringConstants.verificationToken)
             success()
         }
     }
     
     func signInWith(_ otpCode: String, success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
-        guard let verificationID = UserDefaults.standard.string(forKey: "VERIFYID") else {return}
+        guard let verificationID = UserDefaults.standard.string(forKey: StringConstants.verificationToken) else {return}
         let credential = PhoneAuthProvider.provider().credential(
-          withVerificationID: verificationID,
-          verificationCode: otpCode
+            withVerificationID: verificationID,
+            verificationCode: otpCode
         )
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
-                let authError = error as NSError
                 failure(error)
                 return
-              }
+            }
             guard let user = authResult?.user else {return}
             success(user)
-              // ...
-            // User is signed in
-            // ...
         }
     }
 }

@@ -18,6 +18,7 @@ class OtpVerificationViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
         setup()
         setupPinView()
     }
@@ -27,8 +28,30 @@ class OtpVerificationViewController: UIViewController, Storyboarded {
         self.title = ""
     }
     
+    private func bindViewModel() {
+        viewModel.loading.bind { status in
+            (status ?? false) ? self.showProgressHud() : self.hideProgressHud()
+        }
+        
+        viewModel.otpSuccess.bind { user in
+            guard let nav = self.navigationController else {return}
+            let vc = BaseTabbarCoordinator.init(navigationController: nav).getMainView()
+            appdelegate.window?.rootViewController = vc
+        }
+        
+        viewModel.resendSuccess.bind { msg in
+            self.pinView.clearPin()
+            self.showToastMsg(StringConstants.SuccessMessages.otpResent, state: .success, location: .bottom)
+        }
+        
+        viewModel.error.bind { msg in
+            self.pinView.clearPin()
+            print(msg)
+        }
+    }
+    
     private func setup() {
-        titleDescLabel.text = "Enter the 4-digit code sent to you at \(viewModel.phoneNumber ?? "")"
+        titleDescLabel.text = "Enter the 6-digit code sent to you at \(viewModel.phoneNumber ?? "")"
         resendCodeBtn.rounded()
     }
     
@@ -42,26 +65,11 @@ class OtpVerificationViewController: UIViewController, Storyboarded {
     }
     
     private func signIn(pin: String) {
-        self.showProgressHud()
-        FirebaseService.shared.signInWith(pin) { user in
-            self.hideProgressHud()
-            guard let nav = self.navigationController else {return}
-            let vc = BaseTabbarCoordinator.init(navigationController: nav).getMainView()
-            appdelegate.window?.rootViewController = vc
-        } failure: { error in
-            self.hideProgressHud()
-            self.pinView.clearPin()
-        }
+        self.viewModel.verifyOTP(pin)
     }
 
     @IBAction func resendCodeAction(_ sender: Any) {
-        self.showProgressHud()
-        FirebaseService.shared.verifyPhone(viewModel.phoneNumber ?? "") {
-            self.hideProgressHud()
-            self.pinView.clearPin()
-        } failure: { error in
-            self.hideProgressHud()
-        }
+        self.viewModel.resendOTP()
 
     }
 }

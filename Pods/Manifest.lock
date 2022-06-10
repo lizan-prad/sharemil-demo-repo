@@ -44,6 +44,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (2.0.0)
   - IQKeyboardManager (6.5.10)
+  - Loaf (0.7.0)
   - MBProgressHUD (1.2.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -80,6 +81,7 @@ DEPENDENCIES:
   - CountryList
   - Firebase/Auth
   - IQKeyboardManager
+  - Loaf
   - MBProgressHUD
   - ObjectMapper
   - PhoneNumberKit
@@ -100,6 +102,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - IQKeyboardManager
+    - Loaf
     - MBProgressHUD
     - nanopb
     - ObjectMapper
@@ -124,6 +127,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMSessionFetcher: 681175626052e03fdde7952f7e9c7a9785719506
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -136,6 +140,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: ee559b9b94cd919394e8d7a19ddbb337c8abd3f9
+PODFILE CHECKSUM: bb4fb4175f0cd2cf5198d6985fd810fe40d35a64
 
 COCOAPODS: 1.11.3

@@ -23,12 +23,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
                     window?.overrideUserInterfaceStyle = .light
                 }
+        if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
+            self.loadHome()
+        } else {
+            self.loadRegistration()
+        }
+        window?.makeKeyAndVisible()
+        return true
+    }
+    
+    private func loadRegistration() {
         let navigation = UINavigationController()
         let registrationCoordinator = RegistrationCoordinator.init(navigationController: navigation)
         registrationCoordinator.start()
         window?.rootViewController = navigation
-        window?.makeKeyAndVisible()
-        return true
+    }
+    
+    private func loadHome() {
+        let navigation = UINavigationController()
+        let homeCoordinator = BaseTabbarCoordinator.init(navigationController: navigation)
+        window?.rootViewController = homeCoordinator.getMainView()
     }
 
    

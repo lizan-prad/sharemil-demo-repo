@@ -18,6 +18,7 @@ class RegistrationCoordinator: Coordinator {
 
     func start() {
         let vc = RegistrationViewController.instantiate()
+        vc.viewModel = RegistrationViewModel()
         navigationController.pushViewController(vc, animated: true)
     }
 }
