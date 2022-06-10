@@ -130,6 +130,12 @@
                                     <action selector="flagAction:" destination="UmG-LD-KoL" eventType="touchUpInside" id="gyO-SJ-vg9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I91-ey-ZJA">
+                                <rect key="frame" x="120" y="187.5" width="269" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2LE-Od-CTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,6 +144,7 @@
                             <constraint firstItem="nUY-07-hFP" firstAttribute="centerY" secondItem="Pmf-Ku-DiD" secondAttribute="centerY" id="8EW-BK-kI4"/>
                             <constraint firstItem="1jx-70-mvZ" firstAttribute="centerY" secondItem="7uh-h1-HMy" secondAttribute="centerY" id="8Ea-t6-xcM"/>
                             <constraint firstItem="nUY-07-hFP" firstAttribute="leading" secondItem="Pmf-Ku-DiD" secondAttribute="leading" constant="23" id="9Gv-2s-qI4"/>
+                            <constraint firstItem="I91-ey-ZJA" firstAttribute="top" secondItem="dSs-hO-yJD" secondAttribute="bottom" constant="4" id="C1c-8n-JX8"/>
                             <constraint firstItem="1jx-70-mvZ" firstAttribute="trailing" secondItem="7uh-h1-HMy" secondAttribute="trailing" constant="-23" id="D6w-on-XEo"/>
                             <constraint firstItem="2jV-7s-V3k" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="42" id="EbZ-Zn-W36"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="dSs-hO-yJD" secondAttribute="trailing" constant="25" id="GoA-Y2-d0R"/>
@@ -150,8 +157,10 @@
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="7uh-h1-HMy" secondAttribute="trailing" constant="42" id="dh2-Zt-Gj5"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="Uau-Z3-QXC" secondAttribute="trailing" constant="20" id="eMd-7L-ohX"/>
                             <constraint firstItem="x1i-Dw-q33" firstAttribute="top" secondItem="7uh-h1-HMy" secondAttribute="bottom" constant="38" id="hyq-qm-76x"/>
+                            <constraint firstItem="I91-ey-ZJA" firstAttribute="trailing" secondItem="dSs-hO-yJD" secondAttribute="trailing" id="ifx-bm-KNc"/>
                             <constraint firstItem="dSs-hO-yJD" firstAttribute="centerY" secondItem="ER4-Je-E6S" secondAttribute="centerY" id="jBR-HM-S6g"/>
                             <constraint firstItem="dSs-hO-yJD" firstAttribute="leading" secondItem="ER4-Je-E6S" secondAttribute="trailing" constant="20" id="jYy-go-bxh"/>
+                            <constraint firstItem="I91-ey-ZJA" firstAttribute="leading" secondItem="dSs-hO-yJD" secondAttribute="leading" id="kvr-KR-w8o"/>
                             <constraint firstItem="ER4-Je-E6S" firstAttribute="top" secondItem="Uau-Z3-QXC" secondAttribute="bottom" constant="35" id="mt8-aq-SWd"/>
                             <constraint firstItem="2jV-7s-V3k" firstAttribute="top" secondItem="x1i-Dw-q33" secondAttribute="bottom" constant="38" id="vs5-Hh-pjZ"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="2jV-7s-V3k" secondAttribute="trailing" constant="42" id="vuJ-93-r7G"/>
@@ -161,6 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="appleBtn" destination="Pmf-Ku-DiD" id="1qd-3H-O8J"/>
+                        <outlet property="errorLabel" destination="I91-ey-ZJA" id="n1a-0R-5Xu"/>
                         <outlet property="flagBtn" destination="ER4-Je-E6S" id="a1f-QG-jto"/>
                         <outlet property="googleBtn" destination="8g8-mO-NSw" id="cdZ-Of-QNn"/>
                         <outlet property="nextBtn" destination="7uh-h1-HMy" id="JFy-cs-3NR"/>
@@ -180,6 +190,9 @@
         <image name="google" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

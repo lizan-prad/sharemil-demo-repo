@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class RegistrationViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var googleBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
@@ -31,6 +32,8 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     private func setup() {
         countryList.delegate = self
+        self.nextBtn.disable()
+        self.errorLabel.text = ""
     }
     
     private func setupViews() {
@@ -70,18 +73,16 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     @objc func textCHanged() {
-//           tickImage.isHidden = !phoneNumber.isValidNumber
-//           if !phoneNumber.isValidNumber {
-//               self.errorLabel.textColor = .red
-//               self.errorLabel.text = "Your number could not be found."
-//           } else {
-//
-//               self.errorLabel.textColor = UIColor.init(hex: "52575C")
-//               self.errorLabel.text = "Enter number where you received your nomination invite"
-//           }
-//               self.claimBtn.isHidden = !phoneNumber.isValidNumber
-//
+           
+           if !phoneField.isValidNumber {
+               self.errorLabel.text = "Please enter valid number."
+           } else {
+               self.errorLabel.text = ""
+               
+           }
+        phoneField.isValidNumber ? nextBtn.enable() : nextBtn.disable()
        }
+    
     
     @IBAction func flagAction(_ sender: Any) {
         self.openCountryList()
