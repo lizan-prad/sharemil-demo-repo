@@ -7,10 +7,12 @@
 
 import Foundation
 
-class HomeViewModel {
+class HomeViewModel: HomeService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     
-    func fetchChefBy(_ location:)
+    func fetchChefBy(location: LLocation, name: String?) {
+        self.fetchChefs(location, with: name)
+    }
 }

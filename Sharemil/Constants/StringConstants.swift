@@ -15,6 +15,7 @@ enum StringConstants {
     
     static let googleClientID = "611582434850-06t2huj2ktponrqmur4eka39gf5vb0kh.apps.googleusercontent.com"
     
+    static let alertLocationAccess = "Sharemil would like to access your location."
     enum ErrorMessages {
         static let invalidNumber = "Please enter valid number."
     }
