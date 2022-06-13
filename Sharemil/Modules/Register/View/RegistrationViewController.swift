@@ -25,6 +25,8 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     var viewModel: RegistrationViewModel!
     
+    var selectedCOuntry: Country?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -46,12 +48,13 @@ class RegistrationViewController: UIViewController, Storyboarded {
         }
         
         viewModel.error.bind { msg in
-            print(msg)
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
     }
     
     private func setup() {
         countryList.delegate = self
+        phoneField.delegate = self
         self.nextBtn.disable()
         self.errorLabel.text = ""
     }
@@ -60,6 +63,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
         googleBtn.addStandardBorder()
         phoneContainer.addStandardBorder()
         appleBtn.addStandardBorder()
+        self.selectedCOuntry = countryList.getCountry(code: self.phoneField.currentRegion)
         self.flagBtn.setTitle(countryList.getCountry(code: self.phoneField.currentRegion )?.flag ?? "", for: .normal)
         self.googleBtn.addTarget(self, action: #selector(googleSignAction), for: .touchUpInside)
     }
@@ -75,7 +79,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     private func setupPhoneField() {
         phoneField.withExamplePlaceholder = true
-        phoneField.isPartialFormatterEnabled = true
+        
         phoneField.maxDigits = 10
         self.presentationController?.delegate = self
         phoneField.delegate = self
@@ -93,7 +97,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     @objc func textCHanged() {
-           
+        
            if !phoneField.isValidNumber {
                self.errorLabel.text = StringConstants.ErrorMessages.invalidNumber
            } else {
@@ -121,8 +125,9 @@ class RegistrationViewController: UIViewController, Storyboarded {
 }
 
 extension RegistrationViewController: CountryListDelegate {
-    
+    //MARK: Get the selected country
     func selectedCountry(country: Country) {
+        self.selectedCOuntry = country
         self.flagBtn.setTitle(country.flag ?? "", for: .normal)
         self.phoneField.text = "+" + country.phoneExtension
         self.phoneField._defaultRegion = country.countryCode
@@ -138,4 +143,15 @@ extension RegistrationViewController: UITextFieldDelegate, UIAdaptivePresentatio
         return false
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.typingAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        let protectedRange = NSMakeRange(0, (self.selectedCOuntry?.phoneExtension.count ?? 0) + 1)
+        let intersection = NSIntersectionRange(protectedRange, range)
+        if intersection.length > 0 {
+
+            return false
+        }
+       
+        return true
+    }
 }
