@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>611582434850-06t2huj2ktponrqmur4eka39gf5vb0kh.apps.googleusercontent.com</string>
+	<string>611582434850-jgc15q38s9fpdtn2rvkpkf4fqtp9250g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.611582434850-06t2huj2ktponrqmur4eka39gf5vb0kh</string>
+	<string>com.googleusercontent.apps.611582434850-jgc15q38s9fpdtn2rvkpkf4fqtp9250g</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDFTvwjnWfbewUGXc3Md9AVxP6ca44CtTY</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sharemil.ios</string>
+	<string>com.sharemil.sharemil</string>
 	<key>PROJECT_ID</key>
 	<string>sharemil-dev</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:611582434850:ios:38475ec858c5fe4a6a747b</string>
+	<string>1:611582434850:ios:c60278446f1517296a747b</string>
 	<key>DATABASE_URL</key>
 	<string>https://sharemil-dev.firebaseio.com</string>
 </dict>
