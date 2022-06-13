@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    private func loadRegistration() {
+    func loadRegistration() {
         let navigation = UINavigationController()
         let registrationCoordinator = RegistrationCoordinator.init(navigationController: navigation)
         registrationCoordinator.start()
