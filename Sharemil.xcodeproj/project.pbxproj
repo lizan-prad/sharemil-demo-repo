@@ -20,6 +20,9 @@
 		52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F52851E29E007549BB /* RegistrationViewModel.swift */; };
 		52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */; };
 		A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
+		BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427122857B42E006E5240 /* HomeViewModel.swift */; };
+		BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427142857B4EB006E5240 /* LocationManager.swift */; };
+		BE1427172857B541006E5240 /* AlertServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427162857B541006E5240 /* AlertServices.swift */; };
 		BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDD9F2853046B006AB129 /* NetworkManager.swift */; };
 		BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDA12853048C006AB129 /* URLConfig.swift */; };
 		BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */; };
@@ -74,6 +77,9 @@
 		52A423F52851E29E007549BB /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
 		9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.debug.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.debug.xcconfig"; sourceTree = "<group>"; };
+		BE1427122857B42E006E5240 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BE1427142857B4EB006E5240 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BE1427162857B541006E5240 /* AlertServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServices.swift; sourceTree = "<group>"; };
 		BE4CDD9F2853046B006AB129 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BE4CDDA12853048C006AB129 /* URLConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
 		BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
@@ -273,8 +279,18 @@
 			children = (
 				BE4CDD9F2853046B006AB129 /* NetworkManager.swift */,
 				BE4CDDC028532A6A006AB129 /* FirebaseService.swift */,
+				BE1427142857B4EB006E5240 /* LocationManager.swift */,
+				BE1427162857B541006E5240 /* AlertServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BE1427112857B404006E5240 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE1427122857B42E006E5240 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BE4CDDA328530D7E006AB129 /* Inter */ = {
@@ -334,6 +350,7 @@
 		BE4CDDCF28534259006AB129 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BE1427112857B404006E5240 /* ViewModel */,
 				BE4CDDD4285342A9006AB129 /* View */,
 			);
 			path = Home;
@@ -539,6 +556,7 @@
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BE4CDDD3285342A6006AB129 /* HomeViewController.swift in Sources */,
+				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
 				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
 				BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */,
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
@@ -552,7 +570,9 @@
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
+				BE1427172857B541006E5240 /* AlertServices.swift in Sources */,
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
+				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
 				BE4CDDE1285344D8006AB129 /* BaseTabbarCoordinator.swift in Sources */,
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
