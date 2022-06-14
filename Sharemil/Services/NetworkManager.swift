@@ -20,7 +20,7 @@ class NetworkManager {
         
         let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
 
-        AF.request(urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
+        AF.request(URLConfig.baseUrl + urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
             switch response.result {
             case .success(let data):
                 if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {

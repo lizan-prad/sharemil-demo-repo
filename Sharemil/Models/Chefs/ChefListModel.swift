@@ -1,0 +1,52 @@
+//
+//  ChefListModel.swift
+//  Sharemil
+//
+//  Created by lizan on 14/06/2022.
+//
+
+import Foundation
+import ObjectMapper
+
+class ChefListModel: Mappable {
+    
+    var id : String?
+    var createdAt : String?
+    var updatedAt : String?
+    var isDeleted : Bool?
+    var firsName : String?
+    var lastName : String?
+    var phoneNumber : String?
+    var email : String?
+    var address : String?
+    var suite : String?
+    var city : String?
+    var state : String?
+    var postalCode : String?
+    var countryCode : String?
+    var cuisine : String?
+    var mainImageUrl : String?
+
+    required init?(map: Map) {
+
+    }
+
+    func mapping(map: Map) {
+        id <- map["id"]
+        createdAt <- map["createdAt"]
+        updatedAt <- map["updatedAt"]
+        isDeleted <- map["isDeleted"]
+        firsName <- map["firsName"]
+        lastName <- map["lastName"]
+        phoneNumber <- map["phoneNumber"]
+        email <- map["email"]
+        address <- map["address"]
+        suite <- map["suite"]
+        city <- map["city"]
+        state <- map["state"]
+        postalCode <- map["postalCode"]
+        countryCode <- map["countryCode"]
+        cuisine <- map["cuisine"]
+        mainImageUrl <- map["mainImageUrl"]
+    }
+}

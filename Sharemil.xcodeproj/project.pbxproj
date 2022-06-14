@@ -60,6 +60,9 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
+		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
+		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +121,9 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
+		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
+		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,9 +179,9 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
+				BEE661662858DDF1007812B2 /* Models */,
 				BE4CDDA328530D7E006AB129 /* Inter */,
 				52A423FC2851E34C007549BB /* Services */,
-				52A423FB2851E336007549BB /* Models */,
 				52A423F22851E248007549BB /* Architectures */,
 				52A423E628512E35007549BB /* Configs */,
 				52A423E328512BF3007549BB /* Constants */,
@@ -271,13 +277,6 @@
 				52A423F52851E29E007549BB /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		52A423FB2851E336007549BB /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		52A423FC2851E34C007549BB /* Services */ = {
@@ -433,6 +432,24 @@
 				BE4CDDF02853460B006AB129 /* Account.storyboard */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		BEE661662858DDF1007812B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEE661692858DE43007812B2 /* Chefs */,
+				BEE661672858DDF8007812B2 /* BaseMappableModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BEE661692858DE43007812B2 /* Chefs */ = {
+			isa = PBXGroup;
+			children = (
+				BEE6616A2858DE4F007812B2 /* ChefListModel.swift */,
+				BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */,
+			);
+			path = Chefs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +610,7 @@
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
+				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
@@ -601,9 +619,11 @@
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */,
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
 				BE4CDDE1285344D8006AB129 /* BaseTabbarCoordinator.swift in Sources */,
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
+				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

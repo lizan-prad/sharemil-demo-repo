@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeChefTableViewCell: UITableViewCell {
 
@@ -13,6 +14,14 @@ class HomeChefTableViewCell: UITableViewCell {
     @IBOutlet weak var favBtn: UIButton!
     @IBOutlet weak var chefImage: UIImageView!
     @IBOutlet weak var chefName: UILabel!
+    
+    var chef: ChefListModel? {
+        didSet {
+            chefDesc.text = chef?.address
+            chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
+            chefImage.sd_setImage(with: URL.init(string: chef?.mainImageUrl ?? ""))
+        }
+    }
     
     func setup() {
         chefImage.addBorder(.black)
