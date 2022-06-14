@@ -17,4 +17,5 @@ target 'Sharemil' do
   pod 'SVPinView'
   pod 'MBProgressHUD'
   pod 'Loaf'
+  pod 'SDWebImage'
 end

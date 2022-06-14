@@ -238,6 +238,22 @@ extension UIView {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
     }
+    
+    func setStandardShadow() {
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOpacity = 0.6
+        self.layer.cornerRadius = 4
+        self.layer.shadowOffset = CGSize.init(width: 1, height: 2)
+        self.layer.shadowRadius = 4
+    }
+    
+    func setStandardBoldShadow() {
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOpacity = 0.6
+        self.layer.cornerRadius = 4
+        self.layer.shadowOffset = CGSize.init(width: 1, height: 2)
+        self.layer.shadowRadius = 4
+    }
 }
 
 struct Associate {

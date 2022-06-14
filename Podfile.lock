@@ -59,6 +59,9 @@ PODS:
   - PhoneNumberKit/UIKit (3.3.4):
     - PhoneNumberKit/PhoneNumberKitCore
   - PromisesObjC (2.1.0)
+  - SDWebImage (5.12.6):
+    - SDWebImage/Core (= 5.12.6)
+  - SDWebImage/Core (5.12.6)
   - Stripe (22.4.0):
     - Stripe/Stripe3DS2 (= 22.4.0)
     - StripeApplePay (= 22.4.0)
@@ -85,6 +88,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - ObjectMapper
   - PhoneNumberKit
+  - SDWebImage
   - Stripe
   - SVPinView
   - SwiftyJSON
@@ -108,6 +112,7 @@ SPEC REPOS:
     - ObjectMapper
     - PhoneNumberKit
     - PromisesObjC
+    - SDWebImage
     - Stripe
     - StripeApplePay
     - StripeCore
@@ -133,6 +138,7 @@ SPEC CHECKSUMS:
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
   Stripe: a925dfa9a7e51aa8f782f428abc10cb828b45a85
   StripeApplePay: 369857bafe8baf02e31b47478db1574febd2a2f3
   StripeCore: a94d2823817c97c79fce60884ab9027a2da798c1
@@ -140,6 +146,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: bb4fb4175f0cd2cf5198d6985fd810fe40d35a64
+PODFILE CHECKSUM: cbf52221ef049a577c82672154efbae5494d146e
 
 COCOAPODS: 1.11.3

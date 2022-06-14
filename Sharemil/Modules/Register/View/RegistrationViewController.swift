@@ -79,7 +79,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
     private func setupPhoneField() {
         phoneField.withExamplePlaceholder = true
-        
+        phoneField.textContentType = .telephoneNumber
         phoneField.maxDigits = 10
         self.presentationController?.delegate = self
         phoneField.delegate = self
