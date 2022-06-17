@@ -42,7 +42,6 @@
 		BE4CDDBC28530D7E006AB129 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDB028530D7E006AB129 /* README.txt */; };
 		BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDBD28532230006AB129 /* Registration.storyboard */; };
 		BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDC028532A6A006AB129 /* FirebaseService.swift */; };
-		BE4CDDC328532B20006AB129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDC228532B20006AB129 /* GoogleService-Info.plist */; };
 		BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDC528532EEE006AB129 /* OtpVerification.storyboard */; };
 		BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDC728532EFE006AB129 /* OtpVerificationViewController.swift */; };
 		BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDCA28533474006AB129 /* OtpValidationCoordinator.swift */; };
@@ -60,9 +59,15 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */; };
+		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
+		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
+		BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
+		BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */; };
+		BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +111,6 @@
 		BE4CDDB028530D7E006AB129 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		BE4CDDBD28532230006AB129 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		BE4CDDC028532A6A006AB129 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		BE4CDDC228532B20006AB129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE4CDDC528532EEE006AB129 /* OtpVerification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtpVerification.storyboard; sourceTree = "<group>"; };
 		BE4CDDC728532EFE006AB129 /* OtpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerificationViewController.swift; sourceTree = "<group>"; };
 		BE4CDDCA28533474006AB129 /* OtpValidationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpValidationCoordinator.swift; sourceTree = "<group>"; };
@@ -122,9 +126,16 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEB13D9D285B64D900F63933 /* Sharemil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharemil.entitlements; sourceTree = "<group>"; };
+		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
+		BEB13DB0285C548F00F63933 /* MyLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyLocation.storyboard; sourceTree = "<group>"; };
+		BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
+		BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCusinesCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCusinesCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +172,7 @@
 		52A423BE285119D9007549BB = {
 			isa = PBXGroup;
 			children = (
-				BE4CDDC228532B20006AB129 /* GoogleService-Info.plist */,
+				BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */,
 				52A423C9285119D9007549BB /* Sharemil */,
 				52A423C8285119D9007549BB /* Products */,
 				454E21101C2C27F66512AC9E /* Pods */,
@@ -180,11 +191,9 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
-
+				BEB13D9D285B64D900F63933 /* Sharemil.entitlements */,
 				BEE661662858DDF1007812B2 /* Models */,
-
 				871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */,
-
 				BE4CDDA328530D7E006AB129 /* Inter */,
 				52A423FC2851E34C007549BB /* Services */,
 				52A423F22851E248007549BB /* Architectures */,
@@ -211,6 +220,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BEB13DAF285C548600F63933 /* MyLocation */,
 				BE4CDDED285345F9006AB129 /* Account */,
 				BE4CDDE8285345E2006AB129 /* Orders */,
 				BE4CDDE3285345D5006AB129 /* Cart */,
@@ -314,6 +324,7 @@
 		BE14271B28585BB6006E5240 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				BEE6618F285B0FD0007812B2 /* CollectionViewCell */,
 				BE14271C28585BCD006E5240 /* HomeChefTableViewCell.swift */,
 				BE14271D28585BCD006E5240 /* HomeChefTableViewCell.xib */,
 			);
@@ -439,9 +450,27 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		BEB13DAC285C474B00F63933 /* Cusines */ = {
+			isa = PBXGroup;
+			children = (
+				BEB13DAD285C475700F63933 /* CusineListModel.swift */,
+			);
+			path = Cusines;
+			sourceTree = "<group>";
+		};
+		BEB13DAF285C548600F63933 /* MyLocation */ = {
+			isa = PBXGroup;
+			children = (
+				BEB13DB0285C548F00F63933 /* MyLocation.storyboard */,
+				BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */,
+			);
+			path = MyLocation;
+			sourceTree = "<group>";
+		};
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BEB13DAC285C474B00F63933 /* Cusines */,
 				BEE661692858DE43007812B2 /* Chefs */,
 				BEE661672858DDF8007812B2 /* BaseMappableModel.swift */,
 			);
@@ -455,6 +484,15 @@
 				BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */,
 			);
 			path = Chefs;
+			sourceTree = "<group>";
+		};
+		BEE6618F285B0FD0007812B2 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */,
+				BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,6 +564,7 @@
 			files = (
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
 				BE4CDDD1285342A1006AB129 /* Home.storyboard in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
@@ -540,10 +579,11 @@
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
 				BE4CDDB728530D7E006AB129 /* Inter-ExtraBold.ttf in Resources */,
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
-				BE4CDDC328532B20006AB129 /* GoogleService-Info.plist in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
+				BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */,
 				BE4CDDB228530D7E006AB129 /* Inter-Medium.ttf in Resources */,
 				BE4CDDB928530D7E006AB129 /* Inter-Black.ttf in Resources */,
+				BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */,
 				BE4CDDB328530D7E006AB129 /* Inter-Light.ttf in Resources */,
 				BE4CDDB828530D7E006AB129 /* Inter-ExtraLight.ttf in Resources */,
 				BE4CDDB428530D7E006AB129 /* Inter-Thin.ttf in Resources */,
@@ -603,6 +643,7 @@
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
+				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
 				BE4CDDD3285342A6006AB129 /* HomeViewController.swift in Sources */,
 				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
 				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
@@ -612,6 +653,7 @@
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
 				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
+				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
@@ -624,6 +666,7 @@
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */,
 				BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */,
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
 				BE4CDDE1285344D8006AB129 /* BaseTabbarCoordinator.swift in Sources */,
@@ -766,6 +809,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Sharemil/Sharemil.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -783,7 +827,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -801,7 +845,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sharemil/SharemilRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = H897FZT8JU;
+				DEVELOPMENT_TEAM = E93436VDRS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards";
@@ -815,7 +859,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

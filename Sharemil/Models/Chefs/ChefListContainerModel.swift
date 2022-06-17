@@ -11,6 +11,7 @@ import ObjectMapper
 class ChefListContainerModel: Mappable {
     
     var chefs: [ChefListModel]?
+    var cuisines: [CusineListModel]?
     
     required init(map: Map) {
         
@@ -18,5 +19,6 @@ class ChefListContainerModel: Mappable {
     
     func mapping(map: Map) {
         chefs <- map["chefs"]
+        cuisines <- map["cuisines"]
     }
 }

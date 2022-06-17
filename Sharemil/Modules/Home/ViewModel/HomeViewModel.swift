@@ -12,6 +12,7 @@ class HomeViewModel: HomeService {
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     var success: Observable<[ChefListModel]> = Observable([])
+    var cusines: Observable<[CusineListModel]> = Observable([])
     
     func fetchChefBy(location: LLocation, name: String?) {
         self.loading.value = true
@@ -20,6 +21,7 @@ class HomeViewModel: HomeService {
             switch result {
             case .success(let model):
                 self.success.value = model.data?.chefs
+                self.cusines.value = model.data?.cuisines
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }
