@@ -256,6 +256,12 @@ extension UIView {
     }
 }
 
+extension Double {
+    func withDecimal(_ int: Int) -> String {
+        return String(format:"%.\(int)f", self)
+    }
+}
+
 struct Associate {
     static var hud: UInt8 = 0
     static var empty: UInt8 = 0

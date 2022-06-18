@@ -17,6 +17,7 @@ class ChefListModel: Mappable {
     var firsName : String?
     var lastName : String?
     var phoneNumber : String?
+    var distance: Double?
     var email : String?
     var address : String?
     var suite : String?
@@ -40,6 +41,7 @@ class ChefListModel: Mappable {
         lastName <- map["lastName"]
         phoneNumber <- map["phoneNumber"]
         email <- map["email"]
+        distance <- map["distance"]
         address <- map["address"]
         suite <- map["suite"]
         city <- map["city"]

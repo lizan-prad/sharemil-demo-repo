@@ -157,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="30"/>
+        <image name="home" width="25" height="25"/>
         <image name="location" width="32" height="32"/>
         <image name="search" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
