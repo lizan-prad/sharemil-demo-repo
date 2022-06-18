@@ -13,6 +13,7 @@ class HomeViewModel: HomeService {
     var error: Observable<String> = Observable(nil)
     var success: Observable<[ChefListModel]> = Observable([])
     var cusines: Observable<[CusineListModel]> = Observable([])
+    var address: Observable<String> = Observable(nil)
     
     func fetchChefBy(location: LLocation, name: String?) {
         self.loading.value = true
@@ -25,6 +26,12 @@ class HomeViewModel: HomeService {
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }
+        }
+    }
+    
+    func getCurrentAddress(_ location: LLocation) {
+        GoogleMapsServices.shared.getAddress(location) { address in
+            self.address.value = address
         }
     }
 }

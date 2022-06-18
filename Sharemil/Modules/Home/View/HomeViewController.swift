@@ -6,16 +6,25 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var locationStack: UIStackView!
     @IBOutlet weak var shadow: UIView!
     @IBOutlet weak var searchContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
     
     var viewModel: HomeViewModel!
+    var address: String?
+    var currentLocation: LLocation? {
+        didSet {
+            viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
+        }
+    }
     
     var chefs: [ChefListModel]? {
         didSet {
@@ -52,6 +61,12 @@ class HomeViewController: UIViewController {
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
     }
     
+    func setupLocationManager() {
+        LocationManager.shared.locationManager?.requestAlwaysAuthorization()
+        LocationManager.shared.locationManager?.startUpdatingLocation()
+        LocationManager.shared.delegate = self
+    }
+    
     @objc func searchAction(_ sender: UITextField) {
         self.viewModel.fetchChefBy(location: LLocation.init(location: nil), name: sender.text ?? "")
     }
@@ -61,6 +76,18 @@ class HomeViewController: UIViewController {
         searchContainer.rounded()
         shadow.setStandardBoldShadow()
         shadow.rounded()
+        setupLocationView()
+    }
+    
+    private func setupLocationView() {
+        locationStack.isUserInteractionEnabled = true
+        locationStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openLocationView)))
+    }
+    
+    @objc func openLocationView() {
+        let vc = MyLocationCoordinator.init(navigationController: self.navigationController!)
+        vc.locationName = self.address
+        self.present(vc.getMainView(), animated: true)
     }
     
     private func setTableView() {
@@ -81,6 +108,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.setupLocationManager()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,6 +129,27 @@ class HomeViewController: UIViewController {
         self.viewModel.cusines.bind { models in
             self.cusines = models
         }
+        self.viewModel.address.bind { address in
+            self.address = address
+            self.addressLabel.text = address?.components(separatedBy: ",").first
+        }
+    }
+}
+
+extension HomeViewController: LocationManagerDelegate {
+    
+    func locationManager(_ manager: LocationManager, needsToPresentAlertController alert: UIAlertController) {
+        
+    }
+    
+    func didAuthorizeAccess(_ manager: LocationManager) {
+        
+    }
+    
+    
+    func didUpdateLocation(_ manager: LocationManager, currentLocation location: LLocation?) {
+        self.currentLocation = location
+        LocationManager.shared.locationManager?.stopUpdatingLocation()
     }
 }
 

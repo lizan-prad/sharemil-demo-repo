@@ -18,4 +18,6 @@ target 'Sharemil' do
   pod 'MBProgressHUD'
   pod 'Loaf'
   pod 'SDWebImage'
+  pod 'GoogleMaps', '6.2.1'
+  pod 'GooglePlaces'
 end

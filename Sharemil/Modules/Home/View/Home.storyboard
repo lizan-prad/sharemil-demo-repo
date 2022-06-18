@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bM1-fA-m9t">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +18,6 @@
         <!--Home View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="Sharemil" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -79,7 +79,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5nZ-4N-oYb"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ecD-hL-3Kl">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ecD-hL-3Kl">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -120,13 +120,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="HYz-aB-Upe"/>
                     <connections>
+                        <outlet property="addressLabel" destination="7qz-tG-FFB" id="HJs-lS-YNt"/>
                         <outlet property="collectionView" destination="bJ3-tE-KmB" id="6sE-re-e1R"/>
+                        <outlet property="locationStack" destination="tCO-3O-hel" id="S9o-nC-hyN"/>
                         <outlet property="searchContainer" destination="fUV-LL-F8D" id="0eX-fA-ebY"/>
                         <outlet property="searchField" destination="5Cw-h8-QCT" id="UbB-2I-Csc"/>
                         <outlet property="shadow" destination="ghu-XS-Pu0" id="l1I-uA-fsE"/>
                         <outlet property="tableView" destination="DQN-ta-I8d" id="DoQ-js-Bhc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="98.4375"/>
         </scene>

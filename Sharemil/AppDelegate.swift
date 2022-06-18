@@ -8,6 +8,8 @@
 import UIKit
 import IQKeyboardManager
 import FirebaseCore
+import GoogleMaps
+import GooglePlaces
 
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -20,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared().isEnabled = true
         FirebaseApp.configure()
+        GMSServices.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
+        GMSPlacesClient.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
         if #available(iOS 13.0, *) {
                     window?.overrideUserInterfaceStyle = .light
                 }

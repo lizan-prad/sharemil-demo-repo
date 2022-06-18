@@ -63,6 +63,13 @@
 		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
 		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
 		BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */; };
+		BEB13DBB285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DB9285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift */; };
+		BEB13DBC285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DBA285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib */; };
+		BEB13DC1285DBDC800F63933 /* MyLocationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DBF285DBDC800F63933 /* MyLocationListTableViewCell.swift */; };
+		BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DC0285DBDC800F63933 /* MyLocationListTableViewCell.xib */; };
+		BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */; };
+		BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */; };
+		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -131,6 +138,13 @@
 		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
 		BEB13DB0285C548F00F63933 /* MyLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyLocation.storyboard; sourceTree = "<group>"; };
 		BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
+		BEB13DB9285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BEB13DBA285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLocationHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		BEB13DBF285DBDC800F63933 /* MyLocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationListTableViewCell.swift; sourceTree = "<group>"; };
+		BEB13DC0285DBDC800F63933 /* MyLocationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLocationListTableViewCell.xib; sourceTree = "<group>"; };
+		BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationCoordinator.swift; sourceTree = "<group>"; };
+		BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewModel.swift; sourceTree = "<group>"; };
+		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -301,6 +315,7 @@
 				BE4CDDC028532A6A006AB129 /* FirebaseService.swift */,
 				BE1427142857B4EB006E5240 /* LocationManager.swift */,
 				BE1427162857B541006E5240 /* AlertServices.swift */,
+				BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -461,10 +476,40 @@
 		BEB13DAF285C548600F63933 /* MyLocation */ = {
 			isa = PBXGroup;
 			children = (
+				BEB13DC8285DC90B00F63933 /* ViewModel */,
+				BEB13DC3285DC76400F63933 /* View */,
+				BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */,
+			);
+			path = MyLocation;
+			sourceTree = "<group>";
+		};
+		BEB13DB6285DBD3600F63933 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEB13DB9285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift */,
+				BEB13DBA285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib */,
+				BEB13DBF285DBDC800F63933 /* MyLocationListTableViewCell.swift */,
+				BEB13DC0285DBDC800F63933 /* MyLocationListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BEB13DC3285DC76400F63933 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEB13DB6285DBD3600F63933 /* Cell */,
 				BEB13DB0285C548F00F63933 /* MyLocation.storyboard */,
 				BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */,
 			);
-			path = MyLocation;
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEB13DC8285DC90B00F63933 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BEE661662858DDF1007812B2 /* Models */ = {
@@ -507,6 +552,7 @@
 				52A423C4285119D9007549BB /* Frameworks */,
 				52A423C5285119D9007549BB /* Resources */,
 				538E96DA7075ED9B435D149F /* [CP] Embed Pods Frameworks */,
+				E22E8B3418309B593C8788C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -581,6 +627,8 @@
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
 				BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */,
+				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
+				BEB13DBC285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib in Resources */,
 				BE4CDDB228530D7E006AB129 /* Inter-Medium.ttf in Resources */,
 				BE4CDDB928530D7E006AB129 /* Inter-Black.ttf in Resources */,
 				BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */,
@@ -632,6 +680,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E22E8B3418309B593C8788C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -644,7 +709,9 @@
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
+				BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */,
 				BE4CDDD3285342A6006AB129 /* HomeViewController.swift in Sources */,
+				BEB13DC1285DBDC800F63933 /* MyLocationListTableViewCell.swift in Sources */,
 				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
 				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
 				BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */,
@@ -652,6 +719,7 @@
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
 				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
+				BEB13DBB285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
@@ -661,7 +729,9 @@
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
+				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
+				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
 				BE1427172857B541006E5240 /* AlertServices.swift in Sources */,
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
@@ -739,7 +809,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -793,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -814,9 +884,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = E93436VDRS;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Sharemil would like to access your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Sharemil would like to access your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sharemil would like to access your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
@@ -827,12 +901,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -846,9 +922,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = E93436VDRS;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Sharemil would like to access your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Sharemil would like to access your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sharemil would like to access your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
@@ -859,11 +939,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};

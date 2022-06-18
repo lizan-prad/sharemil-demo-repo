@@ -27,6 +27,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMaps (6.2.1):
+    - GoogleMaps/Maps (= 6.2.1)
+  - GoogleMaps/Base (6.2.1)
+  - GoogleMaps/Maps (6.2.1):
+    - GoogleMaps/Base
+  - GooglePlaces (6.2.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -83,6 +89,8 @@ DEPENDENCIES:
   - Alamofire
   - CountryList
   - Firebase/Auth
+  - GoogleMaps (= 6.2.1)
+  - GooglePlaces
   - IQKeyboardManager
   - Loaf
   - MBProgressHUD
@@ -103,6 +111,8 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreInternal
     - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
     - IQKeyboardManager
@@ -129,6 +139,8 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 2dabba3412b23b524823325739f45e520f67d1e7
   FirebaseCoreInternal: f3c838ae0b41cd840bbf34f90debfede78d352e5
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
+  GoogleMaps: 20d7b12be49a14287f797e88e0e31bc4156aaeb4
+  GooglePlaces: 94974aa119573d5acc2a35a699948dac838abd73
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GTMSessionFetcher: 681175626052e03fdde7952f7e9c7a9785719506
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
@@ -146,6 +158,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: cbf52221ef049a577c82672154efbae5494d146e
+PODFILE CHECKSUM: 7a9bc5cc0852070510913dafe7c452ae25d07d82
 
 COCOAPODS: 1.11.3
