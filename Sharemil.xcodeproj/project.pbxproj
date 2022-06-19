@@ -59,6 +59,15 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7279285F94BB0008161B /* ChefMenu.storyboard */; };
+		BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C727B285F94C90008161B /* ChefMenuViewController.swift */; };
+		BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */; };
+		BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7281285F94F40008161B /* ChefMenuTableViewCell.xib */; };
+		BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7285285F980B0008161B /* ChefMenuViewModel.swift */; };
+		BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7288285F98350008161B /* ChefMenuCoordinator.swift */; };
+		BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728B285F98A50008161B /* ChefMenuService.swift */; };
+		BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */; };
+		BE7C7291285F9BF60008161B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728F285F9BF60008161B /* Menu.swift */; };
 		BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */; };
 		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
 		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
@@ -133,6 +142,15 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BE7C7279285F94BB0008161B /* ChefMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenu.storyboard; sourceTree = "<group>"; };
+		BE7C727B285F94C90008161B /* ChefMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewController.swift; sourceTree = "<group>"; };
+		BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuTableViewCell.swift; sourceTree = "<group>"; };
+		BE7C7281285F94F40008161B /* ChefMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChefMenuTableViewCell.xib; sourceTree = "<group>"; };
+		BE7C7285285F980B0008161B /* ChefMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewModel.swift; sourceTree = "<group>"; };
+		BE7C7288285F98350008161B /* ChefMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuCoordinator.swift; sourceTree = "<group>"; };
+		BE7C728B285F98A50008161B /* ChefMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuService.swift; sourceTree = "<group>"; };
+		BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefMenuContainerModel.swift; sourceTree = "<group>"; };
+		BE7C728F285F9BF60008161B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEB13D9D285B64D900F63933 /* Sharemil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharemil.entitlements; sourceTree = "<group>"; };
 		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
@@ -234,6 +252,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C7278285F94AE0008161B /* ChefMenu */,
 				BEB13DAF285C548600F63933 /* MyLocation */,
 				BE4CDDED285345F9006AB129 /* Account */,
 				BE4CDDE8285345E2006AB129 /* Orders */,
@@ -465,6 +484,61 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		BE7C7278285F94AE0008161B /* ChefMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C728A285F989C0008161B /* Service */,
+				BE7C7287285F98250008161B /* View */,
+				BE7C7284285F98030008161B /* ViewModel */,
+				BE7C7288285F98350008161B /* ChefMenuCoordinator.swift */,
+			);
+			path = ChefMenu;
+			sourceTree = "<group>";
+		};
+		BE7C727D285F94D00008161B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */,
+				BE7C7281285F94F40008161B /* ChefMenuTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE7C7284285F98030008161B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C7285285F980B0008161B /* ChefMenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE7C7287285F98250008161B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C727D285F94D00008161B /* Cell */,
+				BE7C7279285F94BB0008161B /* ChefMenu.storyboard */,
+				BE7C727B285F94C90008161B /* ChefMenuViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE7C728A285F989C0008161B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C728B285F98A50008161B /* ChefMenuService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE7C728D285F9BDE0008161B /* ChefMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */,
+				BE7C728F285F9BF60008161B /* Menu.swift */,
+			);
+			path = ChefMenu;
+			sourceTree = "<group>";
+		};
 		BEB13DAC285C474B00F63933 /* Cusines */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +589,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C728D285F9BDE0008161B /* ChefMenu */,
 				BEB13DAC285C474B00F63933 /* Cusines */,
 				BEE661692858DE43007812B2 /* Chefs */,
 				BEE661672858DDF8007812B2 /* BaseMappableModel.swift */,
@@ -616,6 +691,7 @@
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
+				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
@@ -629,6 +705,7 @@
 				BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */,
 				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
 				BEB13DBC285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib in Resources */,
+				BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */,
 				BE4CDDB228530D7E006AB129 /* Inter-Medium.ttf in Resources */,
 				BE4CDDB928530D7E006AB129 /* Inter-Black.ttf in Resources */,
 				BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */,
@@ -707,6 +784,7 @@
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
+				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
 				BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */,
@@ -721,13 +799,17 @@
 				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
 				BEB13DBB285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
+				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
+				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
+				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
+				BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
@@ -737,10 +819,12 @@
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
 				BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */,
+				BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */,
 				BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */,
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
 				BE4CDDE1285344D8006AB129 /* BaseTabbarCoordinator.swift in Sources */,
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
+				BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */,
 				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

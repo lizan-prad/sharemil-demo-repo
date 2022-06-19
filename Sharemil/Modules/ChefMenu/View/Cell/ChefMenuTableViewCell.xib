@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
+        <array key="Inter-VariableFont_slnt,wght.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="134" id="KGk-i7-Jjw" customClass="ChefMenuTableViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="etM-UR-Bu2">
+                        <rect key="frame" x="25" y="22" width="157" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Original Soon Tufu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-ij-jwR">
+                                <rect key="frame" x="0.0" y="0.0" width="157" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="$12.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Js3-KF-E7B">
+                                <rect key="frame" x="0.0" y="23" width="157" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beef or pork. Made with organic tofu." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hck-ZF-QLa">
+                                <rect key="frame" x="0.0" y="46" width="157" height="34"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XcW-qv-dnQ">
+                        <rect key="frame" x="192" y="22" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="5la-3z-l1h"/>
+                            <constraint firstAttribute="height" constant="90" id="Z4S-Au-BKb"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="XcW-qv-dnQ" secondAttribute="trailing" constant="38" id="GjJ-TT-Gdd"/>
+                    <constraint firstItem="XcW-qv-dnQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="byt-Ml-boR"/>
+                    <constraint firstItem="XcW-qv-dnQ" firstAttribute="leading" secondItem="etM-UR-Bu2" secondAttribute="trailing" constant="10" id="mqQ-ii-cnn"/>
+                    <constraint firstItem="etM-UR-Bu2" firstAttribute="top" secondItem="XcW-qv-dnQ" secondAttribute="top" id="vOX-0U-GBJ"/>
+                    <constraint firstItem="etM-UR-Bu2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="vZj-uS-bnc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dishDesc" destination="Hck-ZF-QLa" id="oDB-Jc-bgt"/>
+                <outlet property="dishImage" destination="XcW-qv-dnQ" id="Jwy-3K-OeK"/>
+                <outlet property="dishName" destination="Qa6-ij-jwR" id="FKp-Tw-RAW"/>
+                <outlet property="dishPrice" destination="Js3-KF-E7B" id="Qcy-1w-eca"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

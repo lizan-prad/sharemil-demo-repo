@@ -169,6 +169,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nav = self.navigationController else {return}
+        let coordinator = ChefMenuCoordinator.init(navigationController: nav)
+        coordinator.chef = self.filtered?[indexPath.row]
+        coordinator.start()
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

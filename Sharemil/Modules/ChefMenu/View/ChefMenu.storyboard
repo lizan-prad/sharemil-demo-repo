@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
+        <array key="Inter-VariableFont_slnt,wght.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Chef Menu View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChefMenuViewController" id="Y6W-OH-hqX" customClass="ChefMenuViewController" customModule="Sharemil" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PfU-ka-iYz">
+                                <rect key="frame" x="40" y="109" width="334" height="94.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxa-vR-nyQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★ 4.8 (500+ rating) · Korean · $$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33e-yN-Fx8">
+                                        <rect key="frame" x="0.0" y="35.5" width="334" height="15"/>
+                                        <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open until 11:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9o-iV-zyP">
+                                        <rect key="frame" x="0.0" y="56.5" width="334" height="17"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for hours, address and more" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-jN-gUC">
+                                        <rect key="frame" x="0.0" y="79.5" width="334" height="15"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                        <color key="textColor" red="0.41960784309999999" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UpD-p2-Hqp">
+                                <rect key="frame" x="0.0" y="250.5" width="414" height="645.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TM2-fh-ypQ">
+                                <rect key="frame" x="40" y="223.5" width="334" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hw-yy-c3c">
+                                <rect key="frame" x="20" y="54" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="J9z-mP-P22"/>
+                                    <constraint firstAttribute="width" constant="25" id="u38-aC-vLt"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ost-SS-D58"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PfU-ka-iYz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="65" id="0aE-pS-etn"/>
+                            <constraint firstItem="TM2-fh-ypQ" firstAttribute="top" secondItem="PfU-ka-iYz" secondAttribute="bottom" constant="20" id="7D7-Cq-AxW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UpD-p2-Hqp" secondAttribute="trailing" id="JaV-wv-KFC"/>
+                            <constraint firstItem="UpD-p2-Hqp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KoN-1n-gxQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PfU-ka-iYz" secondAttribute="trailing" constant="40" id="Swm-2M-GqY"/>
+                            <constraint firstItem="PfU-ka-iYz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="TFR-MO-XgY"/>
+                            <constraint firstItem="TM2-fh-ypQ" firstAttribute="trailing" secondItem="G9o-iV-zyP" secondAttribute="trailing" id="ZSS-lh-AZt"/>
+                            <constraint firstItem="UpD-p2-Hqp" firstAttribute="top" secondItem="TM2-fh-ypQ" secondAttribute="bottom" constant="10" id="eVz-FP-atL"/>
+                            <constraint firstItem="9hw-yy-c3c" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="lY8-Un-nhX"/>
+                            <constraint firstItem="TM2-fh-ypQ" firstAttribute="leading" secondItem="G9o-iV-zyP" secondAttribute="leading" id="oaA-Dx-Dd3"/>
+                            <constraint firstAttribute="bottom" secondItem="UpD-p2-Hqp" secondAttribute="bottom" id="rrN-JD-c59"/>
+                            <constraint firstItem="9hw-yy-c3c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sQq-4X-oqm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="9hw-yy-c3c" id="6mW-HI-wq5"/>
+                        <outlet property="chefNameLabel" destination="gxa-vR-nyQ" id="5HX-sm-yQW"/>
+                        <outlet property="chefRating" destination="33e-yN-Fx8" id="ctW-Jm-Uxo"/>
+                        <outlet property="chefTime" destination="G9o-iV-zyP" id="AtI-Tg-C7m"/>
+                        <outlet property="tableView" destination="UpD-p2-Hqp" id="HZS-61-bDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="98.4375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
