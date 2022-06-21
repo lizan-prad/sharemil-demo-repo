@@ -252,6 +252,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE214B0F28619A4300B26B50 /* MenuItem */,
 				BE7C7278285F94AE0008161B /* ChefMenu */,
 				BEB13DAF285C548600F63933 /* MyLocation */,
 				BE4CDDED285345F9006AB129 /* Account */,
@@ -363,6 +364,13 @@
 				BE14271D28585BCD006E5240 /* HomeChefTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE214B0F28619A4300B26B50 /* MenuItem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MenuItem;
 			sourceTree = "<group>";
 		};
 		BE4CDDA328530D7E006AB129 /* Inter */ = {

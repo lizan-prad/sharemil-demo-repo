@@ -8,29 +8,69 @@
 import UIKit
 import GooglePlaces
 
-class MyLocationViewController: UIViewController, Storyboarded {
+class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteTableDataSourceDelegate {
+    
+    func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
+        
+        
+    }
+    
+    func didRequestAutocompletePredictions(for tableDataSource: GMSAutocompleteTableDataSource) {
+        // Turn the network activity indicator on.
+    
+        // Reload table data.
+        self.tableVoiew.reloadData()
+      }
+    
+    func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didFailAutocompleteWithError error: Error) {
+        
+    }
+    
 
     @IBOutlet weak var tableVoiew: UITableView!
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var shadow: UIView!
     @IBOutlet weak var searchConatiner: UIView!
     @IBOutlet weak var searchAddressField: UITextField!
+    private var tableDataSource: GMSAutocompleteTableDataSource!
     
     var viewModel: MyLocationViewModel!
     
     var locationName: String?
     
+    var didGetPlace: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        searchConatiner.isUserInteractionEnabled = true
-        searchConatiner.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openAutoCOmplete)))
+        
+        searchAddressField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         setTableView()
     }
     
-    func setTableView() {
+    @objc func textChanged(_ sender: UITextField) {
+        if sender.text?.count == nil || sender.text?.count == 0 {
+            self.setTableView()
+            self.tableVoiew.reloadData()
+        } else {
+            self.setupMapTable()
+            tableDataSource.sourceTextHasChanged(sender.text ?? "")
+        }
+    }
+    
+    private func setupMapTable() {
+        tableVoiew.delegate = tableDataSource
+        tableVoiew.dataSource = tableDataSource
+    }
+    
+    private func setTableView() {
+        tableDataSource = GMSAutocompleteTableDataSource()
+        tableDataSource.delegate = self
+        tableDataSource.tableCellSeparatorColor = .white
+        tableDataSource.tableCellBackgroundColor = .white
         tableVoiew.dataSource = self
         tableVoiew.delegate = self
+        
         tableVoiew.register(UINib.init(nibName: "MyLocationListTableViewCell", bundle: nil), forCellReuseIdentifier: "MyLocationListTableViewCell")
         tableVoiew.register(UINib.init(nibName: "MyLocationHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyLocationHeaderTableViewCell")
         if #available(iOS 15.0, *) {
@@ -40,7 +80,7 @@ class MyLocationViewController: UIViewController, Storyboarded {
         }
     }
     
-    func setup() {
+    private func setup() {
         searchConatiner.addBorder(.black)
         searchConatiner.rounded()
         shadow.setStandardBoldShadow()
@@ -51,23 +91,23 @@ class MyLocationViewController: UIViewController, Storyboarded {
         self.dismiss(animated: true)
     }
     
-    @objc func openAutoCOmplete() {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue))
-        autocompleteController.placeFields = fields
-
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        autocompleteController.autocompleteFilter = filter
-        
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
-      }
+//    @objc func openAutoCOmplete() {
+//        let autocompleteController = GMSAutocompleteViewController()
+//        autocompleteController.delegate = self
+//
+//        // Specify the place data types to return.
+//        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+//          UInt(GMSPlaceField.placeID.rawValue))
+//        autocompleteController.placeFields = fields
+//
+//        // Specify a filter.
+//        let filter = GMSAutocompleteFilter()
+//        filter.type = .address
+//        autocompleteController.autocompleteFilter = filter
+//        
+//        // Display the autocomplete view controller.
+//        present(autocompleteController, animated: true, completion: nil)
+//      }
 
 }
 
@@ -103,19 +143,4 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension MyLocationViewController: GMSAutocompleteViewControllerDelegate {
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        viewController.dismiss(animated: true)
-    }
-    
-    
-}
+
