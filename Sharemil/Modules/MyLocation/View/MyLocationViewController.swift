@@ -11,7 +11,15 @@ import GooglePlaces
 class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteTableDataSourceDelegate {
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
-        
+        let coordinator = SaveLocationCoordinator.init(navigationController: UINavigationController())
+        coordinator.location = place
+        self.place = place
+        coordinator.didSaveLocation = {
+            self.setTableView()
+            self.searchAddressField.text = ""
+            self.tableVoiew.reloadData()
+        }
+        self.present(coordinator.getMainView(), animated: true)
         
     }
     
@@ -37,8 +45,9 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
     var viewModel: MyLocationViewModel!
     
     var locationName: String?
+    var place: GMSPlace?
     
-    var didGetPlace: (() -> ())?
+    var didGetPlace: ((GMSPlace) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +123,7 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
 extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 1 + (UserDefaults.standard.string(forKey: "SAVEDLOC") == nil ? 0 : 1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,9 +132,22 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyLocationListTableViewCell") as! MyLocationListTableViewCell
-        cell.locationName.text = self.viewModel.currentLocation
-        cell.locationImage.image = UIImage.init(named: "send")
+        if indexPath.section == 1 {
+            let location = UserDefaults.standard.string(forKey: "SAVEDLOC")?.components(separatedBy: "---")
+            cell.locationTitle.text = location?.first
+            cell.locationName.text = location?.last
+        } else {
+            cell.locationName.text = self.viewModel.currentLocation
+            cell.locationImage.image = UIImage.init(named: "send")
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let place = self.place, indexPath.section == 1 {
+            self.didGetPlace?(place)
+            self.dismiss(animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,7 +156,7 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyLocationHeaderTableViewCell") as! MyLocationHeaderTableViewCell
-        cell.headerTitle.text = "Nearby"
+        cell.headerTitle.text = section == 0 ? "Nearby" : "Saved Locations"
         return cell
     }
     

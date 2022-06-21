@@ -6,13 +6,14 @@
 //
 
 import UIKit
-
+import GooglePlaces
 class MyLocationCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
     var locationName: String?
+    var didSelectPlace: ((GMSPlace) -> ())?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,6 +24,7 @@ class MyLocationCoordinator: Coordinator {
         let viewModel = MyLocationViewModel()
         viewModel.currentLocation = locationName
         vc.viewModel = viewModel
+        vc.didGetPlace = didSelectPlace
         return vc
     }
     
@@ -31,7 +33,7 @@ class MyLocationCoordinator: Coordinator {
         let viewModel = MyLocationViewModel()
         viewModel.currentLocation = locationName
         vc.viewModel = viewModel
-        
+        vc.didGetPlace = didSelectPlace
         navigationController.pushViewController(vc, animated: true)
     }
 
