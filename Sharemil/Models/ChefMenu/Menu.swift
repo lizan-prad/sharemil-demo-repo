@@ -10,10 +10,10 @@ struct ChefMenuListModel : Mappable {
 	var imageUri : String?
 	var name : String?
 	var id : String?
-	var options : String?
 	var createdAt : String?
 	var price : Double?
-
+    var options: [MenuItemOptionsModel]?
+    
 	init?(map: Map) {
 
 	}

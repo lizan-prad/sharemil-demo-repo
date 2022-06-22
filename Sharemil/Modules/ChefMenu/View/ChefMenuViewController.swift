@@ -77,6 +77,12 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
+        coordinator.menuItemModel = self.menuItems?[indexPath.row]
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 134
     }

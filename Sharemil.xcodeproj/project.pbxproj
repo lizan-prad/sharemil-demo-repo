@@ -29,6 +29,18 @@
 		BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */; };
 		BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */; };
 		BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */; };
+		BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B172861C9A800B26B50 /* ChefMenuItemViewController.swift */; };
+		BE214B1A2861C9B900B26B50 /* ChefMenuItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE214B192861C9B900B26B50 /* ChefMenuItem.storyboard */; };
+		BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B212862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift */; };
+		BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE214B222862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib */; };
+		BE214B2B2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B292862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift */; };
+		BE214B2C2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE214B2A2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib */; };
+		BE214B2F2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B2D2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift */; };
+		BE214B302862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE214B2E2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.xib */; };
+		BE214B332862F8AB00B26B50 /* MenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B322862F8AB00B26B50 /* MenuItemViewModel.swift */; };
+		BE214B352862F8B800B26B50 /* MenuItemCoordinatore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B342862F8B800B26B50 /* MenuItemCoordinatore.swift */; };
+		BE214B382862F9FE00B26B50 /* MenuItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B372862F9FE00B26B50 /* MenuItemService.swift */; };
+		BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B392862FB2300B26B50 /* MenuItemOptionsModel.swift */; };
 		BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDD9F2853046B006AB129 /* NetworkManager.swift */; };
 		BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDA12853048C006AB129 /* URLConfig.swift */; };
 		BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */; };
@@ -117,6 +129,18 @@
 		BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationViewController.swift; sourceTree = "<group>"; };
 		BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveLocation.storyboard; sourceTree = "<group>"; };
 		BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationCoordinator.swift; sourceTree = "<group>"; };
+		BE214B172861C9A800B26B50 /* ChefMenuItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuItemViewController.swift; sourceTree = "<group>"; };
+		BE214B192861C9B900B26B50 /* ChefMenuItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenuItem.storyboard; sourceTree = "<group>"; };
+		BE214B212862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuOptionHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BE214B222862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChefMenuOptionHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		BE214B292862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuOptionRadioTableViewCell.swift; sourceTree = "<group>"; };
+		BE214B2A2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChefMenuOptionRadioTableViewCell.xib; sourceTree = "<group>"; };
+		BE214B2D2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuOptionCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
+		BE214B2E2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChefMenuOptionCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
+		BE214B322862F8AB00B26B50 /* MenuItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewModel.swift; sourceTree = "<group>"; };
+		BE214B342862F8B800B26B50 /* MenuItemCoordinatore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCoordinatore.swift; sourceTree = "<group>"; };
+		BE214B372862F9FE00B26B50 /* MenuItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemService.swift; sourceTree = "<group>"; };
+		BE214B392862FB2300B26B50 /* MenuItemOptionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemOptionsModel.swift; sourceTree = "<group>"; };
 		BE4CDD9F2853046B006AB129 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BE4CDDA12853048C006AB129 /* URLConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
 		BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
@@ -375,6 +399,11 @@
 		BE214B0F28619A4300B26B50 /* MenuItem */ = {
 			isa = PBXGroup;
 			children = (
+				BE214B362862F9F500B26B50 /* Service */,
+				BE214B312862F89D00B26B50 /* ViewModel */,
+				BE214B1E2862EE4E00B26B50 /* View */,
+				BE214B1D2862EE4600B26B50 /* Cell */,
+				BE214B342862F8B800B26B50 /* MenuItemCoordinatore.swift */,
 			);
 			path = MenuItem;
 			sourceTree = "<group>";
@@ -387,6 +416,44 @@
 				BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */,
 			);
 			path = SaveLocation;
+			sourceTree = "<group>";
+		};
+		BE214B1D2862EE4600B26B50 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE214B212862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift */,
+				BE214B222862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib */,
+				BE214B292862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift */,
+				BE214B2A2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib */,
+				BE214B2D2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift */,
+				BE214B2E2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE214B1E2862EE4E00B26B50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE214B172861C9A800B26B50 /* ChefMenuItemViewController.swift */,
+				BE214B192861C9B900B26B50 /* ChefMenuItem.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE214B312862F89D00B26B50 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE214B322862F8AB00B26B50 /* MenuItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE214B362862F9F500B26B50 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE214B372862F9FE00B26B50 /* MenuItemService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BE4CDDA328530D7E006AB129 /* Inter */ = {
@@ -557,6 +624,7 @@
 		BE7C728D285F9BDE0008161B /* ChefMenu */ = {
 			isa = PBXGroup;
 			children = (
+				BE214B392862FB2300B26B50 /* MenuItemOptionsModel.swift */,
 				BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */,
 				BE7C728F285F9BF60008161B /* Menu.swift */,
 			);
@@ -708,12 +776,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE214B302862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.xib in Resources */,
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
+				BE214B2C2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib in Resources */,
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
 				BE4CDDD1285342A1006AB129 /* Home.storyboard in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
+				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
 				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
@@ -724,6 +795,7 @@
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
 				BE14271F28585BCD006E5240 /* HomeChefTableViewCell.xib in Resources */,
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
+				BE214B1A2861C9B900B26B50 /* ChefMenuItem.storyboard in Resources */,
 				BE4CDDB728530D7E006AB129 /* Inter-ExtraBold.ttf in Resources */,
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
 				BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */,
@@ -810,6 +882,7 @@
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
+				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
@@ -820,10 +893,14 @@
 				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
 				BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */,
 				BE14271A2857B986006E5240 /* HomeService.swift in Sources */,
+				BE214B2B2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift in Sources */,
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
+				BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
 				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
+				BE214B332862F8AB00B26B50 /* MenuItemViewModel.swift in Sources */,
 				BEB13DBB285DBD5A00F63933 /* MyLocationHeaderTableViewCell.swift in Sources */,
+				BE214B352862F8B800B26B50 /* MenuItemCoordinatore.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
 				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
@@ -831,6 +908,7 @@
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
+				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
@@ -852,8 +930,10 @@
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
 				BE4CDDE1285344D8006AB129 /* BaseTabbarCoordinator.swift in Sources */,
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
+				BE214B2F2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift in Sources */,
 				BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */,
 				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,
+				BE214B382862F9FE00B26B50 /* MenuItemService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

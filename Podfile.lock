@@ -52,6 +52,7 @@ PODS:
   - IQKeyboardManager (6.5.10)
   - Loaf (0.7.0)
   - MBProgressHUD (1.2.0)
+  - MBRadioCheckboxButton (2.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Loaf
   - MBProgressHUD
+  - MBRadioCheckboxButton
   - ObjectMapper
   - PhoneNumberKit
   - SDWebImage
@@ -118,6 +120,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - Loaf
     - MBProgressHUD
+    - MBRadioCheckboxButton
     - nanopb
     - ObjectMapper
     - PhoneNumberKit
@@ -146,6 +149,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MBRadioCheckboxButton: 6e2a2cdc441e292e45b64c4e65eb8fc1fc05eef2
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
@@ -158,6 +162,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 7a9bc5cc0852070510913dafe7c452ae25d07d82
+PODFILE CHECKSUM: 53720cc4c48c0abd76aa5158082c7e527f467819
 
 COCOAPODS: 1.11.3

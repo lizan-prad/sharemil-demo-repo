@@ -20,4 +20,5 @@ target 'Sharemil' do
   pod 'SDWebImage'
   pod 'GoogleMaps', '6.2.1'
   pod 'GooglePlaces'
+  pod 'MBRadioCheckboxButton'
 end
