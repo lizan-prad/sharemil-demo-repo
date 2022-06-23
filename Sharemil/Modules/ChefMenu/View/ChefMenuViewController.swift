@@ -48,6 +48,13 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         }
     }
     
+    @IBAction func viewCartAction(_ sender: Any) {
+        let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
+        coordinator.cartItems = self.menuItems
+        coordinator.chef = self.viewModel.chef
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

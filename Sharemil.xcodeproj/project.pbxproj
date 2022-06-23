@@ -99,6 +99,12 @@
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
 		BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */; };
 		BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */; };
+		BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF7EACF286472FA002D553E /* CartDetail.storyboard */; };
+		BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD12864730A002D553E /* CartDetailViewController.swift */; };
+		BEF7EAD5286478DC002D553E /* CartDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD4286478DC002D553E /* CartDetailCoordinator.swift */; };
+		BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */; };
+		BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */; };
+		BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +204,12 @@
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
 		BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCusinesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCusinesCollectionViewCell.xib; sourceTree = "<group>"; };
+		BEF7EACF286472FA002D553E /* CartDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CartDetail.storyboard; sourceTree = "<group>"; };
+		BEF7EAD12864730A002D553E /* CartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailViewController.swift; sourceTree = "<group>"; };
+		BEF7EAD4286478DC002D553E /* CartDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailCoordinator.swift; sourceTree = "<group>"; };
+		BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailViewModel.swift; sourceTree = "<group>"; };
+		BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailTableViewCell.swift; sourceTree = "<group>"; };
+		BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartDetailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +563,7 @@
 		BE4CDDE3285345D5006AB129 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				BEF7EACE286472E7002D553E /* CartDetail */,
 				BE4CDDE4285345DA006AB129 /* Cart.storyboard */,
 				BE4CDDE6285345DF006AB129 /* CartViewController.swift */,
 			);
@@ -708,6 +721,43 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		BEF7EACE286472E7002D553E /* CartDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EAD6286478E1002D553E /* ViewModel */,
+				BEF7EAD3286478C9002D553E /* View */,
+				BEF7EAD4286478DC002D553E /* CartDetailCoordinator.swift */,
+			);
+			path = CartDetail;
+			sourceTree = "<group>";
+		};
+		BEF7EAD3286478C9002D553E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EAD928647962002D553E /* Cell */,
+				BEF7EACF286472FA002D553E /* CartDetail.storyboard */,
+				BEF7EAD12864730A002D553E /* CartDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEF7EAD6286478E1002D553E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEF7EAD928647962002D553E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */,
+				BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -784,6 +834,7 @@
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
 				BE4CDDD1285342A1006AB129 /* Home.storyboard in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
+				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
 				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
@@ -791,6 +842,7 @@
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
+				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
 				BE4CDDE5285345DA006AB129 /* Cart.storyboard in Resources */,
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
 				BE14271F28585BCD006E5240 /* HomeChefTableViewCell.xib in Resources */,
@@ -908,8 +960,10 @@
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
+				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
+				BEF7EAD5286478DC002D553E /* CartDetailCoordinator.swift in Sources */,
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
@@ -924,6 +978,7 @@
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */,
 				BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */,
 				BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */,
 				BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */,
@@ -932,6 +987,7 @@
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
 				BE214B2F2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift in Sources */,
 				BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */,
+				BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */,
 				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,
 				BE214B382862F9FE00B26B50 /* MenuItemService.swift in Sources */,
 			);
