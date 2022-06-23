@@ -105,6 +105,8 @@
 		BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */; };
 		BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */; };
 		BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */; };
+		BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAE228648580002D553E /* CartListTableViewCell.swift */; };
+		BEF7EAE528648580002D553E /* CartListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF7EAE328648580002D553E /* CartListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +212,8 @@
 		BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailViewModel.swift; sourceTree = "<group>"; };
 		BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailTableViewCell.swift; sourceTree = "<group>"; };
 		BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartDetailTableViewCell.xib; sourceTree = "<group>"; };
+		BEF7EAE228648580002D553E /* CartListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListTableViewCell.swift; sourceTree = "<group>"; };
+		BEF7EAE328648580002D553E /* CartListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,9 +567,8 @@
 		BE4CDDE3285345D5006AB129 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				BEF7EAE0286484E6002D553E /* View */,
 				BEF7EACE286472E7002D553E /* CartDetail */,
-				BE4CDDE4285345DA006AB129 /* Cart.storyboard */,
-				BE4CDDE6285345DF006AB129 /* CartViewController.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -758,6 +761,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		BEF7EAE0286484E6002D553E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EAE128648520002D553E /* Cell */,
+				BE4CDDE4285345DA006AB129 /* Cart.storyboard */,
+				BE4CDDE6285345DF006AB129 /* CartViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEF7EAE128648520002D553E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEF7EAE228648580002D553E /* CartListTableViewCell.swift */,
+				BEF7EAE328648580002D553E /* CartListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -844,6 +866,7 @@
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
 				BE4CDDE5285345DA006AB129 /* Cart.storyboard in Resources */,
+				BEF7EAE528648580002D553E /* CartListTableViewCell.xib in Resources */,
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
 				BE14271F28585BCD006E5240 /* HomeChefTableViewCell.xib in Resources */,
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
@@ -978,6 +1001,7 @@
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,
 				BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */,
 				BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */,
 				BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */,
