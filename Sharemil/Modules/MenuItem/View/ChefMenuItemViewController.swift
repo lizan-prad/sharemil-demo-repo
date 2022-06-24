@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import CoreLocation
+
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     @IBOutlet weak var plusBtn: UIButton!
     
@@ -47,6 +49,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         setTableView()
         setupView()
         self.viewModel.fetchChefMenuItem()
+        GoogleMapsServices.shared.getRoutes(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init()) { _ in
+            
+        }
     }
     
     private func setupView() {

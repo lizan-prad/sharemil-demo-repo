@@ -16,6 +16,7 @@ class CartDetailCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    var didCheckout: (() -> ())?
     var cartItems: [ChefMenuListModel]?
     var chef: ChefListModel?
     
@@ -25,6 +26,7 @@ class CartDetailCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.dummy = cartItems
         vc.chef = chef
+        vc.didSelectCheckout = self.didCheckout
         return vc
     }
     

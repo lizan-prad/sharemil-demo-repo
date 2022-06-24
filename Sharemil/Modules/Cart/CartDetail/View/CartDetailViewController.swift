@@ -21,6 +21,8 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var dummy: [ChefMenuListModel]?
     var chef: ChefListModel?
     
+    var didSelectCheckout: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +76,9 @@ class CartDetailViewController: UIViewController, Storyboarded {
     }
 
     @IBAction func checkoutAction(_ sender: Any) {
-        
+        self.dismiss(animated: true) {
+            self.didSelectCheckout?()
+        }
     }
 }
 
