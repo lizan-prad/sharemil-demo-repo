@@ -9,6 +9,7 @@ import UIKit
 
 class ChefMenuViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var viewCartBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chefTime: UILabel!
@@ -57,6 +58,8 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         }
         self.viewModel.cartList.bind { cartItems in
             self.cartItems = cartItems
+            self.viewCartBtn.isHidden = cartItems?.isEmpty ?? true
+            self.viewCartBtn.setTitle("View cart (\(cartItems?.count ?? 0))", for: .normal)
         }
     }
     

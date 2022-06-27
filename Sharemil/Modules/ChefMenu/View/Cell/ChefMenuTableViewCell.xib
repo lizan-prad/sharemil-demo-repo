@@ -57,11 +57,11 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1M-xC-6zI">
-                        <rect key="frame" x="252" y="32" width="20" height="20"/>
+                        <rect key="frame" x="248" y="32" width="24" height="24"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-Za-QOF">
-                                <rect key="frame" x="7" y="2.5" width="6" height="15"/>
-                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
+                                <rect key="frame" x="8.5" y="3.5" width="7" height="17"/>
+                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -69,9 +69,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gHw-Za-QOF" firstAttribute="centerY" secondItem="V1M-xC-6zI" secondAttribute="centerY" id="0xL-ik-Pgb"/>
-                            <constraint firstAttribute="height" constant="20" id="KVY-0y-zp4"/>
+                            <constraint firstAttribute="height" constant="24" id="KVY-0y-zp4"/>
                             <constraint firstItem="gHw-Za-QOF" firstAttribute="centerX" secondItem="V1M-xC-6zI" secondAttribute="centerX" id="Wbk-x1-c7Q"/>
-                            <constraint firstAttribute="width" constant="20" id="v53-uS-qDX"/>
+                            <constraint firstAttribute="width" constant="24" id="v53-uS-qDX"/>
                         </constraints>
                     </view>
                 </subviews>

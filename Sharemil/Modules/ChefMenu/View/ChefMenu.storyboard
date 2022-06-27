@@ -119,6 +119,7 @@
                         <outlet property="chefRating" destination="33e-yN-Fx8" id="ctW-Jm-Uxo"/>
                         <outlet property="chefTime" destination="G9o-iV-zyP" id="AtI-Tg-C7m"/>
                         <outlet property="tableView" destination="UpD-p2-Hqp" id="HZS-61-bDz"/>
+                        <outlet property="viewCartBtn" destination="Td5-01-aab" id="dSJ-9h-Kgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
