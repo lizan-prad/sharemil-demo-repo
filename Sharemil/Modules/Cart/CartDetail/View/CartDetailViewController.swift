@@ -18,7 +18,8 @@ class CartDetailViewController: UIViewController, Storyboarded {
     
     var viewModel: CartDetailViewModel!
     
-    var dummy: [ChefMenuListModel]?
+    var cartItems: [CartItems]?
+    var menuItems: [ChefMenuListModel]?
     var chef: ChefListModel?
     
     var didSelectCheckout: (() -> ())?
@@ -45,13 +46,18 @@ class CartDetailViewController: UIViewController, Storyboarded {
     
     private func setup() {
         container.addCornerRadius(15)
-        self.subTotal.text = "$\(dummy?.compactMap({$0.price}).reduce(0, +) ?? 0)"
+        var prices = [Double]()
+        cartItems?.enumerated().forEach({ (index, item) in
+            let price = (Double(item.quantity ?? 0)*(menuItems?[index].price ?? 0))
+            prices.append(price)
+        })
+        self.subTotal.text = "$\(String(format:"%.2f", prices.reduce(0, +)))"
     }
     
     private func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableViewHeight.constant = CGFloat((dummy?.count ?? 0)*65) + 65
+        tableViewHeight.constant = CGFloat((menuItems?.count ?? 0)*65) + 65
         tableView.register(UINib.init(nibName: "CartDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CartDetailTableViewCell")
     }
 
@@ -85,12 +91,13 @@ class CartDetailViewController: UIViewController, Storyboarded {
 extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy?.count ?? 0
+        return menuItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartDetailTableViewCell") as! CartDetailTableViewCell
-        cell.model = self.dummy?[indexPath.row]
+        cell.model = self.menuItems?[indexPath.row]
+        cell.item = self.cartItems?[indexPath.row]
         return cell
     }
     

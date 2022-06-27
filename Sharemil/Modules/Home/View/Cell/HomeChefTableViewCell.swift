@@ -17,7 +17,7 @@ class HomeChefTableViewCell: UITableViewCell {
     
     var chef: ChefListModel? {
         didSet {
-            chefDesc.text = "\(chef?.address ?? "") · \(chef?.distance?.withDecimal(2) ?? "") mi"
+            chefDesc.text = "\(chef?.preparationTime ?? "") · \(chef?.distance?.withDecimal(2) ?? "") mi"
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             chefImage.sd_setImage(with: URL.init(string: chef?.mainImageUrl ?? ""))
         }

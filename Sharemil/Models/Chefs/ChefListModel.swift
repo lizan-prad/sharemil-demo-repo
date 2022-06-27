@@ -27,6 +27,7 @@ class ChefListModel: Mappable {
     var countryCode : String?
     var cuisineId : String?
     var mainImageUrl : String?
+    var preparationTime: String?
 
     required init?(map: Map) {
 
@@ -50,5 +51,6 @@ class ChefListModel: Mappable {
         countryCode <- map["countryCode"]
         cuisineId <- map["cuisineId"]
         mainImageUrl <- map["mainImageUrl"]
+        preparationTime <- map["preparationTime"]
     }
 }

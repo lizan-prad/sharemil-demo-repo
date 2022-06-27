@@ -11,8 +11,11 @@ class CartViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var viewModel: CartViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CartViewModel()
         setTableView()
         
     }

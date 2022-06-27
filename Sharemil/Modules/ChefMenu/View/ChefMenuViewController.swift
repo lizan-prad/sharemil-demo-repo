@@ -23,6 +23,12 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         }
     }
     
+    var cartItems: [CartItems]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
@@ -34,6 +40,9 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        if let id = UserDefaults.standard.string(forKey: viewModel.chef?.id ?? "") {
+            self.viewModel.fetchCarts(id)
+        }
     }
     
     private func bindViewModel() {
@@ -46,11 +55,15 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         self.viewModel.menuItems.bind { models in
             self.menuItems = models
         }
+        self.viewModel.cartList.bind { cartItems in
+            self.cartItems = cartItems
+        }
     }
     
     @IBAction func viewCartAction(_ sender: Any) {
         let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
-        coordinator.cartItems = self.menuItems
+        coordinator.cartItems = self.cartItems
+        coordinator.menuItems = self.menuItems?.filter({self.cartItems?.map({$0.menuItemId ?? ""}).contains($0.id ?? "") ?? false})
         coordinator.chef = self.viewModel.chef
         coordinator.didCheckout = {
             let vc = CheckoutCoordinator.init(navigationController: UINavigationController()).getMainView()
@@ -85,12 +98,19 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChefMenuTableViewCell") as! ChefMenuTableViewCell
         cell.model = self.menuItems?[indexPath.row]
+        cell.quantity.text = "\(self.cartItems?.filter({$0.menuItemId == self.menuItems?[indexPath.row].id}).first?.quantity ?? 0)"
+        cell.quantityContainer.isHidden = self.cartItems?.filter({$0.menuItemId == self.menuItems?[indexPath.row].id}).isEmpty ?? true
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
         coordinator.menuItemModel = self.menuItems?[indexPath.row]
+        coordinator.cartModel = cartItems
+        coordinator.didAddToCart = { model in
+            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+        }
         self.present(coordinator.getMainView(), animated: true)
     }
     

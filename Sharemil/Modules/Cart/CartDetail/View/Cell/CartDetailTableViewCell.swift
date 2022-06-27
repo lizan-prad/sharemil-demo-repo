@@ -13,10 +13,16 @@ class CartDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
+    var item: CartItems? {
+        didSet {
+            quantityLabel.text = "\(item?.quantity ?? 0)"
+            itemPrice.text = "$\((model?.price ?? 0)*Double(item?.quantity ?? 0))"
+        }
+    }
+    
     var model: ChefMenuListModel? {
         didSet {
             itemName.text = model?.name
-            itemPrice.text = "$\(model?.price ?? 0)"
         }
     }
     

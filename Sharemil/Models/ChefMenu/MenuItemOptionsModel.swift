@@ -6,6 +6,8 @@ struct MenuItemOptionsModel : Mappable {
 	var title : String?
 	var choices: [String]?
 	var multipleChoice : Bool?
+    
+    init() {}
 
 	init?(map: Map) {
 

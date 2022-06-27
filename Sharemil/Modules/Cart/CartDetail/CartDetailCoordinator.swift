@@ -17,15 +17,17 @@ class CartDetailCoordinator: Coordinator {
     }
     
     var didCheckout: (() -> ())?
-    var cartItems: [ChefMenuListModel]?
+    var cartItems: [CartItems]?
+    var menuItems: [ChefMenuListModel]?
     var chef: ChefListModel?
     
     func getMainView() -> CartDetailViewController {
         let vc = CartDetailViewController.instantiate()
         let viewModel = CartDetailViewModel()
         vc.viewModel = viewModel
-        vc.dummy = cartItems
+        vc.cartItems = cartItems
         vc.chef = chef
+        vc.menuItems = menuItems
         vc.didSelectCheckout = self.didCheckout
         return vc
     }
@@ -34,7 +36,8 @@ class CartDetailCoordinator: Coordinator {
         let vc = CartDetailViewController.instantiate()
         let viewModel = CartDetailViewModel()
         vc.viewModel = viewModel
-        vc.dummy = cartItems
+        vc.cartItems = cartItems
+        vc.menuItems = menuItems
         navigationController.pushViewController(vc, animated: true)
     }
 

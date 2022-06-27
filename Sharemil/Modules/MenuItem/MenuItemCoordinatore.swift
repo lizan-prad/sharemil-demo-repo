@@ -12,6 +12,8 @@ class MenuItemCoordinator: Coordinator {
     var navigationController: UINavigationController
    
     var menuItemModel: ChefMenuListModel?
+    var didAddToCart: ((CartListModel?) -> ())?
+    var cartModel: [CartItems]?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -22,6 +24,8 @@ class MenuItemCoordinator: Coordinator {
         let viewModel = MenuItemViewModel()
         viewModel.menuItemModel = self.menuItemModel
         vc.viewModel = viewModel
+        vc.cartModel = cartModel
+        vc.didAddToCart = self.didAddToCart
         return vc
     }
     
@@ -30,6 +34,8 @@ class MenuItemCoordinator: Coordinator {
         let viewModel = MenuItemViewModel()
         viewModel.menuItemModel = self.menuItemModel
         vc.viewModel = viewModel
+        vc.cartModel = cartModel
+        vc.didAddToCart = self.didAddToCart
         navigationController.pushViewController(vc, animated: true)
     }
 

@@ -10,8 +10,8 @@ import SDWebImage
 import CoreLocation
 
 class ChefMenuItemViewController: UIViewController, Storyboarded {
-    @IBOutlet weak var plusBtn: UIButton!
     
+    @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var addToCartBtn: UIButton!
@@ -28,6 +28,17 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             self.tableView.reloadData()
         }
     }
+    
+    var cartModel: [CartItems]?
+    
+    var didAddToCart: ((CartListModel?) -> ())?
+    
+    var selectedOptions = [MenuItemOptionsModel]() {
+        didSet {
+            validateAddToCart()
+        }
+    }
+    
     
     var initialQuantity = 1 {
         didSet {
@@ -60,6 +71,24 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.closeBtn.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         self.plusBtn.addTarget(self, action: #selector(plusAction), for: .touchUpInside)
         self.minusBtn.addTarget(self, action: #selector(minusAction), for: .touchUpInside)
+        self.addToCartBtn.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+    }
+    
+    @objc func addToCart() {
+        if cartModel?.isEmpty ?? true {
+            self.viewModel.addToCart(self.model?.chefId ?? "", itemId: self.model?.id ?? "", quantity: self.initialQuantity, options: selectedOptions)
+        } else {
+            var item = CartItems.init()
+            item.id = self.cartModel?.first?.id
+            item.cartId = self.cartModel?.first?.cartId
+            item.menuItemId = self.model?.id
+            item.quantity = self.initialQuantity
+            item.options = self.selectedOptions
+            var cart: [CartItems] = self.cartModel ?? []
+            cart = cart.filter({$0.menuItemId != self.model?.id})
+            cart.append(item)
+            self.viewModel.updateToCart(self.model?.chefId ?? "", cartModels: cart)
+        }
     }
     
     @objc func plusAction() {
@@ -72,6 +101,10 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     @objc func dismissView() {
         self.dismiss(animated: true)
+    }
+    
+    private func validateAddToCart() {
+        self.addToCartBtn.isEnabled = (self.model?.options?.isEmpty ?? true) ? true : ( self.model?.options?.count == self.selectedOptions.count)
     }
     
     private func setupData() {
@@ -90,6 +123,13 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
         viewModel.itemModel.bind { model in
             self.model = model
+            self.validateAddToCart()
+        }
+        viewModel.cartList.bind { model in
+            
+            self.dismiss(animated: true) {
+                self.didAddToCart?(model)
+            }
         }
     }
 
@@ -121,6 +161,34 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
         if model?.options?[indexPath.section].multipleChoice == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChefMenuOptionCheckBoxTableViewCell") as! ChefMenuOptionCheckBoxTableViewCell
             cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row]
+            cell.setup()
+            cell.section = indexPath.section
+            cell.didSelect = { (val, section) in
+                if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
+                    var check = MenuItemOptionsModel()
+                    check.title = self.model?.options?[indexPath.section].title
+                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
+                    check.choices = [val]
+                    self.selectedOptions.append(check)
+                } else if section <= (self.selectedOptions.count - 1) {
+                    var check = self.selectedOptions[section]
+                    var choices: [String] = check.choices ?? []
+                    choices.append(val)
+                    check.choices = choices
+                    self.selectedOptions.remove(at: section)
+                    self.selectedOptions.insert(check, at: section)
+                }
+            }
+            cell.didDeSelect = { (val, section) in
+                var check = self.selectedOptions[section]
+                let choices: [String] = check.choices?.filter({$0 != val}) ?? []
+                check.choices = choices
+                self.selectedOptions.remove(at: section)
+                self.selectedOptions.insert(check, at: section)
+                if choices.isEmpty == true {
+                    self.selectedOptions.remove(at: section)
+                }
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChefMenuOptionRadioTableViewCell") as! ChefMenuOptionRadioTableViewCell
@@ -130,6 +198,18 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             cell.radioButton.isOn = cell.optionName.text == selectedOption?.0 
             cell.didSelect = { (val,section) in
                 self.selectedOption = (val, section)
+                if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
+                    var check = MenuItemOptionsModel()
+                    check.title = self.model?.options?[indexPath.section].title
+                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
+                    check.choices = [val]
+                    self.selectedOptions.append(check)
+                } else if section <= (self.selectedOptions.count - 1) {
+                    var check = self.selectedOptions[section]
+                    check.choices = [val]
+                    self.selectedOptions.remove(at: section)
+                    self.selectedOptions.insert(check, at: section)
+                }
             }
             return cell
         }

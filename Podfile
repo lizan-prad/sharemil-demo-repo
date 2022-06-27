@@ -11,6 +11,7 @@ target 'Sharemil' do
   pod 'ObjectMapper'
   pod 'Stripe'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'PhoneNumberKit'
   pod 'CountryList'
   pod 'IQKeyboardManager'

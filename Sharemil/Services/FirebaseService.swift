@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseCore
+import FirebaseMessaging
 
 class FirebaseService {
     
@@ -20,6 +21,8 @@ class FirebaseService {
                 return
             }
             UserDefaults.standard.set(verificationID ?? "", forKey: StringConstants.verificationToken)
+        
+           
             success()
         }
     }
@@ -30,13 +33,22 @@ class FirebaseService {
             withVerificationID: verificationID,
             verificationCode: otpCode
         )
+        Messaging.messaging().token { token, error in
+            UserDefaults.standard.set(token ?? "", forKey: StringConstants.userIDToken)
+        }
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
                 failure(error)
                 return
             }
             guard let user = authResult?.user else {return}
-            success(user)
+            
+            user.getIDToken { token, error in
+                UserDefaults.standard.set(token ?? "", forKey: StringConstants.userIDToken)
+                success(user)
+            }
+            
+            
         }
     }
 }

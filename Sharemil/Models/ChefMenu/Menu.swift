@@ -14,6 +14,8 @@ struct ChefMenuListModel : Mappable {
 	var price : Double?
     var options: [MenuItemOptionsModel]?
     
+    init() {}
+    
 	init?(map: Map) {
 
 	}

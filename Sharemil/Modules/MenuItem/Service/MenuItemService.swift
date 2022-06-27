@@ -7,14 +7,56 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 protocol MenuItemService {
     func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ())
+    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ())
+    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ())
 }
 
 extension MenuItemService {
     func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<ChefMenuContainerModel>.self, urlExt: "menus/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+            completion(result)
+        }
+    }
+    
+    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+        
+        let param: [String: Any] = [
+            "chefId": chefId,
+            "items": [
+                self.getItemParam(id: itemId, options: options, quantity: quantity)
+            ]
+        ]
+        
+        NetworkManager.shared.request(BaseMappableModel<CartListModel>.self, urlExt: "carts", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            completion(result)
+        }
+    }
+    
+    private func getItemParam(id: String, options: [MenuItemOptionsModel]?, quantity: Int) -> [String: Any] {
+        return ["id": id,
+                "quantity": quantity,
+                "options": options?.map({getParam(option: $0)}) ?? []]
+    }
+    
+    private func getParam(option: MenuItemOptionsModel) -> [String: Any] {
+        return ["title": option.title ?? "",
+                "choices:": option.choices ?? [],
+                "multipleChoice": option.multipleChoice ?? false]
+    }
+    
+    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+        let param: [String: Any] = [
+            "chefId": chefId,
+            "items":
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+            
+        ]
+        
+        NetworkManager.shared.request(BaseMappableModel<CartListModel>.self, urlExt: "carts/\(cartItems.first?.cartId ?? "")", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }
     }

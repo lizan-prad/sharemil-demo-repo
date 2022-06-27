@@ -18,7 +18,7 @@ class NetworkManager {
     
     func request<T: Mappable>(_ value: T.Type ,urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping CompletionHandler<T>){
         
-        let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
+        let header = headers == nil ? [.authorization(bearerToken: "firebaseId:kJwGwwTSQURQBZQwf0d53ujGYzF3")] : headers
 
         AF.request(URLConfig.baseUrl + urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
             switch response.result {
