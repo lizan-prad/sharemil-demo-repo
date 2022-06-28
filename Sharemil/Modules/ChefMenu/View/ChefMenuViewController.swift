@@ -41,9 +41,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        if let id = UserDefaults.standard.string(forKey: viewModel.chef?.id ?? "") {
-            self.viewModel.fetchCarts(id)
-        }
+        self.viewModel.fetchCarts()
     }
     
     private func bindViewModel() {
@@ -83,6 +81,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib.init(nibName: "ChefMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "ChefMenuTableViewCell")
+        self.viewCartBtn.isHidden = true
         
     }
     
@@ -111,7 +110,7 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.menuItemModel = self.menuItems?[indexPath.row]
         coordinator.cartModel = cartItems
         coordinator.didAddToCart = { model in
-            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+//            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
             self.viewModel.fetchCarts(model?.cart?.id ?? "")
         }
         self.present(coordinator.getMainView(), animated: true)

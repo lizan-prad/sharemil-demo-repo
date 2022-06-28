@@ -9,6 +9,8 @@ struct Cart : Mappable {
 	var userId : String?
 	var status : String?
     var cartItems: [CartItems]?
+    var chef: ChefListModel?
+    
 	init?(map: Map) {
 
 	}
@@ -21,6 +23,7 @@ struct Cart : Mappable {
 		userId <- map["userId"]
 		status <- map["status"]
         cartItems <- map["CartItems"]
+        chef <- map["Chef"]
 	}
 
 }

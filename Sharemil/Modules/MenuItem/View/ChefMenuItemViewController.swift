@@ -25,7 +25,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     var viewModel: MenuItemViewModel!
     var selectedOption: (String, Int)? {
         didSet {
-            self.tableView.reloadData()
+            self.tableView.reloadRows(at: model?.options?[selectedOption?.1 ?? 0].choices?.enumerated().map({IndexPath.init(row: $0.offset, section: selectedOption?.1 ?? 0)}) ?? [], with: .none)
         }
     }
     
@@ -126,7 +126,6 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             self.validateAddToCart()
         }
         viewModel.cartList.bind { model in
-            
             self.dismiss(animated: true) {
                 self.didAddToCart?(model)
             }

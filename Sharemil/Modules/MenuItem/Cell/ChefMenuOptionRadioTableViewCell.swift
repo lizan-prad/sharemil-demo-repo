@@ -9,8 +9,6 @@ import UIKit
 import MBRadioCheckboxButton
 
 class ChefMenuOptionRadioTableViewCell: UITableViewCell, RadioButtonDelegate {
-    
-    
 
     @IBOutlet weak var optionName: UILabel!
     @IBOutlet weak var radioButton: RadioButton!
