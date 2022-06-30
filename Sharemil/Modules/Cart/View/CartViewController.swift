@@ -78,8 +78,10 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.menuItems = self.carts?[indexPath.row].cartItems?.compactMap({$0.menuItem})
         coordinator.chef = self.carts?[indexPath.row].chef
         coordinator.didCheckout = {
-            let vc = CheckoutCoordinator.init(navigationController: UINavigationController()).getMainView()
-            self.present(vc, animated: true)
+          
+            let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
+            coordinator.cartList = self.carts?[indexPath.row].cartItems
+            self.present(coordinator.getMainView(), animated: true)
         }
         self.present(coordinator.getMainView(), animated: true)
     }

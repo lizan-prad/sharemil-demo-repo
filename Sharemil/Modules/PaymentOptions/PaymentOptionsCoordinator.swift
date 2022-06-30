@@ -1,13 +1,13 @@
 //
-//  CheckoutCoordinator.swift
+//  PaymentOptionsCoordinator.swift
 //  Sharemil
 //
-//  Created by lizan on 24/06/2022.
+//  Created by lizan on 01/07/2022.
 //
 
 import UIKit
 
-class CheckoutCoordinator: Coordinator {
+class PaymentOptionsCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
@@ -19,16 +19,15 @@ class CheckoutCoordinator: Coordinator {
     var cartList: [CartItems]?
     
     func start() {
-        let vc = CheckoutViewController.instantiate()
-        let viewModel = CheckoutViewModel()
+        let vc = PaymentOptionsViewController.instantiate()
+        let viewModel = PaymentOptionsViewModel()
         vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func getMainView() -> CheckoutViewController {
-        let vc = CheckoutViewController.instantiate()
-        let viewModel = CheckoutViewModel()
-        vc.cartItems = self.cartList
+    func getMainView() -> PaymentOptionsViewController {
+        let vc = PaymentOptionsViewController.instantiate()
+        let viewModel = PaymentOptionsViewModel()
         vc.viewModel = viewModel
         return vc
     }

@@ -19,6 +19,8 @@ class CheckoutViewController: UIViewController, Storyboarded {
         }
     }
     
+    var cartItems: [CartItems]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -69,6 +71,9 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutOrdersTableViewCell") as! CheckoutOrdersTableViewCell
+            cell.setTable()
+            cell.setup()
+            cell.cartItems = self.cartItems
             return cell
         default: return UITableViewCell()
         }
@@ -79,7 +84,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 305
         case 1:
-            return 200
+            return UITableView.automaticDimension
         default: return 0
         }
     }

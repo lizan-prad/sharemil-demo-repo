@@ -27,7 +27,7 @@ class CartDetailCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.cartItems = cartItems
         vc.chef = chef
-        vc.menuItems = menuItems
+//        vc.menuItems = menuItems
         vc.didSelectCheckout = self.didCheckout
         return vc
     }
@@ -37,7 +37,7 @@ class CartDetailCoordinator: Coordinator {
         let viewModel = CartDetailViewModel()
         vc.viewModel = viewModel
         vc.cartItems = cartItems
-        vc.menuItems = menuItems
+//        vc.menuItems = menuItems
         navigationController.pushViewController(vc, animated: true)
     }
 

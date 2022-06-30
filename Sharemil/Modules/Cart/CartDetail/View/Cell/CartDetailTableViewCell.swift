@@ -15,15 +15,12 @@ class CartDetailTableViewCell: UITableViewCell {
     
     var item: CartItems? {
         didSet {
+            itemName.text = item?.menuItem?.name
             quantityLabel.text = "\(item?.quantity ?? 0)"
-            itemPrice.text = "$\((model?.price ?? 0)*Double(item?.quantity ?? 0))"
+            itemPrice.text = "$\((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0))"
         }
     }
     
-    var model: ChefMenuListModel? {
-        didSet {
-            itemName.text = model?.name
-        }
-    }
+  
     
 }

@@ -19,14 +19,14 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var viewModel: CartDetailViewModel!
     
     var cartItems: [CartItems]?
-    var menuItems: [ChefMenuListModel]?
+    
     var chef: ChefListModel?
     
     var didSelectCheckout: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bindViewModel()
         setup()
         setTable()
         setupGestures()
@@ -44,11 +44,24 @@ class CartDetailViewController: UIViewController, Storyboarded {
         smoke.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(dismissPopUp)))
     }
     
+    private func bindViewModel() {
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.cartList.bind { cart in
+            self.cartItems = cart?.cart?.cartItems
+            self.tableView.reloadData()
+        }
+    }
+    
     private func setup() {
         container.addCornerRadius(15)
         var prices = [Double]()
         cartItems?.enumerated().forEach({ (index, item) in
-            let price = (Double(item.quantity ?? 0)*(menuItems?[index].price ?? 0))
+            let price = (Double(item.quantity ?? 0)*(cartItems?[index].menuItem?.price ?? 0))
             prices.append(price)
         })
         self.subTotal.text = "$\(String(format:"%.2f", prices.reduce(0, +)))"
@@ -57,7 +70,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     private func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableViewHeight.constant = CGFloat((menuItems?.count ?? 0)*65) + 65
+        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*65) + 65
         tableView.register(UINib.init(nibName: "CartDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CartDetailTableViewCell")
     }
 
@@ -91,17 +104,35 @@ class CartDetailViewController: UIViewController, Storyboarded {
 extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems?.count ?? 0
+        return cartItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartDetailTableViewCell") as! CartDetailTableViewCell
-        cell.model = self.menuItems?[indexPath.row]
         cell.item = self.cartItems?[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
+                self.cartItems?.remove(at: indexPath.row)
+                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+            }
+            self.present(alert, animated: true)
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeActions
     }
 }
