@@ -177,6 +177,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="paymentView" destination="qCi-ZL-5FP" id="Zcd-op-wYt"/>
                         <outlet property="tableView" destination="d6m-fy-Tc4" id="3ww-cN-y5m"/>
                     </connections>
                 </viewController>

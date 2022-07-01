@@ -16,12 +16,13 @@ class PaymentOptionsCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    var cartList: [CartItems]?
+    var cartId: String?
     
     func start() {
         let vc = PaymentOptionsViewController.instantiate()
         let viewModel = PaymentOptionsViewModel()
         vc.viewModel = viewModel
+        vc.cartId = self.cartId
         navigationController.pushViewController(vc, animated: true)
     }
     

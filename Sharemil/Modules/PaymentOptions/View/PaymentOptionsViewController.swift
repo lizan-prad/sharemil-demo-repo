@@ -12,9 +12,22 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var addCardView: UIView!
     var viewModel: PaymentOptionsViewModel!
     
+    var cartId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        
     }
     
     private func setup() {
@@ -23,6 +36,6 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     }
   
     @objc private func openCardView() {
-        
+        self.viewModel.proceedPayment(cartId ?? "")
     }
 }

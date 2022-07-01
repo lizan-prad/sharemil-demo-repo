@@ -10,6 +10,7 @@ import GoogleMaps
 
 class CheckoutViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var paymentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: CheckoutViewModel!
     
@@ -23,9 +24,21 @@ class CheckoutViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         bindViewModel()
         setTableView()
         self.viewModel.getRoute(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init())
+    }
+    
+    private func setup() {
+        paymentView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openPaymentMethods)))
+    }
+    
+    @objc private func openPaymentMethods() {
+        guard let nav = self.navigationController else {return}
+        let coordinator = PaymentOptionsCoordinator.init(navigationController: nav)
+        coordinator.cartId = self.cartItems?.first?.cartId
+        coordinator.start()
     }
     
     private func setTableView() {

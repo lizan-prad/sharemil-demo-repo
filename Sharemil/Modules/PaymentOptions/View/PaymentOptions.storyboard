@@ -26,14 +26,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6I-6t-YJk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="5"/>
+                                <rect key="frame" x="0.0" y="105.5" width="414" height="5"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="eCj-VX-e1S"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YU2-Lk-BFC">
-                                <rect key="frame" x="0.0" y="49" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="110.5" width="414" height="751.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="vxG-9H-qh2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
@@ -66,15 +66,35 @@
                                     </constraints>
                                 </view>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2I-AM-y2B">
+                                <rect key="frame" x="108" y="60" width="198" height="29.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRj-yL-NOW">
+                                <rect key="frame" x="20" y="49" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="R5K-Js-Mfd"/>
+                                    <constraint firstAttribute="height" constant="25" id="sFM-SH-LVE"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xRj-yL-NOW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="DKg-Ur-fkU"/>
                             <constraint firstItem="h6I-6t-YJk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Fj9-OZ-Uae"/>
                             <constraint firstItem="YU2-Lk-BFC" firstAttribute="top" secondItem="h6I-6t-YJk" secondAttribute="bottom" id="HwR-Gw-TXx"/>
+                            <constraint firstItem="u2I-AM-y2B" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="L1s-Kk-SXd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YU2-Lk-BFC" secondAttribute="trailing" id="M0b-nR-4jv"/>
+                            <constraint firstItem="xRj-yL-NOW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="Ne4-5w-nSO"/>
+                            <constraint firstItem="u2I-AM-y2B" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="QVO-8d-NZt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="h6I-6t-YJk" secondAttribute="trailing" id="Tl4-Ab-gpk"/>
-                            <constraint firstItem="h6I-6t-YJk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="eGl-w0-jmj"/>
+                            <constraint firstItem="h6I-6t-YJk" firstAttribute="top" secondItem="u2I-AM-y2B" secondAttribute="bottom" constant="16" id="X0a-5r-tcq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YU2-Lk-BFC" secondAttribute="bottom" id="sDG-WZ-4ux"/>
                             <constraint firstItem="YU2-Lk-BFC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t0x-q6-9da"/>
                         </constraints>
@@ -89,6 +109,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
