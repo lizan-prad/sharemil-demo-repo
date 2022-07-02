@@ -88,6 +88,7 @@
 		BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728B285F98A50008161B /* ChefMenuService.swift */; };
 		BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */; };
 		BE7C7291285F9BF60008161B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728F285F9BF60008161B /* Menu.swift */; };
+		BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */; };
 		BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */; };
 		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
 		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
@@ -227,6 +228,7 @@
 		BE7C728B285F98A50008161B /* ChefMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuService.swift; sourceTree = "<group>"; };
 		BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefMenuContainerModel.swift; sourceTree = "<group>"; };
 		BE7C728F285F9BF60008161B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentIntentModel.swift; sourceTree = "<group>"; };
 		BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEB13D9D285B64D900F63933 /* Sharemil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharemil.entitlements; sourceTree = "<group>"; };
 		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
@@ -753,6 +755,22 @@
 			path = ChefMenu;
 			sourceTree = "<group>";
 		};
+		BEAF320F2870BC6F0007F9B0 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				BEAF32102870BC780007F9B0 /* Stripe */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		BEAF32102870BC780007F9B0 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */,
+			);
+			path = Stripe;
+			sourceTree = "<group>";
+		};
 		BEB13DAC285C474B00F63933 /* Cusines */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +822,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BEAF320F2870BC6F0007F9B0 /* Checkout */,
 				BEF7EB3E28699780002D553E /* Cart */,
 				BEF7EAFF2865CC98002D553E /* GoogleMapsModels */,
 				BE7C728D285F9BDE0008161B /* ChefMenu */,
@@ -1165,6 +1184,7 @@
 				BEF7EB3D28697FF4002D553E /* CartService.swift in Sources */,
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
+				BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,

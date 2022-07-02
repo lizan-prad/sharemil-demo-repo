@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Stripe
 
 class PaymentOptionsViewController: UIViewController, Storyboarded {
 
@@ -13,6 +14,7 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     var viewModel: PaymentOptionsViewModel!
     
     var cartId: String?
+    var paymentSheet: PaymentSheet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,29 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        
+        self.viewModel.payment.bind { model in
+            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
+            // MARK: Create a PaymentSheet instance
+            var configuration = PaymentSheet.Configuration()
+            configuration.merchantDisplayName = "Example, Inc."
+            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
+            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+            // methods that complete payment after a delay, like SEPA Debit and Sofort.
+            configuration.allowsDelayedPaymentMethods = true
+            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
+            self.paymentSheet?.present(from: self) { paymentResult in
+                // MARK: Handle the payment result
+                switch paymentResult {
+                case .completed:
+                  print("Your order is confirmed")
+                case .canceled:
+                  print("Canceled!")
+                case .failed(let error):
+                  print("Payment failed: \(error)")
+                }
+              }
         }
         
     }

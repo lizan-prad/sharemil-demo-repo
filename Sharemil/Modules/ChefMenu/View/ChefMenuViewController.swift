@@ -69,7 +69,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         coordinator.didCheckout = {
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
             coordinator.cartList = self.cartItems
-            self.present(coordinator.getMainView(), animated: true)
+            self.present(UINavigationController.init(rootViewController: coordinator.getMainView()), animated: true)
         }
         self.present(coordinator.getMainView(), animated: true)
     }

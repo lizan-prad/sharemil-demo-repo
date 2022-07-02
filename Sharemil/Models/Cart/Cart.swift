@@ -22,7 +22,7 @@ struct Cart : Mappable {
 		chefId <- map["chefId"]
 		userId <- map["userId"]
 		status <- map["status"]
-        cartItems <- map["CartItems"]
+        cartItems <- map["cartItems"]
         chef <- map["Chef"]
 	}
 

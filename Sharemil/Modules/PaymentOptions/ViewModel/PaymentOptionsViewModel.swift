@@ -11,6 +11,7 @@ class PaymentOptionsViewModel: PaymentOptionsService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
+    var payment: Observable<PaymentIntentModel> = Observable(nil)
     
     func proceedPayment(_ cartId: String) {
         self.loading.value = true
@@ -18,7 +19,7 @@ class PaymentOptionsViewModel: PaymentOptionsService {
             self.loading.value = false
             switch result {
             case .success(let model):
-                break
+                self.payment.value = model
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }
