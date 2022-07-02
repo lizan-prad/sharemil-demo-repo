@@ -42,12 +42,10 @@ class FirebaseService {
                 return
             }
             guard let user = authResult?.user else {return}
-            
-            user.getIDToken { token, error in
+            user.getIDTokenForcingRefresh(true) { token, error in
                 UserDefaults.standard.set(token ?? "", forKey: StringConstants.userIDToken)
                 success(user)
             }
-            
             
         }
     }
