@@ -55,6 +55,10 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         
     }
     
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     private func setup() {
         addCardView.isUserInteractionEnabled = true
         addCardView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:          #selector(openCardView)))

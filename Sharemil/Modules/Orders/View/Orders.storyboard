@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uih-iT-1wC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,21 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Orders View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersViewController" id="Y6W-OH-hqX" customClass="OrdersViewController" customModule="Sharemil" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GIp-yB-VO2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GIp-yB-VO2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Aiv-MS-W4c"/>
+                            <constraint firstAttribute="bottom" secondItem="GIp-yB-VO2" secondAttribute="bottom" id="biR-kz-28O"/>
+                            <constraint firstItem="GIp-yB-VO2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hQq-um-ruH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GIp-yB-VO2" secondAttribute="trailing" id="pHV-iI-NyY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wI4-Nq-hLc"/>
+                    <connections>
+                        <outlet property="tableView" destination="GIp-yB-VO2" id="lEg-Yb-leh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="99"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="67.633928571428569"/>
         </scene>
         <!--Orders-->
         <scene sceneID="nVZ-U7-52h">
@@ -45,7 +61,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSa-3E-FKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-306" y="77"/>
+            <point key="canvasLocation" x="-813" y="74"/>
         </scene>
     </scenes>
     <resources>

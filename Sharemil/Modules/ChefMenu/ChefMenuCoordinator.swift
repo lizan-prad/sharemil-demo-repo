@@ -20,6 +20,7 @@ class ChefMenuCoordinator: Coordinator {
     func getMainView() -> ChefMenuViewController {
         let vc = ChefMenuViewController.instantiate()
         let viewModel = ChefMenuViewModel()
+        viewModel.chef = self.chef
         vc.viewModel = viewModel
         return vc
     }

@@ -66,10 +66,11 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         coordinator.cartItems = self.cartItems
         coordinator.menuItems = self.menuItems?.filter({self.cartItems?.map({$0.menuItemId ?? ""}).contains($0.id ?? "") ?? false})
         coordinator.chef = self.viewModel.chef
-        coordinator.didCheckout = {
+        coordinator.didCheckout = { [weak self] in
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
-            coordinator.cartList = self.cartItems
-            self.present(UINavigationController.init(rootViewController: coordinator.getMainView()), animated: true)
+            coordinator.cartList = self?.cartItems
+            coordinator.chef = self?.viewModel.chef
+            self?.present(UINavigationController.init(rootViewController: coordinator.getMainView()), animated: true)
         }
         self.present(coordinator.getMainView(), animated: true)
     }

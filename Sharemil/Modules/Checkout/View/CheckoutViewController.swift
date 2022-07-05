@@ -19,7 +19,7 @@ class CheckoutViewController: UIViewController, Storyboarded {
             self.tableView.reloadData()
         }
     }
-    
+    var chef: ChefListModel?
     var cartItems: [CartItems]?
     
     override func viewDidLoad() {
@@ -33,6 +33,7 @@ class CheckoutViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
     
     private func setup() {
@@ -66,6 +67,10 @@ class CheckoutViewController: UIViewController, Storyboarded {
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
+        self.viewModel.cartList.bind { cartItems in
+            self.cartItems = cartItems
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -93,6 +98,12 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setTable()
             cell.setup()
             cell.cartItems = self.cartItems
+            cell.didTapAdd = {
+                guard let nav = self.navigationController else {return}
+                let coordinator = ChefMenuCoordinator.init(navigationController: nav)
+                coordinator.chef = self.chef
+                coordinator.start()
+            }
             return cell
         default: return UITableViewCell()
         }

@@ -15,7 +15,7 @@ class CheckoutCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+    var chef: ChefListModel?
     var cartList: [CartItems]?
     
     func start() {
@@ -29,6 +29,7 @@ class CheckoutCoordinator: Coordinator {
         let vc = CheckoutViewController.instantiate()
         let viewModel = CheckoutViewModel()
         vc.cartItems = self.cartList
+        vc.chef = self.chef
         vc.viewModel = viewModel
         return vc
     }

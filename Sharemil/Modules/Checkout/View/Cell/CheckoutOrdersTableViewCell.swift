@@ -19,6 +19,8 @@ class CheckoutOrdersTableViewCell: UITableViewCell {
         }
     }
     
+    var didTapAdd: (() -> ())?
+    
     func setup() {
         addBtn.rounded()
     }
@@ -31,7 +33,7 @@ class CheckoutOrdersTableViewCell: UITableViewCell {
     }
     
     @IBAction func addAction(_ sender: Any) {
-        
+        self.didTapAdd?()
     }
 }
 
