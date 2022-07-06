@@ -26,7 +26,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         self.viewModel.fetchOrders()
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
@@ -68,6 +68,7 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell") as! OrdersTableViewCell
         cell.setup()
+        cell.model = self.orders?[indexPath.row]
         return cell
     }
     
