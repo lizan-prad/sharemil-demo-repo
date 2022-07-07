@@ -66,6 +66,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
         self.selectedCOuntry = countryList.getCountry(code: self.phoneField.currentRegion)
         self.flagBtn.setTitle(countryList.getCountry(code: self.phoneField.currentRegion )?.flag ?? "", for: .normal)
         self.googleBtn.addTarget(self, action: #selector(googleSignAction), for: .touchUpInside)
+        self.phoneField.placeholder = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + "XXXXXXXXXX"
     }
     
     @objc func googleSignAction() {
@@ -78,7 +79,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     private func setupPhoneField() {
-        phoneField.withExamplePlaceholder = true
+//        phoneField.withExamplePlaceholder = true
         phoneField.textContentType = .telephoneNumber
         phoneField.maxDigits = 10
         self.presentationController?.delegate = self
@@ -97,7 +98,9 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     @objc func textCHanged() {
-        
+        if (phoneField.text?.count ?? 0) > 0 && !(phoneField.text?.contains(self.selectedCOuntry?.phoneExtension ?? "") ?? false) {
+            self.phoneField.text = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + (self.phoneField.text ?? "")
+        }
            if !phoneField.isValidNumber {
                self.errorLabel.text = StringConstants.ErrorMessages.invalidNumber
            } else {
@@ -129,10 +132,10 @@ extension RegistrationViewController: CountryListDelegate {
     func selectedCountry(country: Country) {
         self.selectedCOuntry = country
         self.flagBtn.setTitle(country.flag ?? "", for: .normal)
-        self.phoneField.text = "+" + country.phoneExtension
         self.phoneField._defaultRegion = country.countryCode
         self.phoneField.partialFormatter.defaultRegion = country.countryCode
-        self.phoneField.updatePlaceholder()
+        self.phoneField.text = "+" + country.phoneExtension
+//        self.phoneField.updatePlaceholder()
         
     }
 }

@@ -306,9 +306,14 @@
                     </view>
                     <connections>
                         <outlet property="closeBtn" destination="YDL-fm-Ja8" id="yDW-Ps-Eh7"/>
+                        <outlet property="email" destination="XX6-Hd-RJ5" id="U9T-lf-Ogc"/>
                         <outlet property="emailStack" destination="mtj-bX-qvR" id="SgQ-fX-42W"/>
+                        <outlet property="emailVerification" destination="2yf-Is-Gvl" id="TGf-mj-Z0C"/>
+                        <outlet property="firstName" destination="xTT-XI-9Y8" id="Wfr-TO-hbi"/>
                         <outlet property="firstNameStack" destination="j4d-Jq-iyV" id="XFb-EG-TeQ"/>
+                        <outlet property="lastName" destination="jUK-Oh-snx" id="bZR-uE-UdK"/>
                         <outlet property="lastNameStack" destination="OTt-wb-sOq" id="205-iV-MiV"/>
+                        <outlet property="phoneLabel" destination="r5e-Xn-TFH" id="CBK-sA-LLE"/>
                         <outlet property="phoneStack" destination="5uT-jE-rTl" id="6tU-cC-y2h"/>
                     </connections>
                 </viewController>

@@ -9,16 +9,21 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
-    var user: UserModel?
+    
+    var user: UserModel? {
+        didSet {
+            self.nameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
-        self.viewModel.fetchUserProfile()
         bindViewModel()
     }
-    
+ 
     private func bindViewModel() {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
@@ -34,6 +39,7 @@ class AccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.viewModel.fetchUserProfile()
     }
     
     @IBAction func editAction(_ sender: Any) {

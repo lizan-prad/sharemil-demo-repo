@@ -108,6 +108,7 @@
 		BEAF324328755F6C0007F9B0 /* AccountNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF324228755F6C0007F9B0 /* AccountNameViewController.swift */; };
 		BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3245287566EA0007F9B0 /* UserModel.swift */; };
 		BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3246287566EA0007F9B0 /* UserContainerModel.swift */; };
+		BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF324B2876BAC00007F9B0 /* AccountNameViewModel.swift */; };
 		BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */; };
 		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
 		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
@@ -267,6 +268,7 @@
 		BEAF324228755F6C0007F9B0 /* AccountNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNameViewController.swift; sourceTree = "<group>"; };
 		BEAF3245287566EA0007F9B0 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BEAF3246287566EA0007F9B0 /* UserContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContainerModel.swift; sourceTree = "<group>"; };
+		BEAF324B2876BAC00007F9B0 /* AccountNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNameViewModel.swift; sourceTree = "<group>"; };
 		BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEB13D9D285B64D900F63933 /* Sharemil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharemil.entitlements; sourceTree = "<group>"; };
 		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
@@ -923,8 +925,8 @@
 		BEAF323F28755F500007F9B0 /* AccountNameUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				BEAF324028755F640007F9B0 /* AccountName.storyboard */,
-				BEAF324228755F6C0007F9B0 /* AccountNameViewController.swift */,
+				BEAF324A2876BAAD0007F9B0 /* ViewModel */,
+				BEAF32492876BA9F0007F9B0 /* View */,
 			);
 			path = AccountNameUpdate;
 			sourceTree = "<group>";
@@ -936,6 +938,23 @@
 				BEAF3245287566EA0007F9B0 /* UserModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		BEAF32492876BA9F0007F9B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEAF324028755F640007F9B0 /* AccountName.storyboard */,
+				BEAF324228755F6C0007F9B0 /* AccountNameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEAF324A2876BAAD0007F9B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEAF324B2876BAC00007F9B0 /* AccountNameViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BEB13DAC285C474B00F63933 /* Cusines */ = {
@@ -1434,6 +1453,7 @@
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
 				BE2954D1286E44050048E9DD /* PaymentOptionsViewModel.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
+				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,

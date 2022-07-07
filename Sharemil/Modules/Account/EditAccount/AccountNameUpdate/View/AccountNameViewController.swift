@@ -18,11 +18,30 @@ class AccountNameViewController: UIViewController {
         case last
     }
     
+    var viewModel: AccountNameViewModel!
+    
     var currentNameType: AccountNameType = .first
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = AccountNameViewModel()
         setup()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.user.bind { user in
+            self.showToastMsg("Updated successfully!", state: .success, location: .bottom)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -36,10 +55,13 @@ class AccountNameViewController: UIViewController {
     }
 
     @IBAction func clearAction(_ sender: Any) {
-        
+        self.nameFIeld.text = nil
     }
     
     @IBAction func updateAction(_ sender: Any) {
-        
+        let param: [String: Any] = self.currentNameType == .first ? [
+            "firstName": self.nameFIeld.text ?? ""
+        ] : [  "lastName": self.nameFIeld.text ?? "" ]
+        self.viewModel.updateUserProfile(param: param)
     }
 }
