@@ -113,7 +113,8 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.cartModel = cartItems
         coordinator.didAddToCart = { model in
 //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
-            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+            self.viewModel.fetchCarts()
+//            self.viewModel.fetchCarts(model?.cart?.id ?? "")
         }
         self.present(coordinator.getMainView(), animated: true)
     }

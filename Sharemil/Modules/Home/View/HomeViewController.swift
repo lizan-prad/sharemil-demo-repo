@@ -7,6 +7,7 @@
 
 import UIKit
 import GooglePlaces
+import CoreLocation
 
 class HomeViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController {
     var currentLocation: LLocation? {
         didSet {
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
+            viewModel.fetchChefBy(location: currentLocation!, name: "")
         }
     }
     
@@ -88,6 +90,7 @@ class HomeViewController: UIViewController {
         let vc = MyLocationCoordinator.init(navigationController: self.navigationController!)
         vc.locationName = self.address
         vc.didSelectPlace = { place in
+            self.currentLocation = LLocation.init(location: CLLocation.init(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude))
             self.addressLabel.text = place.name
         }
         self.present(vc.getMainView(), animated: true)
