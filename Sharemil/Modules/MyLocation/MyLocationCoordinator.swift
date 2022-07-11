@@ -13,7 +13,7 @@ class MyLocationCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     var locationName: String?
-    var didSelectPlace: ((GMSPlace) -> ())?
+    var didSelectPlace: ((MyLocationModel?) -> ())?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

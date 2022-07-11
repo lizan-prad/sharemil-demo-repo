@@ -20,6 +20,11 @@
 		52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F52851E29E007549BB /* RegistrationViewModel.swift */; };
 		52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */; };
 		A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
+		BE11832D287C865C0073970B /* SaveLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11832C287C865C0073970B /* SaveLocationService.swift */; };
+		BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE118331287C87250073970B /* SaveLocationViewModel.swift */; };
+		BE118335287C893A0073970B /* MyLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE118334287C893A0073970B /* MyLocationService.swift */; };
+		BE118339287C8C790073970B /* MyLocationContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE118338287C8C790073970B /* MyLocationContainerModel.swift */; };
+		BE11833B287C8C800073970B /* MyLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11833A287C8C800073970B /* MyLocationModel.swift */; };
 		BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427122857B42E006E5240 /* HomeViewModel.swift */; };
 		BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427142857B4EB006E5240 /* LocationManager.swift */; };
 		BE1427172857B541006E5240 /* AlertServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427162857B541006E5240 /* AlertServices.swift */; };
@@ -182,6 +187,11 @@
 		52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
 		871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharemilRelease.entitlements; sourceTree = "<group>"; };
 		9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.debug.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.debug.xcconfig"; sourceTree = "<group>"; };
+		BE11832C287C865C0073970B /* SaveLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationService.swift; sourceTree = "<group>"; };
+		BE118331287C87250073970B /* SaveLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationViewModel.swift; sourceTree = "<group>"; };
+		BE118334287C893A0073970B /* MyLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationService.swift; sourceTree = "<group>"; };
+		BE118338287C8C790073970B /* MyLocationContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationContainerModel.swift; sourceTree = "<group>"; };
+		BE11833A287C8C800073970B /* MyLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationModel.swift; sourceTree = "<group>"; };
 		BE1427122857B42E006E5240 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BE1427142857B4EB006E5240 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BE1427162857B541006E5240 /* AlertServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServices.swift; sourceTree = "<group>"; };
@@ -496,6 +506,48 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BE11832E287C87090073970B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE11832C287C865C0073970B /* SaveLocationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE11832F287C87100073970B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */,
+				BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE118330287C871A0073970B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE118331287C87250073970B /* SaveLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE118333287C892E0073970B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE118334287C893A0073970B /* MyLocationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE118337287C8C660073970B /* MyLocation */ = {
+			isa = PBXGroup;
+			children = (
+				BE118338287C8C790073970B /* MyLocationContainerModel.swift */,
+				BE11833A287C8C800073970B /* MyLocationModel.swift */,
+			);
+			path = MyLocation;
+			sourceTree = "<group>";
+		};
 		BE1427112857B404006E5240 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +589,9 @@
 		BE214B102861ABA100B26B50 /* SaveLocation */ = {
 			isa = PBXGroup;
 			children = (
-				BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */,
-				BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */,
+				BE118330287C871A0073970B /* ViewModel */,
+				BE11832F287C87100073970B /* View */,
+				BE11832E287C87090073970B /* Service */,
 				BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */,
 			);
 			path = SaveLocation;
@@ -968,6 +1021,7 @@
 		BEB13DAF285C548600F63933 /* MyLocation */ = {
 			isa = PBXGroup;
 			children = (
+				BE118333287C892E0073970B /* Service */,
 				BE214B102861ABA100B26B50 /* SaveLocation */,
 				BEB13DC8285DC90B00F63933 /* ViewModel */,
 				BEB13DC3285DC76400F63933 /* View */,
@@ -1008,6 +1062,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE118337287C8C660073970B /* MyLocation */,
 				BEAF3244287566B10007F9B0 /* Account */,
 				BEAF322528740DB40007F9B0 /* Orders */,
 				BEAF320F2870BC6F0007F9B0 /* Checkout */,
@@ -1423,6 +1478,7 @@
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
 				BEAF322E28754E8B0007F9B0 /* EditAccountViewController.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
+				BE118335287C893A0073970B /* MyLocationService.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BEF7EB4528699B01002D553E /* CartItems.swift in Sources */,
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
@@ -1434,9 +1490,11 @@
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BEF7EAD5286478DC002D553E /* CartDetailCoordinator.swift in Sources */,
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
+				BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */,
 				BEAF322928740DCA0007F9B0 /* OrdersContainerModel.swift in Sources */,
 				BEF7EAF62865B03D002D553E /* CheckoutViewController.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
+				BE11833B287C8C800073970B /* MyLocationModel.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				BE2954D6286E444E0048E9DD /* PaymentOptionsCoordinator.swift in Sources */,
 				BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */,
@@ -1444,6 +1502,7 @@
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
 				BEF7EB0F2865CCAD002D553E /* End_location.swift in Sources */,
+				BE118339287C8C790073970B /* MyLocationContainerModel.swift in Sources */,
 				BEF7EB1B2865CCAD002D553E /* Start_location.swift in Sources */,
 				BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */,
 				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
@@ -1471,6 +1530,7 @@
 				52A423F02851E245007549BB /* Coordinator.swift in Sources */,
 				BE214B2F2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift in Sources */,
 				BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */,
+				BE11832D287C865C0073970B /* SaveLocationService.swift in Sources */,
 				BEAF322328740AAD0007F9B0 /* OrdersHeaderTableViewCell.swift in Sources */,
 				BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */,
 				BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */,
@@ -1618,8 +1678,8 @@
 				CODE_SIGN_ENTITLEMENTS = Sharemil/Sharemil.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = E93436VDRS;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = H897FZT8JU;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
@@ -1656,8 +1716,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sharemil/SharemilRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = E93436VDRS;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = H897FZT8JU;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;

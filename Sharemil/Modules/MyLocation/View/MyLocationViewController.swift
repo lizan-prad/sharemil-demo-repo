@@ -47,14 +47,39 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
     var locationName: String?
     var place: GMSPlace?
     
-    var didGetPlace: ((GMSPlace) -> ())?
+    var didGetPlace: ((MyLocationModel?) -> ())?
+    
+    var locations: [MyLocationModel]? {
+        didSet {
+            self.tableVoiew.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
         setup()
         
         searchAddressField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         setTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.getLocations()
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.locations.bind { model in
+            self.locations = model
+        }
     }
     
     @objc func textChanged(_ sender: UITextField) {
@@ -123,19 +148,18 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
 extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + (UserDefaults.standard.string(forKey: "SAVEDLOC") == nil ? 0 : 1)
+        return 1 + ((self.locations?.isEmpty ?? true) ? 0 : 1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 1 : (self.locations?.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyLocationListTableViewCell") as! MyLocationListTableViewCell
         if indexPath.section == 1 {
-            let location = UserDefaults.standard.string(forKey: "SAVEDLOC")?.components(separatedBy: "---")
-            cell.locationTitle.text = location?.first
-            cell.locationName.text = location?.last
+            
+            cell.model = self.locations?[indexPath.row]
         } else {
             cell.locationName.text = self.viewModel.currentLocation
             cell.locationImage.image = UIImage.init(named: "send")
@@ -144,8 +168,8 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let place = self.place, indexPath.section == 1 {
-            self.didGetPlace?(place)
+        if indexPath.section == 1 {
+            self.didGetPlace?(self.locations?[indexPath.row])
             self.dismiss(animated: true)
         }
     }

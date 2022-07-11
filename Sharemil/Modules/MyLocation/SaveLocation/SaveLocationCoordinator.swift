@@ -28,6 +28,8 @@ class SaveLocationCoordinator: Coordinator {
     func getMainView() -> SaveLocationViewController {
         let vc = SaveLocationViewController.instantiate()
         vc.location = location
+        let viewModel = SaveLocationViewModel()
+        vc.viewModel = viewModel
         vc.didCompleteSaving = didSaveLocation
         return vc
     }

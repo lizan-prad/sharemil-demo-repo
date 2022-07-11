@@ -19,11 +19,27 @@ class SaveLocationViewController: UIViewController, Storyboarded {
     
     var location: GMSPlace?
     var didCompleteSaving: (() -> ())?
+    var viewModel: SaveLocationViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupData()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.success.bind { msg in
+            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+            self.didCompleteSaving?()
+            self.dismissPopUp()
+        }
     }
     
     private func setupData() {
@@ -62,9 +78,7 @@ class SaveLocationViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        UserDefaults.standard.set("\(nameLabel.text ?? "")---\(locationField.text ?? "")", forKey: "SAVEDLOC")
-        self.didCompleteSaving?()
-        self.dismissPopUp()
+        self.viewModel.saveUserLocation(nameLabel.text ?? "", location: LLocation.init(location: CLLocation.init(latitude: location?.coordinate.latitude ?? 0, longitude: location?.coordinate.longitude ?? 0)))
     }
     
 }

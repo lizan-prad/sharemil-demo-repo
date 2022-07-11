@@ -90,8 +90,8 @@ class HomeViewController: UIViewController {
         let vc = MyLocationCoordinator.init(navigationController: self.navigationController!)
         vc.locationName = self.address
         vc.didSelectPlace = { place in
-            self.currentLocation = LLocation.init(location: CLLocation.init(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude))
-            self.addressLabel.text = place.name
+            self.currentLocation = LLocation.init(location: CLLocation.init(latitude: place?.latitude ?? 0, longitude: place?.longitude ?? 0))
+            
         }
         self.present(vc.getMainView(), animated: true)
     }

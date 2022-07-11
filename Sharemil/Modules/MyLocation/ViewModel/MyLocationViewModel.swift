@@ -7,8 +7,24 @@
 
 import Foundation
 
-class MyLocationViewModel {
+class MyLocationViewModel: MyLocationService {
     
     var currentLocation: String?
+    var loading: Observable<Bool> = Observable(nil)
+    var error: Observable<String> = Observable(nil)
+    var locations: Observable<[MyLocationModel]> = Observable([])
     
+    func getLocations() {
+        
+        self.loading.value = true
+        self.getSavedLocations() { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.locations.value = model.data?.locations
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
 }
