@@ -77,6 +77,9 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
+        self.viewModel.success.bind { msg in
+            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+        }
         self.viewModel.locations.bind { model in
             self.locations = model
         }
@@ -186,6 +189,24 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 26
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete?") { _ in
+                self.viewModel.deleteLocation(self.locations?[indexPath.row].id ?? "")
+            }
+            self.present(alert, animated: true)
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeActions
     }
 }
 
