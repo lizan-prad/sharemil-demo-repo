@@ -84,6 +84,17 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
+		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
+		BE7302C5287EC87F00CC6383 /* OrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */; };
+		BE7302C8287EC88C00CC6383 /* OrderDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C7287EC88C00CC6383 /* OrderDetailService.swift */; };
+		BE7302CA287EC89A00CC6383 /* OrderDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C9287EC89A00CC6383 /* OrderDetailsCoordinator.swift */; };
+		BE7302CE287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302CC287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift */; };
+		BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7302CD287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib */; };
+		BE7302D2287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302D0287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift */; };
+		BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7302D1287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib */; };
+		BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302D4287EE13300CC6383 /* OrderSummaryListTableViewCell.swift */; };
+		BE7302D7287EE13300CC6383 /* OrderSummaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */; };
 		BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7279285F94BB0008161B /* ChefMenu.storyboard */; };
 		BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C727B285F94C90008161B /* ChefMenuViewController.swift */; };
 		BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */; };
@@ -249,6 +260,17 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
+		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewModel.swift; sourceTree = "<group>"; };
+		BE7302C7287EC88C00CC6383 /* OrderDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailService.swift; sourceTree = "<group>"; };
+		BE7302C9287EC89A00CC6383 /* OrderDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCoordinator.swift; sourceTree = "<group>"; };
+		BE7302CC287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailMapTableViewCell.swift; sourceTree = "<group>"; };
+		BE7302CD287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailMapTableViewCell.xib; sourceTree = "<group>"; };
+		BE7302D0287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		BE7302D1287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		BE7302D4287EE13300CC6383 /* OrderSummaryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryListTableViewCell.swift; sourceTree = "<group>"; };
+		BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryListTableViewCell.xib; sourceTree = "<group>"; };
 		BE7C7279285F94BB0008161B /* ChefMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenu.storyboard; sourceTree = "<group>"; };
 		BE7C727B285F94C90008161B /* ChefMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewController.swift; sourceTree = "<group>"; };
 		BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -777,6 +799,7 @@
 		BE4CDDE8285345E2006AB129 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				BE7302BD287EC7FF00CC6383 /* OrderDetails */,
 				BEAF3215287407070007F9B0 /* Service */,
 				BEAF3214287406FC0007F9B0 /* ViewModel */,
 				BEAF3213287406F00007F9B0 /* View */,
@@ -793,6 +816,56 @@
 				BEAF322A28754E690007F9B0 /* EditAccount */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		BE7302BD287EC7FF00CC6383 /* OrderDetails */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302C6287EC88200CC6383 /* Service */,
+				BE7302C3287EC87500CC6383 /* ViewModel */,
+				BE7302C2287EC86E00CC6383 /* View */,
+				BE7302C9287EC89A00CC6383 /* OrderDetailsCoordinator.swift */,
+			);
+			path = OrderDetails;
+			sourceTree = "<group>";
+		};
+		BE7302C2287EC86E00CC6383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302CB287ED8A700CC6383 /* Cell */,
+				BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */,
+				BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE7302C3287EC87500CC6383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE7302C6287EC88200CC6383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302C7287EC88C00CC6383 /* OrderDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE7302CB287ED8A700CC6383 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302CC287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift */,
+				BE7302CD287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib */,
+				BE7302D0287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift */,
+				BE7302D1287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib */,
+				BE7302D4287EE13300CC6383 /* OrderSummaryListTableViewCell.swift */,
+				BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BE7C7278285F94AE0008161B /* ChefMenu */ = {
@@ -1317,14 +1390,17 @@
 				BEAF322428740AAD0007F9B0 /* OrdersHeaderTableViewCell.xib in Resources */,
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
 				BE214B2C2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib in Resources */,
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
 				BE4CDDD1285342A1006AB129 /* Home.storyboard in Resources */,
+				BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */,
 				BEF7EAEC2865AFD3002D553E /* CheckoutMapTableViewCell.xib in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
 				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
 				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
+				BE7302D7287EE13300CC6383 /* OrderSummaryListTableViewCell.xib in Resources */,
 				BEF7EAE82865AFC5002D553E /* Checkout.storyboard in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
@@ -1333,6 +1409,7 @@
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
+				BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */,
 				BE4CDDE5285345DA006AB129 /* Cart.storyboard in Resources */,
 				BEF7EAE528648580002D553E /* CartListTableViewCell.xib in Resources */,
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
@@ -1449,6 +1526,7 @@
 				BEAF322828740DCA0007F9B0 /* OrderModel.swift in Sources */,
 				BEF7EAFE2865C701002D553E /* CheckoutService.swift in Sources */,
 				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
+				BE7302D2287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift in Sources */,
 				BEF7EB1A2865CCAD002D553E /* Overview_polyline.swift in Sources */,
 				52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */,
 				BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */,
@@ -1456,6 +1534,7 @@
 				BE214B2B2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.swift in Sources */,
 				BEF7EB182865CCAD002D553E /* Northeast.swift in Sources */,
 				BEAF323528754ECC0007F9B0 /* EditAccountViewModel.swift in Sources */,
+				BE7302C8287EC88C00CC6383 /* OrderDetailService.swift in Sources */,
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
 				BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
@@ -1474,7 +1553,9 @@
 				BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */,
 				BEAF323328754EB90007F9B0 /* EditAccountService.swift in Sources */,
 				BEF7EB3A28697FC1002D553E /* CartViewModel.swift in Sources */,
+				BE7302C5287EC87F00CC6383 /* OrderDetailsViewModel.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
+				BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */,
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
 				BEAF322E28754E8B0007F9B0 /* EditAccountViewController.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
@@ -1504,6 +1585,7 @@
 				BEF7EB0F2865CCAD002D553E /* End_location.swift in Sources */,
 				BE118339287C8C790073970B /* MyLocationContainerModel.swift in Sources */,
 				BEF7EB1B2865CCAD002D553E /* Start_location.swift in Sources */,
+				BE7302CA287EC89A00CC6383 /* OrderDetailsCoordinator.swift in Sources */,
 				BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */,
 				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
 				BEF7EB122865CCAD002D553E /* Distance.swift in Sources */,
@@ -1515,6 +1597,7 @@
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
+				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,
 				BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */,
@@ -1531,6 +1614,7 @@
 				BE214B2F2862EECD00B26B50 /* ChefMenuOptionCheckBoxTableViewCell.swift in Sources */,
 				BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */,
 				BE11832D287C865C0073970B /* SaveLocationService.swift in Sources */,
+				BE7302CE287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift in Sources */,
 				BEAF322328740AAD0007F9B0 /* OrdersHeaderTableViewCell.swift in Sources */,
 				BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */,
 				BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */,

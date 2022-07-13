@@ -76,6 +76,13 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
         return 98
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nav = self.navigationController else {return}
+        let coordinator = OrderDetailCoordinator.init(navigationController: nav)
+        coordinator.model = self.orders?[indexPath.row]
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersHeaderTableViewCell") as! OrdersHeaderTableViewCell
         return cell

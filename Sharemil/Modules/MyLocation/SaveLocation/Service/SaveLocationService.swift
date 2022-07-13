@@ -10,7 +10,7 @@ import Alamofire
 
 protocol SaveLocationService {
     func saveLocation(_ param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
-    func updateLocation(param: [String: Any], completion: @escaping (Result<BaseMappableModel<UserContainerModel>, Error>) -> ())
+    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
 }
 
 extension SaveLocationService {
@@ -20,7 +20,9 @@ extension SaveLocationService {
         }
     }
     
-    func updateLocation(param: [String: Any], completion: @escaping (Result<BaseMappableModel<UserContainerModel>, Error>) -> ()) {
-        
+    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ()) {
+        NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "users/locations/\(id)", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            completion(result)
+        }
     }
 }

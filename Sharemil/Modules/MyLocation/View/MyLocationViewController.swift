@@ -16,8 +16,15 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
         self.place = place
         coordinator.didSaveLocation = {
             self.setTableView()
+            self.showToastMsg("Location saved successfully!", state: .success, location: .bottom)
             self.searchAddressField.text = ""
-            self.tableVoiew.reloadData()
+            self.viewModel.getLocations()
+        }
+        coordinator.didUpdateLocation = {
+            self.setTableView()
+            self.showToastMsg("Location updated successfully!", state: .success, location: .bottom)
+            self.searchAddressField.text = ""
+            self.viewModel.getLocations()
         }
         self.present(coordinator.getMainView(), animated: true)
         
@@ -79,6 +86,7 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
         }
         self.viewModel.success.bind { msg in
             self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+            self.viewModel.getLocations()
         }
         self.viewModel.locations.bind { model in
             self.locations = model
@@ -204,7 +212,19 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
             self.present(alert, animated: true)
         }
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            let coordinator = SaveLocationCoordinator.init(navigationController: UINavigationController())
+            coordinator.model = self.locations?[indexPath.row]
+            coordinator.didUpdateLocation = {
+                self.setTableView()
+                self.showToastMsg("Location updated successfully!", state: .success, location: .bottom)
+                self.searchAddressField.text = ""
+                self.viewModel.getLocations()
+            }
+            self.present(coordinator.getMainView(), animated: true)
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return swipeActions
     }

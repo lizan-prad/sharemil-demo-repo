@@ -30,4 +30,22 @@ class SaveLocationViewModel: SaveLocationService {
             }
         }
     }
+    
+    func updateLocation(_ name: String, id: String, location: LLocation?) {
+        let param: [String: Any] = [
+            "name": name,
+            "latitude": location?.location?.coordinate.latitude ?? 0,
+            "longitude": location?.location?.coordinate.longitude ?? 0
+        ]
+        self.loading.value = true
+        self.updateLocation(id, param: param) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.success.value = "Location updated successfully!"
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
 }

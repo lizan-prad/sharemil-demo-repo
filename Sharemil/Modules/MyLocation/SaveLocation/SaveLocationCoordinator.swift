@@ -15,11 +15,14 @@ class SaveLocationCoordinator: Coordinator {
     }
     
     var didSaveLocation: (() -> ())?
+    var didUpdateLocation: (() -> ())?
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
     var location: GMSPlace?
+    
+    var model: MyLocationModel?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,7 +33,9 @@ class SaveLocationCoordinator: Coordinator {
         vc.location = location
         let viewModel = SaveLocationViewModel()
         vc.viewModel = viewModel
+        vc.model = self.model
         vc.didCompleteSaving = didSaveLocation
+        vc.didCompleteUpdating = didUpdateLocation
         return vc
     }
     
