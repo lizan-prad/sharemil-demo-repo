@@ -112,6 +112,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemNamelabel.text = model?.name
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$\(model?.price ?? 0)"
+        self.initialQuantity = 1
     }
     
     private func bindViewModel() {

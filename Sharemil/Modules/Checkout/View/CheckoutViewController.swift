@@ -71,9 +71,9 @@ class CheckoutViewController: UIViewController, Storyboarded {
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.cartList.bind { cartItems in
-            self.subTotal.text = "$\(cartItems?.cartItems?.map({$0.menuItem?.price ?? 0}).reduce(0, +) ?? 0)"
-            self.total.text = "$\(cartItems?.cartItems?.map({$0.menuItem?.price ?? 0}).reduce(0, +) ?? 0)"
-            self.placeOrderBtn.setTitle("Place order · \("$\(cartItems?.cartItems?.map({$0.menuItem?.price ?? 0}).reduce(0, +) ?? 0)")", for: .normal)
+            self.subTotal.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
+            self.total.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
+            self.placeOrderBtn.setTitle("Place order · \("$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadData()
         }
