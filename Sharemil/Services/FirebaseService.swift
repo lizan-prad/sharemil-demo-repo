@@ -36,6 +36,7 @@ class FirebaseService {
 //        Messaging.messaging().token { token, error in
 //            UserDefaults.standard.set(token ?? "", forKey: StringConstants.userIDToken)
 //        }
+        
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
                 failure(error)

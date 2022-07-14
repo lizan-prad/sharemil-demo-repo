@@ -11,6 +11,7 @@ import FirebaseCore
 import GoogleMaps
 import GooglePlaces
 import FirebaseMessaging
+import FirebaseAuth
 
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if #available(iOS 13.0, *) {
                     window?.overrideUserInterfaceStyle = .light
                 }
+        if UserDefaults.standard.string(forKey: StringConstants.userIDToken) != nil {
+            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+            })
+        }
         if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
             self.loadHome()
         } else {

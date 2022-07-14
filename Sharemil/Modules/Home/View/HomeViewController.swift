@@ -154,6 +154,7 @@ extension HomeViewController: LocationManagerDelegate {
     
     
     func didUpdateLocation(_ manager: LocationManager, currentLocation location: LLocation?) {
+        UserDefaults.standard.set("\(location?.location?.coordinate.latitude ?? 0) \(location?.location?.coordinate.longitude ?? 0)", forKey: "CURLOC")
         self.currentLocation = location
         LocationManager.shared.locationManager?.stopUpdatingLocation()
     }

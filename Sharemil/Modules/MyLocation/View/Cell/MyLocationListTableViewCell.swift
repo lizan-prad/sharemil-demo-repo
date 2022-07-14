@@ -16,6 +16,14 @@ class MyLocationListTableViewCell: UITableViewCell {
     
 //    AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M
     
+    var location: String? {
+        didSet {
+            GoogleMapsServices.shared.getAddress(LLocation.init(location: CLLocation.init(latitude: Double(location?.components(separatedBy: " ").first ?? "") ?? 0 , longitude: Double(location?.components(separatedBy: " ").last ?? "") ?? 0))) { address in
+                self.locationName.text = address
+            }
+        }
+    }
+    
     var model: MyLocationModel? {
         didSet {
             locationTitle.text = model?.name

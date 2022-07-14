@@ -172,13 +172,21 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.model = self.locations?[indexPath.row]
         } else {
-            cell.locationName.text = self.viewModel.currentLocation
+            cell.location = UserDefaults.standard.string(forKey: "CURLOC")
             cell.locationImage.image = UIImage.init(named: "send")
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            var location = MyLocationModel()
+            let current = UserDefaults.standard.string(forKey: "CURLOC")
+            location.latitude = Double(current?.components(separatedBy: " ").first ?? "")
+            location.longitude = Double(current?.components(separatedBy: " ").last ?? "")
+            self.didGetPlace?(location)
+            self.dismiss(animated: true)
+        }
         if indexPath.section == 1 {
             self.didGetPlace?(self.locations?[indexPath.row])
             self.dismiss(animated: true)

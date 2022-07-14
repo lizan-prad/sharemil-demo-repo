@@ -18,6 +18,8 @@ struct MyLocationModel : Mappable {
     var name : String?
     var latitude : Double?
     var longitude : Double?
+    
+    init() {}
 
     init?(map: Map) {
 

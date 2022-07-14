@@ -95,6 +95,11 @@
 		BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7302D1287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib */; };
 		BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302D4287EE13300CC6383 /* OrderSummaryListTableViewCell.swift */; };
 		BE7302D7287EE13300CC6383 /* OrderSummaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */; };
+		BE7302DA287FF14A00CC6383 /* Confirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302D9287FF14900CC6383 /* Confirmation.storyboard */; };
+		BE7302DC287FF1F000CC6383 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302DB287FF1F000CC6383 /* ConfirmationViewController.swift */; };
+		BE7302E0287FF20F00CC6383 /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302DF287FF20F00CC6383 /* ConfirmationViewModel.swift */; };
+		BE7302E3287FF21D00CC6383 /* ConfirmationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */; };
+		BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */; };
 		BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7279285F94BB0008161B /* ChefMenu.storyboard */; };
 		BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C727B285F94C90008161B /* ChefMenuViewController.swift */; };
 		BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */; };
@@ -271,6 +276,11 @@
 		BE7302D1287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		BE7302D4287EE13300CC6383 /* OrderSummaryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryListTableViewCell.swift; sourceTree = "<group>"; };
 		BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryListTableViewCell.xib; sourceTree = "<group>"; };
+		BE7302D9287FF14900CC6383 /* Confirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Confirmation.storyboard; sourceTree = "<group>"; };
+		BE7302DB287FF1F000CC6383 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		BE7302DF287FF20F00CC6383 /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationService.swift; sourceTree = "<group>"; };
+		BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCoordinator.swift; sourceTree = "<group>"; };
 		BE7C7279285F94BB0008161B /* ChefMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenu.storyboard; sourceTree = "<group>"; };
 		BE7C727B285F94C90008161B /* ChefMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewController.swift; sourceTree = "<group>"; };
 		BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -438,6 +448,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BE7302D8287FF07A00CC6383 /* Confirmation */,
 				BE2954C9286E43C80048E9DD /* PaymentOptions */,
 				BEF7EAE62865AFBB002D553E /* Checkout */,
 				BE214B0F28619A4300B26B50 /* MenuItem */,
@@ -866,6 +877,42 @@
 				BE7302D5287EE13300CC6383 /* OrderSummaryListTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE7302D8287FF07A00CC6383 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302E1287FF21300CC6383 /* Service */,
+				BE7302DE287FF20100CC6383 /* ViewModel */,
+				BE7302DD287FF1F800CC6383 /* View */,
+				BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		BE7302DD287FF1F800CC6383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302D9287FF14900CC6383 /* Confirmation.storyboard */,
+				BE7302DB287FF1F000CC6383 /* ConfirmationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE7302DE287FF20100CC6383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302DF287FF20F00CC6383 /* ConfirmationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE7302E1287FF21300CC6383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BE7C7278285F94AE0008161B /* ChefMenu */ = {
@@ -1417,6 +1464,7 @@
 				BEAF322C28754E7E0007F9B0 /* EditAccount.storyboard in Resources */,
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
 				BE214B1A2861C9B900B26B50 /* ChefMenuItem.storyboard in Resources */,
+				BE7302DA287FF14A00CC6383 /* Confirmation.storyboard in Resources */,
 				BEAF324128755F640007F9B0 /* AccountName.storyboard in Resources */,
 				BE4CDDB728530D7E006AB129 /* Inter-ExtraBold.ttf in Resources */,
 				BE2954CB286E43D50048E9DD /* PaymentOptions.storyboard in Resources */,
@@ -1565,6 +1613,7 @@
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
 				BEF7EB0E2865CCAD002D553E /* Polyline.swift in Sources */,
+				BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */,
 				BEF7EB162865CCAD002D553E /* Bounds.swift in Sources */,
 				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
@@ -1574,10 +1623,13 @@
 				BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */,
 				BEAF322928740DCA0007F9B0 /* OrdersContainerModel.swift in Sources */,
 				BEF7EAF62865B03D002D553E /* CheckoutViewController.swift in Sources */,
+				BE7302DC287FF1F000CC6383 /* ConfirmationViewController.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				BE11833B287C8C800073970B /* MyLocationModel.swift in Sources */,
 				52A423E228512B04007549BB /* UIViewExtensions.swift in Sources */,
 				BE2954D6286E444E0048E9DD /* PaymentOptionsCoordinator.swift in Sources */,
+				BE7302E0287FF20F00CC6383 /* ConfirmationViewModel.swift in Sources */,
+				BE7302E3287FF21D00CC6383 /* ConfirmationService.swift in Sources */,
 				BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
