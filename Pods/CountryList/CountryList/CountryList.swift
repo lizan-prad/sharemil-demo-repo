@@ -56,9 +56,7 @@ public class CountryList: UIViewController, UITableViewDelegate, UITableViewData
         setUpSearchBar()
     }
     
-    public func getCountry(code: String) -> Country? {
-        return self.countryList.filter({$0.countryCode == code}).first
-    }
+     
     
     public func updateSearchResults(for searchController: UISearchController) {
         

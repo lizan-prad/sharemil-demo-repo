@@ -100,6 +100,8 @@
 		BE7302E0287FF20F00CC6383 /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302DF287FF20F00CC6383 /* ConfirmationViewModel.swift */; };
 		BE7302E3287FF21D00CC6383 /* ConfirmationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */; };
 		BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */; };
+		BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE73033628818D9100CC6383 /* CustomStripe.storyboard */; };
+		BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */; };
 		BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7279285F94BB0008161B /* ChefMenu.storyboard */; };
 		BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C727B285F94C90008161B /* ChefMenuViewController.swift */; };
 		BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */; };
@@ -281,6 +283,8 @@
 		BE7302DF287FF20F00CC6383 /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
 		BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationService.swift; sourceTree = "<group>"; };
 		BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCoordinator.swift; sourceTree = "<group>"; };
+		BE73033628818D9100CC6383 /* CustomStripe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomStripe.storyboard; sourceTree = "<group>"; };
+		BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStripeViewController.swift; sourceTree = "<group>"; };
 		BE7C7279285F94BB0008161B /* ChefMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenu.storyboard; sourceTree = "<group>"; };
 		BE7C727B285F94C90008161B /* ChefMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewController.swift; sourceTree = "<group>"; };
 		BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -671,6 +675,7 @@
 		BE2954C9286E43C80048E9DD /* PaymentOptions */ = {
 			isa = PBXGroup;
 			children = (
+				BE73033528818D8100CC6383 /* CustomStripe */,
 				BE2954D2286E441A0048E9DD /* Service */,
 				BE2954CF286E43F30048E9DD /* ViewModel */,
 				BE2954CE286E43E60048E9DD /* View */,
@@ -913,6 +918,15 @@
 				BE7302E2287FF21D00CC6383 /* ConfirmationService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BE73033528818D8100CC6383 /* CustomStripe */ = {
+			isa = PBXGroup;
+			children = (
+				BE73033628818D9100CC6383 /* CustomStripe.storyboard */,
+				BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */,
+			);
+			path = CustomStripe;
 			sourceTree = "<group>";
 		};
 		BE7C7278285F94AE0008161B /* ChefMenu */ = {
@@ -1445,6 +1459,7 @@
 				BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */,
 				BEF7EAEC2865AFD3002D553E /* CheckoutMapTableViewCell.xib in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
+				BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */,
 				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
 				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
 				BE7302D7287EE13300CC6383 /* OrderSummaryListTableViewCell.xib in Resources */,
@@ -1647,6 +1662,7 @@
 				BE2954D1286E44050048E9DD /* PaymentOptionsViewModel.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
+				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
