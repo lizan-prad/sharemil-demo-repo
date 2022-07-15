@@ -32,7 +32,7 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.viewModel.getRoute(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init())
+        self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: Double(model?.cart?.chef?.latitude ?? 0), longitude: Double(model?.cart?.chef?.longitude ?? 0)))
     }
     
     private func setTableView() {
@@ -71,8 +71,10 @@ extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailMapTableViewCell") as! OrderDetailMapTableViewCell
-            cell.setup()
+            
             cell.model = self.model
+            cell.chef = self.model?.cart?.chef
+            cell.setup()
             cell.polylines = self.polylines
             return cell
         case 1:

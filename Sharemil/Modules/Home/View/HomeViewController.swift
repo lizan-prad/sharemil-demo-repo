@@ -8,7 +8,7 @@
 import UIKit
 import GooglePlaces
 import CoreLocation
-
+var loc: LLocation?
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var locationStack: UIStackView!
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     var address: String?
     var currentLocation: LLocation? {
         didSet {
+            loc = currentLocation
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             viewModel.fetchChefBy(location: currentLocation!, name: "")
         }

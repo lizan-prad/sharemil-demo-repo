@@ -14,7 +14,8 @@ class OrderSummaryListTableViewCell: UITableViewCell {
     
     var item: CartItems? {
         didSet {
-            
+            itemQuantity.text = "\(item?.quantity ?? 0)"
+            itemNamee.text = item?.menuItem?.name
         }
     }
     

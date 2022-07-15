@@ -30,7 +30,7 @@ class CheckoutViewController: UIViewController, Storyboarded {
         setup()
         bindViewModel()
         setTableView()
-        self.viewModel.getRoute(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init())
+        self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,8 +96,10 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
-            cell.setup()
+            
             cell.polylines = self.polylines
+            cell.chef = self.chef
+            cell.setup()
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutOrdersTableViewCell") as! CheckoutOrdersTableViewCell
