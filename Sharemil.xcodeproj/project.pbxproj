@@ -102,6 +102,9 @@
 		BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */; };
 		BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE73033628818D9100CC6383 /* CustomStripe.storyboard */; };
 		BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */; };
+		BE73033F288348ED00CC6383 /* CustomStripeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE73033E288348ED00CC6383 /* CustomStripeViewModel.swift */; };
+		BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7303412883491800CC6383 /* CustomStripeService.swift */; };
+		BE7303442883492500CC6383 /* CustomStripeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7303432883492500CC6383 /* CustomStripeCoordinator.swift */; };
 		BE7C727A285F94BB0008161B /* ChefMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7C7279285F94BB0008161B /* ChefMenu.storyboard */; };
 		BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C727B285F94C90008161B /* ChefMenuViewController.swift */; };
 		BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */; };
@@ -285,6 +288,9 @@
 		BE7302E4287FF22900CC6383 /* ConfirmationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCoordinator.swift; sourceTree = "<group>"; };
 		BE73033628818D9100CC6383 /* CustomStripe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomStripe.storyboard; sourceTree = "<group>"; };
 		BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStripeViewController.swift; sourceTree = "<group>"; };
+		BE73033E288348ED00CC6383 /* CustomStripeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStripeViewModel.swift; sourceTree = "<group>"; };
+		BE7303412883491800CC6383 /* CustomStripeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStripeService.swift; sourceTree = "<group>"; };
+		BE7303432883492500CC6383 /* CustomStripeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStripeCoordinator.swift; sourceTree = "<group>"; };
 		BE7C7279285F94BB0008161B /* ChefMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChefMenu.storyboard; sourceTree = "<group>"; };
 		BE7C727B285F94C90008161B /* ChefMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuViewController.swift; sourceTree = "<group>"; };
 		BE7C7280285F94F40008161B /* ChefMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -923,10 +929,37 @@
 		BE73033528818D8100CC6383 /* CustomStripe */ = {
 			isa = PBXGroup;
 			children = (
-				BE73033628818D9100CC6383 /* CustomStripe.storyboard */,
-				BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */,
+				BE7303402883490900CC6383 /* Service */,
+				BE73033D288348E300CC6383 /* ViewModel */,
+				BE73033C288348D800CC6383 /* View */,
+				BE7303432883492500CC6383 /* CustomStripeCoordinator.swift */,
 			);
 			path = CustomStripe;
+			sourceTree = "<group>";
+		};
+		BE73033C288348D800CC6383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE73033A28818DE000CC6383 /* CustomStripeViewController.swift */,
+				BE73033628818D9100CC6383 /* CustomStripe.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE73033D288348E300CC6383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE73033E288348ED00CC6383 /* CustomStripeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE7303402883490900CC6383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7303412883491800CC6383 /* CustomStripeService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BE7C7278285F94AE0008161B /* ChefMenu */ = {
@@ -1586,8 +1619,10 @@
 				BEB13DC1285DBDC800F63933 /* MyLocationListTableViewCell.swift in Sources */,
 				BEF7EB172865CCAD002D553E /* Southwest.swift in Sources */,
 				BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */,
+				BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */,
 				BEAF322828740DCA0007F9B0 /* OrderModel.swift in Sources */,
 				BEF7EAFE2865C701002D553E /* CheckoutService.swift in Sources */,
+				BE7303442883492500CC6383 /* CustomStripeCoordinator.swift in Sources */,
 				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
 				BE7302D2287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift in Sources */,
 				BEF7EB1A2865CCAD002D553E /* Overview_polyline.swift in Sources */,
@@ -1668,6 +1703,7 @@
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,
+				BE73033F288348ED00CC6383 /* CustomStripeViewModel.swift in Sources */,
 				BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */,
 				BEAF32182874072D0007F9B0 /* OrdersViewModel.swift in Sources */,
 				BEF7EAEB2865AFD3002D553E /* CheckoutMapTableViewCell.swift in Sources */,

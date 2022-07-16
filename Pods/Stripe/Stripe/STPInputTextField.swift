@@ -9,14 +9,14 @@
 import UIKit
 @_spi(STP) import StripeUICore
 
-class STPInputTextField: STPFloatingPlaceholderTextField, STPFormInputValidationObserver {
+public class STPInputTextField: STPFloatingPlaceholderTextField, STPFormInputValidationObserver {
     let formatter: STPInputTextFieldFormatter
 
     let validator: STPInputTextFieldValidator
 
-    weak var formContainer: STPFormContainer? = nil
+    weak public var formContainer: STPFormContainer? = nil
 
-    var wantsAutoFocus: Bool {
+    public var wantsAutoFocus: Bool {
         return true
     }
 
@@ -60,7 +60,7 @@ class STPInputTextField: STPFloatingPlaceholderTextField, STPFormInputValidation
         fatalError("init(coder:) has not been implemented")
     }
 
-    override var text: String? {
+    public override var text: String? {
         didSet {
             textDidChange()
         }
@@ -244,7 +244,7 @@ class STPInputTextField: STPFloatingPlaceholderTextField, STPFormInputValidation
     }
 
     // MARK: - STPInputTextFieldValidationObserver
-    func validationDidUpdate(
+    public func validationDidUpdate(
         to state: STPValidatedInputState, from previousState: STPValidatedInputState,
         for unformattedInput: String?, in input: STPFormInput
     ) {
@@ -261,19 +261,19 @@ class STPInputTextField: STPFloatingPlaceholderTextField, STPFormInputValidation
 /// :nodoc:
 extension STPInputTextField: STPFormInput {
 
-    var validationState: STPValidatedInputState {
+    public var validationState: STPValidatedInputState {
         return validator.validationState
     }
 
-    var inputValue: String? {
+    public var inputValue: String? {
         return validator.inputValue
     }
 
-    func addObserver(_ validationObserver: STPFormInputValidationObserver) {
+    public func addObserver(_ validationObserver: STPFormInputValidationObserver) {
         validator.addObserver(validationObserver)
     }
 
-    func removeObserver(_ validationObserver: STPFormInputValidationObserver) {
+    public func removeObserver(_ validationObserver: STPFormInputValidationObserver) {
         validator.removeObserver(validationObserver)
     }
 

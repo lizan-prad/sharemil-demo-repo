@@ -9,10 +9,10 @@
 import UIKit
 @_spi(STP) import StripeUICore
 
-class STPCardNumberInputTextField: STPInputTextField {
+public class STPCardNumberInputTextField: STPInputTextField {
     
     /// Describes which input fields can take input
-    enum InputMode {
+    public enum InputMode {
         /// All input fields can be edited
         case standard
         // PAN field is locked, all others are editable
@@ -103,7 +103,7 @@ class STPCardNumberInputTextField: STPInputTextField {
         }
     }
 
-    override func validationDidUpdate(
+    public override func validationDidUpdate(
         to state: STPValidatedInputState, from previousState: STPValidatedInputState,
         for unformattedInput: String?, in input: STPFormInput
     ) {

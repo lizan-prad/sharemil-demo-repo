@@ -9,7 +9,7 @@
 import UIKit
 @_spi(STP) import StripeUICore
 
-class STPCardCVCInputTextField: STPInputTextField {
+public class STPCardCVCInputTextField: STPInputTextField {
 
     public var cardBrand: STPCardBrand = .unknown {
         didSet {

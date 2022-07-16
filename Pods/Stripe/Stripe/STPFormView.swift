@@ -13,7 +13,7 @@ import UIKit
  Base protocol to support manually backspacing between form inputs and
  responding to different inputs receiving/losing focus.
  */
-protocol STPFormContainer: NSObjectProtocol {
+public protocol STPFormContainer: NSObjectProtocol {
     func inputTextFieldDidBackspaceOnEmpty(_ textField: STPInputTextField)
     func inputTextFieldWillBecomeFirstResponder(_ textField: STPInputTextField)
     func inputTextFieldDidResignFirstResponder(_ textField: STPInputTextField)
@@ -32,7 +32,7 @@ protocol STPFormViewInternalDelegate: NSObjectProtocol {
 /**
  Protocol for observing the state of a specific input field within an `STPFormView`.
  */
-protocol STPFormInputValidationObserver: NSObjectProtocol {
+public protocol STPFormInputValidationObserver: NSObjectProtocol {
     func validationDidUpdate(
         to state: STPValidatedInputState,
         from previousState: STPValidatedInputState,
@@ -43,7 +43,7 @@ protocol STPFormInputValidationObserver: NSObjectProtocol {
 /**
  Protocol for various input types that may be in an `STPFormView`.
  */
-protocol STPFormInput where Self: UIView {
+public protocol STPFormInput where Self: UIView {
 
     var formContainer: STPFormContainer? { get set }
 
@@ -411,7 +411,7 @@ public class STPFormView: UIView, STPFormInputValidationObserver {
 
     // MARK: - STPInputTextFieldValidationObserver
 
-    func validationDidUpdate(
+    public func validationDidUpdate(
         to state: STPValidatedInputState, from previousState: STPValidatedInputState,
         for unformattedInput: String?, in input: STPFormInput
     ) {
@@ -451,7 +451,7 @@ public class STPFormView: UIView, STPFormInputValidationObserver {
 
 /// :nodoc:
 extension STPFormView: STPFormContainer {
-    func inputTextFieldDidBackspaceOnEmpty(_ textField: STPInputTextField) {
+    public func inputTextFieldDidBackspaceOnEmpty(_ textField: STPInputTextField) {
         guard textField == currentFirstResponderField() else {
             return
         }
@@ -466,7 +466,7 @@ extension STPFormView: STPFormContainer {
         }
     }
 
-    func inputTextFieldWillBecomeFirstResponder(_ textField: STPInputTextField) {
+    public func inputTextFieldWillBecomeFirstResponder(_ textField: STPInputTextField) {
         self.formViewInternalDelegate?.formViewWillBecomeFirstResponder(self)
         
         // Always update on become firstResponder in case some fields
@@ -484,7 +484,7 @@ extension STPFormView: STPFormContainer {
         }
     }
 
-    func inputTextFieldDidResignFirstResponder(_ textField: STPInputTextField) {
+    public func inputTextFieldDidResignFirstResponder(_ textField: STPInputTextField) {
         if let sectionView = sectionView(for: textField) {
             configureFooter(in: sectionView)
         }

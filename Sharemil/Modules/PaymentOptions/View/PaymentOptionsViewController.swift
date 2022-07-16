@@ -42,7 +42,7 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
             self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
             self.paymentSheet?.present(from: self) { paymentResult in
                 // MARK: Handle the payment result
-                switch paymentResult {
+                switch paymentResult {  
                 case .completed:
                   print("Your order is confirmed")
                 case .canceled:
@@ -65,6 +65,13 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     }
   
     @objc private func openCardView() {
-        self.viewModel.proceedPayment(cartId ?? "")
+        openCustomStripeUI()
+//        self.viewModel.proceedPayment(cartId ?? "")
+    }
+    
+    private func openCustomStripeUI() {
+        guard let nav = self.navigationController else {return}
+        let coordinator = CustomStripeCoordinator.init(navigationController: nav)
+        coordinator.start()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum STPValidatedInputState {
+public enum STPValidatedInputState {
     case unknown
     case incomplete(description: String?)
     case invalid(errorMessage: String?)

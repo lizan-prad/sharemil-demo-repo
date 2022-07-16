@@ -8,7 +8,7 @@
 
 import UIKit
 
-class STPCardExpiryInputTextField: STPInputTextField {
+public class STPCardExpiryInputTextField: STPInputTextField {
 
     public var expiryStrings: (month: String, year: String)? {
         return (validator as! STPCardExpiryInputTextFieldValidator).expiryStrings

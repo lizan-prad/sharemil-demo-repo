@@ -452,7 +452,7 @@ public class STPCardFormView: STPFormView {
         return super.shouldAutoAdvance(for: input, with: validationState, from: previousState)
     }
     
-    override func validationDidUpdate(
+    public override func validationDidUpdate(
         to state: STPValidatedInputState, from previousState: STPValidatedInputState,
         for unformattedInput: String?, in input: STPFormInput
     ) {
@@ -694,7 +694,7 @@ extension STPCardFormView {
 
 extension STPCardFormView {
 
-    struct PrefillDetails {
+    public struct PrefillDetails {
         let last4: String
         let expiryMonth: Int
         let expiryYear: Int
