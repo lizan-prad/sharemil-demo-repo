@@ -60,10 +60,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Zek-kL-fbP"/>
             <connections>
-                <outlet property="itemName" destination="jpD-LP-hDw" id="F9O-kX-gf8"/>
                 <outlet property="itemNamee" destination="jpD-LP-hDw" id="pA3-Jg-dmX"/>
                 <outlet property="itemQuantity" destination="bVc-uf-okF" id="aoR-aN-GaG"/>
-                <outlet property="quantityLabel" destination="bVc-uf-okF" id="WrQ-GP-fws"/>
             </connections>
             <point key="canvasLocation" x="115.94202898550725" y="116.18303571428571"/>
         </tableViewCell>

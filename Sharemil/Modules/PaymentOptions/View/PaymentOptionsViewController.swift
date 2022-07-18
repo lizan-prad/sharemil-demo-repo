@@ -7,8 +7,28 @@
 
 import UIKit
 import Stripe
+import Alamofire
 
-class PaymentOptionsViewController: UIViewController, Storyboarded {
+class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
+        print("--- created payment method with stripe ID: \(paymentMethod.stripeId)")
+
+//            // Call the previous server code to store card info with Alamofire
+//            let url = YOUR_SERVER_BASE_URL.appendingPathComponent("attach_card")
+//
+//            AF.request(url, method: .post, parameters: [
+//                "customer_id": YOUR_CUSTOMER_ID,
+//                "stripe_id": paymentMethod.stripeId
+//            ])
+
+            // Dismiss the modally presented VC
+            dismiss(animated: true, completion: nil)
+    }
+    
 
     @IBOutlet weak var addCardView: UIView!
     var viewModel: PaymentOptionsViewModel!
@@ -70,8 +90,16 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     }
     
     private func openCustomStripeUI() {
-        guard let nav = self.navigationController else {return}
-        let coordinator = CustomStripeCoordinator.init(navigationController: nav)
-        coordinator.start()
+        let config = STPPaymentConfiguration()
+        config.requiredBillingAddressFields = .full
+
+        let viewController = STPAddCardViewController(configuration: config, theme: STPTheme.defaultTheme)
+        viewController.delegate = self
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true, completion: nil)
+//        guard let nav = self.navigationController else {return}
+//        let coordinator = CustomStripeCoordinator.init(navigationController: nav)
+//        coordinator.start()
     }
 }

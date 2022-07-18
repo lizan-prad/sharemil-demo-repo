@@ -17,6 +17,7 @@ class CartDetailCoordinator: Coordinator {
     }
     
     var didCheckout: (() -> ())?
+    var didUpdate: (() -> ())?
     var cartItems: [CartItems]?
     var menuItems: [ChefMenuListModel]?
     var chef: ChefListModel?
@@ -27,6 +28,7 @@ class CartDetailCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.cartItems = cartItems
         vc.chef = chef
+        vc.didUpdate = self.didUpdate
 //        vc.menuItems = menuItems
         vc.didSelectCheckout = self.didCheckout
         return vc

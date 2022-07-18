@@ -21,6 +21,9 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var cartItems: [CartItems]?
     
     var chef: ChefListModel?
+    var cartId: String?
+    
+    var didUpdate: (() -> ())?
     
     var didSelectCheckout: (() -> ())?
     
@@ -30,6 +33,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
         setup()
         setTable()
         setupGestures()
+        self.cartId = cartItems?.first?.cartId
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +54,13 @@ class CartDetailViewController: UIViewController, Storyboarded {
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.deleteState.bind { msg in
+            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.didUpdate?()
+                self.dismiss(animated: true)
+            }
         }
         self.viewModel.cartList.bind { cart in
             self.cartItems = cart?.cart?.cartItems
@@ -126,7 +137,11 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
                 self.cartItems?.remove(at: indexPath.row)
-                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                if self.cartItems?.isEmpty ?? true {
+                    self.viewModel.deleteCart(self.cartId ?? "")
+                } else {
+                    self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                }
             }
             self.present(alert, animated: true)
         }

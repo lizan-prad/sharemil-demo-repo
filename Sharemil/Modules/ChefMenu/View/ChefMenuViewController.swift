@@ -66,6 +66,10 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         coordinator.cartItems = self.cartItems
         coordinator.menuItems = self.menuItems?.filter({self.cartItems?.map({$0.menuItemId ?? ""}).contains($0.id ?? "") ?? false})
         coordinator.chef = self.viewModel.chef
+        coordinator.didUpdate = {
+            self.viewModel.fetchCarts()
+            self.viewModel.fetchChefMenu()
+        }
         coordinator.didCheckout = { [weak self] in
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
             coordinator.cartList = self?.cartItems

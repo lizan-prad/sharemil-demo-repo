@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import Stripe
 
 class CheckoutViewController: UIViewController, Storyboarded {
 
@@ -15,7 +16,9 @@ class CheckoutViewController: UIViewController, Storyboarded {
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var paymentView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
     var viewModel: CheckoutViewModel!
+    var paymentSheet: PaymentSheet?
     
     var polylines: [GMSPath]? {
         didSet {
@@ -77,13 +80,42 @@ class CheckoutViewController: UIViewController, Storyboarded {
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadData()
         }
+        
+        self.viewModel.payment.bind { model in
+            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
+            // MARK: Create a PaymentSheet instance
+            var configuration = PaymentSheet.Configuration()
+            configuration.merchantDisplayName = "Example, Inc."
+            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
+            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+            // methods that complete payment after a delay, like SEPA Debit and Sofort.
+            configuration.allowsDelayedPaymentMethods = true
+            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
+            self.paymentSheet?.present(from: self) { paymentResult in
+                // MARK: Handle the payment result
+                switch paymentResult {
+                case .completed:
+                    self.showToastMsg("You order has been placed!", state: .success, location: .bottom)
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        self.dismiss(animated: true)
+                    }
+                case .canceled:
+                   break
+                case .failed(let error):
+                    self.showToastMsg("We are having some issues checking out!", state: .error, location: .bottom)
+                }
+              }
+        }
     }
     
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
-
+    @IBAction func placeOrderAction(_ sender: Any) {
+        self.viewModel.proceedPayment(cartItems?.first?.cartId ?? "")
+    }
+    
 }
 
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
