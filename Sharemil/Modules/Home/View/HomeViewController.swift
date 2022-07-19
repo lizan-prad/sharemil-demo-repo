@@ -8,7 +8,10 @@
 import UIKit
 import GooglePlaces
 import CoreLocation
+import FirebaseAuth
+
 var loc: LLocation?
+var isFirst = true
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var locationStack: UIStackView!
@@ -25,7 +28,16 @@ class HomeViewController: UIViewController {
         didSet {
             loc = currentLocation
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
-            viewModel.fetchChefBy(location: currentLocation!, name: "")
+            if isFirst {
+                self.showProgressHud()
+                Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+                    UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                    self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+                    isFirst = false
+                })
+            } else {
+                viewModel.fetchChefBy(location: currentLocation!, name: "")
+            }
         }
     }
     
@@ -59,8 +71,9 @@ class HomeViewController: UIViewController {
         setTableView()
         setCollectionView()
         self.viewModel = HomeViewModel()
+        self.setupLocationManager()
         bindViewModel()
-        self.viewModel.fetchChefBy(location: LLocation.init(location: nil), name: "")
+        
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
     }
     
@@ -115,7 +128,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.setupLocationManager()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

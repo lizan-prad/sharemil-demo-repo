@@ -27,13 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         GMSServices.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
         GMSPlacesClient.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
         if #available(iOS 13.0, *) {
-                    window?.overrideUserInterfaceStyle = .light
-                }
-        if UserDefaults.standard.string(forKey: StringConstants.userIDToken) != nil {
-            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
-                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-            })
+            window?.overrideUserInterfaceStyle = .light
         }
+        
         if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
             self.loadHome()
         } else {
