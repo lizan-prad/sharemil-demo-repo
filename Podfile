@@ -22,4 +22,5 @@ target 'Sharemil' do
   pod 'GoogleMaps', '6.2.1'
   pod 'GooglePlaces'
   pod 'MBRadioCheckboxButton'
+  pod 'CreditCardViewSwift', '~> 1.0'
 end

@@ -7,24 +7,20 @@
 
 import UIKit
 import Stripe
-
+import CreditCardViewSwift
 
 class CustomStripeViewController: UIViewController, Storyboarded {
 
-    @IBOutlet var cvcField: STPCardCVCInputTextField?
-    @IBOutlet var expDateField: STPCardExpiryInputTextField?
-    @IBOutlet var cardField: STPCardNumberInputTextField?
-    @IBOutlet weak var nickNameContainer: UIView!
-    @IBOutlet weak var zipCOntainer: UIView!
-    @IBOutlet weak var cvvContainer: UIView!
-    @IBOutlet weak var expDateContainer: UIView!
-    @IBOutlet weak var cardNumberCOntainer: UIView!
+    @IBOutlet weak var creditCardView: CreditCardViewSwift!
+    
     
     var viewModel: CustomStripeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,14 +28,14 @@ class CustomStripeViewController: UIViewController, Storyboarded {
     }
     
     private func setup() {
-        cvcField = STPCardCVCInputTextField.init(prefillDetails: nil)
-        expDateField = STPCardExpiryInputTextField.init(prefillDetails: nil)
-        cardField = STPCardNumberInputTextField.init(prefillDetails: nil)
-        nickNameContainer.addBorder(.black)
-        zipCOntainer.addBorder(.black)
-        cvvContainer.addBorder(.black)
-        expDateContainer.addBorder(.black)
-        cardNumberCOntainer.addBorder(.black)
+        creditCardView.delegate = self
     }
 
+}
+
+extension CustomStripeViewController: CreditCardViewSwiftDelegate {
+    func cardDataValidated(name: String, cardNumber: String, cardExpiry: String, cvvNumber: String) {
+        
+        print(cardExpiry, cardNumber, cvvNumber, name)
+    }
 }

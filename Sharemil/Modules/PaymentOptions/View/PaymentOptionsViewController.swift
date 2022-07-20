@@ -9,7 +9,19 @@ import UIKit
 import Stripe
 import Alamofire
 
-class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardViewControllerDelegate {
+class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardViewControllerDelegate, STPPaymentOptionsViewControllerDelegate {
+    func paymentOptionsViewController(_ paymentOptionsViewController: STPPaymentOptionsViewController, didFailToLoadWithError error: Error) {
+        
+    }
+    
+    func paymentOptionsViewControllerDidFinish(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
+        
+    }
+    
+    func paymentOptionsViewControllerDidCancel(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
+        
+    }
+    
     func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
         
     }
@@ -17,13 +29,20 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
         print("--- created payment method with stripe ID: \(paymentMethod.stripeId)")
 
-//            // Call the previous server code to store card info with Alamofire
-//            let url = YOUR_SERVER_BASE_URL.appendingPathComponent("attach_card")
-//
-//            AF.request(url, method: .post, parameters: [
-//                "customer_id": YOUR_CUSTOMER_ID,
-//                "stripe_id": paymentMethod.stripeId
-//            ])
+            // Call the previous server code to store card info with Alamofire
+        let url = URL.init(string: URLConfig.baseUrl)!.appendingPathComponent("attach_card")
+
+            AF.request(url, method: .post, parameters: [
+                "customer_id": model?.customer ?? "",
+                "stripe_id": paymentMethod.stripeId
+            ]).responseJSON { response in
+                switch response.result {
+                case .success(let data):
+                    print(data)
+                case .failure(let error):
+                    print(error)
+                }
+            }
 
             // Dismiss the modally presented VC
             dismiss(animated: true, completion: nil)
@@ -32,7 +51,7 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
 
     @IBOutlet weak var addCardView: UIView!
     var viewModel: PaymentOptionsViewModel!
-    
+    var model: PaymentIntentModel?
     var cartId: String?
     var paymentSheet: PaymentSheet?
     
@@ -51,26 +70,28 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
         }
         
         self.viewModel.payment.bind { model in
-            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
-            // MARK: Create a PaymentSheet instance
-            var configuration = PaymentSheet.Configuration()
-            configuration.merchantDisplayName = "Example, Inc."
-            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
-            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
-            // methods that complete payment after a delay, like SEPA Debit and Sofort.
-            configuration.allowsDelayedPaymentMethods = true
-            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
-            self.paymentSheet?.present(from: self) { paymentResult in
-                // MARK: Handle the payment result
-                switch paymentResult {  
-                case .completed:
-                  print("Your order is confirmed")
-                case .canceled:
-                  print("Canceled!")
-                case .failed(let error):
-                  print("Payment failed: \(error)")
-                }
-              }
+            self.model = model
+            self.openCustomStripeUI()
+//            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
+//            // MARK: Create a PaymentSheet instance
+//            var configuration = PaymentSheet.Configuration()
+//            configuration.merchantDisplayName = "Example, Inc."
+//            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
+//            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+//            // methods that complete payment after a delay, like SEPA Debit and Sofort.
+//            configuration.allowsDelayedPaymentMethods = true
+//            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
+//            self.paymentSheet?.present(from: self) { paymentResult in
+//                // MARK: Handle the payment result
+//                switch paymentResult {
+//                case .completed:
+//                  print("Your order is confirmed")
+//                case .canceled:
+//                  print("Canceled!")
+//                case .failed(let error):
+//                  print("Payment failed: \(error)")
+//                }
+//              }
         }
         
     }
@@ -85,21 +106,22 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
     }
   
     @objc private func openCardView() {
-        openCustomStripeUI()
+        guard let nav = self.navigationController else {return}
+                let coordinator = CustomStripeCoordinator.init(navigationController: nav)
+                coordinator.start()
 //        self.viewModel.proceedPayment(cartId ?? "")
     }
     
     private func openCustomStripeUI() {
         let config = STPPaymentConfiguration()
-        config.requiredBillingAddressFields = .full
-
+        config.requiredBillingAddressFields = .none
+//        let viewController = STPPaymentOptionsViewController.init(configuration: config, theme: .defaultTheme, customerContext: STPCustomerContext.init(keyProvider: STPCustomerEphemeralKeyProvider), delegate: self)
+        
         let viewController = STPAddCardViewController(configuration: config, theme: STPTheme.defaultTheme)
         viewController.delegate = self
 
         let navigationController = UINavigationController(rootViewController: viewController)
         present(navigationController, animated: true, completion: nil)
-//        guard let nav = self.navigationController else {return}
-//        let coordinator = CustomStripeCoordinator.init(navigationController: nav)
-//        coordinator.start()
+//
     }
 }

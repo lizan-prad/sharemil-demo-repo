@@ -1,6 +1,8 @@
 PODS:
   - Alamofire (5.6.1)
   - CountryList (1.1)
+  - CreditCardViewSwift (1.0.4):
+    - SkyFloatingLabelTextField (~> 3.0)
   - Firebase/Auth (9.1.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 9.1.0)
@@ -88,6 +90,7 @@ PODS:
   - SDWebImage (5.12.6):
     - SDWebImage/Core (= 5.12.6)
   - SDWebImage/Core (5.12.6)
+  - SkyFloatingLabelTextField (3.8.0)
   - Stripe (22.4.0):
     - Stripe/Stripe3DS2 (= 22.4.0)
     - StripeApplePay (= 22.4.0)
@@ -108,6 +111,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CountryList
+  - CreditCardViewSwift (~> 1.0)
   - Firebase/Auth
   - Firebase/Messaging
   - GoogleMaps (= 6.2.1)
@@ -127,6 +131,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CountryList
+    - CreditCardViewSwift
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -148,6 +153,7 @@ SPEC REPOS:
     - PhoneNumberKit
     - PromisesObjC
     - SDWebImage
+    - SkyFloatingLabelTextField
     - Stripe
     - StripeApplePay
     - StripeCore
@@ -158,6 +164,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   CountryList: ad58cd670c4ecab6bb014abebc12e63f619174b2
+  CreditCardViewSwift: 0d44b13e5b5851e7b89565d6a70cf456029f9881
   Firebase: 91c243d75573ac6e7c9735ec859b72bffb61347d
   FirebaseAuth: 77247e07732ec5cdb20cc58ef40ad84d2fcce847
   FirebaseCore: b7bfc258e996eada23b3666bd6b9a22ca092acb8
@@ -179,6 +186,7 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   Stripe: a925dfa9a7e51aa8f782f428abc10cb828b45a85
   StripeApplePay: 369857bafe8baf02e31b47478db1574febd2a2f3
   StripeCore: a94d2823817c97c79fce60884ab9027a2da798c1
@@ -186,6 +194,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 1cfe4b6eaff6e8c6eddced4446c432e32a3e2c27
+PODFILE CHECKSUM: e23623ef1a08222dc30604c6f16071ae28047e4e
 
 COCOAPODS: 1.11.3
