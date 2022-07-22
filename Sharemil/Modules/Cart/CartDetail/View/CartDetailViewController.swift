@@ -56,14 +56,15 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.deleteState.bind { msg in
-            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+      
                 self.didUpdate?()
                 self.dismiss(animated: true)
-            }
+//            }
         }
         self.viewModel.cartList.bind { cart in
             self.cartItems = cart?.cart?.cartItems
+            self.didUpdate?()
             self.tableView.reloadData()
         }
     }

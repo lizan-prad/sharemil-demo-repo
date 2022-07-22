@@ -84,6 +84,7 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65ABA2288992C5001860C7 /* CardManager.swift */; };
 		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
 		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
 		BE7302C5287EC87F00CC6383 /* OrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */; };
@@ -270,6 +271,7 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				BE1427142857B4EB006E5240 /* LocationManager.swift */,
 				BE1427162857B541006E5240 /* AlertServices.swift */,
 				BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */,
+				BE65ABA2288992C5001860C7 /* CardManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1690,6 +1693,7 @@
 				BE7302CA287EC89A00CC6383 /* OrderDetailsCoordinator.swift in Sources */,
 				BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */,
 				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
+				BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */,
 				BEF7EB122865CCAD002D553E /* Distance.swift in Sources */,
 				BEAF323A28755D650007F9B0 /* AccountService.swift in Sources */,
 				BE1427172857B541006E5240 /* AlertServices.swift in Sources */,
