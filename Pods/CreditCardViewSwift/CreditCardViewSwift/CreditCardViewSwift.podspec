@@ -10,6 +10,8 @@ Pod::Spec.new do |spec|
   spec.social_media_url     = "https://twitter.com/osamaazmat"
   spec.swift_version        = '5.0'
   spec.platform             = :ios, "13.4"
+
+  spec.resources = "CreditCardViewSwift/Assets/*.xcassets"
   spec.source               = { :git => "https://github.com/osamaazmat/CreditCardViewSwift.git", :tag => "1.0.3" }
   spec.source_files         = "CreditCardViewSwift/**/*"
   spec.exclude_files        = [ 'CreditCardViewSwift/**/*.xcuserstate', 'CreditCardViewSwift/**/*.plist' ]

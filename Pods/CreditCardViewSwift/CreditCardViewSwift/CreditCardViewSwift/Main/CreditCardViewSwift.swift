@@ -30,10 +30,13 @@ extension UIView {
     }
 }
 
+
 @IBDesignable public class CreditCardViewSwift: UIView {
     
     var view: UIView!
     
+    @IBOutlet weak var cardStack: UIView!
+    @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var nameOnCardTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var cardNumberTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var cardExpirationTextField: SkyFloatingLabelTextField!
@@ -95,7 +98,7 @@ extension UIView {
         
         cardNumberTextField.delegate = self
         cardExpirationTextField.delegate = self
-        
+        cardStack.isHidden = true
         nickNameContainer.addBorder(.black)
         zipCOntainer.addBorder(.black)
         cvvContainer.addBorder(.black)
@@ -131,12 +134,46 @@ extension UIView {
         super.awakeFromNib()
     }
     
+    public static var visaIcon: UIImage {
+        let bundle = Bundle(for: self)
+        return UIImage(named: "visa", in: bundle, compatibleWith: nil)!
+    }
+    
+    public static var masterIcon: UIImage {
+        let bundle = Bundle(for: self)
+        return UIImage(named: "mastercard", in: bundle, compatibleWith: nil)!
+    }
+    
+    public static var americanIcon: UIImage {
+        let bundle = Bundle(for: self)
+        return UIImage(named: "american-express", in: bundle, compatibleWith: nil)!
+    }
+    
+    public static var discoverIcon: UIImage {
+        let bundle = Bundle(for: self)
+        return UIImage(named: "discover", in: bundle, compatibleWith: nil)!
+    }
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == 1 {
             self.nameOnCard = textField.text!
         }
         else if textField.tag == 2 {
             self.cardNumber = textField.text!
+            self.cardStack.isHidden = CardManager.getCardType(textField.text ?? "") == "nil"
+            switch CardManager.getCardType(textField.text ?? "") {
+            case "visa":
+                self.cardImage.image = CreditCardViewSwift.visaIcon
+            case "mastercard":
+                self.cardImage.image = CreditCardViewSwift.masterIcon
+            case "discover":
+                self.cardImage.image = CreditCardViewSwift.discoverIcon
+            case "american-express":
+                self.cardImage.image = CreditCardViewSwift.americanIcon
+            default:
+                break
+            }
+            
         }
         else if textField.tag == 3 {
             self.cardExpiry = textField.text!

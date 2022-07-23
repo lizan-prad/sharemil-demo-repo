@@ -84,6 +84,16 @@
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
 		BE4CDDF428534F97006AB129 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF328534F97006AB129 /* GoogleSignIn */; };
 		BE4CDDF628534F97006AB129 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BE4CDDF528534F97006AB129 /* GoogleSignInSwift */; };
+		BE5B69E4288C7B88008CC57F /* Checks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DA288C7B87008CC57F /* Checks.swift */; };
+		BE5B69E5288C7B88008CC57F /* StripeCardModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DB288C7B87008CC57F /* StripeCardModelContainer.swift */; };
+		BE5B69E6288C7B88008CC57F /* StripePaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DC288C7B87008CC57F /* StripePaymentMethod.swift */; };
+		BE5B69E7288C7B88008CC57F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DD288C7B87008CC57F /* Address.swift */; };
+		BE5B69E8288C7B88008CC57F /* Billing_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DE288C7B87008CC57F /* Billing_details.swift */; };
+		BE5B69E9288C7B88008CC57F /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DF288C7B87008CC57F /* Metadata.swift */; };
+		BE5B69EA288C7B88008CC57F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E0288C7B87008CC57F /* Card.swift */; };
+		BE5B69EB288C7B88008CC57F /* Three_d_secure_usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */; };
+		BE5B69EC288C7B88008CC57F /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E2288C7B88008CC57F /* Networks.swift */; };
+		BE5B69ED288C7B88008CC57F /* PaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */; };
 		BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65ABA2288992C5001860C7 /* CardManager.swift */; };
 		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
 		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
@@ -271,7 +281,17 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
-		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		BE5B69DA288C7B87008CC57F /* Checks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checks.swift; sourceTree = "<group>"; };
+		BE5B69DB288C7B87008CC57F /* StripeCardModelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeCardModelContainer.swift; sourceTree = "<group>"; };
+		BE5B69DC288C7B87008CC57F /* StripePaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripePaymentMethod.swift; sourceTree = "<group>"; };
+		BE5B69DD288C7B87008CC57F /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		BE5B69DE288C7B87008CC57F /* Billing_details.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Billing_details.swift; sourceTree = "<group>"; };
+		BE5B69DF288C7B87008CC57F /* Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		BE5B69E0288C7B87008CC57F /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Three_d_secure_usage.swift; sourceTree = "<group>"; };
+		BE5B69E2288C7B88008CC57F /* Networks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
+		BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethods.swift; sourceTree = "<group>"; };
+		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../Pods/CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
 		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		BE7302C4287EC87F00CC6383 /* OrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -843,6 +863,23 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		BE5B69D9288C7B3E008CC57F /* StripeCard */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B69DD288C7B87008CC57F /* Address.swift */,
+				BE5B69DE288C7B87008CC57F /* Billing_details.swift */,
+				BE5B69E0288C7B87008CC57F /* Card.swift */,
+				BE5B69DA288C7B87008CC57F /* Checks.swift */,
+				BE5B69DF288C7B87008CC57F /* Metadata.swift */,
+				BE5B69E2288C7B88008CC57F /* Networks.swift */,
+				BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */,
+				BE5B69DB288C7B87008CC57F /* StripeCardModelContainer.swift */,
+				BE5B69DC288C7B87008CC57F /* StripePaymentMethod.swift */,
+				BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */,
+			);
+			path = StripeCard;
+			sourceTree = "<group>";
+		};
 		BE7302BD287EC7FF00CC6383 /* OrderDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1232,6 +1269,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE5B69D9288C7B3E008CC57F /* StripeCard */,
 				BE118337287C8C660073970B /* MyLocation */,
 				BEAF3244287566B10007F9B0 /* Account */,
 				BEAF322528740DB40007F9B0 /* Orders */,
@@ -1611,8 +1649,10 @@
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,
+				BE5B69E5288C7B88008CC57F /* StripeCardModelContainer.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
+				BE5B69EA288C7B88008CC57F /* Card.swift in Sources */,
 				BEAF321F287408570007F9B0 /* OrdersTableViewCell.swift in Sources */,
 				BE2954D4286E442A0048E9DD /* PaymentOptionsService.swift in Sources */,
 				BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */,
@@ -1659,6 +1699,7 @@
 				BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */,
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
 				BEAF322E28754E8B0007F9B0 /* EditAccountViewController.swift in Sources */,
+				BE5B69E4288C7B88008CC57F /* Checks.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
 				BE118335287C893A0073970B /* MyLocationService.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
@@ -1673,9 +1714,11 @@
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BEF7EAD5286478DC002D553E /* CartDetailCoordinator.swift in Sources */,
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
+				BE5B69E6288C7B88008CC57F /* StripePaymentMethod.swift in Sources */,
 				BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */,
 				BEAF322928740DCA0007F9B0 /* OrdersContainerModel.swift in Sources */,
 				BEF7EAF62865B03D002D553E /* CheckoutViewController.swift in Sources */,
+				BE5B69ED288C7B88008CC57F /* PaymentMethods.swift in Sources */,
 				BE7302DC287FF1F000CC6383 /* ConfirmationViewController.swift in Sources */,
 				BE4CDDE7285345DF006AB129 /* CartViewController.swift in Sources */,
 				BE11833B287C8C800073970B /* MyLocationModel.swift in Sources */,
@@ -1703,16 +1746,20 @@
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
+				BE5B69EB288C7B88008CC57F /* Three_d_secure_usage.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BE5B69E7288C7B88008CC57F /* Address.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,
+				BE5B69EC288C7B88008CC57F /* Networks.swift in Sources */,
 				BE73033F288348ED00CC6383 /* CustomStripeViewModel.swift in Sources */,
 				BEF7EADE28647982002D553E /* CartDetailTableViewCell.swift in Sources */,
 				BEAF32182874072D0007F9B0 /* OrdersViewModel.swift in Sources */,
 				BEF7EAEB2865AFD3002D553E /* CheckoutMapTableViewCell.swift in Sources */,
 				BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */,
 				BEF7EAF92865B04D002D553E /* CheckoutViewModel.swift in Sources */,
+				BE5B69E8288C7B88008CC57F /* Billing_details.swift in Sources */,
 				BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */,
 				BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */,
 				52A423EA28512EB5007549BB /* ColorConfig.swift in Sources */,
@@ -1724,6 +1771,7 @@
 				BE11832D287C865C0073970B /* SaveLocationService.swift in Sources */,
 				BE7302CE287ED8BF00CC6383 /* OrderDetailMapTableViewCell.swift in Sources */,
 				BEAF322328740AAD0007F9B0 /* OrdersHeaderTableViewCell.swift in Sources */,
+				BE5B69E9288C7B88008CC57F /* Metadata.swift in Sources */,
 				BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */,
 				BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */,
 				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,

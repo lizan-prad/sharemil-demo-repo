@@ -44,19 +44,39 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Goe-1b-zrR"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7Z-a7-BIi" customClass="CreditCardViewSwift" customModule="CreditCardViewSwift">
                                 <rect key="frame" x="0.0" y="110.5" width="414" height="751.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2J-0D-WCY">
+                                <rect key="frame" x="24" y="776" width="366" height="56"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="DU7-k1-zaj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add card">
+                                    <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addCardAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gdL-UG-2sH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="k2J-0D-WCY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="0KU-nR-B3B"/>
                             <constraint firstItem="cNB-jp-a4b" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="0wF-Gf-Vrq"/>
                             <constraint firstItem="cNB-jp-a4b" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="2Ik-vb-Umj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lD7-KZ-TMd" secondAttribute="trailing" id="3xm-dR-U5a"/>
                             <constraint firstItem="lD7-KZ-TMd" firstAttribute="top" secondItem="r0M-fx-qGL" secondAttribute="bottom" constant="16" id="LNN-Gl-zCJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="k2J-0D-WCY" secondAttribute="trailing" constant="24" id="QNu-Rz-aS1"/>
                             <constraint firstItem="r0M-fx-qGL" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="c6L-Y5-C6F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="y7Z-a7-BIi" secondAttribute="trailing" id="k9G-9f-rw3"/>
                             <constraint firstItem="lD7-KZ-TMd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="oze-do-s4U"/>
@@ -64,9 +84,11 @@
                             <constraint firstItem="y7Z-a7-BIi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qZb-Zn-7Y3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="y7Z-a7-BIi" secondAttribute="bottom" id="smc-rK-eE0"/>
                             <constraint firstItem="y7Z-a7-BIi" firstAttribute="top" secondItem="lD7-KZ-TMd" secondAttribute="bottom" id="tDK-iN-ANj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="k2J-0D-WCY" secondAttribute="bottom" constant="30" id="tO3-02-nlR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addCard" destination="k2J-0D-WCY" id="pa5-eC-ffB"/>
                         <outlet property="creditCardView" destination="y7Z-a7-BIi" id="csv-lP-vZq"/>
                     </connections>
                 </viewController>

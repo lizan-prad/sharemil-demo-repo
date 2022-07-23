@@ -54,6 +54,11 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
     var model: PaymentIntentModel?
     var cartId: String?
     var paymentSheet: PaymentSheet?
+    var models: [PaymentMethods]? {
+        didSet {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +72,10 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        
+        self.viewModel.methods.bind { models in
+            self.models = models
         }
         
         self.viewModel.payment.bind { model in
