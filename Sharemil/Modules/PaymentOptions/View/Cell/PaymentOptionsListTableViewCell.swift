@@ -9,15 +9,17 @@ import UIKit
 
 class PaymentOptionsListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var cardNumber: UILabel!
+    @IBOutlet weak var cardImage: UIImageView!
     
+    var model: PaymentMethods? {
+        didSet {
+            cardImage.image = UIImage.init(named: "visa")
+            cardNumber.text = ((1...12).map({ _ in
+                "*"
+            }).joined() + (model?.stripePaymentMethod?.card?.last4 ?? "")).format("xxxx xxxx xxxx xxxx", oldString: ((1...12).map({ _ in
+                "*"
+            }).joined() + (model?.stripePaymentMethod?.card?.last4 ?? ""))) + " (\(model?.name ?? ""))"
+        }
+    }
 }

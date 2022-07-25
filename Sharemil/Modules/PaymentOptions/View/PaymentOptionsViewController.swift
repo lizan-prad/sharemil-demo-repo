@@ -9,61 +9,34 @@ import UIKit
 import Stripe
 import Alamofire
 
-class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardViewControllerDelegate, STPPaymentOptionsViewControllerDelegate {
-    func paymentOptionsViewController(_ paymentOptionsViewController: STPPaymentOptionsViewController, didFailToLoadWithError error: Error) {
-        
-    }
-    
-    func paymentOptionsViewControllerDidFinish(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
-        
-    }
-    
-    func paymentOptionsViewControllerDidCancel(_ paymentOptionsViewController: STPPaymentOptionsViewController) {
-        
-    }
-    
-    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
-        
-    }
-    
-    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
-        print("--- created payment method with stripe ID: \(paymentMethod.stripeId)")
-
-            // Call the previous server code to store card info with Alamofire
-        let url = URL.init(string: URLConfig.baseUrl)!.appendingPathComponent("attach_card")
-
-            AF.request(url, method: .post, parameters: [
-                "customer_id": model?.customer ?? "",
-                "stripe_id": paymentMethod.stripeId
-            ]).responseJSON { response in
-                switch response.result {
-                case .success(let data):
-                    print(data)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-
-            // Dismiss the modally presented VC
-            dismiss(animated: true, completion: nil)
-    }
+class PaymentOptionsViewController: UIViewController, Storyboarded {
     
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCardView: UIView!
     var viewModel: PaymentOptionsViewModel!
     var model: PaymentIntentModel?
     var cartId: String?
     var paymentSheet: PaymentSheet?
+    
     var models: [PaymentMethods]? {
         didSet {
-            
+            self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupTable()
         bindViewModel()
+        self.viewModel.getPaymentMethods()
+    }
+    
+    private func setupTable() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib.init(nibName: "PaymentOptionsListTableViewCell", bundle: nil), forCellReuseIdentifier: "PaymentOptionsListTableViewCell")
     }
     
     private func bindViewModel() {
@@ -126,11 +99,29 @@ class PaymentOptionsViewController: UIViewController, Storyboarded, STPAddCardVi
         config.requiredBillingAddressFields = .none
 //        let viewController = STPPaymentOptionsViewController.init(configuration: config, theme: .defaultTheme, customerContext: STPCustomerContext.init(keyProvider: STPCustomerEphemeralKeyProvider), delegate: self)
         
-        let viewController = STPAddCardViewController(configuration: config, theme: STPTheme.defaultTheme)
-        viewController.delegate = self
-
-        let navigationController = UINavigationController(rootViewController: viewController)
-        present(navigationController, animated: true, completion: nil)
+//        let viewController = STPAddCardViewController(configuration: config, theme: STPTheme.defaultTheme)
+//        viewController.delegate = self
+//
+//        let navigationController = UINavigationController(rootViewController: viewController)
+//        present(navigationController, animated: true, completion: nil)
 //
     }
+}
+
+extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentOptionsListTableViewCell") as! PaymentOptionsListTableViewCell
+        cell.model = self.models?[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
 }

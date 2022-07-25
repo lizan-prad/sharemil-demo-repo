@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -104,6 +104,7 @@
                     </view>
                     <connections>
                         <outlet property="addCardView" destination="vxG-9H-qh2" id="3Ll-h5-c2k"/>
+                        <outlet property="tableView" destination="YU2-Lk-BFC" id="aOs-61-UaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

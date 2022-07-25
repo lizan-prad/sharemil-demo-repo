@@ -94,6 +94,8 @@
 		BE5B69EB288C7B88008CC57F /* Three_d_secure_usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */; };
 		BE5B69EC288C7B88008CC57F /* Networks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E2288C7B88008CC57F /* Networks.swift */; };
 		BE5B69ED288C7B88008CC57F /* PaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */; };
+		BE5B6A19288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A17288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift */; };
+		BE5B6A1A288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A18288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib */; };
 		BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65ABA2288992C5001860C7 /* CardManager.swift */; };
 		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
 		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
@@ -291,6 +293,8 @@
 		BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Three_d_secure_usage.swift; sourceTree = "<group>"; };
 		BE5B69E2288C7B88008CC57F /* Networks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networks.swift; sourceTree = "<group>"; };
 		BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethods.swift; sourceTree = "<group>"; };
+		BE5B6A17288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsListTableViewCell.swift; sourceTree = "<group>"; };
+		BE5B6A18288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentOptionsListTableViewCell.xib; sourceTree = "<group>"; };
 		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../Pods/CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
 		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -716,6 +720,7 @@
 		BE2954CE286E43E60048E9DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE5B6A16288DE3E5008CC57F /* Cell */,
 				BE2954CA286E43D50048E9DD /* PaymentOptions.storyboard */,
 				BE2954CC286E43E00048E9DD /* PaymentOptionsViewController.swift */,
 			);
@@ -878,6 +883,15 @@
 				BE5B69E1288C7B87008CC57F /* Three_d_secure_usage.swift */,
 			);
 			path = StripeCard;
+			sourceTree = "<group>";
+		};
+		BE5B6A16288DE3E5008CC57F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B6A17288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift */,
+				BE5B6A18288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BE7302BD287EC7FF00CC6383 /* OrderDetails */ = {
@@ -1546,6 +1560,7 @@
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
 				BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */,
+				BE5B6A1A288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib in Resources */,
 				BE4CDDE5285345DA006AB129 /* Cart.storyboard in Resources */,
 				BEF7EAE528648580002D553E /* CartListTableViewCell.xib in Resources */,
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
@@ -1742,6 +1757,7 @@
 				BE1427172857B541006E5240 /* AlertServices.swift in Sources */,
 				52A423CB285119D9007549BB /* AppDelegate.swift in Sources */,
 				BE2954D1286E44050048E9DD /* PaymentOptionsViewModel.swift in Sources */,
+				BE5B6A19288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
