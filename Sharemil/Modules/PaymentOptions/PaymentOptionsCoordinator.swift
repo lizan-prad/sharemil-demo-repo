@@ -16,6 +16,7 @@ class PaymentOptionsCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    var didSelectMethod: ((PaymentMethods?) -> ())?
     var cartId: String?
     
     func start() {
@@ -23,6 +24,7 @@ class PaymentOptionsCoordinator: Coordinator {
         let viewModel = PaymentOptionsViewModel()
         vc.viewModel = viewModel
         vc.cartId = self.cartId
+        vc.didSelectMethod = self.didSelectMethod
         navigationController.pushViewController(vc, animated: true)
     }
     

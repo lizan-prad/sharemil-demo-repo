@@ -15,6 +15,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var polylines: Observable<[GMSPath]> = Observable([])
     var cartList: Observable<Cart> = Observable(nil)
     var payment: Observable<PaymentIntentModel> = Observable(nil)
+    var paymentIntent: Observable<CreatePaymentModel> = Observable(nil)
     
     func getRoute(_ origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         loading.value = true
@@ -37,6 +38,32 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
             switch result {
             case .success(let model):
                 self.cartList.value = model.data?.cart
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func createPayment(_ cartId: String, paymentMethodId: String) {
+        self.loading.value = true
+        self.createPaymentIntent(cartId, paymentMethodId: paymentMethodId, completion: { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.paymentIntent.value = model.data
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        })
+    }
+    
+    func continuePayment(_ paymentIntentId: String) {
+        self.loading.value = true
+        self.confirmPaymentIntent(paymentIntentId) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                break
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }

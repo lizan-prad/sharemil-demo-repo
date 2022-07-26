@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Confirmation Ask View Controller-->
+        <scene sceneID="wPv-Z2-1eQ">
+            <objects>
+                <viewController storyboardIdentifier="ConfirmationAskViewController" modalPresentationStyle="overFullScreen" id="LHG-P1-dd5" customClass="ConfirmationAskViewController" customModule="Sharemil" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yAa-kZ-d98">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8It-Jl-cqu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQH-yK-DuC">
+                                <rect key="frame" x="0.0" y="620" width="414" height="306"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick up?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7At-kO-15D">
+                                        <rect key="frame" x="172" y="24" width="70.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                        <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJf-Wq-0Rs">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="WZb-aa-LG6"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm that you’ll pick up this order." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNz-4C-2RT">
+                                        <rect key="frame" x="24" y="83" width="366" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-95-qPL">
+                                        <rect key="frame" x="40" y="122" width="334" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-Wo-Sw3">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="qSC-BP-PEG"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Yes, Pick Up">
+                                                    <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="yesAction:" destination="LHG-P1-dd5" eventType="touchUpInside" id="00o-Io-zXc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-Ei-eRO">
+                                                <rect key="frame" x="0.0" y="64" width="334" height="56"/>
+                                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="HQK-vi-7qn"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Go Back">
+                                                    <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="goBackAction:" destination="LHG-P1-dd5" eventType="touchUpInside" id="KCk-V1-PzV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qt3-95-qPL" secondAttribute="bottom" constant="64" id="7Rj-mO-cVC"/>
+                                    <constraint firstAttribute="trailing" secondItem="qt3-95-qPL" secondAttribute="trailing" constant="40" id="EHw-JB-gAt"/>
+                                    <constraint firstItem="qt3-95-qPL" firstAttribute="top" secondItem="oNz-4C-2RT" secondAttribute="bottom" constant="20" id="MrT-7G-oxT"/>
+                                    <constraint firstAttribute="trailing" secondItem="kJf-Wq-0Rs" secondAttribute="trailing" id="O2C-p7-Kkx"/>
+                                    <constraint firstItem="7At-kO-15D" firstAttribute="top" secondItem="RQH-yK-DuC" secondAttribute="top" constant="24" id="Tf7-yJ-3I7"/>
+                                    <constraint firstItem="oNz-4C-2RT" firstAttribute="top" secondItem="kJf-Wq-0Rs" secondAttribute="bottom" constant="22" id="Yl5-Ed-7Ii"/>
+                                    <constraint firstItem="qt3-95-qPL" firstAttribute="leading" secondItem="RQH-yK-DuC" secondAttribute="leading" constant="40" id="eoR-0X-I3l"/>
+                                    <constraint firstItem="7At-kO-15D" firstAttribute="centerX" secondItem="RQH-yK-DuC" secondAttribute="centerX" id="ilF-fX-1ig"/>
+                                    <constraint firstItem="oNz-4C-2RT" firstAttribute="leading" secondItem="RQH-yK-DuC" secondAttribute="leading" constant="24" id="oNR-mX-Ipv"/>
+                                    <constraint firstItem="kJf-Wq-0Rs" firstAttribute="top" secondItem="7At-kO-15D" secondAttribute="bottom" constant="15" id="oP6-yM-Xot"/>
+                                    <constraint firstAttribute="trailing" secondItem="oNz-4C-2RT" secondAttribute="trailing" constant="24" id="ttT-8I-X9p"/>
+                                    <constraint firstItem="kJf-Wq-0Rs" firstAttribute="leading" secondItem="RQH-yK-DuC" secondAttribute="leading" id="vMn-oz-yKI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZZt-5j-Q4S"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RQH-yK-DuC" firstAttribute="trailing" secondItem="ZZt-5j-Q4S" secondAttribute="trailing" id="IWd-3X-wPM"/>
+                            <constraint firstAttribute="bottom" secondItem="8It-Jl-cqu" secondAttribute="bottom" id="ToC-OT-T4o"/>
+                            <constraint firstItem="8It-Jl-cqu" firstAttribute="top" secondItem="yAa-kZ-d98" secondAttribute="top" id="axW-il-Kjt"/>
+                            <constraint firstAttribute="bottom" secondItem="RQH-yK-DuC" secondAttribute="bottom" constant="-30" id="kAe-va-jpf"/>
+                            <constraint firstItem="8It-Jl-cqu" firstAttribute="leading" secondItem="ZZt-5j-Q4S" secondAttribute="leading" id="s01-bD-u02"/>
+                            <constraint firstItem="RQH-yK-DuC" firstAttribute="leading" secondItem="ZZt-5j-Q4S" secondAttribute="leading" id="vBE-tU-DH8"/>
+                            <constraint firstItem="8It-Jl-cqu" firstAttribute="trailing" secondItem="ZZt-5j-Q4S" secondAttribute="trailing" id="war-Pk-MvH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chooseNetworkTitle" destination="7At-kO-15D" id="L3X-mO-LqF"/>
+                        <outlet property="container" destination="RQH-yK-DuC" id="plu-FD-kNb"/>
+                        <outlet property="margin" destination="kJf-Wq-0Rs" id="6Pn-XP-VWH"/>
+                        <outlet property="smoke" destination="8It-Jl-cqu" id="5lR-cu-jhZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5D-gH-WyX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -96,6 +96,9 @@
 		BE5B69ED288C7B88008CC57F /* PaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */; };
 		BE5B6A19288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A17288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift */; };
 		BE5B6A1A288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A18288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib */; };
+		BE5B6A1C28902469008CC57F /* CreatePaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A1B28902469008CC57F /* CreatePaymentModel.swift */; };
+		BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */; };
+		BE5B6A212890266C008CC57F /* ConfirmationAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */; };
 		BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65ABA2288992C5001860C7 /* CardManager.swift */; };
 		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
 		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
@@ -295,6 +298,9 @@
 		BE5B69E3288C7B88008CC57F /* PaymentMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethods.swift; sourceTree = "<group>"; };
 		BE5B6A17288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsListTableViewCell.swift; sourceTree = "<group>"; };
 		BE5B6A18288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentOptionsListTableViewCell.xib; sourceTree = "<group>"; };
+		BE5B6A1B28902469008CC57F /* CreatePaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentModel.swift; sourceTree = "<group>"; };
+		BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmationAsk.storyboard; sourceTree = "<group>"; };
+		BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAskViewController.swift; sourceTree = "<group>"; };
 		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../Pods/CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
 		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -894,6 +900,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		BE5B6A1D2890264B008CC57F /* ConfirmationAsk */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */,
+				BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */,
+			);
+			path = ConfirmationAsk;
+			sourceTree = "<group>";
+		};
 		BE7302BD287EC7FF00CC6383 /* OrderDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,6 +962,7 @@
 		BE7302D8287FF07A00CC6383 /* Confirmation */ = {
 			isa = PBXGroup;
 			children = (
+				BE5B6A1D2890264B008CC57F /* ConfirmationAsk */,
 				BE7302E1287FF21300CC6383 /* Service */,
 				BE7302DE287FF20100CC6383 /* ViewModel */,
 				BE7302DD287FF1F800CC6383 /* View */,
@@ -1084,6 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */,
+				BE5B6A1B28902469008CC57F /* CreatePaymentModel.swift */,
 			);
 			path = Stripe;
 			sourceTree = "<group>";
@@ -1540,6 +1557,7 @@
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
 				BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */,
+				BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
 				BE214B2C2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib in Resources */,
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
@@ -1665,6 +1683,7 @@
 				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,
 				BE5B69E5288C7B88008CC57F /* StripeCardModelContainer.swift in Sources */,
+				BE5B6A212890266C008CC57F /* ConfirmationAskViewController.swift in Sources */,
 				BE4CDDDC285342FE006AB129 /* BaseTabbarViewController.swift in Sources */,
 				BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */,
 				BE5B69EA288C7B88008CC57F /* Card.swift in Sources */,
@@ -1765,6 +1784,7 @@
 				BE5B69EB288C7B88008CC57F /* Three_d_secure_usage.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
+				BE5B6A1C28902469008CC57F /* CreatePaymentModel.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
 				BE5B69E7288C7B88008CC57F /* Address.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,

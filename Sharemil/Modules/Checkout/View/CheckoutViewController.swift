@@ -11,6 +11,8 @@ import Stripe
 
 class CheckoutViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var placeOrderBtn: UIButton!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var subTotal: UILabel!
@@ -27,6 +29,20 @@ class CheckoutViewController: UIViewController, Storyboarded {
     }
     var chef: ChefListModel?
     var cartItems: [CartItems]?
+    var paymentIntent: String? {
+        didSet {
+            self.placeOrderBtn.enable()
+        }
+    }
+    
+    var selectedPayment: PaymentMethods? {
+        didSet {
+            self.cardImage.isHidden = false
+            self.cardImage.image = UIImage.init(named: "visa")
+            self.cardLabel.text = selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted()
+            self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +50,18 @@ class CheckoutViewController: UIViewController, Storyboarded {
         bindViewModel()
         setTableView()
         self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0))
+        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+//        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
     
     private func setup() {
+        self.cardImage.isHidden = true
+        self.placeOrderBtn.disable()
         paymentView.isUserInteractionEnabled = true
         paymentView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openPaymentMethods)))
     }
@@ -51,6 +70,9 @@ class CheckoutViewController: UIViewController, Storyboarded {
         guard let nav = self.navigationController else {return}
         let coordinator = PaymentOptionsCoordinator.init(navigationController: nav)
         coordinator.cartId = self.cartItems?.first?.cartId
+        coordinator.didSelectMethod = { method in
+            self.selectedPayment = method
+        }
         coordinator.start()
     }
     
@@ -79,6 +101,10 @@ class CheckoutViewController: UIViewController, Storyboarded {
             self.placeOrderBtn.setTitle("Place order · \("$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadData()
+        }
+        
+        self.viewModel.paymentIntent.bind { model in
+            self.paymentIntent = model?.paymentIntentId
         }
         
         self.viewModel.payment.bind { model in
@@ -113,7 +139,18 @@ class CheckoutViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func placeOrderAction(_ sender: Any) {
-        self.viewModel.proceedPayment(cartItems?.first?.cartId ?? "")
+        self.openConfirmation()
+    }
+    
+    private func openConfirmation() {
+        let vc = UIStoryboard.init(name: "ConfirmationAsk", bundle: nil).instantiateViewController(withIdentifier: "ConfirmationAskViewController") as! ConfirmationAskViewController
+        vc.didApprove = {
+            self.viewModel.continuePayment(self.paymentIntent ?? "")
+        }
+        vc.didCancel = {
+            
+        }
+        self.present(vc, animated: true)
     }
     
 }

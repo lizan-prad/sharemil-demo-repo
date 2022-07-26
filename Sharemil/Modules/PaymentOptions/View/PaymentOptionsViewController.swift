@@ -25,6 +25,8 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         }
     }
     
+    var didSelectMethod: ((PaymentMethods?) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -124,4 +126,8 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
         return 50
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.didSelectMethod?(self.models?[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
+    }
 }

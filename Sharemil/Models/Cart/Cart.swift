@@ -10,6 +10,7 @@ struct Cart : Mappable {
 	var status : String?
     var cartItems: [CartItems]?
     var chef: ChefListModel?
+    var stripePaymentIntentId: String?
     
 	init?(map: Map) {
 
@@ -24,6 +25,7 @@ struct Cart : Mappable {
 		status <- map["status"]
         cartItems <- map["cartItems"]
         chef <- map["Chef"]
+        stripePaymentIntentId <- map["stripePaymentIntentId"]
 	}
 
 }

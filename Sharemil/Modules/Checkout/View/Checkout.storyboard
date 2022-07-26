@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -91,12 +91,26 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCi-ZL-5FP">
                                             <rect key="frame" x="30" y="109" width="354" height="33"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4n-hi-j3B">
-                                                    <rect key="frame" x="0.0" y="8" width="144" height="17"/>
-                                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JAM-Z3-w4L">
+                                                    <rect key="frame" x="0.0" y="1.5" width="320" height="30"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s14-qJ-YRf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="XPL-yq-mPi"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4n-hi-j3B">
+                                                            <rect key="frame" x="42" y="0.0" width="278" height="30"/>
+                                                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="bep-0t-f56"/>
+                                                    </constraints>
+                                                </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dYO-Zx-qoX">
                                                     <rect key="frame" x="336" y="9.5" width="18" height="14.5"/>
                                                     <color key="tintColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,11 +122,12 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstItem="n4n-hi-j3B" firstAttribute="leading" secondItem="qCi-ZL-5FP" secondAttribute="leading" id="8f0-Fy-TyH"/>
+                                                <constraint firstItem="JAM-Z3-w4L" firstAttribute="centerY" secondItem="qCi-ZL-5FP" secondAttribute="centerY" id="39F-Bf-MQF"/>
+                                                <constraint firstItem="dYO-Zx-qoX" firstAttribute="leading" secondItem="JAM-Z3-w4L" secondAttribute="trailing" constant="16" id="JcL-Zg-Gty"/>
                                                 <constraint firstAttribute="height" constant="33" id="auo-5B-mLL"/>
-                                                <constraint firstItem="n4n-hi-j3B" firstAttribute="centerY" secondItem="qCi-ZL-5FP" secondAttribute="centerY" id="n3J-7z-zBX"/>
                                                 <constraint firstItem="dYO-Zx-qoX" firstAttribute="centerY" secondItem="qCi-ZL-5FP" secondAttribute="centerY" id="qbD-LA-1A6"/>
                                                 <constraint firstAttribute="trailing" secondItem="dYO-Zx-qoX" secondAttribute="trailing" id="swA-7O-Rio"/>
+                                                <constraint firstItem="JAM-Z3-w4L" firstAttribute="leading" secondItem="qCi-ZL-5FP" secondAttribute="leading" id="vyD-bz-Y5r"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -180,6 +195,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardImage" destination="s14-qJ-YRf" id="bZr-5a-d2U"/>
+                        <outlet property="cardLabel" destination="n4n-hi-j3B" id="jbo-fx-3hH"/>
                         <outlet property="paymentView" destination="qCi-ZL-5FP" id="Zcd-op-wYt"/>
                         <outlet property="placeOrderBtn" destination="2Jz-Xs-lJr" id="Hfr-YS-r9J"/>
                         <outlet property="subTotal" destination="EFs-9P-6fO" id="Siy-9k-ZJi"/>

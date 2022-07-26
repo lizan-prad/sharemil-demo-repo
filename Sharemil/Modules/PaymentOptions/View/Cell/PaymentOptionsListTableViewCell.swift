@@ -15,11 +15,17 @@ class PaymentOptionsListTableViewCell: UITableViewCell {
     var model: PaymentMethods? {
         didSet {
             cardImage.image = UIImage.init(named: "visa")
-            cardNumber.text = ((1...12).map({ _ in
-                "*"
-            }).joined() + (model?.stripePaymentMethod?.card?.last4 ?? "")).format("xxxx xxxx xxxx xxxx", oldString: ((1...12).map({ _ in
-                "*"
-            }).joined() + (model?.stripePaymentMethod?.card?.last4 ?? ""))) + " (\(model?.name ?? ""))"
+            cardNumber.text =  (model?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted() ?? "") + " (\(model?.name ?? ""))"
         }
+    }
+}
+
+extension String {
+    func getCardNumberFormatted() -> String {
+        return ((1...12).map({ _ in
+            "*"
+        }).joined() + self.format("xxxx xxxx xxxx xxxx", oldString: ((1...12).map({ _ in
+            "*"
+        }).joined() + (self))))
     }
 }
