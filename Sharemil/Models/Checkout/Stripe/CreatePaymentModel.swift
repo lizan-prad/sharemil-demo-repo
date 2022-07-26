@@ -11,6 +11,7 @@ import ObjectMapper
 class CreatePaymentModel: Mappable {
     
     var paymentIntentId: String?
+    var paymentIntentIdSecret: String?
     var requireAction: Int?
     var subTotal: String?
     var tax: String?
@@ -21,7 +22,8 @@ class CreatePaymentModel: Mappable {
     }
     
     func mapping(map: Map) {
-        paymentIntentId <- map["payment_intent_client_secret"]
+        paymentIntentIdSecret <- map["payment_intent_client_secret"]
+        paymentIntentId <- map["paymentIntentId"]
         requireAction <- map["requires_action"]
         subTotal <- map["subTotal"]
         tax <- map["tax"]
