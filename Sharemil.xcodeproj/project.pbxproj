@@ -99,6 +99,13 @@
 		BE5B6A1C28902469008CC57F /* CreatePaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A1B28902469008CC57F /* CreatePaymentModel.swift */; };
 		BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */; };
 		BE5B6A212890266C008CC57F /* ConfirmationAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */; };
+		BE5B6A232890438E008CC57F /* ConfirmationAskCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A222890438E008CC57F /* ConfirmationAskCoordinator.swift */; };
+		BE5B6A2728904A47008CC57F /* ConfirmationDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A2528904A47008CC57F /* ConfirmationDetailTableViewCell.swift */; };
+		BE5B6A2828904A47008CC57F /* ConfirmationDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2628904A47008CC57F /* ConfirmationDetailTableViewCell.xib */; };
+		BE5B6A2B28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A2928904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift */; };
+		BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */; };
+		BE5B6A2F28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */; };
+		BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */; };
 		BE65ABA3288992C5001860C7 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65ABA2288992C5001860C7 /* CardManager.swift */; };
 		BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */; };
 		BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */; };
@@ -301,6 +308,13 @@
 		BE5B6A1B28902469008CC57F /* CreatePaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentModel.swift; sourceTree = "<group>"; };
 		BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmationAsk.storyboard; sourceTree = "<group>"; };
 		BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAskViewController.swift; sourceTree = "<group>"; };
+		BE5B6A222890438E008CC57F /* ConfirmationAskCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAskCoordinator.swift; sourceTree = "<group>"; };
+		BE5B6A2528904A47008CC57F /* ConfirmationDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDetailTableViewCell.swift; sourceTree = "<group>"; };
+		BE5B6A2628904A47008CC57F /* ConfirmationDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationDetailTableViewCell.xib; sourceTree = "<group>"; };
+		BE5B6A2928904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationOrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationOrderSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationSummaryListTableViewCell.swift; sourceTree = "<group>"; };
+		BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationSummaryListTableViewCell.xib; sourceTree = "<group>"; };
 		BE65ABA2288992C5001860C7 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../Pods/CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
 		BE7302BE287EC80F00CC6383 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		BE7302C0287EC81A00CC6383 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -905,8 +919,22 @@
 			children = (
 				BE5B6A1E28902659008CC57F /* ConfirmationAsk.storyboard */,
 				BE5B6A202890266C008CC57F /* ConfirmationAskViewController.swift */,
+				BE5B6A222890438E008CC57F /* ConfirmationAskCoordinator.swift */,
 			);
 			path = ConfirmationAsk;
+			sourceTree = "<group>";
+		};
+		BE5B6A2428904A30008CC57F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B6A2528904A47008CC57F /* ConfirmationDetailTableViewCell.swift */,
+				BE5B6A2628904A47008CC57F /* ConfirmationDetailTableViewCell.xib */,
+				BE5B6A2928904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift */,
+				BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */,
+				BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */,
+				BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BE7302BD287EC7FF00CC6383 /* OrderDetails */ = {
@@ -974,6 +1002,7 @@
 		BE7302DD287FF1F800CC6383 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE5B6A2428904A30008CC57F /* Cell */,
 				BE7302D9287FF14900CC6383 /* Confirmation.storyboard */,
 				BE7302DB287FF1F000CC6383 /* ConfirmationViewController.swift */,
 			);
@@ -1565,6 +1594,7 @@
 				BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */,
 				BEF7EAEC2865AFD3002D553E /* CheckoutMapTableViewCell.xib in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
+				BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */,
 				BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */,
 				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
 				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
@@ -1575,6 +1605,7 @@
 				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
+				BE5B6A2828904A47008CC57F /* ConfirmationDetailTableViewCell.xib in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
 				BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */,
@@ -1605,6 +1636,7 @@
 				BE4CDDB328530D7E006AB129 /* Inter-Light.ttf in Resources */,
 				BE4CDDB828530D7E006AB129 /* Inter-ExtraLight.ttf in Resources */,
 				BE4CDDB428530D7E006AB129 /* Inter-Thin.ttf in Resources */,
+				BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1711,6 +1743,7 @@
 				BEAF323528754ECC0007F9B0 /* EditAccountViewModel.swift in Sources */,
 				BE7302C8287EC88C00CC6383 /* OrderDetailService.swift in Sources */,
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
+				BE5B6A2728904A47008CC57F /* ConfirmationDetailTableViewCell.swift in Sources */,
 				BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
 				BEAF323E28755DD80007F9B0 /* EditAccountCoordinator.swift in Sources */,
@@ -1723,6 +1756,7 @@
 				BEF7EB42286997B4002D553E /* Cart.swift in Sources */,
 				BEF7EB142865CCAD002D553E /* Duration.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
+				BE5B6A2B28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift in Sources */,
 				BEF7EB132865CCAD002D553E /* Geocoded_waypoints.swift in Sources */,
 				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
 				BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */,
@@ -1811,7 +1845,9 @@
 				BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */,
 				BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */,
 				BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */,
+				BE5B6A2F28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift in Sources */,
 				BEF7EB102865CCAD002D553E /* Routes.swift in Sources */,
+				BE5B6A232890438E008CC57F /* ConfirmationAskCoordinator.swift in Sources */,
 				BEAF323C28755D6D0007F9B0 /* AccountViewModel.swift in Sources */,
 				BE214B382862F9FE00B26B50 /* MenuItemService.swift in Sources */,
 			);

@@ -8,10 +8,24 @@
 import Foundation
 import GoogleMaps
 
-class ConfirmationViewModel: CheckoutService {
+class ConfirmationViewModel: CheckoutService, OrdersService {
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     var polylines: Observable<[GMSPath]> = Observable([])
+    var order: Observable<OrderModel> = Observable(nil)
+    
+    func getOrder(_ id: String) {
+        loading.value = true
+        self.fetchOrder(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.order.value = model.data?.orders
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
     
     func getRoute(_ origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         loading.value = true

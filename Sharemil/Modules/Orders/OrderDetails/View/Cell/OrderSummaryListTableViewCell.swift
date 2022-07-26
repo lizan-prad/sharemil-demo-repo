@@ -9,6 +9,8 @@ import UIKit
 
 class OrderSummaryListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var separator: UIView!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemQuantity: UILabel!
     @IBOutlet weak var itemNamee: UILabel!
     
@@ -16,6 +18,7 @@ class OrderSummaryListTableViewCell: UITableViewCell {
         didSet {
             itemQuantity.text = "\(item?.quantity ?? 0)"
             itemNamee.text = item?.menuItem?.name
+            priceLabel.text = "$\((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0))"
         }
     }
     

@@ -44,6 +44,8 @@ class CheckoutViewController: UIViewController, Storyboarded {
         }
     }
     
+    var didCheckoutComplete: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -106,6 +108,18 @@ class CheckoutViewController: UIViewController, Storyboarded {
         self.viewModel.paymentIntent.bind { model in
             self.paymentIntent = model?.paymentIntentId
         }
+        self.viewModel.completeCheckout.bind { msg in
+            self.showToastMsg("Order placed!", state: .success, location: .bottom)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+                self.dismiss(animated: true) {
+                    self.didCheckoutComplete?()
+                    self.dismiss(animated: true) {
+                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CHECK"), object: msg?.id ?? "")
+                    }
+                }
+            }
+        }
+        
         
         self.viewModel.payment.bind { model in
             STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
@@ -143,14 +157,14 @@ class CheckoutViewController: UIViewController, Storyboarded {
     }
     
     private func openConfirmation() {
-        let vc = UIStoryboard.init(name: "ConfirmationAsk", bundle: nil).instantiateViewController(withIdentifier: "ConfirmationAskViewController") as! ConfirmationAskViewController
+        let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
         vc.didApprove = {
             self.viewModel.continuePayment(self.paymentIntent ?? "")
         }
         vc.didCancel = {
             
         }
-        self.present(vc, animated: true)
+        self.present(vc.getMainView(), animated: true)
     }
     
 }

@@ -20,7 +20,7 @@ class OrdersTableViewCell: UITableViewCell {
         didSet {
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
-            self.itemsPriceLabel.text = "\(2) items · $\(model?.total ?? 0)"
+            self.itemsPriceLabel.text = "\(model?.cart?.cartItems?.count ?? 0) items · $\(model?.total ?? 0)"
             self.dateStatusLabel.text = "Dec 16 · \(model?.status ?? "")"
         }
     }

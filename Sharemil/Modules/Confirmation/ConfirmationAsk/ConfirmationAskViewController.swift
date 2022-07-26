@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmationAskViewController: UIViewController {
+class ConfirmationAskViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var margin: UIView!
     @IBOutlet weak var chooseNetworkTitle: UILabel!

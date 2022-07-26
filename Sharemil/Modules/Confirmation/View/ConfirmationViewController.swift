@@ -20,7 +20,15 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         }
     }
     
-    var model: OrderModel?
+    var id: String?
+    var location: LLocation?
+    
+    var model: OrderModel? {
+        didSet {
+            self.viewModel.getRoute(location?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: model?.cart?.chef?.latitude ?? 0, longitude: model?.cart?.chef?.longitude ?? 0))
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +39,15 @@ class ConfirmationViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.viewModel.getRoute(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init())
+        self.viewModel.getOrder(id ?? "")
     }
     
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(UINib.init(nibName: "OrderDetailMapTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailMapTableViewCell")
-        tableView.register(UINib.init(nibName: "OrderDetailSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailSummaryTableViewCell")
+        tableView.register(UINib.init(nibName: "ConfirmationDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmationDetailTableViewCell")
+        tableView.register(UINib.init(nibName: "ConfirmationOrderSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmationOrderSummaryTableViewCell")
         
     }
     
@@ -52,6 +60,9 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.order.bind { order in
+            self.model = order
         }
     }
     
@@ -69,15 +80,16 @@ extension ConfirmationViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailMapTableViewCell") as! OrderDetailMapTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmationDetailTableViewCell") as! ConfirmationDetailTableViewCell
             cell.setup()
             cell.model = self.model
+            cell.chef = self.model?.cart?.chef
             cell.polylines = self.polylines
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailSummaryTableViewCell") as! OrderDetailSummaryTableViewCell
-            cell.setTable()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmationOrderSummaryTableViewCell") as! ConfirmationOrderSummaryTableViewCell
             cell.cartItems = self.model?.cart?.cartItems
+            cell.setTable()
             return cell
         default: return UITableViewCell()
         }

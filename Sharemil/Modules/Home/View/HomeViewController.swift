@@ -73,7 +73,6 @@ class HomeViewController: UIViewController {
         self.viewModel = HomeViewModel()
         self.setupLocationManager()
         bindViewModel()
-        
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
     }
     
@@ -93,6 +92,14 @@ class HomeViewController: UIViewController {
         shadow.setStandardBoldShadow()
         shadow.rounded()
         setupLocationView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didGetCheckoutEvent(_:)), name: Notification.Name.init(rawValue: "CHECK"), object: nil)
+    }
+    
+    @objc func didGetCheckoutEvent(_ sender: Notification) {
+        let coordinator = ConfirmationCoordinator.init(navigationController: UINavigationController())
+        coordinator.orderId = sender.object as? String
+        coordinator.location = self.currentLocation
+        self.present(coordinator.getMainView(), animated: true)
     }
     
     private func setupLocationView() {

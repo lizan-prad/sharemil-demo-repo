@@ -35,6 +35,8 @@ class EditAccountViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bindViewModel()
+        self.viewModel.fetchUserProfile()
     }
     
     private func setup() {

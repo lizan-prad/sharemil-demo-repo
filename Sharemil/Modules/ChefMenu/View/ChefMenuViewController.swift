@@ -74,6 +74,9 @@ class ChefMenuViewController: UIViewController, Storyboarded {
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
             coordinator.cartList = self?.cartItems
             coordinator.chef = self?.viewModel.chef
+            coordinator.didCheckoutComplete = {
+                self?.navigationController?.popViewController(animated: true)
+            }
             let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
             nav.modalPresentationStyle = .overFullScreen
             self?.present(nav, animated: true)

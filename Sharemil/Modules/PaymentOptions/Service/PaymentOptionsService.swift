@@ -13,7 +13,7 @@ protocol PaymentOptionsService {
     
     func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, Error>) -> ())
     
-    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<PaymentIntentModel, Error>) -> ())
+    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
 }
 
 extension PaymentOptionsService {
@@ -36,8 +36,8 @@ extension PaymentOptionsService {
         }
     }
     
-    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<PaymentIntentModel, Error>) -> ()) {
-        NetworkManager.shared.request(PaymentIntentModel.self, urlExt: "payment/intents/\(paymentIntentId)/confirm", method: .post, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
+    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ()) {
+        NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "payment/intents/\(paymentIntentId)/confirm", method: .post, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }
     }

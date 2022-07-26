@@ -16,6 +16,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var cartList: Observable<Cart> = Observable(nil)
     var payment: Observable<PaymentIntentModel> = Observable(nil)
     var paymentIntent: Observable<CreatePaymentModel> = Observable(nil)
+    var completeCheckout: Observable<OrderModel> = Observable(nil)
     
     func getRoute(_ origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         loading.value = true
@@ -63,7 +64,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
             self.loading.value = false
             switch result {
             case .success(let model):
-                break
+                self.completeCheckout.value = model.data?.orders
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }

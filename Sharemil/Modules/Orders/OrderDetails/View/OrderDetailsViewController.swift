@@ -15,12 +15,6 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
    
     var viewModel: OrderDetailsViewModel!
     
-    var polylines: [GMSPath]? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    
     var model: OrderModel?
     
     override func viewDidLoad() {
@@ -32,22 +26,17 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: Double(model?.cart?.chef?.latitude ?? 0), longitude: Double(model?.cart?.chef?.longitude ?? 0)))
     }
     
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.register(UINib.init(nibName: "OrderDetailMapTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailMapTableViewCell")
         tableView.register(UINib.init(nibName: "OrderDetailSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailSummaryTableViewCell")
         
     }
     
     private func bindViewModel() {
-        viewModel.polylines.bind { polylines in
-            self.polylines = polylines
-        }
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
@@ -71,16 +60,12 @@ extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailMapTableViewCell") as! OrderDetailMapTableViewCell
-            
             cell.model = self.model
-            cell.chef = self.model?.cart?.chef
-            cell.setup()
-            cell.polylines = self.polylines
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailSummaryTableViewCell") as! OrderDetailSummaryTableViewCell
-            cell.setTable()
             cell.cartItems = self.model?.cart?.cartItems
+            cell.setTable()
             return cell
         default: return UITableViewCell()
         }

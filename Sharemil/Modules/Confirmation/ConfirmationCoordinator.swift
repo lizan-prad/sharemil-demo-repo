@@ -15,16 +15,16 @@ class ConfirmationCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    
-    var model: OrderModel?
+    var location: LLocation?
+    var orderId: String?
     
     
     func getMainView() -> ConfirmationViewController {
         let vc = ConfirmationViewController.instantiate()
         let viewModel = ConfirmationViewModel()
         vc.viewModel = viewModel
-        vc.model = model
-
+        vc.id = orderId
+        vc.location = self.location
         return vc
     }
     

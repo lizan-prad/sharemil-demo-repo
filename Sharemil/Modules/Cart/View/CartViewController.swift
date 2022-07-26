@@ -82,6 +82,9 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
             coordinator.cartList = self.carts?[indexPath.row].cartItems
             coordinator.chef = self.carts?.first?.chef
+            coordinator.didCheckoutComplete = {
+                self.viewModel.fetchCarts()
+            }
             let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
             nav.modalPresentationStyle = .overFullScreen
             self.present(nav, animated: true)

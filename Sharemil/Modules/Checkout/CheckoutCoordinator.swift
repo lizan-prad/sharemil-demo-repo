@@ -17,6 +17,7 @@ class CheckoutCoordinator: Coordinator {
     }
     var chef: ChefListModel?
     var cartList: [CartItems]?
+    var didCheckoutComplete: (() -> ())?
     
     func start() {
         let vc = CheckoutViewController.instantiate()
@@ -31,6 +32,7 @@ class CheckoutCoordinator: Coordinator {
         vc.cartItems = self.cartList
         vc.chef = self.chef
         vc.viewModel = viewModel
+        vc.didCheckoutComplete = self.didCheckoutComplete
         return vc
     }
 
