@@ -24,8 +24,6 @@ class OrdersViewController: UIViewController, Storyboarded{
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()
-        self.viewModel.fetchOrders()
-        
     }
     
     private func bindViewModel() {
@@ -36,8 +34,10 @@ class OrdersViewController: UIViewController, Storyboarded{
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.orders.bind { orders in
-            var orderList = orders
-            self.orders = orderList?.reversed()
+            self.orders = orders?.sorted(by: { a, b in
+               
+                return (a.orderNumber ?? 0) > (b.orderNumber ?? 0)
+            })
             self.getOrderStatusUpdate()
         }
     }
@@ -47,7 +47,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         super.viewWillAppear(animated)
         self.title = "Orders"
         navigationController?.navigationBar.prefersLargeTitles = true
-  
+        self.viewModel.fetchOrders()
     }
     
     private func setTableView() {
@@ -61,7 +61,7 @@ class OrdersViewController: UIViewController, Storyboarded{
     }
     
     func getOrderStatusUpdate() {
-        db.collection("orders").document(orders?[1].id ?? "").addSnapshotListener { documentSnapshot, error in
+        db.collection("orders").document(orders?.first?.id ?? "").addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
@@ -70,9 +70,39 @@ class OrdersViewController: UIViewController, Storyboarded{
                 print("Document data was empty.")
                 return
               }
-              print("Current data: \(data)")
+            if let status = data["status"] as? String {
+                self.setNotification(date: Date().addingTimeInterval(2), title: "Order Status", body: "Your order is \(status.capitalized)", id: "")
             }
+        }
     }
+    
+    func setNotification(date: Date, title: String, body: String, id: String) {
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            if #available(iOS 15.0, *) {
+                content.interruptionLevel = .critical
+            } else {
+                // Fallback on earlier versions
+            }
+            content.userInfo = ["id": id]
+            content.sound = UNNotificationSound.defaultCritical
+            let dateComponents = Calendar.current.dateComponents([.year, .day, .month,.hour, .minute], from: date)
+            
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: dateComponents, repeats: false)
+            
+            let uuidString = id
+            let request = UNNotificationRequest(identifier: uuidString,
+                                                content: content, trigger: trigger)
+            
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in
+                
+            }
+        }
     
     
 }

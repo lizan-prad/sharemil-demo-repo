@@ -77,14 +77,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            let userInfo = notification.request.content.userInfo
-            // Print message ID.
-            print("Message ID: \(userInfo["gcm.message_id"]!)")
-
-            // Print full message.
-            print("%@", userInfo)
-
+        
+        let userInfo = notification.request.content.userInfo
+        
+        switch UIApplication.shared.applicationState {
+        case .active:
+            //            print("active")
+            
+            completionHandler([.sound, .alert, .badge])
+            
+        default:
+            completionHandler([.alert, .sound, .badge])
+            
         }
+    }
+
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                didReceive response: UNNotificationResponse,
+                withCompletionHandler completionHandler:
+                   @escaping () -> Void) {
+       // Get the meeting ID from the original notification.
+       completionHandler()
+    }
+    
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//            let userInfo = notification.request.content.userInfo
+//            // Print message ID.
+//            print("Message ID: \(userInfo["gcm.message_id"]!)")
+//
+//            // Print full message.
+//            print("%@", userInfo)
+//
+//        }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken

@@ -12,7 +12,8 @@ struct OrderModel : Mappable {
 	var currency : String?
 	var status : String?
 	var cart : Cart?
-
+    var orderNumber: Int?
+    
 	init?(map: Map) {
 
 	}
@@ -28,6 +29,7 @@ struct OrderModel : Mappable {
 		currency <- map["currency"]
 		status <- map["status"]
 		cart <- map["Cart"]
+        orderNumber <- map["orderNumber"]
 	}
 
 }
