@@ -10,6 +10,6 @@ import CoreData
 
 enum URLConfig {
     
-    static let baseUrl = "https://stage.sharemil.com:443/"
+    static let baseUrl = "https://stage-chef.sharemil.com:443/"
     
 }

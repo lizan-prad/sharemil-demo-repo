@@ -13,6 +13,7 @@ target 'Sharemil' do
   pod 'Stripe'
   pod 'Firebase/Auth'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Firestore'
   pod 'PhoneNumberKit'
   pod 'CountryList'
   pod 'IQKeyboardManager'

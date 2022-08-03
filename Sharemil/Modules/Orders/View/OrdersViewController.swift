@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class OrdersViewController: UIViewController, Storyboarded{
     
@@ -24,6 +25,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         bindViewModel()
         setTableView()
         self.viewModel.fetchOrders()
+        self.getOrderStatusUpdate()
     }
     
     private func bindViewModel() {
@@ -54,6 +56,21 @@ class OrdersViewController: UIViewController, Storyboarded{
         }
         tableView.register(UINib.init(nibName: "OrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "OrdersTableViewCell")
         tableView.register(UINib.init(nibName: "OrdersHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrdersHeaderTableViewCell")
+    }
+    
+    func getOrderStatusUpdate() {
+        db.collection("orders").document("SF")
+            .addSnapshotListener { documentSnapshot, error in
+              guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+              }
+              guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+              }
+              print("Current data: \(data)")
+            }
     }
     
     

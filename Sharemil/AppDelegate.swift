@@ -12,6 +12,9 @@ import GoogleMaps
 import GooglePlaces
 import FirebaseMessaging
 import FirebaseAuth
+import FirebaseFirestore
+
+let db = Firestore.firestore()
 
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
