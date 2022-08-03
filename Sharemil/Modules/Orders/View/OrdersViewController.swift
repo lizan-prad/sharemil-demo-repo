@@ -25,7 +25,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         bindViewModel()
         setTableView()
         self.viewModel.fetchOrders()
-        self.getOrderStatusUpdate()
+        
     }
     
     private func bindViewModel() {
@@ -36,7 +36,9 @@ class OrdersViewController: UIViewController, Storyboarded{
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.orders.bind { orders in
-            self.orders = orders
+            var orderList = orders
+            self.orders = orderList?.reversed()
+            self.getOrderStatusUpdate()
         }
     }
     
@@ -59,8 +61,7 @@ class OrdersViewController: UIViewController, Storyboarded{
     }
     
     func getOrderStatusUpdate() {
-        db.collection("orders").document("SF")
-            .addSnapshotListener { documentSnapshot, error in
+        db.collection("orders").document(orders?[1].id ?? "").addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
