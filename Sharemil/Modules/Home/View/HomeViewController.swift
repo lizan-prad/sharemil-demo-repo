@@ -74,6 +74,7 @@ class HomeViewController: UIViewController {
         self.setupLocationManager()
         bindViewModel()
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
+        self.viewModel.fetchUserProfile()
     }
     
     func setupLocationManager() {
@@ -155,6 +156,11 @@ class HomeViewController: UIViewController {
         self.viewModel.cusines.bind { models in
             self.cusines = models
         }
+        
+        self.viewModel.user.bind { models in
+            UserDefaults.standard.set(models?.id ?? "", forKey: "UID")
+        }
+        
         self.viewModel.address.bind { address in
             self.address = address
             self.addressLabel.text = address?.components(separatedBy: ",").first

@@ -31,6 +31,7 @@
 		BE14271A2857B986006E5240 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1427192857B986006E5240 /* HomeService.swift */; };
 		BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14271C28585BCD006E5240 /* HomeChefTableViewCell.swift */; };
 		BE14271F28585BCD006E5240 /* HomeChefTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE14271D28585BCD006E5240 /* HomeChefTableViewCell.xib */; };
+		BE1C4656289C32AB00FAF423 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE1C4655289C32AB00FAF423 /* GoogleService-Info.plist */; };
 		BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */; };
 		BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */; };
 		BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */; };
@@ -158,7 +159,6 @@
 		BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3245287566EA0007F9B0 /* UserModel.swift */; };
 		BEAF3248287566EA0007F9B0 /* UserContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3246287566EA0007F9B0 /* UserContainerModel.swift */; };
 		BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF324B2876BAC00007F9B0 /* AccountNameViewModel.swift */; };
-		BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */; };
 		BEB13DAE285C475700F63933 /* CusineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DAD285C475700F63933 /* CusineListModel.swift */; };
 		BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB13DB0285C548F00F63933 /* MyLocation.storyboard */; };
 		BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DB4285C54AD00F63933 /* MyLocationViewController.swift */; };
@@ -242,6 +242,7 @@
 		BE1427192857B986006E5240 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		BE14271C28585BCD006E5240 /* HomeChefTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChefTableViewCell.swift; sourceTree = "<group>"; };
 		BE14271D28585BCD006E5240 /* HomeChefTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeChefTableViewCell.xib; sourceTree = "<group>"; };
+		BE1C4655289C32AB00FAF423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE214B112861ABB700B26B50 /* SaveLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationViewController.swift; sourceTree = "<group>"; };
 		BE214B132861ABBC00B26B50 /* SaveLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SaveLocation.storyboard; sourceTree = "<group>"; };
 		BE214B152861C30300B26B50 /* SaveLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationCoordinator.swift; sourceTree = "<group>"; };
@@ -367,7 +368,6 @@
 		BEAF3245287566EA0007F9B0 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BEAF3246287566EA0007F9B0 /* UserContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserContainerModel.swift; sourceTree = "<group>"; };
 		BEAF324B2876BAC00007F9B0 /* AccountNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNameViewModel.swift; sourceTree = "<group>"; };
-		BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEB13D9D285B64D900F63933 /* Sharemil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharemil.entitlements; sourceTree = "<group>"; };
 		BEB13DAD285C475700F63933 /* CusineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusineListModel.swift; sourceTree = "<group>"; };
 		BEB13DB0285C548F00F63933 /* MyLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyLocation.storyboard; sourceTree = "<group>"; };
@@ -456,7 +456,6 @@
 		52A423BE285119D9007549BB = {
 			isa = PBXGroup;
 			children = (
-				BEB13D9B285B64AE00F63933 /* GoogleService-Info.plist */,
 				52A423C9285119D9007549BB /* Sharemil */,
 				52A423C8285119D9007549BB /* Products */,
 				454E21101C2C27F66512AC9E /* Pods */,
@@ -475,6 +474,7 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
+				BE1C4655289C32AB00FAF423 /* GoogleService-Info.plist */,
 				BEB13D9D285B64D900F63933 /* Sharemil.entitlements */,
 				BEE661662858DDF1007812B2 /* Models */,
 				871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */,
@@ -1585,6 +1585,7 @@
 				BEAF322428740AAD0007F9B0 /* OrdersHeaderTableViewCell.xib in Resources */,
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
+				BE1C4656289C32AB00FAF423 /* GoogleService-Info.plist in Resources */,
 				BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */,
 				BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
@@ -1624,7 +1625,6 @@
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
 				BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
-				BEB13D9C285B64AE00F63933 /* GoogleService-Info.plist in Resources */,
 				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
 				BEAF3220287408570007F9B0 /* OrdersTableViewCell.xib in Resources */,
 				BEB13DBC285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib in Resources */,

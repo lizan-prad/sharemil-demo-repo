@@ -21,8 +21,6 @@ class FirebaseService {
                 return
             }
             UserDefaults.standard.set(verificationID ?? "", forKey: StringConstants.verificationToken)
-        
-           
             success()
         }
     }

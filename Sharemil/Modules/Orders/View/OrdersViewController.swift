@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+ import FirebaseFirestore
 
 class OrdersViewController: UIViewController, Storyboarded{
     
@@ -24,6 +24,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()
+        self.getOrderStatusUpdate()
     }
     
     private func bindViewModel() {
@@ -38,7 +39,6 @@ class OrdersViewController: UIViewController, Storyboarded{
                
                 return (a.orderNumber ?? 0) > (b.orderNumber ?? 0)
             })
-            self.getOrderStatusUpdate()
         }
     }
     
@@ -61,19 +61,27 @@ class OrdersViewController: UIViewController, Storyboarded{
     }
     
     func getOrderStatusUpdate() {
-        db.collection("orders").document(orders?.first?.id ?? "").addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-            if let status = data["status"] as? String {
-                self.setNotification(date: Date().addingTimeInterval(2), title: "Order Status", body: "Your order is \(status.capitalized)", id: "")
+        db.collection("orders").whereField("userId", isEqualTo: "\(UserDefaults.standard.string(forKey: "UID") ?? "")")
+            .addSnapshotListener { querySnapshot, error in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching snapshots: \(error!)")
+                    return
+                }
+                snapshot.documentChanges.forEach { diff in
+                    if (diff.type == .added) {
+                        print("New city: \(diff.document.data())")
+                    }
+                    if (diff.type == .modified) {
+                        guard let status = diff.document.data()["status"] as? String else {return}
+                        self.viewModel.fetchOrders()
+                        self.setNotification(date: Date().addingTimeInterval(2), title: "Order Status", body: "Your order is \(status)", id: "")
+                    }
+                    if (diff.type == .removed) {
+                        print("Removed city: \(diff.document.data())")
+                    }
+                }
+                
             }
-        }
     }
     
     func setNotification(date: Date, title: String, body: String, id: String) {
