@@ -11,6 +11,7 @@ import GoogleMaps
 
 class OrderDetailsViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var orderNo: UILabel!
     @IBOutlet weak var tableView: UITableView!
    
     var viewModel: OrderDetailsViewModel!
@@ -21,6 +22,11 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setTableView()
         bindViewModel()
+        setup()
+    }
+    
+    private func setup() {
+        self.orderNo.text = "Order #\(model?.orderNumber ?? 0)"
     }
     
     override func viewWillAppear(_ animated: Bool) {

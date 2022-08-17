@@ -15,6 +15,8 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var chefName: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     
+    var didTapDirection: (() -> ())?
+    
     var model: OrderModel? {
         didSet {
             let chef = model?.cart?.chef
@@ -49,7 +51,7 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     }
     
     @IBAction func directionAction(_ sender: Any) {
-        
+        self.didTapDirection?()
     }
     
     func setup() {

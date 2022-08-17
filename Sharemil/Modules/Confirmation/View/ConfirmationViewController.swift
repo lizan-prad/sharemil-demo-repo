@@ -85,6 +85,10 @@ extension ConfirmationViewController: UITableViewDataSource, UITableViewDelegate
             cell.model = self.model
             cell.chef = self.model?.cart?.chef
             cell.polylines = self.polylines
+            cell.didTapDirection = {
+                let coordinator = ShowDirectionCoordinator.init(navigationController: UINavigationController())
+                self.present(coordinator.getMainView(), animated: true)
+            }
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmationOrderSummaryTableViewCell") as! ConfirmationOrderSummaryTableViewCell

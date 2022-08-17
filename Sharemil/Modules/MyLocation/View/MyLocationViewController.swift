@@ -136,23 +136,6 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
         self.dismiss(animated: true)
     }
     
-//    @objc func openAutoCOmplete() {
-//        let autocompleteController = GMSAutocompleteViewController()
-//        autocompleteController.delegate = self
-//
-//        // Specify the place data types to return.
-//        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-//          UInt(GMSPlaceField.placeID.rawValue))
-//        autocompleteController.placeFields = fields
-//
-//        // Specify a filter.
-//        let filter = GMSAutocompleteFilter()
-//        filter.type = .address
-//        autocompleteController.autocompleteFilter = filter
-//        
-//        // Display the autocomplete view controller.
-//        present(autocompleteController, animated: true, completion: nil)
-//      }
 
 }
 

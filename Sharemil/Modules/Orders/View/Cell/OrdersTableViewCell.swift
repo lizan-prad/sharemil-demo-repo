@@ -21,7 +21,11 @@ class OrdersTableViewCell: UITableViewCell {
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
             self.itemsPriceLabel.text = "\(model?.cart?.cartItems?.count ?? 0) items · $\(model?.total ?? 0)"
-            self.dateStatusLabel.text = "Dec 16 · \(model?.status ?? "")"
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let orderDate = formatter.date(from: model?.createdAt ?? "")
+            formatter.dateFormat = "MMM dd"
+            self.dateStatusLabel.text = "\(formatter.string(from: orderDate ?? Date())) · \(model?.status ?? "")"
         }
     }
     

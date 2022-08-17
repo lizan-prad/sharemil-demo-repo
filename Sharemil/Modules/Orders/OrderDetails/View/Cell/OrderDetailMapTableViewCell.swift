@@ -20,6 +20,14 @@ class OrderDetailMapTableViewCell: UITableViewCell {
             let chef = model?.cart?.chef
             self.chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             self.chefImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let orderCreated = formatter.date(from: model?.createdAt ?? "")
+            formatter.dateFormat = "MMM dd, yyyy"
+            let orderD = formatter.string(from: orderCreated ?? Date())
+            formatter.dateFormat = "hh:mm a"
+            let orderTime = formatter.string(from: orderCreated ?? Date())
+            orderDate.text = "\(orderD) at \(orderTime))"
         }
     }
     

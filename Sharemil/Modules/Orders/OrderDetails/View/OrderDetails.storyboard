@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -97,6 +97,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orderNo" destination="gGR-fV-UV6" id="ZG8-d4-lPw"/>
                         <outlet property="tableView" destination="dkh-RC-6Xi" id="VrE-CW-af7"/>
                     </connections>
                 </viewController>
