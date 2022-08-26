@@ -13,6 +13,7 @@ import GooglePlaces
 import FirebaseMessaging
 import FirebaseAuth
 import FirebaseFirestore
+import Alamofire
 
 let db = Firestore.firestore()
 
@@ -117,6 +118,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
       print("Firebase registration token: \(String(describing: fcmToken))")
+        let param: [String: Any] = [
+            "token": fcmToken ?? ""
+        ]
+        NetworkManager.shared.request(BaseMappableModel<UserContainerModel>.self, urlExt: "push-notifications/token", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            
+        }
 //        UserDefaults.standard.set(fcmToken ?? "", forKey: StringConstants.userIDToken)
       let dataDict: [String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(

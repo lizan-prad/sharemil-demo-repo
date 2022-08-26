@@ -18,7 +18,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     var chef: ChefListModel? {
         didSet {
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
-            chefLocation.text = chef?.address
+            chefLocation.text = "\(chef?.address ?? ""), \(chef?.city ?? "") \(chef?.postalCode ?? ""), \(chef?.state ?? "")"
             let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
             let arrow = UIImage.init(systemName: "arrowtriangle.right.fill")
             marker.icon = arrow?.withTintColor(.red, renderingMode: .alwaysTemplate)

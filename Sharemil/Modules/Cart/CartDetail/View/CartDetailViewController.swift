@@ -56,14 +56,11 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.deleteState.bind { msg in
-//            self.showToastMsg(msg ?? "", state: .success, location: .bottom)
-      
-                self.didUpdate?()
-                self.dismiss(animated: true)
-//            }
+            self.didUpdate?()
+            self.dismiss(animated: true)
         }
         self.viewModel.cartList.bind { cart in
-            self.cartItems = cart?.cart?.cartItems
+            self.setup()
             self.didUpdate?()
             self.tableView.reloadData()
         }
@@ -150,5 +147,17 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
         
         return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
+            self.cartItems?.remove(at: indexPath.row)
+            if self.cartItems?.isEmpty ?? true {
+                self.viewModel.deleteCart(self.cartId ?? "")
+            } else {
+                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+            }
+        }
+        self.present(alert, animated: true)
     }
 }
