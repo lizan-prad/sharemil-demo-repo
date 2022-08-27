@@ -74,7 +74,7 @@ class OrdersViewController: UIViewController, Storyboarded{
                     if (diff.type == .modified) {
                         guard let status = diff.document.data()["status"] as? String else {return}
                         self.viewModel.fetchOrders()
-                        self.setNotification(date: Date().addingTimeInterval(2), title: "Order Status", body: "Your order is \(status)", id: "")
+                        self.setNotification(date: Date().addingTimeInterval(40), title: "Order Status", body: "Your order is \(status)", id: "")
                     }
                     if (diff.type == .removed) {
                         print("Removed city: \(diff.document.data())")
@@ -108,7 +108,7 @@ class OrdersViewController: UIViewController, Storyboarded{
             // Schedule the request with the system.
             let notificationCenter = UNUserNotificationCenter.current()
             notificationCenter.add(request) { (error) in
-                
+                print(error?.localizedDescription)
             }
         }
     

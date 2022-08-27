@@ -47,14 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     func registerNotification(_ application: UIApplication) {
         if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
-          UNUserNotificationCenter.current().delegate = self
-
-          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-          )
+                UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (status, error) in
+                if status {
+                        print("Permission granted. Scheduling notification")
+                    }
+            }
         } else {
           let settings: UIUserNotificationSettings =
             UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -80,17 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         let userInfo = notification.request.content.userInfo
-        
-        switch UIApplication.shared.applicationState {
-        case .active:
-            //            print("active")
-            
-            completionHandler([.sound, .alert, .badge])
-            
-        default:
-            completionHandler([.alert, .sound, .badge])
-            
-        }
+        completionHandler([.alert, .sound, .badge])
+   
     }
 
 
@@ -125,12 +114,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             
         }
 //        UserDefaults.standard.set(fcmToken ?? "", forKey: StringConstants.userIDToken)
-      let dataDict: [String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(
-        name: Notification.Name("FCMToken"),
-        object: nil,
-        userInfo: dataDict
-      )
+//      let dataDict: [String: String] = ["token": fcmToken ?? ""]
+//      NotificationCenter.default.post(
+//        name: Notification.Name("FCMToken"),
+//        object: nil,
+//        userInfo: dataDict
+//      )
       // TODO: If necessary send token to application server.
       // Note: This callback is fired at each app startup and whenever a new token is generated.
     }

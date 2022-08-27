@@ -30,7 +30,7 @@ class GoogleMapsServices {
     }
 
     func getRoutes(_ origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, completion: @escaping ([Routes]) -> ()) {
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin.latitude),\(origin.longitude)&destination=\(destination.latitude),\(destination.longitude)&mode=driving&key=AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M"
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin.latitude),\(origin.longitude)&destination=\(destination.latitude),\(destination.longitude)&mode=driving&key=AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4"
         AF.request(url).responseJSON { response in
             if let data = response.value {
                 if let model = Mapper<GoogleDirectionBaseModel>().map(JSONObject: data), let routes = model.routes {

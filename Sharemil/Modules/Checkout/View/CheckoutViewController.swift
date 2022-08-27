@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import Stripe
+import GooglePlaces
 
 class CheckoutViewController: UIViewController, Storyboarded {
 
@@ -147,6 +148,8 @@ class CheckoutViewController: UIViewController, Storyboarded {
               }
         }
     }
+    
+    
     
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true)
