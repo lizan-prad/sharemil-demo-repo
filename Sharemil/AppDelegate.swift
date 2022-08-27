@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared().isEnabled = true
         FirebaseApp.configure()
-        GMSServices.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
-        GMSPlacesClient.provideAPIKey("AIzaSyDSiFR_IXzPLoKoQnzDcPavcAGThhmW55M")
+        GMSServices.provideAPIKey("AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4")
+        GMSPlacesClient.provideAPIKey("AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4")
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }

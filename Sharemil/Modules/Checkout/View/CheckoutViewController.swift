@@ -179,10 +179,11 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
-            
-            cell.polylines = self.polylines
             cell.chef = self.chef
             cell.setup()
+            cell.polylines = self.polylines
+            
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutOrdersTableViewCell") as! CheckoutOrdersTableViewCell
