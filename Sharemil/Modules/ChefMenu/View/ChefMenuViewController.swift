@@ -98,6 +98,14 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     
     private func setupData() {
         chefNameLabel.text = "\(viewModel.chef?.firsName ?? "") \(viewModel.chef?.lastName ?? "")"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee"
+        let now = formatter.string(from: Date()).lowercased()
+        let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        formatter.dateFormat = "HH:mm:ss"
+        let date = formatter.date(from: hour?.endTime ?? "")
+        formatter.dateFormat = "hh:mm a"
+        self.chefTime.text = "Opens till \(formatter.string(from: date ?? Date()))"
     }
 
 }
