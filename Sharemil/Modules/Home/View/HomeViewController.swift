@@ -9,11 +9,15 @@ import UIKit
 import GooglePlaces
 import CoreLocation
 import FirebaseAuth
+import GoogleMaps
 
 var loc: LLocation?
 var isFirst = true
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var mapHeight: NSLayoutConstraint!
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var locationStack: UIStackView!
     @IBOutlet weak var shadow: UIView!
     @IBOutlet weak var searchContainer: UIView!
@@ -27,6 +31,8 @@ class HomeViewController: UIViewController {
     var currentLocation: LLocation? {
         didSet {
             loc = currentLocation
+            let camera = GMSCameraPosition.camera(withLatitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0, zoom: 16)
+            mapView.camera = camera
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             if isFirst {
                 self.showProgressHud()
@@ -49,6 +55,17 @@ class HomeViewController: UIViewController {
     
     var filtered: [ChefListModel]? {
         didSet {
+            filtered?.forEach({ m in
+                let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(m.latitude ?? 0), longitude: Double(m.longitude ?? 0)))
+                let arrow = UIImage.init(named: "circle-marker")?.withTintColor(UIColor.init(hex: "DA3143"))
+                marker.icon = arrow?.withTintColor(.red, renderingMode: .alwaysTemplate)
+                marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+                marker.isFlat = true
+                marker.title = m.firsName
+                marker.tit
+    //            marker.rotation = angle
+                marker.map = self.mapView
+            })
             tableView.reloadData()
         }
     }
@@ -88,12 +105,51 @@ class HomeViewController: UIViewController {
     }
     
     private func setup() {
+        self.mapHeight.constant = 0
         searchContainer.addBorder(.black)
         searchContainer.rounded()
         shadow.setStandardBoldShadow()
         shadow.rounded()
         setupLocationView()
         NotificationCenter.default.addObserver(self, selector: #selector(didGetCheckoutEvent(_:)), name: Notification.Name.init(rawValue: "CHECK"), object: nil)
+        
+        container.isUserInteractionEnabled = true
+        let swipeGestureDown = UISwipeGestureRecognizer.init(target: self, action: #selector(expandMap))
+        swipeGestureDown.direction = .down
+        self.container.addGestureRecognizer(swipeGestureDown)
+        
+        let swipeGestureUp = UISwipeGestureRecognizer.init(target: self, action: #selector(contractMap))
+        swipeGestureUp.direction = .up
+        self.container.addGestureRecognizer(swipeGestureUp)
+        
+    }
+    
+    @objc private func contractMap() {
+        UIView.animate(withDuration: 0.4) {
+            if self.mapHeight.constant == self.view.frame.height - 240 {
+                self.mapHeight.constant = self.view.frame.height/2
+            } else {
+                self.mapHeight.constant = 20
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.container.addCornerRadius(0)
+        }
+        
+    }
+    
+    @objc private func expandMap() {
+        UIView.animate(withDuration: 0.4) {
+            if self.mapHeight.constant == self.view.frame.height/2 {
+                self.mapHeight.constant = self.view.frame.height - 240
+            } else {
+                self.mapHeight.constant = self.view.frame.height/2
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.container.addCornerRadius(20)
+        }
+        
     }
     
     @objc func didGetCheckoutEvent(_ sender: Notification) {

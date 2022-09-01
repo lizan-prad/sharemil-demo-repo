@@ -9,6 +9,7 @@ import UIKit
 
 class CartDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var options: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -18,6 +19,8 @@ class CartDetailTableViewCell: UITableViewCell {
             itemName.text = item?.menuItem?.name
             quantityLabel.text = "\(item?.quantity ?? 0)"
             itemPrice.text = "$\((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0))"
+            options.isHidden = item?.options?.map({$0.choices?.first ?? ""}).joined(separator: ", ") == nil ||  item?.options?.map({$0.choices?.first ?? ""}).joined(separator: ", ") == ""
+            options.text = item?.options?.map({$0.choices?.first ?? ""}).joined(separator: ", ")
         }
     }
     
