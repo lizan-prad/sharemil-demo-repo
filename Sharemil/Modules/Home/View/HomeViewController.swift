@@ -15,6 +15,7 @@ var loc: LLocation?
 var isFirst = true
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var searchBack: UIView!
     @IBOutlet weak var mapHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var mapView: GMSMapView!
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController {
                 marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 marker.isFlat = true
                 marker.title = m.firsName
-                marker.tit
+     
     //            marker.rotation = angle
                 marker.map = self.mapView
             })
@@ -105,7 +106,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setup() {
-        self.mapHeight.constant = 0
+        self.mapHeight.constant = 90
         searchContainer.addBorder(.black)
         searchContainer.rounded()
         shadow.setStandardBoldShadow()
@@ -129,17 +130,21 @@ class HomeViewController: UIViewController {
             if self.mapHeight.constant == self.view.frame.height - 240 {
                 self.mapHeight.constant = self.view.frame.height/2
             } else {
-                self.mapHeight.constant = 20
+                self.searchBack.backgroundColor = .systemBackground
+                self.mapHeight.constant = 90
+                self.container.addBorder(UIColor.gray.withAlphaComponent(0))
+                self.container.addCornerRadius(0)
             }
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.container.addCornerRadius(0)
+            
         }
         
     }
     
     @objc private func expandMap() {
         UIView.animate(withDuration: 0.4) {
+            self.searchBack.backgroundColor = .clear
             if self.mapHeight.constant == self.view.frame.height/2 {
                 self.mapHeight.constant = self.view.frame.height - 240
             } else {
@@ -147,6 +152,7 @@ class HomeViewController: UIViewController {
             }
             self.view.layoutIfNeeded()
         } completion: { _ in
+            self.container.addBorder(UIColor.gray.withAlphaComponent(0.3))
             self.container.addCornerRadius(20)
         }
         
