@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBack: UIView!
     @IBOutlet weak var mapHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var locationStack: UIStackView!
     @IBOutlet weak var shadow: UIView!
     @IBOutlet weak var searchContainer: UIView!
@@ -29,11 +29,14 @@ class HomeViewController: UIViewController {
     
     var viewModel: HomeViewModel!
     var address: String?
+    var mapV: GMSMapView!
     var currentLocation: LLocation? {
         didSet {
             loc = currentLocation
             let camera = GMSCameraPosition.camera(withLatitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0, zoom: 16)
-            mapView.camera = camera
+            let mapID = GMSMapID(identifier: "3591bb18c5c077ef")
+            mapV = GMSMapView.init(frame: mapView.bounds, mapID: mapID, camera: camera)
+            mapView.addSubview(mapV)
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             if isFirst {
                 self.showProgressHud()
@@ -65,7 +68,7 @@ class HomeViewController: UIViewController {
                 marker.title = m.firsName
      
     //            marker.rotation = angle
-                marker.map = self.mapView
+                marker.map = self.mapV
             })
             tableView.reloadData()
         }
@@ -134,10 +137,11 @@ class HomeViewController: UIViewController {
                 self.mapHeight.constant = 90
                 self.container.addBorder(UIColor.gray.withAlphaComponent(0))
                 self.container.addCornerRadius(0)
+                
             }
             self.view.layoutIfNeeded()
         } completion: { _ in
-            
+            self.mapV.frame = self.mapView.bounds
         }
         
     }
@@ -154,6 +158,7 @@ class HomeViewController: UIViewController {
         } completion: { _ in
             self.container.addBorder(UIColor.gray.withAlphaComponent(0.3))
             self.container.addCornerRadius(20)
+            self.mapV.frame = self.mapView.bounds
         }
         
     }

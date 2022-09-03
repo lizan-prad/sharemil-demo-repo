@@ -1,0 +1,29 @@
+//
+//  MapStyle.swift
+//  Sharemil
+//
+//  Created by Lizan on 04/09/2022.
+//
+
+import Foundation
+
+[
+  {
+    "featureType": "all",
+    "stylers": [
+      { "color": "#C0C0C0" }
+    ]
+  },{
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+      { "color": "#CCFFFF" }
+    ]
+  },{
+    "featureType": "landscape",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }
+]

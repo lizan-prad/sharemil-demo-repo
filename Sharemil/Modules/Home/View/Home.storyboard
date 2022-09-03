@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSm-ef-Qll" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSm-ef-Qll">
                                 <rect key="frame" x="0.0" y="138" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="5dI-uJ-XfB"/>

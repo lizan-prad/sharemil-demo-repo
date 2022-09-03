@@ -172,6 +172,7 @@
 		BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */; };
 		BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */; };
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
+		BECB463928C400C500E48872 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = BECB463828C400C500E48872 /* MapStyle.json */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -386,6 +387,7 @@
 		BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationCoordinator.swift; sourceTree = "<group>"; };
 		BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewModel.swift; sourceTree = "<group>"; };
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
+		BECB463828C400C500E48872 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 			children = (
 				BE3A44A028B8CCD600E3E90F /* GoogleService-Info.plist */,
 				BEB13D9D285B64D900F63933 /* Sharemil.entitlements */,
+				BECB463828C400C500E48872 /* MapStyle.json */,
 				BEE661662858DDF1007812B2 /* Models */,
 				871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */,
 				BE4CDDA328530D7E006AB129 /* Inter */,
@@ -1623,6 +1626,7 @@
 				BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */,
 				BEF7EAEC2865AFD3002D553E /* CheckoutMapTableViewCell.xib in Resources */,
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
+				BECB463928C400C500E48872 /* MapStyle.json in Resources */,
 				BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */,
 				BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */,
 				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
