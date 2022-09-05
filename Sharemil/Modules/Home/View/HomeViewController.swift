@@ -41,9 +41,11 @@ class HomeViewController: UIViewController {
             if isFirst {
                 self.showProgressHud()
                 Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
-                    UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-                    self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
-                    isFirst = false
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                        self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+                        isFirst = false
+                    }
                 })
             } else {
                 viewModel.fetchChefBy(location: currentLocation!, name: "")
@@ -145,6 +147,7 @@ class HomeViewController: UIViewController {
         }
         
     }
+    
     
     @objc private func expandMap() {
         UIView.animate(withDuration: 0.4) {
