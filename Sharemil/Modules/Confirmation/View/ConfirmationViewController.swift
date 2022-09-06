@@ -10,6 +10,10 @@ import GoogleMaps
 
 class ConfirmationViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var orderStatusTitle: UILabel!
+    @IBOutlet weak var readyView: UIView!
+    @IBOutlet weak var cookingView: UIView!
+    @IBOutlet weak var processingView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ConfirmationViewModel!
@@ -25,6 +29,25 @@ class ConfirmationViewController: UIViewController, Storyboarded {
     
     var model: OrderModel? {
         didSet {
+            switch model?.status?.lowercased() ?? "" {
+            case "accepted":
+                self.orderStatusTitle.text = "Preparing your order..."
+                self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
+                
+                self.cookingView.backgroundColor = UIColor.init(hex: "EAEAEA")
+                self.readyView.backgroundColor = UIColor.init(hex: "EAEAEA")
+            case "processing":
+                self.orderStatusTitle.text = "Your order is being cooked..."
+                self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
+                self.cookingView.backgroundColor = UIColor.init(hex: "6A9962")
+                self.readyView.backgroundColor = UIColor.init(hex: "EAEAEA")
+            case "ready":
+                self.orderStatusTitle.text = "Your order is ready..."
+                self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
+                self.cookingView.backgroundColor = UIColor.init(hex: "6A9962")
+                self.readyView.backgroundColor = UIColor.init(hex: "6A9962")
+            default: break
+            }
             self.viewModel.getRoute(location?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: model?.cart?.chef?.latitude ?? 0, longitude: model?.cart?.chef?.longitude ?? 0))
             self.tableView.reloadData()
         }

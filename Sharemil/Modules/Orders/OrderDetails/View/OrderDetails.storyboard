@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -50,27 +50,47 @@
                                 <rect key="frame" x="0.0" y="112.5" width="414" height="749.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="7Ob-BN-UeM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPs-Io-M5I">
-                                            <rect key="frame" x="24" y="30" width="366" height="55"/>
-                                            <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="55" id="UeW-ZJ-Lu9"/>
-                                            </constraints>
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Get help">
-                                                <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
-                                            </buttonConfiguration>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wHI-5I-Dez">
+                                            <rect key="frame" x="24" y="30" width="366" height="126"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjA-od-6hu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="55"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="qLc-bl-kh4"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Track order">
+                                                        <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="trackAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="V1a-S8-YOq"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPs-Io-M5I">
+                                                    <rect key="frame" x="0.0" y="71" width="366" height="55"/>
+                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="UeW-ZJ-Lu9"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Get help">
+                                                        <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="EPs-Io-M5I" firstAttribute="leading" secondItem="7Ob-BN-UeM" secondAttribute="leading" constant="24" id="9sb-Ah-RQ4"/>
-                                        <constraint firstItem="EPs-Io-M5I" firstAttribute="top" secondItem="7Ob-BN-UeM" secondAttribute="top" constant="30" id="Y6f-Pg-YOq"/>
-                                        <constraint firstAttribute="trailing" secondItem="EPs-Io-M5I" secondAttribute="trailing" constant="24" id="eF7-8w-hK5"/>
+                                        <constraint firstAttribute="trailing" secondItem="wHI-5I-Dez" secondAttribute="trailing" constant="24" id="5wX-Cc-gKM"/>
+                                        <constraint firstItem="wHI-5I-Dez" firstAttribute="leading" secondItem="7Ob-BN-UeM" secondAttribute="leading" constant="24" id="FJB-7q-UnZ"/>
+                                        <constraint firstItem="wHI-5I-Dez" firstAttribute="top" secondItem="7Ob-BN-UeM" secondAttribute="top" constant="30" id="dVJ-5H-jcB"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -99,6 +119,7 @@
                     <connections>
                         <outlet property="orderNo" destination="gGR-fV-UV6" id="ZG8-d4-lPw"/>
                         <outlet property="tableView" destination="dkh-RC-6Xi" id="VrE-CW-af7"/>
+                        <outlet property="trackOrder" destination="JjA-od-6hu" id="mKo-c4-BYN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

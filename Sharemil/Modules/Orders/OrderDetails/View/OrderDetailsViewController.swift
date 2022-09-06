@@ -11,6 +11,7 @@ import GoogleMaps
 
 class OrderDetailsViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var trackOrder: UIButton!
     @IBOutlet weak var orderNo: UILabel!
     @IBOutlet weak var tableView: UITableView!
    
@@ -27,6 +28,7 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
     
     private func setup() {
         self.orderNo.text = "Order #\(model?.orderNumber ?? 0)"
+        self.trackOrder.isHidden = model?.status == "COMPLETED"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +42,13 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
         tableView.register(UINib.init(nibName: "OrderDetailMapTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailMapTableViewCell")
         tableView.register(UINib.init(nibName: "OrderDetailSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderDetailSummaryTableViewCell")
         
+    }
+    
+    @IBAction func trackAction(_ sender: Any) {
+        let coordinator = ConfirmationCoordinator.init(navigationController: UINavigationController())
+        coordinator.orderId = self.model?.id
+        coordinator.location = loc
+        self.present(coordinator.getMainView(), animated: true)
     }
     
     private func bindViewModel() {

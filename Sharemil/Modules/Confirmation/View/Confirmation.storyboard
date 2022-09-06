@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -111,6 +111,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cookingView" destination="Pr3-xE-2eC" id="UP8-61-p58"/>
+                        <outlet property="orderStatusTitle" destination="6Bb-hf-dZd" id="42c-Va-Tr8"/>
+                        <outlet property="processingView" destination="y8T-q5-YqF" id="zPT-hB-9iM"/>
+                        <outlet property="readyView" destination="DiE-Xy-hBa" id="6wK-jJ-BSx"/>
                         <outlet property="tableView" destination="tdH-K6-cbO" id="B8O-YE-tlQ"/>
                     </connections>
                 </viewController>
