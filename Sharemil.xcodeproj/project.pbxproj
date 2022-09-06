@@ -173,6 +173,7 @@
 		BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */; };
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
 		BECB463928C400C500E48872 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = BECB463828C400C500E48872 /* MapStyle.json */; };
+		BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -388,6 +389,7 @@
 		BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewModel.swift; sourceTree = "<group>"; };
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
 		BECB463828C400C500E48872 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
+		BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarControllerViewModel.swift; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -851,6 +853,7 @@
 		BE4CDDD8285342D3006AB129 /* TabbarController */ = {
 			isa = PBXGroup;
 			children = (
+				BECB463A28C7C1F700E48872 /* ViewModel */,
 				BE4CDDDD285344B2006AB129 /* View */,
 				BE4CDDE0285344D8006AB129 /* BaseTabbarCoordinator.swift */,
 			);
@@ -1348,6 +1351,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BECB463A28C7C1F700E48872 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1813,6 +1824,7 @@
 				BEF7EB162865CCAD002D553E /* Bounds.swift in Sources */,
 				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
+				BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */,
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BEF7EAD5286478DC002D553E /* CartDetailCoordinator.swift in Sources */,
 				BE727E4128ACFEA000B7C068 /* ShowDirectionViewController.swift in Sources */,

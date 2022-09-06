@@ -107,7 +107,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func searchAction(_ sender: UITextField) {
-        self.viewModel.fetchChefBy(location: LLocation.init(location: nil), name: sender.text ?? "")
+        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: sender.text ?? "")
     }
     
     private func setup() {

@@ -25,7 +25,7 @@ class CartViewController: UIViewController {
         setTableView()
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
@@ -36,6 +36,7 @@ class CartViewController: UIViewController {
             self.carts = cartItems?.carts
         }
         self.viewModel.deleteState.bind { msg in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.viewModel.fetchCarts()
         }
     }

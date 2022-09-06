@@ -129,6 +129,7 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.menuItemModel = self.menuItems?[indexPath.row]
         coordinator.cartModel = cartItems
         coordinator.didAddToCart = { model in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
 //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
             self.viewModel.fetchCarts()
 //            self.viewModel.fetchCarts(model?.cart?.id ?? "")

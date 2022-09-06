@@ -20,6 +20,7 @@ class BaseTabbarCoordinator: Coordinator {
 
     func getMainView() -> BaseTabbarViewController {
         let vc = BaseTabbarViewController.instantiate()
+        vc.viewModel = TabbarControllerViewModel()
         return vc
     }
 }

@@ -56,11 +56,13 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.deleteState.bind { msg in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.didUpdate?()
             self.dismiss(animated: true)
         }
         self.viewModel.cartList.bind { cart in
             self.setup()
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.didUpdate?()
             self.tableView.reloadData()
         }
