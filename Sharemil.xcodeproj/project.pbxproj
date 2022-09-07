@@ -174,6 +174,8 @@
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
 		BECB463928C400C500E48872 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = BECB463828C400C500E48872 /* MapStyle.json */; };
 		BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */; };
+		BECB46BC28C913A400E48872 /* MapViewChefListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */; };
+		BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -390,6 +392,8 @@
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
 		BECB463828C400C500E48872 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarControllerViewModel.swift; sourceTree = "<group>"; };
+		BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewChefListCollectionViewCell.swift; sourceTree = "<group>"; };
+		BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewChefListCollectionViewCell.xib; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -1392,6 +1396,8 @@
 			children = (
 				BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */,
 				BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */,
+				BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */,
+				BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -1646,6 +1652,7 @@
 				BEF7EAE82865AFC5002D553E /* Checkout.storyboard in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
+				BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */,
 				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
@@ -1841,6 +1848,7 @@
 				BE2954D6286E444E0048E9DD /* PaymentOptionsCoordinator.swift in Sources */,
 				BE7302E0287FF20F00CC6383 /* ConfirmationViewModel.swift in Sources */,
 				BE7302E3287FF21D00CC6383 /* ConfirmationService.swift in Sources */,
+				BECB46BC28C913A400E48872 /* MapViewChefListCollectionViewCell.swift in Sources */,
 				BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,

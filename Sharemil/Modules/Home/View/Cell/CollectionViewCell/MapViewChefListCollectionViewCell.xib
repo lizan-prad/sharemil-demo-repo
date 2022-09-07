@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MapViewChefListCollectionViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVK-fk-Cam">
+                        <rect key="frame" x="4" y="4" width="384" height="242"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NIp-kd-9yh">
+                                <rect key="frame" x="0.0" y="0.0" width="384" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="fJn-KM-ua5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg2-kg-7ev">
+                                <rect key="frame" x="16" y="204" width="352" height="20"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6t-fW-2p7">
+                                <rect key="frame" x="16" y="180" width="352" height="20"/>
+                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="i6t-fW-2p7" secondAttribute="trailing" constant="16" id="0Xk-ia-BER"/>
+                            <constraint firstAttribute="trailing" secondItem="Bg2-kg-7ev" secondAttribute="trailing" constant="16" id="Itd-5y-N9F"/>
+                            <constraint firstItem="i6t-fW-2p7" firstAttribute="top" secondItem="NIp-kd-9yh" secondAttribute="bottom" constant="10" id="LA8-iH-Ewu"/>
+                            <constraint firstItem="Bg2-kg-7ev" firstAttribute="leading" secondItem="oVK-fk-Cam" secondAttribute="leading" constant="16" id="PlY-Zv-DPr"/>
+                            <constraint firstItem="Bg2-kg-7ev" firstAttribute="top" secondItem="i6t-fW-2p7" secondAttribute="bottom" constant="4" id="ShX-xk-mel"/>
+                            <constraint firstItem="i6t-fW-2p7" firstAttribute="leading" secondItem="oVK-fk-Cam" secondAttribute="leading" constant="16" id="SzL-rY-Ub3"/>
+                            <constraint firstItem="NIp-kd-9yh" firstAttribute="leading" secondItem="oVK-fk-Cam" secondAttribute="leading" id="dCB-5g-SWK"/>
+                            <constraint firstAttribute="trailing" secondItem="NIp-kd-9yh" secondAttribute="trailing" id="mrO-RK-wXi"/>
+                            <constraint firstItem="NIp-kd-9yh" firstAttribute="top" secondItem="oVK-fk-Cam" secondAttribute="top" id="sfh-ON-TxX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="oVK-fk-Cam" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="2an-mH-ryu"/>
+                <constraint firstAttribute="bottom" secondItem="oVK-fk-Cam" secondAttribute="bottom" constant="4" id="43z-p9-KQA"/>
+                <constraint firstItem="oVK-fk-Cam" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="5fO-K1-LVV"/>
+                <constraint firstAttribute="trailing" secondItem="oVK-fk-Cam" secondAttribute="trailing" constant="4" id="CCr-cx-Lmf"/>
+            </constraints>
+            <size key="customSize" width="392" height="250"/>
+            <connections>
+                <outlet property="chefImage" destination="NIp-kd-9yh" id="W8x-dt-tzI"/>
+                <outlet property="chefName" destination="i6t-fW-2p7" id="3sS-FJ-Evm"/>
+                <outlet property="container" destination="oVK-fk-Cam" id="os9-mY-ui3"/>
+                <outlet property="openingHour" destination="Bg2-kg-7ev" id="8li-4l-p0L"/>
+            </connections>
+            <point key="canvasLocation" x="206" y="74"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -13,8 +13,11 @@ import GoogleMaps
 
 var loc: LLocation?
 var isFirst = true
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, GMSMapViewDelegate {
 
+    @IBOutlet weak var listBtn: UIButton!
+    @IBOutlet weak var mapCollectionTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mapCollectionView: UICollectionView!
     @IBOutlet weak var searchBack: UIView!
     @IBOutlet weak var mapHeight: NSLayoutConstraint!
     @IBOutlet weak var container: UIView!
@@ -36,6 +39,7 @@ class HomeViewController: UIViewController {
             let camera = GMSCameraPosition.camera(withLatitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0, zoom: 16)
             let mapID = GMSMapID(identifier: "3591bb18c5c077ef")
             mapV = GMSMapView.init(frame: mapView.bounds, mapID: mapID, camera: camera)
+            mapV.delegate = self
             mapView.addSubview(mapV)
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             if isFirst {
@@ -68,10 +72,11 @@ class HomeViewController: UIViewController {
                 marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 marker.isFlat = true
                 marker.title = m.firsName
-     
+                
     //            marker.rotation = angle
                 marker.map = self.mapV
             })
+            mapCollectionView.reloadData()
             tableView.reloadData()
         }
     }
@@ -93,6 +98,7 @@ class HomeViewController: UIViewController {
         setup()
         setTableView()
         setCollectionView()
+        setMapCollectionView()
         self.viewModel = HomeViewModel()
         self.setupLocationManager()
         bindViewModel()
@@ -100,7 +106,7 @@ class HomeViewController: UIViewController {
         self.viewModel.fetchUserProfile()
     }
     
-    func setupLocationManager() {
+    private func setupLocationManager() {
         LocationManager.shared.locationManager?.requestAlwaysAuthorization()
         LocationManager.shared.locationManager?.startUpdatingLocation()
         LocationManager.shared.delegate = self
@@ -111,6 +117,8 @@ class HomeViewController: UIViewController {
     }
     
     private func setup() {
+        self.listBtn.setStandardShadow()
+        self.listBtn.rounded()
         self.mapHeight.constant = 90
         searchContainer.addBorder(.black)
         searchContainer.rounded()
@@ -130,6 +138,32 @@ class HomeViewController: UIViewController {
         
     }
     
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        UIView.animate(withDuration: 0.4) {
+            self.mapHeight.constant = self.view.frame.height
+            self.mapCollectionTopConstraint.constant = -380
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.filtered?.enumerated().forEach({ m in
+                if m.element.firsName == marker.title {
+                    self.mapCollectionView.scrollToItem(at: IndexPath.init(row: m.offset, section: 0), at: .centeredHorizontally, animated: true)
+                }
+            })
+            self.mapV.frame = self.mapView.bounds
+        }
+        return true
+    }
+    
+    @IBAction func listAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.4) {
+            self.mapHeight.constant = self.view.frame.height/2
+            self.mapCollectionTopConstraint.constant = 80
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.mapV.frame = self.mapView.bounds
+        }
+    }
+    
     @objc private func contractMap() {
         UIView.animate(withDuration: 0.4) {
             if self.mapHeight.constant == self.view.frame.height - 240 {
@@ -139,7 +173,6 @@ class HomeViewController: UIViewController {
                 self.mapHeight.constant = 90
                 self.container.addBorder(UIColor.gray.withAlphaComponent(0))
                 self.container.addCornerRadius(0)
-                
             }
             self.view.layoutIfNeeded()
         } completion: { _ in
@@ -193,6 +226,13 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(UINib.init(nibName: "HomeChefTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeChefTableViewCell")
+    }
+    
+    private func setMapCollectionView() {
+        mapCollectionView.dataSource = self
+        mapCollectionView.delegate = self
+        
+        mapCollectionView.register(UINib.init(nibName: "MapViewChefListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MapViewChefListCollectionViewCell")
     }
     
     private func setCollectionView() {
@@ -285,10 +325,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == mapCollectionView {
+            return filtered?.count ?? 0
+        }
         return (cusines?.count ?? 0) + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == mapCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MapViewChefListCollectionViewCell", for: indexPath) as! MapViewChefListCollectionViewCell
+            cell.setup()
+            cell.model = filtered?[indexPath.row]
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCusinesCollectionViewCell", for: indexPath) as! HomeCusinesCollectionViewCell
         if indexPath.row == 0 {
             cell.cusineLabel.text = "All"
@@ -308,6 +357,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == mapCollectionView {
+            return CGSize.init(width: mapCollectionView.frame.width - 48, height: 250)
+        }
         return CGSize.init(width: 86, height: 85)
     }
 }
