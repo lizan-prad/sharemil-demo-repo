@@ -349,11 +349,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            self.filtered = self.chefs
-            return
+        if collectionView == mapCollectionView {
+            guard let nav = self.navigationController else {return}
+            let coordinator = ChefMenuCoordinator.init(navigationController: nav)
+            coordinator.chef = self.filtered?[indexPath.row]
+            coordinator.start()
+        } else {
+            if indexPath.row == 0 {
+                self.filtered = self.chefs
+                return
+            }
+            self.selectedCusine = self.cusines?[indexPath.row - 1]
         }
-        self.selectedCusine = self.cusines?[indexPath.row - 1]
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
