@@ -22,12 +22,18 @@ class CheckoutViewController: UIViewController, Storyboarded {
     
     var viewModel: CheckoutViewModel!
     var paymentSheet: PaymentSheet?
-    
+ 
     var polylines: [GMSPath]? {
         didSet {
             self.tableView.reloadData()
         }
     }
+    var scheduleType: String? {
+        didSet {
+            self.tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+        }
+    }
+    
     var chef: ChefListModel?
     var cartItems: [CartItems]?
     var paymentIntent: String? {
@@ -170,6 +176,8 @@ class CheckoutViewController: UIViewController, Storyboarded {
         self.present(vc.getMainView(), animated: true)
     }
     
+  
+    
 }
 
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
@@ -184,8 +192,13 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
             cell.chef = self.chef
             cell.setup()
+            cell.scheduleDateField.text = self.scheduleType == "standard" ? nil : scheduleType
+            cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
+            cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
             cell.polylines = self.polylines
-            
+            cell.didSelectTime = { type in
+                self.scheduleType = type
+            }
             
             return cell
         case 1:
@@ -207,7 +220,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 305
+            return 433
         case 1:
             return UITableView.automaticDimension
         default: return 0

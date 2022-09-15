@@ -10,10 +10,17 @@ import GoogleMaps
 
 class CheckoutMapTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var pickUpTime: UILabel!
+    
+    @IBOutlet weak var scheduleDateField: UITextField!
+    @IBOutlet weak var scheduleContainer: UIView!
+    @IBOutlet weak var standardContainer: UIView!
+    
     @IBOutlet weak var chefLocation: UILabel!
     @IBOutlet weak var chefName: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    
+    var selectedDate: Date?
+    var didSelectTime: ((String) -> ())?
     
     var chef: ChefListModel? {
         didSet {
@@ -42,8 +49,35 @@ class CheckoutMapTableViewCell: UITableViewCell {
         }
     }
     
-    func setup() {
+    @objc private func standardAction() {
+        didSelectTime?("standard")
+    }
+  
+    @objc private func didSelectDate(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee, MMM dd HH:mm a"
+        self.scheduleDateField.text = formatter.string(from: sender.date)
+    }
+
+    @objc private func doneButtonClicked(_ sender: Any) {
+        didSelectTime?(self.scheduleDateField.text ?? "")
+    }
     
+    func setup() {
+        
+        standardContainer.isUserInteractionEnabled = true
+        
+        standardContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(standardAction)))
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .wheels
+        picker.datePickerMode = .dateAndTime
+        picker.minuteInterval = 15
+        picker.minimumDate = Date()
+        
+        picker.maximumDate = Date().addingTimeInterval(604800)
+        picker.addTarget(self, action: #selector(didSelectDate(_:)), for: .valueChanged)
+        scheduleDateField.inputView = picker
+        scheduleDateField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
         let camera = GMSCameraPosition.camera(withLatitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0, zoom: 15)
         mapView.camera = camera
         let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0))

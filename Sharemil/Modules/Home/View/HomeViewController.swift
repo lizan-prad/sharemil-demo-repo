@@ -369,4 +369,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
         return CGSize.init(width: 86, height: 85)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == mapCollectionView {
+            return 0
+        } else {
+            return 10
+        }
+    }
 }
