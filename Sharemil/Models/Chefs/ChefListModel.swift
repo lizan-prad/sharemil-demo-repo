@@ -41,7 +41,7 @@ class ChefListModel: Mappable {
         createdAt <- map["createdAt"]
         updatedAt <- map["updatedAt"]
         isDeleted <- map["isDeleted"]
-        firsName <- map["firsName"]
+        firsName <- map["firstName"]
         lastName <- map["lastName"]
         phoneNumber <- map["phoneNumber"]
         email <- map["email"]
