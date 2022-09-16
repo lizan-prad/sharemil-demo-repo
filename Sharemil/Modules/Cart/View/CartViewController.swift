@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CartViewController: UIViewController {
 
@@ -31,6 +32,7 @@ class CartViewController: UIViewController {
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+            self.start()
         }
         self.viewModel.carts.bind { cartItems in
             self.carts = cartItems?.carts
@@ -39,6 +41,16 @@ class CartViewController: UIViewController {
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.viewModel.fetchCarts()
         }
+    }
+    
+    private func start() {
+        self.showProgressHud()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                self.viewModel.fetchCarts()
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

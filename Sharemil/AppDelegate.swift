@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-        
         if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
             self.loadHome()
         } else {
@@ -67,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         let registrationCoordinator = RegistrationCoordinator.init(navigationController: navigation)
         registrationCoordinator.start()
         window?.rootViewController = navigation
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("enter")
     }
     
     private func loadHome() {

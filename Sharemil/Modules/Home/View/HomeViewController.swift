@@ -42,18 +42,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             mapV.delegate = self
             mapView.addSubview(mapV)
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
-            if isFirst {
-                self.showProgressHud()
-                Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                        UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-                        self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
-                        isFirst = false
-                    }
-                })
-            } else {
-                viewModel.fetchChefBy(location: currentLocation!, name: "")
-            }
+            self.start()
         }
     }
     
@@ -61,6 +50,18 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         didSet {
             self.filtered = chefs
         }
+    }
+    
+    private func start() {
+        self.showProgressHud()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                self.viewModel.fetchUserProfile()
+                self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+                
+            }
+        })
     }
     
     var filtered: [ChefListModel]? {
@@ -103,7 +104,6 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         self.setupLocationManager()
         bindViewModel()
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
-        self.viewModel.fetchUserProfile()
     }
     
     private func setupLocationManager() {

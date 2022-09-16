@@ -7,6 +7,7 @@
 
 import UIKit
  import FirebaseFirestore
+import FirebaseAuth
 
 class OrdersViewController: UIViewController, Storyboarded{
     
@@ -33,6 +34,7 @@ class OrdersViewController: UIViewController, Storyboarded{
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+            self.start()
         }
         self.viewModel.orders.bind { orders in
             self.orders = orders?.sorted(by: { a, b in
@@ -40,6 +42,16 @@ class OrdersViewController: UIViewController, Storyboarded{
                 return (a.orderNumber ?? 0) > (b.orderNumber ?? 0)
             })
         }
+    }
+    
+    private func start() {
+        self.showProgressHud()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                self.viewModel.fetchOrders()
+            }
+        })
     }
     
 
@@ -74,6 +86,7 @@ class OrdersViewController: UIViewController, Storyboarded{
                     if (diff.type == .modified) {
                         guard let status = diff.document.data()["status"] as? String else {return}
                         self.viewModel.fetchOrders()
+                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
                         self.setNotification(date: Date().addingTimeInterval(40), title: "Order Status", body: "Your order is \(status)", id: "")
                     }
                     if (diff.type == .removed) {
