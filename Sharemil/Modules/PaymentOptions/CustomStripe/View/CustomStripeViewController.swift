@@ -61,6 +61,9 @@ class CustomStripeViewController: UIViewController, Storyboarded {
         }
         self.viewModel.success.bind { msg in
             self.showToastMsg(msg ?? "", state: .success, location: .bottom)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     

@@ -198,6 +198,14 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.polylines = self.polylines
             cell.didSelectTime = { type in
                 self.scheduleType = type
+                if self.scheduleType == "standard" {
+                    self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                }
+            }
+            cell.didSelectMainDate = { date in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                self.viewModel.updateToCartWith(date: formatter.string(from: date ?? Date()), self.chef?.id ?? "", cartModels: self.cartItems ?? [])
             }
             
             return cell

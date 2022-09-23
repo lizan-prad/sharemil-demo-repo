@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 
-class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService {
+class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService, MenuItemService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
@@ -35,6 +35,32 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     
     func getCart(_ id: String) {
         self.fetchCartList(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.cartList.value = model.data?.cart
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func updateToCartWith(date: String,_ chefId: String, cartModels: [CartItems]) {
+        self.loading.value = true
+        self.updateCartWith(date.components(separatedBy: " ").first ?? "", date.components(separatedBy: " ").last ?? "", chefId, cartItems: cartModels) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.cartList.value = model.data?.cart
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func updateToCart(_ chefId: String, cartModels: [CartItems]) {
+        self.loading.value = true
+        self.updateCart(chefId, cartItems: cartModels) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

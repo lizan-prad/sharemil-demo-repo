@@ -35,13 +35,11 @@ class ChefMenuViewModel: ChefMenuService, CartService {
             self.loading.value = false
             switch result {
             case .success(let model):
-                model.data?.carts?.forEach({ cart in
-                    if cart.chefId == self.chef?.id {
-                        self.fetchCarts(cart.id ?? "")
-                    } else {
-                        self.cartList.value = []
-                    }
-                })
+                if let cart = model.data?.carts?.filter({$0.chefId == self.chef?.id}).first {
+                    self.fetchCarts(cart.id ?? "")
+                } else {
+                    self.cartList.value = [CartItems]()
+                }
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }

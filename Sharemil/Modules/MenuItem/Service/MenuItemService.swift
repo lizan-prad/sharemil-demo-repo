@@ -48,11 +48,15 @@ extension MenuItemService {
                 "multipleChoice": option.multipleChoice ?? false]
     }
     
-    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+    func updateCartWith(_ date: String, _ time: String, _ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
-                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)}),
+            "pickupTime": [
+                    "date": date,
+                    "startTime": time
+                ]
             
         ]
         
@@ -60,4 +64,18 @@ extension MenuItemService {
             completion(result)
         }
     }
+    
+    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+        let param: [String: Any] = [
+            "chefId": chefId,
+            "items":
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)}),
+            "pickupTime": [String:Any]()
+        ]
+        
+        NetworkManager.shared.request(BaseMappableModel<CartListModel>.self, urlExt: "carts/\(cartItems.first?.cartId ?? "")", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
+            completion(result)
+        }
+    }
 }
+

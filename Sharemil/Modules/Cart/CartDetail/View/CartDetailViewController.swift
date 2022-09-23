@@ -57,8 +57,9 @@ class CartDetailViewController: UIViewController, Storyboarded {
         }
         self.viewModel.deleteState.bind { msg in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
-            self.didUpdate?()
-            self.dismiss(animated: true)
+            self.dismiss(animated: true) {
+                self.didUpdate?()
+            }
         }
         self.viewModel.cartList.bind { cart in
             self.setup()

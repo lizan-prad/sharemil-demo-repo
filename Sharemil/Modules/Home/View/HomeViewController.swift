@@ -258,7 +258,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+//            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.success.bind { models in
             self.chefs = models

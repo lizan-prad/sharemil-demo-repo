@@ -20,6 +20,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     @IBOutlet weak var mapView: GMSMapView!
     
     var selectedDate: Date?
+    var didSelectMainDate: ((Date?) -> ())?
     var didSelectTime: ((String) -> ())?
     
     var chef: ChefListModel? {
@@ -56,11 +57,14 @@ class CheckoutMapTableViewCell: UITableViewCell {
     @objc private func didSelectDate(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "eee, MMM dd HH:mm a"
+        self.selectedDate = sender.date
         self.scheduleDateField.text = formatter.string(from: sender.date)
     }
 
     @objc private func doneButtonClicked(_ sender: Any) {
+        didSelectMainDate?(self.selectedDate)
         didSelectTime?(self.scheduleDateField.text ?? "")
+        
     }
     
     func setup() {

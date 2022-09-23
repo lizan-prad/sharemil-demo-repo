@@ -33,7 +33,7 @@ class OrdersViewController: UIViewController, Storyboarded{
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+//            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
             self.start()
         }
         self.viewModel.orders.bind { orders in

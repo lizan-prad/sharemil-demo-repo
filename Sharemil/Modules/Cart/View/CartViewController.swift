@@ -31,7 +31,7 @@ class CartViewController: UIViewController {
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+//            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
             self.start()
         }
         self.viewModel.carts.bind { cartItems in
