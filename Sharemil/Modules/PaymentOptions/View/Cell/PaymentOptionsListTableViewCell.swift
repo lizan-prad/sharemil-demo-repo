@@ -12,11 +12,17 @@ class PaymentOptionsListTableViewCell: UITableViewCell {
     @IBOutlet weak var cardNumber: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     
+    var didSelectMenuAction: ((String?) -> ())?
+    
     var model: PaymentMethods? {
         didSet {
             cardImage.image = UIImage.init(named: model?.stripePaymentMethod?.card?.brand?.lowercased() ?? "")
             cardNumber.text =  (model?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted() ?? "") + " (\(model?.name ?? ""))"
         }
+    }
+
+    @IBAction func menuAction(_ sender: Any) {
+        self.didSelectMenuAction?(model?.id)
     }
 }
 

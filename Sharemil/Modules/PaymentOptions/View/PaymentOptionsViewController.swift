@@ -32,6 +32,10 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         setup()
         setupTable()
         bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.viewModel.getPaymentMethods()
     }
     
@@ -48,7 +52,14 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
-        
+        self.viewModel.success.bind { msg in
+            self.showToastMsg("Deleted successfully!", state: .error, location: .bottom)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.dismiss(animated: true) {
+                    self.viewModel.getPaymentMethods()
+                }
+            }
+        }
         self.viewModel.methods.bind { models in
             self.models = models
         }
@@ -119,6 +130,17 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentOptionsListTableViewCell") as! PaymentOptionsListTableViewCell
         cell.model = self.models?[indexPath.row]
+        cell.didSelectMenuAction = { id in
+            let coordinator = PaymentEditOptionCoordinator.init(navigationController: UINavigationController.init())
+            coordinator.id = id
+            coordinator.didSelectDelete = { id in
+                self.viewModel.deletePaymentMethod(id ?? "")
+            }
+            coordinator.didSelectDefault = { id in
+                
+            }
+            self.present(coordinator.getMainView(), animated: true)
+        }
         return cell
     }
     

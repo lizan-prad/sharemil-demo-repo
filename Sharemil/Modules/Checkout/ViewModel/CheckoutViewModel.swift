@@ -12,6 +12,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
+    var success: Observable<String> = Observable(nil)
     var polylines: Observable<[GMSPath]> = Observable([])
     var cartList: Observable<Cart> = Observable(nil)
     var payment: Observable<PaymentIntentModel> = Observable(nil)
@@ -51,7 +52,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.cartList.value = model.data?.cart
+                self.success.value = model.status
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }
@@ -64,7 +65,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.cartList.value = model.data?.cart
+                self.success.value = model.status
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }

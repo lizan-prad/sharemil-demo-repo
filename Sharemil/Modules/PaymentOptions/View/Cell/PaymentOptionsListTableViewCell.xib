@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -42,10 +42,25 @@
                             <constraint firstAttribute="height" constant="1" id="pJ0-ui-HLT"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYm-dr-H6w">
+                        <rect key="frame" x="275" y="3" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="be8-5U-OvF"/>
+                            <constraint firstAttribute="width" constant="45" id="gYe-v0-3dL"/>
+                        </constraints>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="dot.meu"/>
+                        <connections>
+                            <action selector="menuAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iYT-0x-goP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="DYm-dr-H6w" secondAttribute="trailing" id="6KB-Uq-zLg"/>
                     <constraint firstAttribute="trailing" secondItem="YHL-eJ-RdW" secondAttribute="trailing" constant="24" id="QUb-uI-98k"/>
                     <constraint firstItem="aYI-Jc-fkn" firstAttribute="leading" secondItem="BrN-uk-24U" secondAttribute="leading" id="TeW-Hg-FmE"/>
+                    <constraint firstItem="DYm-dr-H6w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c5r-dd-cyF"/>
                     <constraint firstItem="BrN-uk-24U" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gFi-5P-JBy"/>
                     <constraint firstAttribute="bottom" secondItem="aYI-Jc-fkn" secondAttribute="bottom" id="hRl-tn-tcU"/>
                     <constraint firstItem="YHL-eJ-RdW" firstAttribute="leading" secondItem="BrN-uk-24U" secondAttribute="trailing" constant="16" id="huY-1A-Bcp"/>
@@ -62,4 +77,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="116.85267857142857"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="dot.meu" width="24" height="24"/>
+    </resources>
 </document>

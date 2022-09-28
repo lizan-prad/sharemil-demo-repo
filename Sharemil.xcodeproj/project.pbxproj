@@ -142,6 +142,9 @@
 		BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */; };
 		BE7C7291285F9BF60008161B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728F285F9BF60008161B /* Menu.swift */; };
 		BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */; };
+		BEA586E528E44A0900D5C8F3 /* PaymentEditOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA586E428E44A0900D5C8F3 /* PaymentEditOption.storyboard */; };
+		BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA586E628E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift */; };
+		BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA586E828E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift */; };
 		BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */; };
 		BEAF32182874072D0007F9B0 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF32172874072D0007F9B0 /* OrdersViewModel.swift */; };
 		BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3219287407360007F9B0 /* OrdersService.swift */; };
@@ -359,6 +362,9 @@
 		BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefMenuContainerModel.swift; sourceTree = "<group>"; };
 		BE7C728F285F9BF60008161B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		BEA586E428E44A0900D5C8F3 /* PaymentEditOption.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentEditOption.storyboard; sourceTree = "<group>"; };
+		BEA586E628E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentEditOptionViewController.swift; sourceTree = "<group>"; };
+		BEA586E828E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentEditOptionCoordinator.swift; sourceTree = "<group>"; };
 		BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentIntentModel.swift; sourceTree = "<group>"; };
 		BEAF32172874072D0007F9B0 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		BEAF3219287407360007F9B0 /* OrdersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersService.swift; sourceTree = "<group>"; };
@@ -745,6 +751,7 @@
 		BE2954C9286E43C80048E9DD /* PaymentOptions */ = {
 			isa = PBXGroup;
 			children = (
+				BEA586E128E449D400D5C8F3 /* PaymentEditOption */,
 				BE73033528818D8100CC6383 /* CustomStripe */,
 				BE2954D2286E441A0048E9DD /* Service */,
 				BE2954CF286E43F30048E9DD /* ViewModel */,
@@ -1144,6 +1151,16 @@
 				BE7C728F285F9BF60008161B /* Menu.swift */,
 			);
 			path = ChefMenu;
+			sourceTree = "<group>";
+		};
+		BEA586E128E449D400D5C8F3 /* PaymentEditOption */ = {
+			isa = PBXGroup;
+			children = (
+				BEA586E428E44A0900D5C8F3 /* PaymentEditOption.storyboard */,
+				BEA586E628E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift */,
+				BEA586E828E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift */,
+			);
+			path = PaymentEditOption;
 			sourceTree = "<group>";
 		};
 		BEAF320F2870BC6F0007F9B0 /* Checkout */ = {
@@ -1673,6 +1690,7 @@
 				BE4CDDB728530D7E006AB129 /* Inter-ExtraBold.ttf in Resources */,
 				BE2954CB286E43D50048E9DD /* PaymentOptions.storyboard in Resources */,
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
+				BEA586E528E44A0900D5C8F3 /* PaymentEditOption.storyboard in Resources */,
 				BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
 				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
@@ -1777,8 +1795,10 @@
 				BEAF324328755F6C0007F9B0 /* AccountNameViewController.swift in Sources */,
 				BEF7EB112865CCAD002D553E /* Legs.swift in Sources */,
 				BEB13DC1285DBDC800F63933 /* MyLocationListTableViewCell.swift in Sources */,
+				BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */,
 				BEF7EB172865CCAD002D553E /* Southwest.swift in Sources */,
 				BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */,
+				BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */,
 				BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */,
 				BEAF322828740DCA0007F9B0 /* OrderModel.swift in Sources */,
 				BEF7EAFE2865C701002D553E /* CheckoutService.swift in Sources */,

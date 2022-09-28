@@ -101,9 +101,15 @@ class CheckoutViewController: UIViewController, Storyboarded {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
+        
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
+        
+        self.viewModel.success.bind { msg in
+            self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        }
+        
         self.viewModel.cartList.bind { cartItems in
             self.subTotal.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
             self.total.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"

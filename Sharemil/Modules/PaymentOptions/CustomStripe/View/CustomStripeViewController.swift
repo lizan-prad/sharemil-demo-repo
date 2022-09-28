@@ -16,6 +16,7 @@ struct CreditCardModel {
     var expMonth: String
     var cvv: String
     var expYear: String
+    var isDefault: Bool
 }
 
 class CustomStripeViewController: UIViewController, Storyboarded {
@@ -68,8 +69,16 @@ class CustomStripeViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func addCardAction(_ sender: Any) {
-        guard let model = self.model else {return}
-        self.viewModel.addPaymentMethod(model)
+        let alert = AlertServices.showAlertWithOkCancelActionCompletion(title: nil, message: "Set this as a default payment method?") { _ in
+            self.model?.isDefault = true
+            guard let model = self.model else {return}
+            self.viewModel.addPaymentMethod(model)
+        } cancelCompletion: { _ in
+            guard let model = self.model else {return}
+            self.viewModel.addPaymentMethod(model)
+        }
+        self.present(alert, animated: true)
+        
     }
 }
 
@@ -78,7 +87,7 @@ extension CustomStripeViewController: CreditCardViewSwiftDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         let year = formatter.string(from: Date())
-        self.model = CreditCardModel.init(name: name, cardNumber: cardNumber, expMonth: cardExpiry.components(separatedBy: "/").first ?? "", cvv: cvvNumber, expYear: "\(year.prefix(2))\(cardExpiry.components(separatedBy: "/").last ?? "")")
+        self.model = CreditCardModel.init(name: name, cardNumber: cardNumber, expMonth: cardExpiry.components(separatedBy: "/").first ?? "", cvv: cvvNumber, expYear: "\(year.prefix(2))\(cardExpiry.components(separatedBy: "/").last ?? "")", isDefault: false)
         
     }
 }

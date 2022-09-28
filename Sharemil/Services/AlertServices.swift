@@ -25,4 +25,13 @@ class AlertServices {
         alert.addAction(cancelAction)
         return alert
     }
+    
+    static func showAlertWithOkCancelActionCompletion(title: String?, message: String?, okCompletion: CompletionHandler, cancelCompletion: CompletionHandler) -> UIAlertController {
+        let alertAction = UIAlertAction.init(title: "Ok", style: .destructive, handler: okCompletion)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .default, handler: cancelCompletion)
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(alertAction)
+        alert.addAction(cancelAction)
+        return alert
+    }
 }
