@@ -17,7 +17,7 @@ class PaymentOptionsListTableViewCell: UITableViewCell {
     var model: PaymentMethods? {
         didSet {
             cardImage.image = UIImage.init(named: model?.stripePaymentMethod?.card?.brand?.lowercased() ?? "")
-            cardNumber.text =  (model?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted() ?? "") + " (\(model?.name ?? ""))"
+            cardNumber.text =  (model?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted() ?? "") + " \(model?.name ?? "")\(model?.isDefault == true ? " (Default)" : "")"
         }
     }
 

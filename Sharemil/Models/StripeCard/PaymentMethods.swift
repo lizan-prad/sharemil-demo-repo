@@ -17,6 +17,7 @@ import ObjectMapper
 struct PaymentMethods : Mappable {
 	var id : String?
 	var name : String?
+    var isDefault: Bool?
 	var stripePaymentMethod : StripePaymentMethod?
 
 	init?(map: Map) {
@@ -27,6 +28,7 @@ struct PaymentMethods : Mappable {
 
 		id <- map["id"]
 		name <- map["name"]
+        isDefault <- map["default"]
 		stripePaymentMethod <- map["stripePaymentMethod"]
 	}
 

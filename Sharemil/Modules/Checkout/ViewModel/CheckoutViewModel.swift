@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 
-class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService, MenuItemService {
+class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService, MenuItemService, CustomStripeService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
@@ -18,6 +18,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var payment: Observable<PaymentIntentModel> = Observable(nil)
     var paymentIntent: Observable<CreatePaymentModel> = Observable(nil)
     var completeCheckout: Observable<OrderModel> = Observable(nil)
+    var method: Observable<PaymentMethods> = Observable(nil)
     
     func getRoute(_ origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         loading.value = true
@@ -31,6 +32,19 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
                 }
             }
             self.polylines.value = poly
+        }
+    }
+    
+    func getDefaultMethod() {
+        self.loading.value = true
+        self.getPaymentMethods { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.method.value = model.data?.paymentMethods?.filter({$0.isDefault ?? false}).first
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
         }
     }
     

@@ -53,7 +53,6 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.success.bind { msg in
-            self.showToastMsg("Deleted successfully!", state: .error, location: .bottom)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 self.dismiss(animated: true) {
                     self.viewModel.getPaymentMethods()
@@ -137,7 +136,7 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
                 self.viewModel.deletePaymentMethod(id ?? "")
             }
             coordinator.didSelectDefault = { id in
-                
+                self.viewModel.makeDefaultPaymentMethod(id ?? "")
             }
             self.present(coordinator.getMainView(), animated: true)
         }

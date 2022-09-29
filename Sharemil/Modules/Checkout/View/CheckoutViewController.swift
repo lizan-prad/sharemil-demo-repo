@@ -45,7 +45,7 @@ class CheckoutViewController: UIViewController, Storyboarded {
     var selectedPayment: PaymentMethods? {
         didSet {
             self.cardImage.isHidden = false
-            self.cardImage.image = UIImage.init(named: "visa")
+            self.cardImage.image = UIImage.init(named: selectedPayment?.stripePaymentMethod?.card?.brand ?? "")
             self.cardLabel.text = selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted()
             self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
         }
@@ -60,6 +60,7 @@ class CheckoutViewController: UIViewController, Storyboarded {
         setTableView()
         self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0))
         self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        self.viewModel.getDefaultMethod()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +101,10 @@ class CheckoutViewController: UIViewController, Storyboarded {
         }
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        
+        self.viewModel.method.bind { method in
+            self.selectedPayment = method
         }
         
         self.viewModel.error.bind { msg in
