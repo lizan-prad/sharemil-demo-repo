@@ -11,6 +11,7 @@ import CoreLocation
 
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var minusBtn: UIButton!
@@ -51,6 +52,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         didSet {
             self.setupData()
             tableView.reloadData()
+            self.tableHeight.constant = CGFloat((self.model?.options?.count ?? 0)*60) + CGFloat((self.model?.options?.map({$0.choices ?? []}).flatMap({$0}).count ?? 0)*40) + 200
         }
     }
     
@@ -113,6 +115,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$\(model?.price ?? 0)"
         self.initialQuantity = 1
+        
+        
     }
     
     private func bindViewModel() {
