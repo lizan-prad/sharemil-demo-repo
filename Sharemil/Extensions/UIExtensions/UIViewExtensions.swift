@@ -11,7 +11,7 @@ import Loaf
 
 extension UIViewController {
     func showToastMsg(_ msg: String, state: Loaf.State, location: Loaf.Location) {
-        Loaf.init(msg, state: state, location: location, sender: self).show()
+//        Loaf.init(msg, state: state, location: location, sender: self).show()
 
     }
 }
