@@ -35,12 +35,12 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         setupData()
         setTableView()
         bindViewModel()
-        self.viewModel.fetchChefMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.viewModel.fetchChefMenu()
         self.viewModel.fetchCarts()
     }
     
