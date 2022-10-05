@@ -59,6 +59,12 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         bindViewModel()
     }
     
+    @IBAction func helpAction(_ sender: Any) {
+        let coordinator = HelpCoordinator.init(navigationController: UINavigationController())
+        coordinator.cart = self.model?.cart
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)

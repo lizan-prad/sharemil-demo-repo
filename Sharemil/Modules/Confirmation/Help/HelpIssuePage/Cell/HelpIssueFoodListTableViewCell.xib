@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="HelpIssueFoodListTableViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3L3-57-wdZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1x #122 Shrimp Fried Rice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9B-t0-oR5">
+                                <rect key="frame" x="56" y="18.5" width="196.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-5R-WYD">
+                                <rect key="frame" x="16" y="55" width="304" height="1"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="8uw-7D-2MA"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pms-q5-Pia" customClass="CheckboxButton" customModule="MBRadioCheckboxButton">
+                                <rect key="frame" x="20" y="18" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Sk3-UH-btX"/>
+                                    <constraint firstAttribute="width" constant="20" id="yKs-c7-Rgp"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="f9B-t0-oR5" firstAttribute="centerY" secondItem="3L3-57-wdZ" secondAttribute="centerY" id="DZ3-no-xWm"/>
+                            <constraint firstAttribute="bottom" secondItem="4c0-5R-WYD" secondAttribute="bottom" id="RIB-eb-D7w"/>
+                            <constraint firstAttribute="height" constant="56" id="amw-Oj-tRJ"/>
+                            <constraint firstAttribute="trailing" secondItem="4c0-5R-WYD" secondAttribute="trailing" id="ehl-IB-FK9"/>
+                            <constraint firstItem="4c0-5R-WYD" firstAttribute="leading" secondItem="3L3-57-wdZ" secondAttribute="leading" constant="16" id="lX3-ST-Lmd"/>
+                            <constraint firstItem="Pms-q5-Pia" firstAttribute="leading" secondItem="3L3-57-wdZ" secondAttribute="leading" constant="20" id="mHC-Em-hmf"/>
+                            <constraint firstItem="Pms-q5-Pia" firstAttribute="centerY" secondItem="3L3-57-wdZ" secondAttribute="centerY" id="vlF-9k-A6Z"/>
+                            <constraint firstItem="f9B-t0-oR5" firstAttribute="leading" secondItem="Pms-q5-Pia" secondAttribute="trailing" constant="16" id="xD8-hg-q74"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3L3-57-wdZ" secondAttribute="bottom" id="Clb-z5-K4i"/>
+                    <constraint firstItem="3L3-57-wdZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N87-Rm-GBm"/>
+                    <constraint firstAttribute="trailing" secondItem="3L3-57-wdZ" secondAttribute="trailing" id="X9D-dB-fpb"/>
+                    <constraint firstItem="3L3-57-wdZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lZK-eB-n0R"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkBtn" destination="Pms-q5-Pia" id="EEO-ol-Alj"/>
+                <outlet property="foodName" destination="f9B-t0-oR5" id="2Tv-WK-xSN"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="69.308035714285708"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="Pms-q5-Pia">
+            <size key="intrinsicContentSize" width="24" height="18"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

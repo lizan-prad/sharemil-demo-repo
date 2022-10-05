@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -82,6 +82,9 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="Get help">
                                                         <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="getHelpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BlT-Ub-wxX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -128,7 +131,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

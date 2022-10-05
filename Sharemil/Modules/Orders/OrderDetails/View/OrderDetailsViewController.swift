@@ -51,6 +51,13 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
         self.present(coordinator.getMainView(), animated: true)
     }
     
+    @IBAction func getHelpAction(_ sender: Any) {
+        
+        let coordinator = HelpCoordinator.init(navigationController: UINavigationController())
+        coordinator.cart = self.model?.cart
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     private func bindViewModel() {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()

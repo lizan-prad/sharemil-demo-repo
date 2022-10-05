@@ -180,6 +180,10 @@
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
 		BEC08C0B28EDB681005AA875 /* HelpIssuePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */; };
 		BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */; };
+		BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */; };
+		BEC08C1328EE0B76005AA875 /* HelpIssueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1228EE0B76005AA875 /* HelpIssueCoordinator.swift */; };
+		BEC08C1728EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1528EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift */; };
+		BEC08C1828EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC08C1628EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib */; };
 		BECB463928C400C500E48872 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = BECB463828C400C500E48872 /* MapStyle.json */; };
 		BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */; };
 		BECB46BC28C913A400E48872 /* MapViewChefListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */; };
@@ -405,6 +409,10 @@
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
 		BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpIssuePage.storyboard; sourceTree = "<group>"; };
 		BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewController.swift; sourceTree = "<group>"; };
+		BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
+		BEC08C1228EE0B76005AA875 /* HelpIssueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssueCoordinator.swift; sourceTree = "<group>"; };
+		BEC08C1528EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssueFoodListTableViewCell.swift; sourceTree = "<group>"; };
+		BEC08C1628EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpIssueFoodListTableViewCell.xib; sourceTree = "<group>"; };
 		BECB463828C400C500E48872 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarControllerViewModel.swift; sourceTree = "<group>"; };
 		BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewChefListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1166,8 +1174,9 @@
 			isa = PBXGroup;
 			children = (
 				BEC08C0928EDB66D005AA875 /* HelpIssuePage */,
-				BE958DC528EDB3C100C71EBF /* Help.storyboard */,
-				BE958DC728EDB3C700C71EBF /* HelpViewController.swift */,
+				BEC08C0F28EE0878005AA875 /* ViewModel */,
+				BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */,
+				BEC08C0E28EE0866005AA875 /* View */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -1394,10 +1403,37 @@
 		BEC08C0928EDB66D005AA875 /* HelpIssuePage */ = {
 			isa = PBXGroup;
 			children = (
+				BEC08C1428EE0DCE005AA875 /* Cell */,
 				BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */,
 				BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */,
+				BEC08C1228EE0B76005AA875 /* HelpIssueCoordinator.swift */,
 			);
 			path = HelpIssuePage;
+			sourceTree = "<group>";
+		};
+		BEC08C0E28EE0866005AA875 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE958DC528EDB3C100C71EBF /* Help.storyboard */,
+				BE958DC728EDB3C700C71EBF /* HelpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEC08C0F28EE0878005AA875 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEC08C1428EE0DCE005AA875 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BEC08C1528EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift */,
+				BEC08C1628EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BECB463A28C7C1F700E48872 /* ViewModel */ = {
@@ -1736,6 +1772,7 @@
 				BE4CDDB428530D7E006AB129 /* Inter-Thin.ttf in Resources */,
 				BE3A44A128B8CCD600E3E90F /* GoogleService-Info.plist in Resources */,
 				BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */,
+				BEC08C1828EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1806,6 +1843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF7EAFB2865B05A002D553E /* CheckoutCoordinator.swift in Sources */,
+				BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */,
 				BEF7EB3D28697FF4002D553E /* CartService.swift in Sources */,
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
@@ -1828,6 +1866,7 @@
 				BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */,
 				BEF7EB172865CCAD002D553E /* Southwest.swift in Sources */,
 				BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */,
+				BEC08C1728EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift in Sources */,
 				BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */,
 				BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */,
 				BEAF322828740DCA0007F9B0 /* OrderModel.swift in Sources */,
@@ -1917,6 +1956,7 @@
 				BE2954D1286E44050048E9DD /* PaymentOptionsViewModel.swift in Sources */,
 				BE5B6A19288DE3FF008CC57F /* PaymentOptionsListTableViewCell.swift in Sources */,
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
+				BEC08C1328EE0B76005AA875 /* HelpIssueCoordinator.swift in Sources */,
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
