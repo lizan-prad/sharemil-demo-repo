@@ -57,9 +57,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UpD-p2-Hqp">
                                 <rect key="frame" x="0.0" y="250.5" width="414" height="645.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="lMn-Zu-ewN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-Wy-CcW">
+                                <rect key="frame" x="0.0" y="782" width="414" height="114"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-6u-tJJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="PO9-1p-c0X"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="2DF-cz-tHa"/>
+                                    <constraint firstItem="Vx2-6u-tJJ" firstAttribute="top" secondItem="x7U-Wy-CcW" secondAttribute="top" id="W8l-JT-fUt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vx2-6u-tJJ" secondAttribute="trailing" id="lU2-RB-gEd"/>
+                                    <constraint firstItem="Vx2-6u-tJJ" firstAttribute="leading" secondItem="x7U-Wy-CcW" secondAttribute="leading" id="rzK-HX-q91"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Td5-01-aab">
-                                <rect key="frame" x="40" y="783" width="334" height="55"/>
+                                <rect key="frame" x="40" y="797" width="334" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="cSi-PP-FZ4"/>
@@ -98,6 +122,8 @@
                         <constraints>
                             <constraint firstItem="PfU-ka-iYz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="65" id="0aE-pS-etn"/>
                             <constraint firstItem="TM2-fh-ypQ" firstAttribute="top" secondItem="PfU-ka-iYz" secondAttribute="bottom" constant="20" id="7D7-Cq-AxW"/>
+                            <constraint firstAttribute="trailing" secondItem="x7U-Wy-CcW" secondAttribute="trailing" id="GNK-qz-plf"/>
+                            <constraint firstAttribute="bottom" secondItem="x7U-Wy-CcW" secondAttribute="bottom" id="HZw-Zg-k1L"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UpD-p2-Hqp" secondAttribute="trailing" id="JaV-wv-KFC"/>
                             <constraint firstItem="UpD-p2-Hqp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KoN-1n-gxQ"/>
                             <constraint firstItem="Td5-01-aab" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Q5r-aJ-t2Z"/>
@@ -105,8 +131,9 @@
                             <constraint firstItem="PfU-ka-iYz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="TFR-MO-XgY"/>
                             <constraint firstItem="TM2-fh-ypQ" firstAttribute="trailing" secondItem="G9o-iV-zyP" secondAttribute="trailing" id="ZSS-lh-AZt"/>
                             <constraint firstItem="UpD-p2-Hqp" firstAttribute="top" secondItem="TM2-fh-ypQ" secondAttribute="bottom" constant="10" id="eVz-FP-atL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Td5-01-aab" secondAttribute="bottom" constant="24" id="ki5-Jl-zaZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Td5-01-aab" secondAttribute="bottom" constant="10" id="ki5-Jl-zaZ"/>
                             <constraint firstItem="9hw-yy-c3c" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="lY8-Un-nhX"/>
+                            <constraint firstItem="x7U-Wy-CcW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="o6X-XR-doo"/>
                             <constraint firstItem="TM2-fh-ypQ" firstAttribute="leading" secondItem="G9o-iV-zyP" secondAttribute="leading" id="oaA-Dx-Dd3"/>
                             <constraint firstAttribute="bottom" secondItem="UpD-p2-Hqp" secondAttribute="bottom" id="rrN-JD-c59"/>
                             <constraint firstItem="9hw-yy-c3c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="sQq-4X-oqm"/>
@@ -114,11 +141,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToCartView" destination="x7U-Wy-CcW" id="xq3-Br-IRO"/>
                         <outlet property="backBtn" destination="9hw-yy-c3c" id="6mW-HI-wq5"/>
                         <outlet property="chefNameLabel" destination="gxa-vR-nyQ" id="5HX-sm-yQW"/>
                         <outlet property="chefRating" destination="33e-yN-Fx8" id="ctW-Jm-Uxo"/>
                         <outlet property="chefTime" destination="G9o-iV-zyP" id="AtI-Tg-C7m"/>
                         <outlet property="tableView" destination="UpD-p2-Hqp" id="HZS-61-bDz"/>
+                        <outlet property="tableviewBottomView" destination="lMn-Zu-ewN" id="byL-Rg-7cz"/>
                         <outlet property="viewCartBtn" destination="Td5-01-aab" id="dSJ-9h-Kgg"/>
                     </connections>
                 </viewController>
@@ -128,7 +157,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

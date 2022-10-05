@@ -316,11 +316,13 @@ extension UIViewController{
 extension UIButton {
     func disable() {
         self.backgroundColor = .lightGray
+        self.tintColor = .black
         self.isEnabled = false
     }
     
     func enable() {
         self.backgroundColor = .black
+        self.tintColor = .white
         self.isEnabled = true
     }
 }

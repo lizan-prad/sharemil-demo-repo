@@ -90,6 +90,9 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.cartItems = self.carts?[indexPath.row].cartItems
         coordinator.menuItems = self.carts?[indexPath.row].cartItems?.compactMap({$0.menuItem})
         coordinator.chef = self.carts?[indexPath.row].chef
+        coordinator.didUpdate = {
+            self.viewModel.fetchCarts()
+        }
         coordinator.didCheckout = {
           
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())

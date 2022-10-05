@@ -70,10 +70,16 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     private func setupView() {
         self.plusBtn.rounded()
         self.minusBtn.rounded()
+        self.closeBtn.rounded()
         self.closeBtn.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         self.plusBtn.addTarget(self, action: #selector(plusAction), for: .touchUpInside)
         self.minusBtn.addTarget(self, action: #selector(minusAction), for: .touchUpInside)
         self.addToCartBtn.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func addToCart() {
@@ -106,7 +112,10 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     private func validateAddToCart() {
-        self.addToCartBtn.isEnabled = (self.model?.options?.isEmpty ?? true) ? true : ( self.model?.options?.count == self.selectedOptions.count)
+        if (self.model?.options?.isEmpty ?? true) {
+            self.addToCartBtn.enable()
+        }
+        self.model?.options?.count == self.selectedOptions.count ? self.addToCartBtn.enable() : self.addToCartBtn.disable()
     }
     
     private func setupData() {
