@@ -153,14 +153,25 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
-            self.cartItems?.remove(at: indexPath.row)
-            if self.cartItems?.isEmpty ?? true {
-                self.viewModel.deleteCart(self.cartId ?? "")
-            } else {
-                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
-            }
+        let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
+        coordinator.menuItemModel = self.cartItems?[indexPath.row].menuItem
+        coordinator.cartModel = cartItems
+        coordinator.isUpdate = true
+        coordinator.didAddToCart = { model in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+//            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+            self.didUpdate?()
+//            self.viewModel.fetchCarts(model?.cart?.id ?? "")
         }
-        self.present(alert, animated: true)
+        self.present(coordinator.getMainView(), animated: true)
+//        let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
+//            self.cartItems?.remove(at: indexPath.row)
+//            if self.cartItems?.isEmpty ?? true {
+//                self.viewModel.deleteCart(self.cartId ?? "")
+//            } else {
+//                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+//            }
+//        }
+//        self.present(alert, animated: true)
     }
 }

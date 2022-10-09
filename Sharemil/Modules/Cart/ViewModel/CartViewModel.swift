@@ -13,6 +13,7 @@ class CartViewModel: CartService {
     var error: Observable<String> = Observable(nil)
     var carts: Observable<CartListModel> = Observable(nil)
     var deleteState: Observable<String> = Observable(nil)
+    
     func fetchCarts() {
         self.loading.value = true
         self.fetchCarts { result in

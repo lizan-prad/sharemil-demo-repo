@@ -11,6 +11,7 @@ import CoreLocation
 
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var removeBtn: UIButton!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -31,6 +32,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     var cartModel: [CartItems]?
+    
+    var isUpdate = false
     
     var didAddToCart: ((CartListModel?) -> ())?
     
@@ -61,6 +64,13 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         bindViewModel()
         setTableView()
         setupView()
+        if isUpdate {
+            self.removeBtn.isHidden = false
+            self.addToCartBtn.disable()
+            self.plusBtn.isEnabled = false
+            self.minusBtn.isEnabled = false
+        }
+        
         self.viewModel.fetchChefMenuItem()
         GoogleMapsServices.shared.getRoutes(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init()) { _ in
             
@@ -80,6 +90,18 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @IBAction func removeAction(_ sender: Any) {
+        let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
+            self.cartModel = self.cartModel?.filter({$0.menuItemId != self.model?.id})
+            if self.cartModel?.isEmpty ?? true {
+                self.viewModel.deleteCart(self.cartModel?.first?.cartId ?? "")
+            } else {
+                self.viewModel.updateToCart(self.cartModel?.first?.menuItem?.chefId ?? "", cartModels: self.cartModel ?? [])
+            }
+        }
+        self.present(alert, animated: true)
     }
     
     @objc func addToCart() {
@@ -114,8 +136,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     private func validateAddToCart() {
         if (self.model?.options?.isEmpty ?? true) {
             self.addToCartBtn.enable()
+        } else {
+            self.model?.options?.count == self.selectedOptions.count ? self.addToCartBtn.enable() : self.addToCartBtn.disable()
         }
-        self.model?.options?.count == self.selectedOptions.count ? self.addToCartBtn.enable() : self.addToCartBtn.disable()
     }
     
     private func setupData() {
@@ -138,6 +161,11 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         viewModel.itemModel.bind { model in
             self.model = model
             self.validateAddToCart()
+        }
+        viewModel.deleteState.bind { model in
+            self.dismiss(animated: true) {
+                self.didAddToCart?(nil)
+            }
         }
         viewModel.cartList.bind { model in
             self.dismiss(animated: true) {

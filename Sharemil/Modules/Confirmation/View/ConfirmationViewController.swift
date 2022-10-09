@@ -57,6 +57,7 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setTableView()
         bindViewModel()
+        self.getOrderStatusUpdate()
     }
     
     @IBAction func helpAction(_ sender: Any) {
@@ -69,6 +70,30 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.viewModel.getOrder(id ?? "")
+    }
+    
+    func getOrderStatusUpdate() {
+        db.collection("orders").whereField("userId", isEqualTo: "\(UserDefaults.standard.string(forKey: "UID") ?? "")")
+            .addSnapshotListener { querySnapshot, error in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching snapshots: \(error!)")
+                    return
+                }
+                snapshot.documentChanges.forEach { diff in
+                    if (diff.type == .added) {
+                        print("New city: \(diff.document.data())")
+                    }
+                    if (diff.type == .modified) {
+                        guard let status = diff.document.data()["status"] as? String else {return}
+                        self.viewModel.getOrder(self.id ?? "")
+                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+                    }
+                    if (diff.type == .removed) {
+                        print("Removed city: \(diff.document.data())")
+                    }
+                }
+                
+            }
     }
     
     private func setTableView() {

@@ -27,9 +27,9 @@ class NetworkManager {
                     print(data)
                     if (400 ... 405).contains(response.response?.statusCode ?? 0) {
                         if let error = data["error"] as? String {
-                            completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
+                            completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
                         } else {
-                        completion(.failure(NSError.init(domain: "login", code: 0, userInfo:   [NSLocalizedDescriptionKey: (data["errorMessage"] as? String) ?? ""]  )))
+                        completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: (data["errorMessage"] as? String) ?? ""]  )))
                         }
                     } else {
                         completion(.success(model))

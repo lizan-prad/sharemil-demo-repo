@@ -14,6 +14,7 @@ class MenuItemCoordinator: Coordinator {
     var menuItemModel: ChefMenuListModel?
     var didAddToCart: ((CartListModel?) -> ())?
     var cartModel: [CartItems]?
+    var isUpdate = false
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,6 +27,7 @@ class MenuItemCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.cartModel = cartModel
         vc.didAddToCart = self.didAddToCart
+        vc.isUpdate = self.isUpdate
         return vc
     }
     
@@ -35,6 +37,7 @@ class MenuItemCoordinator: Coordinator {
         viewModel.menuItemModel = self.menuItemModel
         vc.viewModel = viewModel
         vc.cartModel = cartModel
+        vc.isUpdate = self.isUpdate
         vc.didAddToCart = self.didAddToCart
         navigationController.pushViewController(vc, animated: true)
     }
