@@ -11,6 +11,7 @@ import CoreLocation
 
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var removeBtn: UIButton!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var plusBtn: UIButton!
@@ -64,16 +65,34 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         bindViewModel()
         setTableView()
         setupView()
-        if isUpdate {
-            self.removeBtn.isHidden = false
-            self.addToCartBtn.disable()
-            self.plusBtn.isEnabled = false
-            self.minusBtn.isEnabled = false
+        if UIDevice.current.hasNotch {
+            self.containerHeight.constant = 116
+        } else {
+            self.containerHeight.constant = 74
         }
+        self.setupUpdateView()
         
         self.viewModel.fetchChefMenuItem()
         GoogleMapsServices.shared.getRoutes(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init()) { _ in
             
+        }
+    }
+    
+    func setupUpdateView() {
+        if isUpdate {
+            self.tableView.isUserInteractionEnabled = false
+            self.tableView.alpha = 0.7
+            
+            self.removeBtn.isHidden = false
+            self.addToCartBtn.disable()
+            self.plusBtn.alpha = 0.7
+            self.minusBtn.alpha = 0.7
+            self.plusBtn.isEnabled = false
+            self.minusBtn.isEnabled = false
+        } else {
+            self.removeBtn.isHidden = true
+            self.plusBtn.isEnabled = true
+            self.minusBtn.isEnabled = true
         }
     }
     
@@ -135,7 +154,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     private func validateAddToCart() {
         if (self.model?.options?.isEmpty ?? true) {
-            self.addToCartBtn.enable()
+            self.setupUpdateView()
         } else {
             self.model?.options?.count == self.selectedOptions.count ? self.addToCartBtn.enable() : self.addToCartBtn.disable()
         }
