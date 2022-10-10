@@ -35,6 +35,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     var cartModel: [CartItems]?
     
     var isUpdate = false
+    var updateItem = false
     
     var didAddToCart: ((CartListModel?) -> ())?
     
@@ -48,7 +49,12 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     var initialQuantity = 1 {
         didSet {
             self.quantityLabel.text = "\(initialQuantity)"
-            self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+            if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
+                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+            } else {
+                self.addToCartBtn.setTitle("Update \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+            }
+            
         }
     }
     
