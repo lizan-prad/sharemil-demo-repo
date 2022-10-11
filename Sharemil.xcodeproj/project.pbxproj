@@ -141,6 +141,11 @@
 		BE7C728C285F98A50008161B /* ChefMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728B285F98A50008161B /* ChefMenuService.swift */; };
 		BE7C7290285F9BF60008161B /* ChefMenuContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */; };
 		BE7C7291285F9BF60008161B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C728F285F9BF60008161B /* Menu.swift */; };
+		BE8CD39D28F5A19F007A476B /* SupportIssueContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD39B28F5A19F007A476B /* SupportIssueContainer.swift */; };
+		BE8CD39E28F5A19F007A476B /* SupportIssues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD39C28F5A19F007A476B /* SupportIssues.swift */; };
+		BE8CD3A328F5A266007A476B /* HelpItemIssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */; };
+		BE8CD3A528F5A274007A476B /* HelpItemIssueList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */; };
+		BE8CD3A928F5A2AC007A476B /* HelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3A828F5A2AC007A476B /* HelpService.swift */; };
 		BE958DC628EDB3C100C71EBF /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE958DC528EDB3C100C71EBF /* Help.storyboard */; };
 		BE958DC828EDB3C700C71EBF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE958DC728EDB3C700C71EBF /* HelpViewController.swift */; };
 		BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */; };
@@ -369,6 +374,11 @@
 		BE7C728B285F98A50008161B /* ChefMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefMenuService.swift; sourceTree = "<group>"; };
 		BE7C728E285F9BF60008161B /* ChefMenuContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefMenuContainerModel.swift; sourceTree = "<group>"; };
 		BE7C728F285F9BF60008161B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		BE8CD39B28F5A19F007A476B /* SupportIssueContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportIssueContainer.swift; sourceTree = "<group>"; };
+		BE8CD39C28F5A19F007A476B /* SupportIssues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportIssues.swift; sourceTree = "<group>"; };
+		BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemIssueListViewController.swift; sourceTree = "<group>"; };
+		BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpItemIssueList.storyboard; sourceTree = "<group>"; };
+		BE8CD3A828F5A2AC007A476B /* HelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpService.swift; sourceTree = "<group>"; };
 		BE958DC528EDB3C100C71EBF /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		BE958DC728EDB3C700C71EBF /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
@@ -1170,12 +1180,40 @@
 			path = ChefMenu;
 			sourceTree = "<group>";
 		};
+		BE8CD39A28F5A176007A476B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CD39B28F5A19F007A476B /* SupportIssueContainer.swift */,
+				BE8CD39C28F5A19F007A476B /* SupportIssues.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BE8CD39F28F5A1E8007A476B /* HelpItemIsssueList */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */,
+				BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */,
+			);
+			path = HelpItemIsssueList;
+			sourceTree = "<group>";
+		};
+		BE8CD3A728F5A2A2007A476B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CD3A828F5A2AC007A476B /* HelpService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BE958DC228EDB3AC00C71EBF /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CD39F28F5A1E8007A476B /* HelpItemIsssueList */,
 				BEC08C0928EDB66D005AA875 /* HelpIssuePage */,
 				BEC08C0F28EE0878005AA875 /* ViewModel */,
 				BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */,
+				BE8CD3A728F5A2A2007A476B /* Service */,
 				BEC08C0E28EE0866005AA875 /* View */,
 			);
 			path = Help;
@@ -1447,6 +1485,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CD39A28F5A176007A476B /* Support */,
 				BE5B69D9288C7B3E008CC57F /* StripeCard */,
 				BE118337287C8C660073970B /* MyLocation */,
 				BEAF3244287566B10007F9B0 /* Account */,
@@ -1726,6 +1765,7 @@
 				BE4CDDEA285345EC006AB129 /* Orders.storyboard in Resources */,
 				BECB463928C400C500E48872 /* MapStyle.json in Resources */,
 				BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */,
+				BE8CD3A528F5A274007A476B /* HelpItemIssueList.storyboard in Resources */,
 				BE73033728818D9100CC6383 /* CustomStripe.storyboard in Resources */,
 				BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */,
 				BE214B242862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.xib in Resources */,
@@ -1844,6 +1884,7 @@
 			files = (
 				BEF7EAFB2865B05A002D553E /* CheckoutCoordinator.swift in Sources */,
 				BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */,
+				BE8CD3A328F5A266007A476B /* HelpItemIssueListViewController.swift in Sources */,
 				BEF7EB3D28697FF4002D553E /* CartService.swift in Sources */,
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
@@ -1887,6 +1928,7 @@
 				BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,
 				BEAF323E28755DD80007F9B0 /* EditAccountCoordinator.swift in Sources */,
+				BE8CD39D28F5A19F007A476B /* SupportIssueContainer.swift in Sources */,
 				52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */,
 				BE214B332862F8AB00B26B50 /* MenuItemViewModel.swift in Sources */,
 				BEF7EB152865CCAD002D553E /* Steps.swift in Sources */,
@@ -1942,6 +1984,7 @@
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
+				BE8CD3A928F5A2AC007A476B /* HelpService.swift in Sources */,
 				BEF7EB0F2865CCAD002D553E /* End_location.swift in Sources */,
 				BE118339287C8C790073970B /* MyLocationContainerModel.swift in Sources */,
 				BEF7EB1B2865CCAD002D553E /* Start_location.swift in Sources */,
@@ -1960,6 +2003,7 @@
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
 				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
+				BE8CD39E28F5A19F007A476B /* SupportIssues.swift in Sources */,
 				BE5B69EB288C7B88008CC57F /* Three_d_secure_usage.swift in Sources */,
 				BEF7EB192865CCAD002D553E /* GoogleDirectionBaseModel.swift in Sources */,
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
