@@ -239,7 +239,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 433
+            return 457
         case 1:
             return UITableView.automaticDimension
         default: return 0

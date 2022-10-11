@@ -10,6 +10,7 @@ import SDWebImage
 
 class OrdersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var reorderBtn: UIButton!
     @IBOutlet weak var dateStatusLabel: UILabel!
     @IBOutlet weak var itemsPriceLabel: UILabel!
@@ -18,6 +19,7 @@ class OrdersTableViewCell: UITableViewCell {
     
     var model: OrderModel? {
         didSet {
+            self.businessName.text = model?.cart?.chef?.businessName
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
             self.itemsPriceLabel.text = "\(model?.cart?.cartItems?.count ?? 0) items · $\(model?.total ?? 0)"

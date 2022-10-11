@@ -107,7 +107,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="tCO-3O-hel">
-                                <rect key="frame" x="112.5" y="108" width="189.5" height="20"/>
+                                <rect key="frame" x="99.5" y="108" width="215.5" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="Q8t-Hs-i5Y">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -123,6 +123,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.location.down" translatesAutoresizingMaskIntoConstraints="NO" id="5NA-6v-vJz">
+                                        <rect key="frame" x="195.5" y="0.0" width="20" height="20"/>
+                                        <color key="tintColor" red="0.61176470589999998" green="0.63921568630000003" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="QQB-qP-0vx"/>
+                                            <constraint firstAttribute="width" constant="20" id="Rga-Fn-8hl"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-Ms-paR">
@@ -242,6 +250,7 @@
     </scenes>
     <resources>
         <image name="burger" width="24" height="24"/>
+        <image name="chevron.location.down" width="24" height="24"/>
         <image name="home" width="25" height="25"/>
         <image name="location" width="32" height="32"/>
         <image name="search" width="48" height="48"/>

@@ -23,6 +23,7 @@ class ChefListModel: Mappable {
     var suite : String?
     var city : String?
     var state : String?
+    var businessName: String?
     var hours : [HoursModel]?
     var postalCode : String?
     var countryCode : String?
@@ -43,6 +44,7 @@ class ChefListModel: Mappable {
         isDeleted <- map["isDeleted"]
         firsName <- map["firstName"]
         lastName <- map["lastName"]
+        businessName <- map["businessName"]
         phoneNumber <- map["phoneNumber"]
         email <- map["email"]
         distance <- map["distance"]

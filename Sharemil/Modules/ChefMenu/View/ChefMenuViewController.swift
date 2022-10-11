@@ -9,6 +9,7 @@ import UIKit
 
 class ChefMenuViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var addToCartView: UIView!
     @IBOutlet weak var tableviewBottomView: UIView!
     @IBOutlet weak var viewCartBtn: UIButton!
@@ -105,6 +106,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         let formatter = DateFormatter()
         formatter.dateFormat = "eee"
         let now = formatter.string(from: Date()).lowercased()
+        self.businessName.text = viewModel.chef?.businessName
         let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
         formatter.dateFormat = "HH:mm:ss"
         let date = formatter.date(from: hour?.endTime ?? "")

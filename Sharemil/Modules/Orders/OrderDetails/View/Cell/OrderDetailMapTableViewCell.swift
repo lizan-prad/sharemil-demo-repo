@@ -9,6 +9,7 @@ import UIKit
 
 class OrderDetailMapTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var chefImage: UIImageView!
     
     @IBOutlet weak var chefName: UILabel!
@@ -18,6 +19,7 @@ class OrderDetailMapTableViewCell: UITableViewCell {
     var model: OrderModel? {
         didSet {
             let chef = model?.cart?.chef
+            self.businessName.text = chef?.businessName
             self.chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             self.chefImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             let formatter = DateFormatter()

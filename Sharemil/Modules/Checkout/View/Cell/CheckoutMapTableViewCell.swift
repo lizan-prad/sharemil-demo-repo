@@ -11,6 +11,7 @@ import GoogleMaps
 class CheckoutMapTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var scheduleDateField: UITextField!
     @IBOutlet weak var scheduleContainer: UIView!
     @IBOutlet weak var standardContainer: UIView!
@@ -25,6 +26,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     
     var chef: ChefListModel? {
         didSet {
+            businessName.text = chef?.businessName
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             chefLocation.text = "\(chef?.address ?? ""), \(chef?.city ?? "") \(chef?.postalCode ?? ""), \(chef?.state ?? "")"
             let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))

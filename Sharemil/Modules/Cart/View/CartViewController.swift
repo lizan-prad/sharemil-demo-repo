@@ -82,7 +82,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 98
+        return 114
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

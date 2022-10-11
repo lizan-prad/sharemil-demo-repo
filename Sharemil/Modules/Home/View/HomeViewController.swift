@@ -310,7 +310,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        return 253
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
