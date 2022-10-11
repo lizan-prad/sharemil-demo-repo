@@ -189,9 +189,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="businessName" destination="ndz-wD-J0E" id="U6m-zC-Dt1"/>
+                <outlet property="businessName" destination="ndz-wD-J0E" id="LO5-Bj-Cj6"/>
                 <outlet property="chefLocation" destination="sk7-qX-3iW" id="nZg-IL-4dD"/>
-                <outlet property="chefName" destination="ndz-wD-J0E" id="Ko6-Hg-Hms"/>
+                <outlet property="chefName" destination="PmK-EI-AH7" id="Hux-No-ZnM"/>
                 <outlet property="mapView" destination="tDM-zB-gjF" id="xtx-Wq-tT8"/>
                 <outlet property="scheduleContainer" destination="fxX-7m-OI0" id="A9y-RD-JbF"/>
                 <outlet property="scheduleDateField" destination="M5m-Ed-Mjv" id="99z-Qk-O1a"/>
