@@ -82,12 +82,13 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     @objc func googleSignAction() {
-        GIDSignIn.sharedInstance.signIn(
-            with: GIDConfiguration.init(clientID: StringConstants.googleClientID),
-            presenting: self) { user, error in
-                guard let signInUser = user else {return}
-                print(signInUser)
-            }
+        GIDSignIn.sharedInstance.signIn(withPresenting: self)
+//        GIDSignIn.sharedInstance.signIn(
+//            with: GIDConfiguration.init(clientID: StringConstants.googleClientID),
+//            presenting: self) { user, error in
+//                guard let signInUser = user else {return}
+//                print(signInUser)
+//            }
     }
     
     private func setupPhoneField() {

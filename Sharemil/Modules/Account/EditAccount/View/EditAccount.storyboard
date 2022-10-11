@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -44,7 +44,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhE-yy-X3D">
                                 <rect key="frame" x="0.0" y="112.5" width="414" height="110"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-profile" translatesAutoresizingMaskIntoConstraints="NO" id="axR-2h-8U3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-profile" translatesAutoresizingMaskIntoConstraints="NO" id="axR-2h-8U3">
                                         <rect key="frame" x="20" y="10" width="90" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="GmD-Do-HwB"/>
@@ -315,6 +315,7 @@
                         <outlet property="lastNameStack" destination="OTt-wb-sOq" id="205-iV-MiV"/>
                         <outlet property="phoneLabel" destination="r5e-Xn-TFH" id="CBK-sA-LLE"/>
                         <outlet property="phoneStack" destination="5uT-jE-rTl" id="6tU-cC-y2h"/>
+                        <outlet property="profilePic" destination="axR-2h-8U3" id="MML-LI-2Tf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,9 +324,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="32" height="32"/>
         <image name="edit-profile" width="182" height="160"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

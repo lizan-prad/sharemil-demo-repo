@@ -9,6 +9,7 @@ struct UserModel : Mappable {
 	var lastName : String?
 	var phoneNumber : String?
 	var email : String?
+    var profileImage: String?
 
 	init?(map: Map) {
 
@@ -21,6 +22,7 @@ struct UserModel : Mappable {
 		lastName <- map["lastName"]
 		phoneNumber <- map["phoneNumber"]
 		email <- map["email"]
+        profileImage <- map["profileImage"]
 	}
 
 }

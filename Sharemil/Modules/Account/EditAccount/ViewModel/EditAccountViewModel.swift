@@ -25,4 +25,17 @@ class EditAccountViewModel: AccountService {
             }
         }
     }
+    
+    func updateUserProfile(param: [String:Any]) {
+        self.loading.value = true
+        self.updateProfile(param: param) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.user.value = model.data?.user
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
 }

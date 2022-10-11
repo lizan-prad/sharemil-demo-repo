@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9Yw-9d-kHm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9Yw-9d-kHm">
                                 <rect key="frame" x="162" y="148" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="aqg-ir-BUQ"/>
@@ -119,6 +119,7 @@
                     <navigationItem key="navigationItem" id="fqO-Yb-Sjg"/>
                     <connections>
                         <outlet property="nameLabel" destination="6PR-2J-dwu" id="jO4-Zu-PaL"/>
+                        <outlet property="profilePic" destination="9Yw-9d-kHm" id="JQV-hn-E7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,7 +150,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person" catalog="system" width="32" height="32"/>
         <image name="profile-placeholder" width="303" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -5,15 +5,15 @@ target 'Sharemil' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  plugin 'cocoapods-patch'
+#  plugin 'cocoapods-patch'
   # Pods for Sharemil
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'ObjectMapper'
   pod 'Stripe'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Firestore'
+#  pod 'Firebase/Auth'
+#  pod 'Firebase/Messaging'
+#  pod 'Firebase/Firestore'
   pod 'PhoneNumberKit'
   pod 'CountryList'
   pod 'IQKeyboardManager'

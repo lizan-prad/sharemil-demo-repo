@@ -9,6 +9,7 @@ import UIKit
 
 class EditAccountViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var emailVerification: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
@@ -23,11 +24,30 @@ class EditAccountViewController: UIViewController, Storyboarded {
     var viewModel: EditAccountViewModel!
     var user: UserModel? {
         didSet {
+            if user?.profileImage == nil {
+                profilePic.image = UIImage.init(named: "profile-placeholder")
+            } else {
+            profilePic.sd_setImage(with: URL.init(string: user?.profileImage ?? ""))
+            }
             self.firstName.text = user?.firstName
             self.lastName.text = user?.lastName
             self.phoneLabel.text = user?.phoneNumber
             self.email.text = user?.email
             self.emailVerification.isHidden = user?.email == ""
+        }
+    }
+    
+    var selectedImage: UIImage? {
+        didSet {
+            self.profilePic.image = selectedImage
+            self.showProgressHud()
+            FirebaseService.shared.uploadMedia(selectedImage ?? UIImage(), name: "profile_pic") { url in
+                self.hideProgressHud()
+                let param: [String: Any] =  [
+                    "profileImage": url ?? ""
+                ]
+                self.viewModel.updateUserProfile(param: param)
+            }
         }
     }
     
@@ -45,6 +65,17 @@ class EditAccountViewController: UIViewController, Storyboarded {
         
         lastNameStack.isUserInteractionEnabled = true
         lastNameStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openLastNameEdit)))
+        profilePic.rounded()
+        profilePic.isUserInteractionEnabled = true
+        profilePic.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(editAction)))
+    }
+    
+    @objc func editAction() {
+        let imagePicker = ImagePickerManager()
+        imagePicker.viewController = self
+        imagePicker.pickImage(self){ image in
+            self.selectedImage = image
+        }
     }
     
     private func bindViewModel() {

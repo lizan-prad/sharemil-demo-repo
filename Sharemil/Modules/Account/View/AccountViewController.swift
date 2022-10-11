@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
     
     var user: UserModel? {
         didSet {
+            if user?.profileImage == nil {
+                profilePic.image = UIImage.init(named: "profile-placeholder")
+            } else {
+            profilePic.sd_setImage(with: URL.init(string: user?.profileImage ?? ""))
+            }
             self.nameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
         }
     }

@@ -16,6 +16,7 @@ class AccountNameViewController: UIViewController {
     enum AccountNameType {
         case first
         case last
+        case email
     }
     
     var viewModel: AccountNameViewModel!
@@ -49,9 +50,9 @@ class AccountNameViewController: UIViewController {
     }
     
     private func setup() {
-        self.nameLabel.text = currentNameType == .first ? "First Name" : "Last Name"
-        self.nameFIeld.placeholder = currentNameType == .first ? "Enter your first name." : "Enter your last name."
-        self.updateBtn.setTitle(currentNameType == .first ? "Update First Name" : "Update Last Name", for: .normal)
+        self.nameLabel.text = currentNameType == .first ? "First Name" : (currentNameType == .last ? "Last Name" : "Email")
+        self.nameFIeld.placeholder = currentNameType == .first ? "Enter your first name." : (currentNameType == .last ? "Enter your last name." : "Enter your email.")
+        self.updateBtn.setTitle(currentNameType == .first ? "Update First Name" : (currentNameType == .last ? "Update Last Name" : "Update Email"), for: .normal)
     }
 
     @IBAction func clearAction(_ sender: Any) {
@@ -61,7 +62,7 @@ class AccountNameViewController: UIViewController {
     @IBAction func updateAction(_ sender: Any) {
         let param: [String: Any] = self.currentNameType == .first ? [
             "firstName": self.nameFIeld.text ?? ""
-        ] : [  "lastName": self.nameFIeld.text ?? "" ]
+        ] : (currentNameType == .last ? [  "lastName": self.nameFIeld.text ?? "" ] : [  "email": self.nameFIeld.text ?? "" ] )
         self.viewModel.updateUserProfile(param: param)
     }
 }
