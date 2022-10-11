@@ -18,7 +18,6 @@ class HelpIssuePageViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setup()
         setupTable()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +51,15 @@ extension HelpIssuePageViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "HelpIssueFoodListTableViewCell") as! HelpIssueFoodListTableViewCell
         cell.menuItem = cart?.cartItems?[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coordinator = HelpItemIssueListCoordinator.init(navigationController: UINavigationController())
+        coordinator.categoryType = "item_quality"
+        coordinator.didSelectIssue = { issue in
+            
+        }
+        self.present(coordinator.getMainView(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

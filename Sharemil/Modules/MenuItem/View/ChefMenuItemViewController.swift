@@ -86,7 +86,6 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     func setupUpdateView() {
         if isUpdate {
-            self.tableView.isUserInteractionEnabled = false
             self.tableView.alpha = 0.7
             
             self.removeBtn.isHidden = false
@@ -226,6 +225,9 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if model?.options?[indexPath.section].multipleChoice == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChefMenuOptionCheckBoxTableViewCell") as! ChefMenuOptionCheckBoxTableViewCell
+            if isUpdate {
+                cell.isUserInteractionEnabled = false
+            }
             cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row]
             cell.setup()
             cell.section = indexPath.section
@@ -257,7 +259,11 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             }
             return cell
         } else {
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChefMenuOptionRadioTableViewCell") as! ChefMenuOptionRadioTableViewCell
+            if isUpdate {
+                cell.isUserInteractionEnabled = false
+            }
             cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row]
             cell.section = indexPath.section
             cell.setup()

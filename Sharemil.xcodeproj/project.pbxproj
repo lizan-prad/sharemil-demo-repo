@@ -146,6 +146,10 @@
 		BE8CD3A328F5A266007A476B /* HelpItemIssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */; };
 		BE8CD3A528F5A274007A476B /* HelpItemIssueList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */; };
 		BE8CD3A928F5A2AC007A476B /* HelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3A828F5A2AC007A476B /* HelpService.swift */; };
+		BE8CD3AD28F60A3B007A476B /* HelpItemIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3AB28F60A3B007A476B /* HelpItemIssueTableViewCell.swift */; };
+		BE8CD3AE28F60A3B007A476B /* HelpItemIssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE8CD3AC28F60A3B007A476B /* HelpItemIssueTableViewCell.xib */; };
+		BE8CD3B128F60F77007A476B /* HelpItemIssueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3B028F60F77007A476B /* HelpItemIssueViewModel.swift */; };
+		BE8CD3B328F6105B007A476B /* HelpItemIssueListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3B228F6105B007A476B /* HelpItemIssueListCoordinator.swift */; };
 		BE958DC628EDB3C100C71EBF /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE958DC528EDB3C100C71EBF /* Help.storyboard */; };
 		BE958DC828EDB3C700C71EBF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE958DC728EDB3C700C71EBF /* HelpViewController.swift */; };
 		BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */; };
@@ -379,6 +383,10 @@
 		BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemIssueListViewController.swift; sourceTree = "<group>"; };
 		BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpItemIssueList.storyboard; sourceTree = "<group>"; };
 		BE8CD3A828F5A2AC007A476B /* HelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpService.swift; sourceTree = "<group>"; };
+		BE8CD3AB28F60A3B007A476B /* HelpItemIssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemIssueTableViewCell.swift; sourceTree = "<group>"; };
+		BE8CD3AC28F60A3B007A476B /* HelpItemIssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpItemIssueTableViewCell.xib; sourceTree = "<group>"; };
+		BE8CD3B028F60F77007A476B /* HelpItemIssueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemIssueViewModel.swift; sourceTree = "<group>"; };
+		BE8CD3B228F6105B007A476B /* HelpItemIssueListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItemIssueListCoordinator.swift; sourceTree = "<group>"; };
 		BE958DC528EDB3C100C71EBF /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		BE958DC728EDB3C700C71EBF /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
@@ -1192,8 +1200,11 @@
 		BE8CD39F28F5A1E8007A476B /* HelpItemIsssueList */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CD3AF28F60E42007A476B /* ViewModel */,
+				BE8CD3AA28F609D7007A476B /* Cell */,
 				BE8CD3A228F5A266007A476B /* HelpItemIssueListViewController.swift */,
 				BE8CD3A428F5A274007A476B /* HelpItemIssueList.storyboard */,
+				BE8CD3B228F6105B007A476B /* HelpItemIssueListCoordinator.swift */,
 			);
 			path = HelpItemIsssueList;
 			sourceTree = "<group>";
@@ -1204,6 +1215,23 @@
 				BE8CD3A828F5A2AC007A476B /* HelpService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BE8CD3AA28F609D7007A476B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CD3AB28F60A3B007A476B /* HelpItemIssueTableViewCell.swift */,
+				BE8CD3AC28F60A3B007A476B /* HelpItemIssueTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE8CD3AF28F60E42007A476B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CD3B028F60F77007A476B /* HelpItemIssueViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BE958DC228EDB3AC00C71EBF /* Help */ = {
@@ -1773,6 +1801,7 @@
 				BEF7EAE82865AFC5002D553E /* Checkout.storyboard in Resources */,
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
+				BE8CD3AE28F60A3B007A476B /* HelpItemIssueTableViewCell.xib in Resources */,
 				BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */,
 				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
@@ -1961,6 +1990,7 @@
 				BEF7EB0E2865CCAD002D553E /* Polyline.swift in Sources */,
 				BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */,
 				BEF7EB162865CCAD002D553E /* Bounds.swift in Sources */,
+				BE8CD3AD28F60A3B007A476B /* HelpItemIssueTableViewCell.swift in Sources */,
 				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
 				BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */,
@@ -1989,6 +2019,7 @@
 				BE118339287C8C790073970B /* MyLocationContainerModel.swift in Sources */,
 				BEF7EB1B2865CCAD002D553E /* Start_location.swift in Sources */,
 				BE7302CA287EC89A00CC6383 /* OrderDetailsCoordinator.swift in Sources */,
+				BE8CD3B328F6105B007A476B /* HelpItemIssueListCoordinator.swift in Sources */,
 				BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */,
 				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
 				BEF7EB122865CCAD002D553E /* Distance.swift in Sources */,
@@ -2001,6 +2032,7 @@
 				BE1427152857B4EB006E5240 /* LocationManager.swift in Sources */,
 				BEC08C1328EE0B76005AA875 /* HelpIssueCoordinator.swift in Sources */,
 				BEAF324C2876BAC00007F9B0 /* AccountNameViewModel.swift in Sources */,
+				BE8CD3B128F60F77007A476B /* HelpItemIssueViewModel.swift in Sources */,
 				BE73033B28818DE000CC6383 /* CustomStripeViewController.swift in Sources */,
 				BE214B162861C30300B26B50 /* SaveLocationCoordinator.swift in Sources */,
 				BE8CD39E28F5A19F007A476B /* SupportIssues.swift in Sources */,

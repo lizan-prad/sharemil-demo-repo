@@ -19,11 +19,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="244" id="KGk-i7-Jjw" customClass="HomeChefTableViewCell" customModule="Sharemil" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="234" id="KGk-i7-Jjw" customClass="HomeChefTableViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="243"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fcw-Wo-iX4">
@@ -32,23 +32,26 @@
                             <constraint firstAttribute="height" constant="157" id="OFa-uU-a1m"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-JR-jRA">
-                        <rect key="frame" x="12" y="181" width="296" height="62"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-JR-jRA">
+                        <rect key="frame" x="12" y="175" width="296" height="58"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-M9-2J4">
-                                <rect key="frame" x="0.0" y="0.0" width="296" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="P6d-XE-e8r"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J06-QO-NhP">
-                                <rect key="frame" x="0.0" y="23.5" width="296" height="15"/>
+                                <rect key="frame" x="0.0" y="19" width="296" height="15"/>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7h-kr-gvV">
-                                <rect key="frame" x="0.0" y="42.5" width="296" height="19.5"/>
+                                <rect key="frame" x="0.0" y="36" width="296" height="22"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +71,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3oJ-7W-W9f"/>
-                    <constraint firstItem="E0c-JR-jRA" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="14" id="8ve-7V-c0w"/>
+                    <constraint firstItem="E0c-JR-jRA" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="8" id="8ve-7V-c0w"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-16" id="FV0-ek-kTZ"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" id="Otn-hi-SwS"/>
                     <constraint firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="12" id="Ptr-NT-yrz"/>
@@ -86,7 +89,7 @@
                 <outlet property="chefName" destination="J06-QO-NhP" id="oaX-gs-mp7"/>
                 <outlet property="favBtn" destination="fgu-Ga-BUe" id="Y6K-rU-ga0"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="183.81696428571428"/>
+            <point key="canvasLocation" x="137.68115942028987" y="180.46875"/>
         </tableViewCell>
     </objects>
     <resources>
