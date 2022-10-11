@@ -65,6 +65,9 @@ class EditAccountViewController: UIViewController, Storyboarded {
         
         lastNameStack.isUserInteractionEnabled = true
         lastNameStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openLastNameEdit)))
+        
+        emailStack.isUserInteractionEnabled = true
+        emailStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openEmailEdit)))
         profilePic.rounded()
         profilePic.isUserInteractionEnabled = true
         profilePic.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(editAction)))
@@ -93,6 +96,12 @@ class EditAccountViewController: UIViewController, Storyboarded {
     @objc private func openFirstNameEdit() {
         let vc = UIStoryboard.init(name: "AccountName", bundle: nil).instantiateViewController(withIdentifier: "AccountNameViewController") as! AccountNameViewController
         vc.currentNameType = .first
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func openEmailEdit() {
+        let vc = UIStoryboard.init(name: "AccountName", bundle: nil).instantiateViewController(withIdentifier: "AccountNameViewController") as! AccountNameViewController
+        vc.currentNameType = .email
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -28,6 +28,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
+        profilePic.rounded()
         bindViewModel()
     }
  
