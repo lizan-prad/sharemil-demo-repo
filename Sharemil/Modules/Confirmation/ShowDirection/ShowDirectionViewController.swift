@@ -74,7 +74,7 @@ class ShowDirectionViewController: UIViewController, Storyboarded {
                 UIApplication.shared.open(urlDestination)
             }
         }
-        self.dismissPopUp()
+//        self.dismissPopUp()
     }
     
     @objc private func openAppleMaps() {
@@ -90,7 +90,7 @@ class ShowDirectionViewController: UIViewController, Storyboarded {
           with: [source, destination],
           launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         )
-        self.dismissPopUp()
+//        self.dismissPopUp()
     }
 
 }
