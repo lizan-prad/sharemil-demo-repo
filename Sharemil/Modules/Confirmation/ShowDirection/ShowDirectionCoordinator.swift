@@ -16,8 +16,11 @@ class ShowDirectionCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    var chef: ChefListModel?
+    
     func getMainView() -> ShowDirectionViewController {
         let vc = ShowDirectionViewController.instantiate()
+        vc.chef = chef
         return vc
     }
     

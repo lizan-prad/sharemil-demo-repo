@@ -141,6 +141,7 @@ extension ConfirmationViewController: UITableViewDataSource, UITableViewDelegate
             cell.polylines = self.polylines
             cell.didTapDirection = {
                 let coordinator = ShowDirectionCoordinator.init(navigationController: UINavigationController())
+                coordinator.chef = self.model?.cart?.chef
                 self.present(coordinator.getMainView(), animated: true)
             }
             return cell
