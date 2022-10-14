@@ -64,13 +64,13 @@ class ShowDirectionViewController: UIViewController, Storyboarded {
         guard let long = chef?.longitude else {return }
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {  //if phone has an app
             
-            if let url = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(lat),\(long)&directionsmode=driving") {
+            if let url = URL(string: "comgooglemaps://?saddr=\(loc?.location?.coordinate.latitude ?? 0),\(loc?.location?.coordinate.longitude ?? 0)&daddr=\(lat),\(long)&directionsmode=driving") {
                 UIApplication.shared.open(url, options: [:])
             }}
         
         else {
             //Open in browser
-            if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=&daddr=\(lat),\(long)&directionsmode=driving") {
+            if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=\(loc?.location?.coordinate.latitude ?? 0),\(loc?.location?.coordinate.longitude ?? 0)&daddr=\(lat),\(long)&directionsmode=driving") {
                 UIApplication.shared.open(urlDestination)
             }
         }
@@ -80,7 +80,7 @@ class ShowDirectionViewController: UIViewController, Storyboarded {
     @objc private func openAppleMaps() {
         guard let lat = chef?.latitude else {return }
         guard let long = chef?.longitude else {return }
-        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long)))
+        let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0)))
         source.name = "Source"
                 
         let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long)))

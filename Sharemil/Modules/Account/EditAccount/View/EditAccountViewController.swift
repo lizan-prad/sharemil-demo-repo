@@ -56,7 +56,6 @@ class EditAccountViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setup()
         bindViewModel()
-        self.viewModel.fetchUserProfile()
     }
     
     private func setup() {
@@ -114,6 +113,7 @@ class EditAccountViewController: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.viewModel.fetchUserProfile()
     }
 
 
