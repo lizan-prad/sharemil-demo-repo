@@ -9,8 +9,18 @@ import UIKit
 import GoogleMaps
 import Stripe
 import GooglePlaces
+import StripeApplePay
+import PassKit
 
-class CheckoutViewController: UIViewController, Storyboarded {
+class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate {
+    func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: StripeAPI.PaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
+        
+    }
+    
+    func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPApplePayContext.PaymentStatus, error: Error?) {
+        
+    }
+    
 
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
@@ -181,7 +191,28 @@ class CheckoutViewController: UIViewController, Storyboarded {
     private func openConfirmation() {
         let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
         vc.didApprove = {
-            self.viewModel.continuePayment(self.paymentIntent ?? "")
+            if self.selectedPayment?.name?.contains("Apple") ?? false {
+                let merchantIdentifier = "merchant.com.sharemil.sharemil"
+                let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
+                var item = PKPaymentSummaryItem()
+                item.label = "Sharemil Inc"
+                let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
+                let amount = a?.reduce(0, +).withDecimal(2)
+                item.amount = NSDecimalNumber.init(string: amount)
+//                item.amount = NSDecimalNumber.init(string: amount)
+                // Configure the line items on the payment request
+                paymentRequest.paymentSummaryItems = [
+                    item
+                ]
+                if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
+                    // Present Apple Pay payment sheet
+                    applePayContext.presentApplePay(on: self)
+                } else {
+                    // There is a problem with your Apple Pay configuration
+                }
+            } else {
+                self.viewModel.continuePayment(self.paymentIntent ?? "")
+            }
         }
         vc.didCancel = {
             
