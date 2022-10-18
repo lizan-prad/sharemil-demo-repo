@@ -79,8 +79,11 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Continue">
                                     <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="continueAction:" destination="6M9-06-qBI" eventType="touchUpInside" id="5yp-ZT-FuU"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rKz-GV-q3n">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rKz-GV-q3n">
                                 <rect key="frame" x="0.0" y="154.5" width="414" height="72"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -113,6 +116,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="continueBtn" destination="6vj-RS-SdN" id="CAS-Zv-9LJ"/>
                         <outlet property="detailsTextView" destination="MKf-w9-lVQ" id="dON-uW-4cf"/>
                         <outlet property="tableView" destination="rKz-GV-q3n" id="lqD-ZD-Hke"/>
                         <outlet property="tableViewHeight" destination="1nc-K5-lmO" id="Mmk-d5-YPn"/>

@@ -17,16 +17,21 @@ class HelpIssueCoordinator: Coordinator {
     }
     
     var cart: Cart?
+    var orderId: String?
     
     func getMainView() -> HelpIssuePageViewController {
         let vc = HelpIssuePageViewController.instantiate()
         vc.cart = cart
+        vc.orderId = orderId
+        vc.viewModel = HelpIssuePageViewModel()
         return vc
     }
     
     func start() {
         let vc = HelpIssuePageViewController.instantiate()
         vc.cart = cart
+        vc.orderId = orderId
+        vc.viewModel = HelpIssuePageViewModel()
         navigationController.pushViewController(vc, animated: true)
     }
 

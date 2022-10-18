@@ -13,6 +13,7 @@ class HelpViewController: UIViewController, Storyboarded {
     @IBOutlet weak var chefName: UILabel!
     
     var cart: Cart?
+    var orderId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class HelpViewController: UIViewController, Storyboarded {
     @objc func openIssue() {
         let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.cart
+        coordinator.orderId = orderId
         self.present(coordinator.getMainView(), animated: true)
     }
 

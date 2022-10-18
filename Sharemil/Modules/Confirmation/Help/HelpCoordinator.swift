@@ -17,10 +17,12 @@ class HelpCoordinator: Coordinator {
     }
     
     var cart: Cart?
+    var orderId: String?
     
     func getMainView() -> HelpViewController {
         let vc = HelpViewController.instantiate()
         vc.cart = cart
+        vc.orderId = orderId
         return vc
     }
     
