@@ -62,20 +62,14 @@ class ShowDirectionViewController: UIViewController, Storyboarded {
         
         guard let lat = chef?.latitude else {return }
         guard let long = chef?.longitude else {return }
-        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {  //if phone has an app
-            
-            if let url = URL(string: "comgooglemaps://?saddr=\(loc?.location?.coordinate.latitude ?? 0),\(loc?.location?.coordinate.longitude ?? 0)&daddr=\(lat),\(long)&directionsmode=driving") {
-                UIApplication.shared.open(url, options: [:])
-            }}
         
-        else {
-            //Open in browser
-            if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=\(loc?.location?.coordinate.latitude ?? 0),\(loc?.location?.coordinate.longitude ?? 0)&daddr=\(lat),\(long)&directionsmode=driving") {
-                UIApplication.shared.open(urlDestination)
-            }
+        if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(lat),\(long)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) {
+            UIApplication.shared.open(url, options: [:])
         }
-//        self.dismissPopUp()
+        
     }
+        
+//        self.dismissPopUp()
     
     @objc private func openAppleMaps() {
         guard let lat = chef?.latitude else {return }

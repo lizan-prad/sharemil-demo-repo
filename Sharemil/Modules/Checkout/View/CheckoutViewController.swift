@@ -46,8 +46,10 @@ class CheckoutViewController: UIViewController, Storyboarded {
         didSet {
             self.cardImage.isHidden = false
             self.cardImage.image = UIImage.init(named: selectedPayment?.stripePaymentMethod?.card?.brand ?? "")
-            self.cardLabel.text = selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted()
+            self.cardLabel.text = selectedPayment?.name?.contains("Apple") ?? false ? selectedPayment?.name : selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted()
+            if !(selectedPayment?.name?.contains("Apple") ?? false) {
             self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
+            }
         }
     }
     

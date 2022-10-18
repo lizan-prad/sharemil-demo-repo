@@ -30,6 +30,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     
+    var orderId: String?
     var viewModel: HomeViewModel!
     var address: String?
     var mapV: GMSMapView!
@@ -43,6 +44,9 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             mapView.addSubview(mapV)
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             self.start()
+            if orderId != nil {
+                self.openOrderDetails()
+            }
         }
     }
     
@@ -96,6 +100,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.orderId = order_id
         setup()
         setTableView()
         setCollectionView()
@@ -104,6 +109,13 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         self.setupLocationManager()
         bindViewModel()
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
+    }
+    
+    private func openOrderDetails() {
+        let coordinator = ConfirmationCoordinator.init(navigationController: UINavigationController())
+        coordinator.orderId = self.orderId
+        coordinator.location = self.currentLocation
+        self.present(coordinator.getMainView(), animated: true)
     }
     
     private func setupLocationManager() {

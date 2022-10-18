@@ -17,6 +17,8 @@ import Alamofire
 
 let db = Firestore.firestore()
 
+var order_id: String?
+
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
@@ -90,6 +92,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
                 didReceive response: UNNotificationResponse,
                 withCompletionHandler completionHandler:
                    @escaping () -> Void) {
+        let info = response.notification.request.content.userInfo as? [String: Any]
+        let type = info?["type"] as? String
+        let id = info?["id"] as? String
+        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CHECK"), object: id)
+        order_id = id
        // Get the meeting ID from the original notification.
        completionHandler()
     }

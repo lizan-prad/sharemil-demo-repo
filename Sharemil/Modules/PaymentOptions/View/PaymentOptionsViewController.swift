@@ -8,6 +8,7 @@
 import UIKit
 import Stripe
 import Alamofire
+import PassKit
 
 class PaymentOptionsViewController: UIViewController, Storyboarded {
     
@@ -60,7 +61,14 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
             }
         }
         self.viewModel.methods.bind { models in
-            self.models = models
+            if StripeAPI.deviceSupportsApplePay() {
+                var m = models
+                guard let p = PaymentMethods.init(JSON: ["name": "Apple Pay", "stripePaymentMethod" : ["card": ["brand" : "apple"]]]) else {return}
+                m?.insert( p, at: 0)
+                self.models = m
+            } else {
+                self.models = models
+            }
         }
         
         self.viewModel.payment.bind { model in
