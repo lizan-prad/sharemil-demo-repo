@@ -14,11 +14,23 @@ import PassKit
 
 class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: StripeAPI.PaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
-        
+        completion(self.paymentIntent ?? "", nil);
     }
     
     func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPApplePayContext.PaymentStatus, error: Error?) {
-        
+        switch status {
+        case .success:
+            self.viewModel.continuePayment(self.paymentIntent ?? "")
+            // Payment succeeded, show a receipt view
+        case .error:
+            // Payment failed, show the error
+            break
+        case .userCancellation:
+            // User canceled the payment
+            break
+        @unknown default:
+            fatalError()
+        }
     }
     
 
