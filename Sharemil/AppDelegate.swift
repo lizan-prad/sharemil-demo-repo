@@ -14,6 +14,7 @@ import FirebaseMessaging
 import FirebaseAuth
 import FirebaseFirestore
 import Alamofire
+import StripeApplePay
 
 let db = Firestore.firestore()
 
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        StripeAPI.defaultPublishableKey = "pk_test_51KgHBhEYsFc3t3viMQOBYoGfyFWgPIruKiWjSIO7IKqU0GREnosyUh3HeGw0hxc7lAQ3emeODmvUUjiRUXHvDZ5U00egomEJjd"
         IQKeyboardManager.shared().isEnabled = true
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4")

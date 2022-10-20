@@ -167,7 +167,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
             // MARK: Create a PaymentSheet instance
             var configuration = PaymentSheet.Configuration()
-            configuration.merchantDisplayName = "Example, Inc."
+            configuration.merchantDisplayName = "Sharemil, Inc."
             configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
             // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
             // methods that complete payment after a delay, like SEPA Debit and Sofort.
