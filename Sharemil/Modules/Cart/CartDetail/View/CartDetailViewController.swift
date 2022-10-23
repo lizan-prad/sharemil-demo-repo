@@ -156,6 +156,7 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
         coordinator.menuItemModel = self.cartItems?[indexPath.row].menuItem
         coordinator.cartModel = cartItems
+        coordinator.selectedItem = cartItems?[indexPath.row]
         coordinator.isUpdate = true
         coordinator.didAddToCart = { model in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)

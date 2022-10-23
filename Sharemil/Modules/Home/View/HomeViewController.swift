@@ -13,6 +13,7 @@ import GoogleMaps
 
 var loc: LLocation?
 var isFirst = true
+
 class HomeViewController: UIViewController, GMSMapViewDelegate {
 
     @IBOutlet weak var listBtn: UIButton!
@@ -147,7 +148,6 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         let swipeGestureUp = UISwipeGestureRecognizer.init(target: self, action: #selector(contractMap))
         swipeGestureUp.direction = .up
         self.container.addGestureRecognizer(swipeGestureUp)
-        
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {

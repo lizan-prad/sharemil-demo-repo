@@ -45,6 +45,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
     }
     
+    var selectedItem: CartItems?
+    
     
     var initialQuantity = 1 {
         didSet {
@@ -118,11 +120,11 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     @IBAction func removeAction(_ sender: Any) {
         let alert = AlertServices.showAlertWithOkCancelAction(title: nil, message: "Do you wish to delete this item?") { _ in
-            self.cartModel = self.cartModel?.filter({$0.menuItemId != self.model?.id})
+            self.cartModel = self.cartModel?.filter({$0.id != self.selectedItem?.id})
             if self.cartModel?.isEmpty ?? true {
-                self.viewModel.deleteCart(self.cartModel?.first?.cartId ?? "")
+                self.viewModel.deleteCart(self.selectedItem?.cartId ?? "")
             } else {
-                self.viewModel.updateToCart(self.cartModel?.first?.menuItem?.chefId ?? "", cartModels: self.cartModel ?? [])
+                self.viewModel.updateToCart(self.selectedItem?.menuItem?.chefId ?? "", cartModels: self.cartModel ?? [])
             }
         }
         self.present(alert, animated: true)
@@ -133,13 +135,13 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             self.viewModel.addToCart(self.model?.chefId ?? "", itemId: self.model?.id ?? "", quantity: self.initialQuantity, options: selectedOptions)
         } else {
             var item = CartItems.init()
-            item.id = self.cartModel?.first?.id
-            item.cartId = self.cartModel?.first?.cartId
+//            item.id = self.cartModel?.first?.id
+//            item.cartId = self.cartModel?.first?.cartId
             item.menuItemId = self.model?.id
             item.quantity = self.initialQuantity
             item.options = self.selectedOptions
             var cart: [CartItems] = self.cartModel ?? []
-            cart = cart.filter({$0.menuItemId != self.model?.id})
+//            cart = cart.filter({$0.menuItemId != self.model?.id})
             cart.append(item)
             self.viewModel.updateToCart(self.model?.chefId ?? "", cartModels: cart)
         }
