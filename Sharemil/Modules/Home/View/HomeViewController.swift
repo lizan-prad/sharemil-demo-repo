@@ -53,7 +53,9 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     var chefs: [ChefListModel]? {
         didSet {
-            self.filtered = chefs
+            self.filtered = chefs?.sorted(by: { a, b in
+                return a.isOpen == true
+            })
         }
     }
     
@@ -73,7 +75,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         didSet {
             filtered?.forEach({ m in
                 let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(m.latitude ?? 0), longitude: Double(m.longitude ?? 0)))
-                let arrow = UIImage.init(named: "circle-marker")?.withTintColor(UIColor.init(hex: "DA3143"))
+                let arrow = UIImage.init(named: m.isOpen == true ? "open_restaurant" : "circle-marker")?.withTintColor(UIColor.init(hex: "DA3143"))
                 marker.icon = arrow?.withTintColor(.red, renderingMode: .alwaysTemplate)
                 marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
                 marker.isFlat = true

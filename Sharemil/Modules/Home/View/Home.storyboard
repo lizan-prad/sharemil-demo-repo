@@ -44,7 +44,7 @@
                                     <action selector="listAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hTI-MK-GKC"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AAG-EZ-GDG">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AAG-EZ-GDG">
                                 <rect key="frame" x="0.0" y="418" width="414" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -250,7 +250,7 @@
     </scenes>
     <resources>
         <image name="burger" width="24" height="24"/>
-        <image name="chevron.location.down" width="24" height="24"/>
+        <image name="chevron.location.down" width="20" height="20"/>
         <image name="home" width="25" height="25"/>
         <image name="location" width="32" height="32"/>
         <image name="search" width="48" height="48"/>

@@ -40,7 +40,7 @@ class Validator {
                     return false
                 }
             }
-            else if year >= yearLastTwo {
+            else if year >= yearLastTwo && year <= (yearLastTwo + 5) {
                 return true
             }
             else {

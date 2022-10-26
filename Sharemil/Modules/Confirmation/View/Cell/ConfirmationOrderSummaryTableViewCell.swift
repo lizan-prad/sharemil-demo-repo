@@ -28,7 +28,7 @@ class ConfirmationOrderSummaryTableViewCell: UITableViewCell {
         let totalPrice = cartItems?.map({ c in
             return (c.menuItem?.price ?? 0)*Double(c.quantity ?? 0)
         }).reduce(0, +)
-        total.text = "$ \(totalPrice ?? 0)"
+        total.text = "$" + (totalPrice ?? 0).withDecimal(2)
     }
 }
 

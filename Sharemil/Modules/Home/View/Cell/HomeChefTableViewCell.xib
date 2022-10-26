@@ -68,11 +68,34 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button" image="heart"/>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLc-WZ-E5q">
+                        <rect key="frame" x="22" y="20" width="70" height="25"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Closed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VO-Tf-K3g">
+                                <rect key="frame" x="14.5" y="4" width="41.5" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="JUJ-5l-YPF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75315693652991089" green="0.1822336885624937" blue="0.097360942421299612" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="0VO-Tf-K3g" firstAttribute="centerY" secondItem="WLc-WZ-E5q" secondAttribute="centerY" id="EWE-lY-k8K"/>
+                            <constraint firstAttribute="width" constant="70" id="KoG-lE-3d8"/>
+                            <constraint firstAttribute="height" constant="25" id="O9N-fe-uua"/>
+                            <constraint firstItem="0VO-Tf-K3g" firstAttribute="centerX" secondItem="WLc-WZ-E5q" secondAttribute="centerX" id="giH-Ub-Xa9"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3oJ-7W-W9f"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="8" id="8ve-7V-c0w"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-16" id="FV0-ek-kTZ"/>
+                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="top" constant="10" id="ICd-ko-HYL"/>
+                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" constant="10" id="OR6-s4-ohJ"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" id="Otn-hi-SwS"/>
                     <constraint firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="12" id="Ptr-NT-yrz"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="top" constant="16" id="T3z-7X-FVd"/>
@@ -87,6 +110,7 @@
                 <outlet property="chefDesc" destination="c7h-kr-gvV" id="JJB-Re-T6p"/>
                 <outlet property="chefImage" destination="fcw-Wo-iX4" id="Bh7-Jr-k4I"/>
                 <outlet property="chefName" destination="J06-QO-NhP" id="oaX-gs-mp7"/>
+                <outlet property="closedView" destination="WLc-WZ-E5q" id="wbY-nN-DVy"/>
                 <outlet property="favBtn" destination="fgu-Ga-BUe" id="Y6K-rU-ga0"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="180.46875"/>

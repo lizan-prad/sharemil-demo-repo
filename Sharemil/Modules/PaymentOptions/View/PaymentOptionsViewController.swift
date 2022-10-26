@@ -55,9 +55,8 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         }
         self.viewModel.success.bind { msg in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                self.dismiss(animated: true) {
-                    self.viewModel.getPaymentMethods()
-                }
+                self.viewModel.getPaymentMethods()
+//                self.navigationController?.popViewController(animated: true)
             }
         }
         self.viewModel.methods.bind { models in

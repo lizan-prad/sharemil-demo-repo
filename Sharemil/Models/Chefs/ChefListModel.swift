@@ -32,6 +32,7 @@ class ChefListModel: Mappable {
     var preparationTime: String?
     var latitude: Double?
     var longitude: Double?
+    var isOpen: Bool?
 
     required init?(map: Map) {
 
@@ -60,5 +61,23 @@ class ChefListModel: Mappable {
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         hours <- map["businessHours"]
+        isOpen = isOpenToday()
+    }
+    
+    private func isOpenToday() -> Bool {
+        let date            = Date()
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "EEE"
+        let currentDay = dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let currentHour = hours?.filter({$0.day?.capitalized == currentDay}).first
+        let today = dateFormatter.string(from: date)
+        let origToday = dateFormatter.date(from: today) ?? Date()
+        let start = dateFormatter.date(from: currentHour?.startTime ?? "") ?? Date()
+        let end = dateFormatter.date(from: currentHour?.endTime ?? "") ?? Date()
+        return (origToday > start) && (origToday < end)
     }
 }
+
+
+

@@ -24,7 +24,7 @@ class ChefMenuTableViewCell: UITableViewCell {
             dishImage.sd_setImage(with: URL.init(string: model?.imageUri ?? ""))
             dishDesc.text = model?.description
             dishName.text = model?.name
-            dishPrice.text = "$\(model?.price ?? 0)"
+            dishPrice.text = "$" + (model?.price ?? 0).withDecimal(2)
         }
     }
 }
