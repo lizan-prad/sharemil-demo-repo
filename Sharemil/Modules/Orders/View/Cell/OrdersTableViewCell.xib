@@ -11,7 +11,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -73,6 +73,9 @@
                         <state key="normal" title="Reorder">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="reorderAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ucO-gg-xAD"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzT-n1-z8p">
                         <rect key="frame" x="0.0" y="116" width="320" height="1"/>

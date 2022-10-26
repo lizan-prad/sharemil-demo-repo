@@ -22,7 +22,8 @@ class CartListTableViewCell: UITableViewCell {
             addressLabel.text = "Pickup at \(cart?.chef?.address ?? "")"
             let totalPrice = (cart?.cartItems?.compactMap({Double($0.quantity ?? 0)*($0.menuItem?.price ?? 0)}).reduce(0, +) ?? 0)
             businessName.text = cart?.chef?.businessName
-            itemsLabel.text = "\(cart?.cartItems?.count ?? 0) \(cart?.cartItems?.count == 1 ? "item" : "items") · $\(String(format:"%.2f", totalPrice))"
+            let count = (cart?.cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
+            itemsLabel.text = "\(count) \(count == 1 ? "item" : "items") · $\(String(format:"%.2f", totalPrice))"
             chefName.text = "\(cart?.chef?.firsName ?? "") \(cart?.chef?.lastName ?? "")"
             cartImage.sd_setImage(with: URL.init(string: cart?.chef?.mainImageUrl ?? ""))
         }

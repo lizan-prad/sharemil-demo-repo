@@ -138,6 +138,12 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell") as! OrdersTableViewCell
         cell.setup()
         cell.model = self.orders?[indexPath.row]
+        cell.didSelectReorder = { model in
+            guard let nav = self.navigationController else {return}
+            let coordinator = ChefMenuCoordinator.init(navigationController: nav)
+            coordinator.chef = model
+            coordinator.start()
+        }
         return cell
     }
     

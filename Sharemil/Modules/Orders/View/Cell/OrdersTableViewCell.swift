@@ -17,12 +17,15 @@ class OrdersTableViewCell: UITableViewCell {
     @IBOutlet weak var orderImage: UIImageView!
     @IBOutlet weak var chefName: UILabel!
     
+    var didSelectReorder: ((ChefListModel?) -> ())?
+    
     var model: OrderModel? {
         didSet {
             self.businessName.text = model?.cart?.chef?.businessName
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
-            self.itemsPriceLabel.text = "\(model?.cart?.cartItems?.count ?? 0) items · $\(model?.total ?? 0)"
+            let count = (model?.cart?.cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
+            self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items") · $" + (model?.total ?? 0).withDecimal(2)
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let orderDate = formatter.date(from: model?.createdAt ?? "")
@@ -30,8 +33,12 @@ class OrdersTableViewCell: UITableViewCell {
             self.dateStatusLabel.text = "\(formatter.string(from: orderDate ?? Date())) · \(model?.status ?? "")"
         }
     }
-    
+
     func setup() {
         reorderBtn.rounded()
+    }
+    
+    @IBAction func reorderAction(_ sender: Any) {
+        self.didSelectReorder?(self.model?.cart?.chef)
     }
 }
