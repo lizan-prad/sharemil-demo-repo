@@ -10,6 +10,7 @@ import MBRadioCheckboxButton
 
 class HelpItemIssueTableViewCell: UITableViewCell, RadioButtonDelegate {
 
+    @IBOutlet weak var issueExample: UILabel!
     @IBOutlet weak var issueTitle: UILabel!
     @IBOutlet weak var issueRadio: RadioButton!
     
@@ -17,6 +18,8 @@ class HelpItemIssueTableViewCell: UITableViewCell, RadioButtonDelegate {
     
     var model: SupportIssues? {
         didSet {
+            issueExample.isHidden = model?.example == nil || model?.example == ""
+            issueExample.text = "Ex: \(model?.example ?? "")"
             issueTitle.text = model?.description
         }
     }

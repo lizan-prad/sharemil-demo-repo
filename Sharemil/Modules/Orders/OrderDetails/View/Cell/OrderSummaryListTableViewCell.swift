@@ -18,7 +18,7 @@ class OrderSummaryListTableViewCell: UITableViewCell {
         didSet {
             itemQuantity.text = "\(item?.quantity ?? 0)"
             itemNamee.text = item?.menuItem?.name
-            priceLabel.text = "$\((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0))"
+            priceLabel.text = "$" + ((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0)).withDecimal(2)
         }
     }
     
