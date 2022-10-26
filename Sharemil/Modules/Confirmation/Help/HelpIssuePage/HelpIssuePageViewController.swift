@@ -19,6 +19,7 @@ class HelpIssuePageViewController: UIViewController, Storyboarded, UITextViewDel
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var detailsTextView: UITextView!
     
+    var type: String?
     var cart: Cart?
     var orderId: String?
     
@@ -122,7 +123,7 @@ extension HelpIssuePageViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coordinator = HelpItemIssueListCoordinator.init(navigationController: UINavigationController())
-        coordinator.categoryType = "item_quality"
+        coordinator.categoryType = self.type
         coordinator.didSelectIssue = { issue in
             self.issueList?.remove(at: indexPath.row)
             self.issueList?.insert(IssueListStruct.init(item: self.cart?.cartItems?[indexPath.row], issue: issue), at: indexPath.row)

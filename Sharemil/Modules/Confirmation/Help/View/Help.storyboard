@@ -206,6 +206,7 @@
                     <connections>
                         <outlet property="chefName" destination="Wf9-JK-l7i" id="JtT-CN-tD2"/>
                         <outlet property="issueOption" destination="DdU-0U-QnB" id="TUw-Ue-WUL"/>
+                        <outlet property="missingView" destination="wxp-Em-EPK" id="DyR-n7-EOU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

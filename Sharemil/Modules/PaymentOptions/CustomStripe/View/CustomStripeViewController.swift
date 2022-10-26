@@ -69,7 +69,7 @@ class CustomStripeViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func addCardAction(_ sender: Any) {
-        let alert = AlertServices.showAlertWithOkCancelActionCompletion(title: nil, message: "Set this as a default payment method?") { _ in
+        let alert = AlertServices.showAlertWithOkCancelActionCompletionYes(title: nil, message: "Set this as a default payment method?") { _ in
             self.model?.isDefault = true
             guard let model = self.model else {return}
             self.viewModel.addPaymentMethod(model)

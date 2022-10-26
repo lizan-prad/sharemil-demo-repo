@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -69,7 +69,7 @@
                         <state key="normal" title="Button" image="heart"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLc-WZ-E5q">
-                        <rect key="frame" x="22" y="20" width="70" height="25"/>
+                        <rect key="frame" x="228" y="132" width="70" height="25"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Closed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VO-Tf-K3g">
                                 <rect key="frame" x="14.5" y="4" width="41.5" height="17"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.75315693652991089" green="0.1822336885624937" blue="0.097360942421299612" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0VO-Tf-K3g" firstAttribute="centerY" secondItem="WLc-WZ-E5q" secondAttribute="centerY" id="EWE-lY-k8K"/>
                             <constraint firstAttribute="width" constant="70" id="KoG-lE-3d8"/>
@@ -94,14 +94,14 @@
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3oJ-7W-W9f"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="8" id="8ve-7V-c0w"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-16" id="FV0-ek-kTZ"/>
-                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="top" constant="10" id="ICd-ko-HYL"/>
-                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" constant="10" id="OR6-s4-ohJ"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" id="Otn-hi-SwS"/>
                     <constraint firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="12" id="Ptr-NT-yrz"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="top" constant="16" id="T3z-7X-FVd"/>
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="cCX-Z6-4EV"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" id="cag-hB-1Ql"/>
+                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-10" id="hKI-e3-Ed4"/>
                     <constraint firstAttribute="bottom" secondItem="E0c-JR-jRA" secondAttribute="bottom" constant="10" id="ofy-rs-5KA"/>
+                    <constraint firstItem="WLc-WZ-E5q" firstAttribute="bottom" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="-10" id="ww1-Dz-C2F"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

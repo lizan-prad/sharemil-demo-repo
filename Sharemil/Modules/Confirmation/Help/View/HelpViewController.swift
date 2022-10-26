@@ -10,6 +10,7 @@ import UIKit
 class HelpViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var issueOption: UIView!
+    @IBOutlet weak var missingView: UIView!
     @IBOutlet weak var chefName: UILabel!
     
     var cart: Cart?
@@ -26,14 +27,25 @@ class HelpViewController: UIViewController, Storyboarded {
     }
     
     private func setup() {
+        self.missingView.isUserInteractionEnabled = true
+        self.missingView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openMissing)))
         self.issueOption.isUserInteractionEnabled = true
         self.issueOption.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openIssue)))
+    }
+    
+    @objc func openMissing() {
+        let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
+        coordinator.cart = self.cart
+        coordinator.type = "missing"
+        coordinator.orderId = orderId
+        self.present(coordinator.getMainView(), animated: true)
     }
     
     @objc func openIssue() {
         let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.cart
         coordinator.orderId = orderId
+        coordinator.type = "item_quality"
         self.present(coordinator.getMainView(), animated: true)
     }
 
