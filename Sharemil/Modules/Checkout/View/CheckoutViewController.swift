@@ -64,6 +64,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
+    var scheduleDate: String?
+    
     var selectedPayment: PaymentMethods? {
         didSet {
             self.cardImage.isHidden = false
@@ -248,7 +250,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
             cell.chef = self.chef
             cell.setup()
-            cell.scheduleDateField.text = self.scheduleType == "standard" ? nil : scheduleType
+            cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
             cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
             cell.polylines = self.polylines
@@ -256,6 +258,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 self.scheduleType = type
                 if self.scheduleType == "standard" {
                     self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                } else {
+                    self.scheduleDate = type
                 }
             }
             cell.didSelectMainDate = { date in
