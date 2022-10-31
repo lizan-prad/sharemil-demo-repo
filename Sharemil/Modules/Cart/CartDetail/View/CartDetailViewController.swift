@@ -9,6 +9,7 @@ import UIKit
 
 class CartDetailViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +27,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var didUpdate: (() -> ())?
     
     var didSelectCheckout: (() -> ())?
+    var isEdit = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +107,20 @@ class CartDetailViewController: UIViewController, Storyboarded {
         })
         
     }
-
+    
+    @IBAction func editAction(_ sender: Any) {
+        self.isEdit = !isEdit
+        self.tableView.reloadData()
+        if isEdit {
+            self.editBtn.setImage(nil, for: .normal)
+            self.editBtn.setTitle("Save", for: .normal)
+        } else {
+            self.editBtn.setImage(UIImage.init(named: "edit"), for: .normal)
+            self.editBtn.setTitle(nil, for: .normal)
+            self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+        }
+    }
+    
     @IBAction func checkoutAction(_ sender: Any) {
         self.dismiss(animated: true) {
             self.didSelectCheckout?()
@@ -121,7 +136,18 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartDetailTableViewCell") as! CartDetailTableViewCell
+        cell.isEdit = self.isEdit
+        cell.setup()
+        cell.index = indexPath.row
         cell.item = self.cartItems?[indexPath.row]
+        cell.didChangeQuantity = { (quantity, index) in
+            if var item = self.cartItems?[index ?? 0] {
+                item.quantity = quantity
+                self.cartItems?.remove(at: index ?? 0)
+                self.cartItems?.insert(item, at: index ?? 0)
+                self.tableView.reloadData()
+            }
+        }
         return cell
     }
     

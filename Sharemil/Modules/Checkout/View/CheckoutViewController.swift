@@ -218,6 +218,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                 paymentRequest.paymentSummaryItems = [
                     item
                 ]
+                
                 if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
                     // Present Apple Pay payment sheet
                     applePayContext.presentApplePay(on: self)
