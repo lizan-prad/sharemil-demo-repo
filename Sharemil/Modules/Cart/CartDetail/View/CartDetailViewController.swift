@@ -67,6 +67,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.setup()
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.didUpdate?()
+            self.cartItems = self.cartItems?.filter({$0.quantity != 0})
             self.tableView.reloadData()
         }
     }
