@@ -117,7 +117,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
         } else {
             self.editBtn.setImage(UIImage.init(named: "edit"), for: .normal)
             self.editBtn.setTitle(nil, for: .normal)
-            self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+            self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems?.filter({$0.quantity != 0}) ?? [])
         }
     }
     
