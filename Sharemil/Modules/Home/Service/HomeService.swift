@@ -14,7 +14,7 @@ protocol HomeService {
 
 extension HomeService {
     func fetchChefs(_ location: LLocation, with chefName: String?, completion: @escaping (Result<BaseMappableModel<ChefListContainerModel>, Error>) -> ()) {
-        NetworkManager.shared.request(BaseMappableModel<ChefListContainerModel>.self, urlExt: "chefs/location/lat/\(location.location?.coordinate.latitude ?? 0)/lon/\(location.location?.coordinate.longitude ?? 0)/radius/3.0?search=\(chefName ?? "")", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<ChefListContainerModel>.self, urlExt: "chefs/location/lat/\(location.location?.coordinate.latitude ?? 0)/lon/\(location.location?.coordinate.longitude ?? 0)/radius/25.0?search=\(chefName ?? "")", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
