@@ -25,12 +25,15 @@ class OrdersTableViewCell: UITableViewCell {
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
             let count = (model?.cart?.cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
-            self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items")" + (model?.status?.lowercased() == "completed" ? "" : ("· $" + (model?.total ?? 0).withDecimal(2)))
+            
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let time = formatter.date(from: model?.pickupTime ?? "")
             let orderDate = formatter.date(from: model?.createdAt ?? "")
             formatter.dateFormat = "MMM dd"
             self.dateStatusLabel.text = "\(formatter.string(from: orderDate ?? Date())) · \(model?.status ?? "")"
+            formatter.dateFormat = "hh:mm a"
+            self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items")" + (model?.status?.lowercased() == "completed" ? "" : ("· $" + (formatter.string(from: time ?? Date()))))
         }
     }
 

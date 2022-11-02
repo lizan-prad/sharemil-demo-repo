@@ -50,6 +50,11 @@ class ConfirmationViewController: UIViewController, Storyboarded {
             default: break
             }
             self.viewModel.getRoute(location?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: model?.cart?.chef?.latitude ?? 0, longitude: model?.cart?.chef?.longitude ?? 0))
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            let time = formatter.date(from: model?.pickupTime ?? "")
+            formatter.dateFormat = "hh:mm a"
+            self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
             self.tableView.reloadData()
         }
     }
