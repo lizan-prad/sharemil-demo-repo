@@ -33,7 +33,7 @@ class OrdersTableViewCell: UITableViewCell {
             formatter.dateFormat = "MMM dd"
             self.dateStatusLabel.text = "\(formatter.string(from: orderDate ?? Date())) · \(model?.status ?? "")"
             formatter.dateFormat = "hh:mm a"
-            self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items")" + (model?.status?.lowercased() == "completed" ? "" : ("· $" + (formatter.string(from: time ?? Date()))))
+            self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items")" + (model?.status?.lowercased() == "completed" ? "" : (" · " + (formatter.string(from: time ?? Date()))))
         }
     }
 
