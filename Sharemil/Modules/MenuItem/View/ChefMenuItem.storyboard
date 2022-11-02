@@ -233,6 +233,7 @@
                         <outlet property="minusBtn" destination="tk8-iC-iKP" id="TjP-xw-EJX"/>
                         <outlet property="plusBtn" destination="Cjc-V2-EuM" id="UyP-qT-dE8"/>
                         <outlet property="quantityLabel" destination="554-WL-uug" id="Bea-Bu-O2r"/>
+                        <outlet property="quantityStack" destination="wKX-sM-fNZ" id="LE6-TL-qi3"/>
                         <outlet property="removeBtn" destination="qpg-BZ-IVB" id="aaf-jm-VIQ"/>
                         <outlet property="tableHeight" destination="xj5-jv-5sI" id="hpW-6J-swk"/>
                         <outlet property="tableView" destination="Byi-ct-Oxs" id="OtP-QV-qly"/>

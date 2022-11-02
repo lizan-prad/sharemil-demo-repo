@@ -11,6 +11,7 @@ import CoreLocation
 
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var quantityStack: UIStackView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var removeBtn: UIButton!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
@@ -54,7 +55,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
                 self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
             } else {
-                self.addToCartBtn.setTitle("Update \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
             }
             
         }
@@ -89,7 +90,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     func setupUpdateView() {
         if isUpdate {
             self.tableView.alpha = 0.7
-            
+            self.quantityStack.isHidden = true
             self.removeBtn.isHidden = false
             self.addToCartBtn.disable()
             self.plusBtn.alpha = 0.7
@@ -97,6 +98,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             self.plusBtn.isEnabled = false
             self.minusBtn.isEnabled = false
         } else {
+            self.quantityStack.isHidden = false
             self.removeBtn.isHidden = true
             self.plusBtn.isEnabled = true
             self.minusBtn.isEnabled = true
@@ -171,7 +173,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.menuItemImage.sd_setImage(with: URL.init(string: model?.imageUri ?? ""))
         self.itemNamelabel.text = model?.name
         self.itemDescLabel.text = model?.description
-        self.itemPriceLabel.text = "$\(model?.price ?? 0)"
+        self.itemPriceLabel.text = "$" + (model?.price ?? 0).withDecimal(2)
         self.initialQuantity = 1
         
         

@@ -62,7 +62,8 @@ class ChefMenuViewController: UIViewController, Storyboarded {
             self.tableviewBottomView.isHidden = cartItems?.isEmpty ?? true
             self.addToCartView.isHidden = cartItems?.isEmpty ?? true
             self.viewCartBtn.isHidden = cartItems?.isEmpty ?? true
-            self.viewCartBtn.setTitle("View cart (\(cartItems?.count ?? 0))", for: .normal)
+            let count = (cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
+            self.viewCartBtn.setTitle("View cart (\(count))", for: .normal)
         }
     }
     
