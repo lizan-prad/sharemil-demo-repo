@@ -112,7 +112,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         formatter.dateFormat = "HH:mm:ss"
         let date = formatter.date(from: hour?.endTime ?? "")
         formatter.dateFormat = "hh:mm a"
-        self.chefTime.text = "Opens till \(formatter.string(from: date ?? Date()))"
+        self.chefTime.text = date == nil ? "Closed" : "Opens till \(formatter.string(from: date ?? Date()))"
     }
 
 }

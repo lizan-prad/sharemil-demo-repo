@@ -10,6 +10,7 @@ import GoogleMaps
 
 class ConfirmationViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var readyAtLabel: UILabel!
     @IBOutlet weak var orderStatusTitle: UILabel!
     @IBOutlet weak var readyView: UIView!
     @IBOutlet weak var cookingView: UIView!
