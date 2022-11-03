@@ -74,6 +74,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         bindViewModel()
         setTableView()
         setupView()
+        
         if UIDevice.current.hasNotch {
             self.containerHeight.constant = 116
         } else {
@@ -236,30 +237,28 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             cell.setup()
             cell.section = indexPath.section
             cell.didSelect = { (val, section) in
-                if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
                     var check = MenuItemOptionsModel()
-                    check.title = self.model?.options?[indexPath.section].title
-                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
-                    check.choices = [val]
+                let m = self.selectedOptions.filter({$0.multipleChoice == true}).first
+                    check.title = self.model?.options?[section].title
+                    check.multipleChoice = true
+                check.choices = m == nil ? [val] : [val, m?.choices?.filter({$0 != val}).first ?? ""]
+                    self.selectedOptions = self.selectedOptions.filter({$0.multipleChoice != true})
                     self.selectedOptions.append(check)
-                } else if section <= (self.selectedOptions.count - 1) {
-                    var check = self.selectedOptions[section]
-                    var choices: [String] = check.choices ?? []
-                    choices.append(val)
-                    check.choices = choices
-                    self.selectedOptions.remove(at: section)
-                    self.selectedOptions.insert(check, at: section)
-                }
             }
             cell.didDeSelect = { (val, section) in
-                var check = self.selectedOptions[section]
-                let choices: [String] = check.choices?.filter({$0 != val}) ?? []
-                check.choices = choices
-                self.selectedOptions.remove(at: section)
-                self.selectedOptions.insert(check, at: section)
-                if choices.isEmpty == true {
-                    self.selectedOptions.remove(at: section)
+                guard var check = self.selectedOptions.filter({$0.multipleChoice == true}).first else {return}
+                if check.choices?.count == 2 {
+                    var m = self.selectedOptions.filter({$0.multipleChoice != true})
+                    check.choices = check.choices?.filter({$0 != val})
+                    m.append(check)
+                    self.selectedOptions = m
+                } else {
+                    self.selectedOptions = self.selectedOptions.filter({$0.multipleChoice != true})
                 }
+//                self.selectedOptions.insert(check, at: section)
+//                if choices.isEmpty == true {
+//                    self.selectedOptions.remove(at: section)
+//                }
             }
             return cell
         } else {

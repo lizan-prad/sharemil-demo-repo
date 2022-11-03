@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ChefMenuViewController: UIViewController, Storyboarded {
 
@@ -47,12 +48,23 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         self.viewModel.fetchCarts()
     }
     
+    private func start() {
+        self.showProgressHud()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                self.viewModel.fetchChefMenu()
+                self.viewModel.fetchCarts()
+            }
+        })
+    }
+    
     private func bindViewModel() {
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+            self.start()
         }
         self.viewModel.menuItems.bind { models in
             self.menuItems = models

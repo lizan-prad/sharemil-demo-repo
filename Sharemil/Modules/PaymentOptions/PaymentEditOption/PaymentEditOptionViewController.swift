@@ -24,6 +24,7 @@ class PaymentEditOptionViewController: UIViewController, Storyboarded {
     }
     
     private func setup() {
+        self.deleteView.isHidden = id == nil
         deleteView.isUserInteractionEnabled = true
         deleteView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(deleteAction)))
         

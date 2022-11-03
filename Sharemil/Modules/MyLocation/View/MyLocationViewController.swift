@@ -216,8 +216,8 @@ extension MyLocationViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-        
-        return swipeActions
+    
+        return indexPath.section == 0 ? nil : swipeActions
     }
 }
 

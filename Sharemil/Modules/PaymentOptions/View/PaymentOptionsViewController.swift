@@ -143,7 +143,11 @@ extension PaymentOptionsViewController: UITableViewDataSource, UITableViewDelega
                 self.viewModel.deletePaymentMethod(id ?? "")
             }
             coordinator.didSelectDefault = { id in
-                self.viewModel.makeDefaultPaymentMethod(id ?? "")
+                if id == nil {
+                    self.viewModel.makeDefaultApplePay()
+                } else {
+                    self.viewModel.makeDefaultPaymentMethod(id ?? "")
+                }
             }
             self.present(coordinator.getMainView(), animated: true)
         }

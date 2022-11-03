@@ -31,6 +31,8 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     
+    let refreshControl = UIRefreshControl()
+    
     var orderId: String?
     var viewModel: HomeViewModel!
     var address: String?
@@ -66,7 +68,6 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
                 UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
                 self.viewModel.fetchUserProfile()
                 self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
-                
             }
         })
     }
@@ -240,6 +241,13 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         tableView.delegate = self
         
         tableView.register(UINib.init(nibName: "HomeChefTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeChefTableViewCell")
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+          refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
     }
     
     private func setMapCollectionView() {
@@ -272,12 +280,16 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
+            self.refreshControl.endRefreshing()
 //            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+            self.start()
         }
         self.viewModel.success.bind { models in
+            self.refreshControl.endRefreshing()
             self.chefs = models
         }
         self.viewModel.cusines.bind { models in
+            self.refreshControl.endRefreshing()
             self.cusines = models
         }
         

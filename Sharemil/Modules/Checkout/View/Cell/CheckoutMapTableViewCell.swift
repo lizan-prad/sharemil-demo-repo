@@ -58,9 +58,21 @@ class CheckoutMapTableViewCell: UITableViewCell {
   
     @objc private func didSelectDate(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "eee, MMM dd HH:mm a"
-        self.selectedDate = sender.date
-        self.scheduleDateField.text = formatter.string(from: sender.date)
+        let calendar = Calendar.current
+        let minutes = calendar.component(.minute, from: sender.date)
+        let remaining = (minutes%15) == 0 ? 0 : (15 - (minutes%15))
+        if remaining == 0 {
+            let date = sender.date.addingTimeInterval(Double(remaining*60))
+            formatter.dateFormat = "eee, MMM dd HH:mm a"
+            self.selectedDate = sender.date
+            self.scheduleDateField.text = formatter.string(from: date)
+        } else {
+            let date = Date().addingTimeInterval(Double(remaining*60))
+            formatter.dateFormat = "eee, MMM dd HH:mm a"
+            self.selectedDate = sender.date
+            self.scheduleDateField.text = formatter.string(from: date)
+        }
+        
     }
 
     @objc private func doneButtonClicked(_ sender: Any) {
