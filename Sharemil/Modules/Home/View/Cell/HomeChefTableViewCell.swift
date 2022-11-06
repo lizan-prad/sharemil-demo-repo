@@ -21,11 +21,20 @@ class HomeChefTableViewCell: UITableViewCell {
         didSet {
             closedView.rounded()
             businessName.text = chef?.businessName
-            chefDesc.text = "\(chef?.preparationTime ?? "") · \(chef?.distance?.withDecimal(2) ?? "") mi"
+            
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             chefImage.sd_setImage(with: URL.init(string: chef?.mainImageUrl ?? ""))
             self.chefImage.alpha = chef?.isOpen == true ? 1 : 0.5
             closedView.isHidden = chef?.isOpen == true
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "eee"
+            let now = formatter.string(from: Date()).lowercased()
+            let hour = chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+            formatter.dateFormat = "HH:mm:ss"
+            let date = formatter.date(from: hour?.endTime ?? "")
+            formatter.dateFormat = "hh:mm a"
+            chefDesc.text = "\( date == nil ? "Closed" : "Open until \(formatter.string(from: date ?? Date()))") · \(chef?.distance?.withDecimal(2) ?? "") mi"
         }
     }
     

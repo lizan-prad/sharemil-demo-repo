@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 import CoreLocation
-
+import FirebaseAuth
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var quantityStack: UIStackView!
@@ -86,6 +86,16 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         GoogleMapsServices.shared.getRoutes(CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init()) { _ in
             
         }
+    }
+    
+    private func start() {
+        self.showProgressHud()
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                self.viewModel.fetchChefMenuItem()
+            }
+        })
     }
     
     func setupUpdateView() {
@@ -183,7 +193,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+            self.start()
         }
         viewModel.itemModel.bind { model in
             self.model = model
