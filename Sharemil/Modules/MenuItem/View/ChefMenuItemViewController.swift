@@ -53,9 +53,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         didSet {
             self.quantityLabel.text = "\(initialQuantity)"
             if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
-                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0).withDecimal(2) ?? "")", for: .normal)
             } else {
-                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0))", for: .normal)
+                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\(Double(initialQuantity)*(model?.price ?? 0).withDecimal(2) ?? "")", for: .normal)
             }
             
         }
@@ -176,8 +176,6 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$" + (model?.price ?? 0).withDecimal(2)
         self.initialQuantity = 1
-        
-        
     }
     
     private func bindViewModel() {

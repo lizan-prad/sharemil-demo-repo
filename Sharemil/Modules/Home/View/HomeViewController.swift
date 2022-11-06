@@ -45,6 +45,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             mapV = GMSMapView.init(frame: mapView.bounds, mapID: mapID, camera: camera)
             mapV.delegate = self
             mapView.addSubview(mapV)
+            self.expandMap()
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             self.start()
             if orderId != nil {
