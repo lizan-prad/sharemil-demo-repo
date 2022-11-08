@@ -70,7 +70,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         didSet {
             self.cardImage.isHidden = false
             self.cardImage.image = UIImage.init(named: selectedPayment?.stripePaymentMethod?.card?.brand ?? "")
-            self.cardLabel.text = selectedPayment?.name?.contains("Apple") ?? false ? selectedPayment?.name : selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted()
+            self.cardLabel.text = (selectedPayment?.name?.contains("Apple") ?? false ? selectedPayment?.name : selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted())
             if !(selectedPayment?.name?.contains("Apple") ?? false) {
             self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
             }
@@ -92,6 +92,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        self.viewModel.getDefaultMethod()
 //        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
     
@@ -130,7 +132,12 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         
         self.viewModel.method.bind { method in
-            self.selectedPayment = method
+            if method == nil {
+                self.cardImage.isHidden = false
+                self.cardLabel.text = "Select payment method"
+            } else {
+                self.selectedPayment = method
+            }
         }
         
         self.viewModel.error.bind { msg in

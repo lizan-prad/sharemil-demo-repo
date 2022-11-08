@@ -16,6 +16,7 @@ var isFirst = true
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
 
+    @IBOutlet weak var locationBackView: UIView!
     @IBOutlet weak var listBtn: UIButton!
     @IBOutlet weak var mapCollectionTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var mapCollectionView: UICollectionView!
@@ -45,7 +46,9 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             mapV = GMSMapView.init(frame: mapView.bounds, mapID: mapID, camera: camera)
             mapV.delegate = self
             mapView.addSubview(mapV)
-            self.expandMap()
+            if self.mapHeight.constant != self.view.frame.height {
+                self.expandMap()
+            }
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             self.start()
             if orderId != nil {
@@ -223,8 +226,9 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     }
     
     private func setupLocationView() {
-        locationStack.isUserInteractionEnabled = true
-        locationStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openLocationView)))
+        locationBackView.rounded()
+        locationBackView.isUserInteractionEnabled = true
+        locationBackView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openLocationView)))
     }
     
     @objc func openLocationView() {
