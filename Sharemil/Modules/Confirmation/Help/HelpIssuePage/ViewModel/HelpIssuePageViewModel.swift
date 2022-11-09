@@ -12,6 +12,7 @@ struct SupportTicketStruct {
     var issues: [IssueListStruct]?
     var orderNo: String?
     var note: String?
+    var id: String?
 }
 
 class HelpIssuePageViewModel: HelpService {

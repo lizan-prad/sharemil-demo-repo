@@ -22,6 +22,7 @@ class HelpIssuePageViewController: UIViewController, Storyboarded, UITextViewDel
     var type: String?
     var cart: Cart?
     var orderId: String?
+    var order: String?
     
     var viewModel: HelpIssuePageViewModel!
     
@@ -105,7 +106,7 @@ class HelpIssuePageViewController: UIViewController, Storyboarded, UITextViewDel
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        viewModel.createSupportTicket(SupportTicketStruct.init(issues: issueList, orderNo: orderId ?? "", note: detailsTextView.text))
+        viewModel.createSupportTicket(SupportTicketStruct.init(issues: issueList, orderNo: orderId ?? "", note: detailsTextView.text, id: self.order))
     }
 }
 

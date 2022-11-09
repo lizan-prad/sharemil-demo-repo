@@ -24,19 +24,20 @@ extension HelpService {
         
         let param: [String: Any] = [
             "orderNumber": model.orderNo ?? "",
-            "issues": createIssueArray(model.issues),
+            "issues": createIssueArray(model.issues, model.id),
             "note": model.note ?? ""
         ]
-        NetworkManager.shared.request(BaseMappableModel<SupportIssueContainer>.self, urlExt: "support/tickets", method: .post, param: param, encoding: URLEncoding.default, headers: nil) { result in
+        NetworkManager.shared.request(BaseMappableModel<SupportIssueContainer>.self, urlExt: "support/tickets", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    private func createIssueArray(_ list: [IssueListStruct]?) -> [[String: Any]] {
+    private func createIssueArray(_ list: [IssueListStruct]?, _ id: String?) -> [[String: Any]] {
         return list?.map({ m in
             return [
                 "cartItem": m.item?.id ?? "",
-                "supportCategory": m.issue?.id ?? ""
+                "supportCategory": m.issue?.id ?? "",
+                "orderId": id ?? ""
             ]
         }) ?? []
     }

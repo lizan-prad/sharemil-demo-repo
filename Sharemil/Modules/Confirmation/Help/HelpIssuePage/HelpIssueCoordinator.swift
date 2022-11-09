@@ -19,6 +19,7 @@ class HelpIssueCoordinator: Coordinator {
     var cart: Cart?
     var orderId: String?
     var type: String?
+    var order: String?
     
     func getMainView() -> HelpIssuePageViewController {
         let vc = HelpIssuePageViewController.instantiate()
@@ -26,6 +27,7 @@ class HelpIssueCoordinator: Coordinator {
         vc.type = self.type
         vc.orderId = orderId
         vc.viewModel = HelpIssuePageViewModel()
+        vc.order = self.order
         return vc
     }
     
@@ -34,6 +36,7 @@ class HelpIssueCoordinator: Coordinator {
         vc.cart = cart
         vc.orderId = orderId
         vc.type = self.type
+        vc.order = self.order
         vc.viewModel = HelpIssuePageViewModel()
         navigationController.pushViewController(vc, animated: true)
     }

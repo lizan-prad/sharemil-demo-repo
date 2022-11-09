@@ -15,6 +15,7 @@ class HelpViewController: UIViewController, Storyboarded {
     
     var cart: Cart?
     var orderId: String?
+    var order: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class HelpViewController: UIViewController, Storyboarded {
         coordinator.cart = self.cart
         coordinator.type = "missing"
         coordinator.orderId = orderId
+        coordinator.order = self.order
         self.present(coordinator.getMainView(), animated: true)
     }
     
@@ -46,6 +48,7 @@ class HelpViewController: UIViewController, Storyboarded {
         coordinator.cart = self.cart
         coordinator.orderId = orderId
         coordinator.type = "item_quality"
+        coordinator.order = self.order
         self.present(coordinator.getMainView(), animated: true)
     }
 

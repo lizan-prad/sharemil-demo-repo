@@ -14,7 +14,7 @@ import GoogleMaps
 var loc: LLocation?
 var isFirst = true
 
-class HomeViewController: UIViewController, GMSMapViewDelegate {
+class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var locationBackView: UIView!
     @IBOutlet weak var listBtn: UIButton!
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             mapV.delegate = self
             mapView.addSubview(mapV)
             if self.mapHeight.constant != self.view.frame.height {
-                self.expandMap()
+                self.initialExpanded()
             }
             viewModel.getCurrentAddress(currentLocation ?? LLocation.init(location: nil))
             self.start()
@@ -116,7 +116,13 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         self.viewModel = HomeViewModel()
         self.setupLocationManager()
         bindViewModel()
+        searchField.delegate = self
         searchField.addTarget(self, action: #selector(searchAction(_:)), for: .editingChanged)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.searchField.resignFirstResponder()
+        return true
     }
     
     private func openOrderDetails() {
@@ -133,7 +139,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     }
     
     @objc func searchAction(_ sender: UITextField) {
-        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: sender.text ?? "")
+        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: sender.text?.lowercased() ?? "")
     }
     
     private func setup() {
@@ -198,6 +204,19 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
             self.mapV.frame = self.mapView.bounds
         }
         
+    }
+    
+    func initialExpanded() {
+        UIView.animate(withDuration: 0.4) {
+            self.searchBack.backgroundColor = .clear
+            self.mapHeight.constant = self.view.frame.height/2
+            
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.container.addBorder(UIColor.gray.withAlphaComponent(0.3))
+            self.container.addCornerRadius(20)
+            self.mapV.frame = self.mapView.bounds
+        }
     }
     
     
