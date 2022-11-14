@@ -37,15 +37,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-        if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
-            self.loadHome()
-        } else {
-            self.loadRegistration()
-        }
+        self.loadProductionSelection()
         window?.makeKeyAndVisible()
         registerNotification(application)
         Messaging.messaging().delegate = self
         return true
+    }
+    
+    private func loadProductionSelection() {
+        let vc = UIStoryboard.init(name: "ProductionSelection", bundle: nil).instantiateViewController(identifier: "ProductionSelectionViewController") as! ProductionSelectionViewController
+        window?.rootViewController = vc
+    }
+    
+    func loadRegistration() {
+        let navigation = UINavigationController()
+        let registrationCoordinator = RegistrationCoordinator.init(navigationController: navigation)
+        registrationCoordinator.start()
+        appdelegate.window?.rootViewController = navigation
     }
     
     func registerNotification(_ application: UIApplication) {
@@ -65,22 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         application.registerForRemoteNotifications()
     }
     
-    func loadRegistration() {
-        let navigation = UINavigationController()
-        let registrationCoordinator = RegistrationCoordinator.init(navigationController: navigation)
-        registrationCoordinator.start()
-        window?.rootViewController = navigation
-    }
+    
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         print("enter")
     }
     
-    private func loadHome() {
-        let navigation = UINavigationController()
-        let homeCoordinator = BaseTabbarCoordinator.init(navigationController: navigation)
-        window?.rootViewController = homeCoordinator.getMainView()
-    }
+    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         

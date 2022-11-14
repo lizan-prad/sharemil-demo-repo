@@ -207,6 +207,8 @@
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
 		BEE66194285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */; };
 		BEE66195285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */; };
+		BEEDC7A52922D47A00C5CF76 /* ProductionSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEDC7A42922D47A00C5CF76 /* ProductionSelection.storyboard */; };
+		BEEDC7A72922D53700C5CF76 /* ProductionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEDC7A62922D53700C5CF76 /* ProductionSelectionViewController.swift */; };
 		BEF7EAD0286472FB002D553E /* CartDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEF7EACF286472FA002D553E /* CartDetail.storyboard */; };
 		BEF7EAD22864730A002D553E /* CartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD12864730A002D553E /* CartDetailViewController.swift */; };
 		BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */; };
@@ -447,6 +449,8 @@
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
 		BEE66192285B0FFD007812B2 /* HomeCusinesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCusinesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BEE66193285B0FFD007812B2 /* HomeCusinesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCusinesCollectionViewCell.xib; sourceTree = "<group>"; };
+		BEEDC7A42922D47A00C5CF76 /* ProductionSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductionSelection.storyboard; sourceTree = "<group>"; };
+		BEEDC7A62922D53700C5CF76 /* ProductionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionSelectionViewController.swift; sourceTree = "<group>"; };
 		BEF7EACF286472FA002D553E /* CartDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CartDetail.storyboard; sourceTree = "<group>"; };
 		BEF7EAD12864730A002D553E /* CartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailViewController.swift; sourceTree = "<group>"; };
 		BEF7EAD7286478EC002D553E /* CartDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailViewModel.swift; sourceTree = "<group>"; };
@@ -585,6 +589,7 @@
 				BE4CDDCF28534259006AB129 /* Home */,
 				BE4CDDD8285342D3006AB129 /* TabbarController */,
 				BE4CDDC428532EE2006AB129 /* OtpVerification */,
+				BEEDC7A12922D41200C5CF76 /* ProductionSelection */,
 				52A423EB2851D002007549BB /* Register */,
 			);
 			path = Modules;
@@ -1564,6 +1569,15 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		BEEDC7A12922D41200C5CF76 /* ProductionSelection */ = {
+			isa = PBXGroup;
+			children = (
+				BEEDC7A42922D47A00C5CF76 /* ProductionSelection.storyboard */,
+				BEEDC7A62922D53700C5CF76 /* ProductionSelectionViewController.swift */,
+			);
+			path = ProductionSelection;
+			sourceTree = "<group>";
+		};
 		BEF7EACE286472E7002D553E /* CartDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1866,6 +1880,7 @@
 				BE4CDDB828530D7E006AB129 /* Inter-ExtraLight.ttf in Resources */,
 				BEC08C0B28EDB681005AA875 /* HelpIssuePage.storyboard in Resources */,
 				BE4CDDB428530D7E006AB129 /* Inter-Thin.ttf in Resources */,
+				BEEDC7A52922D47A00C5CF76 /* ProductionSelection.storyboard in Resources */,
 				BE3A44A128B8CCD600E3E90F /* GoogleService-Info.plist in Resources */,
 				BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */,
 				BEC08C1828EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.xib in Resources */,
@@ -2020,6 +2035,7 @@
 				BE8CD3AD28F60A3B007A476B /* HelpItemIssueTableViewCell.swift in Sources */,
 				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
+				BEEDC7A72922D53700C5CF76 /* ProductionSelectionViewController.swift in Sources */,
 				BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */,
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,
 				BE727E4128ACFEA000B7C068 /* ShowDirectionViewController.swift in Sources */,

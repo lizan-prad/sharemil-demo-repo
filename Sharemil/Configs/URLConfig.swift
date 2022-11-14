@@ -10,6 +10,8 @@ import CoreData
 
 enum URLConfig {
     
-    static let baseUrl = "https://stage.sharemil.com:443/"
+    static var baseUrl: String {
+        return UserDefaults.standard.string(forKey: "ENV") == "P" ? "https://api.sharemil.com:443/" : "https://stage-api.sharemil.com:443/"
+    }
     
 }
