@@ -139,7 +139,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     }
     
     @objc func searchAction(_ sender: UITextField) {
-        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: sender.text?.lowercased() ?? "")
+        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: sender.text?.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
     }
     
     private func setup() {

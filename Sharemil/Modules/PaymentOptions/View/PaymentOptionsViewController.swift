@@ -63,10 +63,16 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
             if StripeAPI.deviceSupportsApplePay() {
                 var m = models
                 guard let p = PaymentMethods.init(JSON: ["name": "Apple Pay", "stripePaymentMethod" : ["card": ["brand" : "apple"]]]) else {return}
+                
+                m = m?.sorted(by: { a, b in
+                    return a.isDefault ?? false
+                })
                 m?.insert( p, at: 0)
                 self.models = m
             } else {
-                self.models = models
+                self.models = models?.sorted(by: { a, b in
+                    return a.isDefault ?? false
+                })
             }
         }
         

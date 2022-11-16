@@ -93,7 +93,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
-        self.viewModel.getDefaultMethod()
+//        self.viewModel.getDefaultMethod()
 //        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
     

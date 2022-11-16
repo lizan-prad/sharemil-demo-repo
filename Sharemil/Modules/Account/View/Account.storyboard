@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="90" id="ozr-MR-LFd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won Jo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PR-2J-dwu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PR-2J-dwu">
                                 <rect key="frame" x="20" y="254" width="374" height="22"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -150,7 +150,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person" catalog="system" width="32" height="32"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="profile-placeholder" width="303" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
