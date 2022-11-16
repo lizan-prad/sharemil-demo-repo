@@ -20,6 +20,7 @@ class ProductionSelectionViewController: UIViewController {
             UserDefaults.standard.set("P", forKey: "ENV")
             self.loadRegistration()
         } else {
+            UserDefaults.standard.set("P", forKey: "ENV")
             if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
                 self.loadHome()
             } else {
@@ -33,6 +34,7 @@ class ProductionSelectionViewController: UIViewController {
             UserDefaults.standard.set("D", forKey: "ENV")
             self.loadRegistration()
         } else {
+            UserDefaults.standard.set("D", forKey: "ENV")
             if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
                 self.loadHome()
             } else {
