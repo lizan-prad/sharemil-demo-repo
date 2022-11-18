@@ -9,15 +9,15 @@ import Foundation
 import Alamofire
 
 protocol PaymentOptionsService {
-    func paymentIntent(_ cartId: String, completion: @escaping (Result<PaymentIntentModel, Error>) -> ())
+    func paymentIntent(_ cartId: String, completion: @escaping (Result<PaymentIntentModel, NSError>) -> ())
     
-    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, Error>) -> ())
+    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ())
     
-    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
+    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
 }
 
 extension PaymentOptionsService {
-    func paymentIntent(_ cartId: String, completion: @escaping (Result<PaymentIntentModel, Error>) -> ()) {
+    func paymentIntent(_ cartId: String, completion: @escaping (Result<PaymentIntentModel, NSError>) -> ()) {
         let param: [String: Any] = [
             "cartId": cartId
         ]
@@ -26,7 +26,7 @@ extension PaymentOptionsService {
         }
     }
     
-    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, Error>) -> ()) {
+    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "cartId": cartId,
             "paymentMethodId": paymentMethodId
@@ -36,7 +36,7 @@ extension PaymentOptionsService {
         }
     }
     
-    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ()) {
+    func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "payment/intents/\(paymentIntentId)/confirm", method: .post, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }

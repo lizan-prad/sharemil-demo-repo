@@ -9,18 +9,18 @@ import Foundation
 import Alamofire
 
 protocol SaveLocationService {
-    func saveLocation(_ param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
-    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ())
+    func saveLocation(_ param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
+    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
 }
 
 extension SaveLocationService {
-    func saveLocation(_ param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ()) {
+    func saveLocation(_ param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "users/locations", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, Error>) -> ()) {
+    func updateLocation(_ id: String, param: [String: Any], completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "users/locations/\(id)", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
         }

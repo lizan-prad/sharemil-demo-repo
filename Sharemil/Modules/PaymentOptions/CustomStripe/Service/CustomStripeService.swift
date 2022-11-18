@@ -9,16 +9,16 @@ import Foundation
 import Alamofire
 
 protocol CustomStripeService {
-    func getPaymentMethods(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ())
-    func deletePaymentMethods(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ())
-    func setDefaultPaymentMethod(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ())
-    func setDefaultPaymentMethodAppe(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ())
-    func createPaymentMethod(_ model: CreditCardModel ,completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ())
+    func getPaymentMethods(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ())
+    func deletePaymentMethods(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ())
+    func setDefaultPaymentMethod(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ())
+    func setDefaultPaymentMethodAppe(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ())
+    func createPaymentMethod(_ model: CreditCardModel ,completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
 }
 
 extension CustomStripeService {
     
-    func setDefaultPaymentMethodAppe(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ()) {
+    func setDefaultPaymentMethodAppe(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ()) {
         let param: [String: Any] = [
             "default": true
             ]
@@ -27,13 +27,13 @@ extension CustomStripeService {
         }
     }
     
-    func getPaymentMethods(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ()) {
+    func getPaymentMethods(completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<StripeCardModelContainer>.self, urlExt: "payment/methods", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    func setDefaultPaymentMethod(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ()) {
+    func setDefaultPaymentMethod(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ()) {
         let param: [String: Any] = [
             "default": true
             ]
@@ -42,13 +42,13 @@ extension CustomStripeService {
         }
     }
     
-    func deletePaymentMethods(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, Error>) -> ()) {
+    func deletePaymentMethods(_ id: String, completion: @escaping (Result<BaseMappableModel<StripeCardModelContainer>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<StripeCardModelContainer>.self, urlExt: "payment/methods/\(id)", method: .delete, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    func createPaymentMethod(_ model: CreditCardModel ,completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ()) {
+    func createPaymentMethod(_ model: CreditCardModel ,completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "name": model.name,
             "cardNumber": model.cardNumber,

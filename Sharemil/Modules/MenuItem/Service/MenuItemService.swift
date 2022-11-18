@@ -10,19 +10,19 @@ import Alamofire
 import SwiftyJSON
 
 protocol MenuItemService {
-    func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ())
-    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ())
-    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ())
+    func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
+    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
+    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
 }
 
 extension MenuItemService {
-    func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, Error>) -> ()) {
+    func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<ChefMenuContainerModel>.self, urlExt: "menus/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
         
         let param: [String: Any] = [
             "chefId": chefId,
@@ -48,7 +48,7 @@ extension MenuItemService {
                 "multipleChoice": option.multipleChoice ?? false]
     }
     
-    func updateCartWith(_ date: String, _ time: String, _ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+    func updateCartWith(_ date: String, _ time: String, _ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
@@ -65,7 +65,7 @@ extension MenuItemService {
         }
     }
     
-    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, Error>) -> ()) {
+    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":

@@ -303,10 +303,13 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
         self.viewModel.loading.bind { status in
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
+        self.viewModel.refresh.bind { msg in
+            self.refreshControl.endRefreshing()
+            self.start()
+        }
         self.viewModel.error.bind { msg in
             self.refreshControl.endRefreshing()
-//            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
-            self.start()
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
         self.viewModel.success.bind { models in
             self.refreshControl.endRefreshing()

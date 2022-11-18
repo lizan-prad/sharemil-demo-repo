@@ -9,18 +9,18 @@ import Foundation
 import Alamofire
 
 protocol HelpService {
-    func getItemIssueList(_ category: String, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, Error>) -> ())
-    func createSupportTicket(_ model: SupportTicketStruct, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, Error>) -> ())
+    func getItemIssueList(_ category: String, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, NSError>) -> ())
+    func createSupportTicket(_ model: SupportTicketStruct, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, NSError>) -> ())
 }
 
 extension HelpService {
-    func getItemIssueList(_ category: String, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, Error>) -> ()) {
+    func getItemIssueList(_ category: String, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<SupportIssueContainer>.self, urlExt: "support/issues/category/\(category)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }
     
-    func createSupportTicket(_ model: SupportTicketStruct, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, Error>) -> ()) {
+    func createSupportTicket(_ model: SupportTicketStruct, completion: @escaping (Result<BaseMappableModel<SupportIssueContainer>, NSError>) -> ()) {
         
         let param: [String: Any] = [
             "orderNumber": model.orderNo ?? "",

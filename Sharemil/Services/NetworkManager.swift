@@ -9,17 +9,18 @@ import UIKit
 import ObjectMapper
 import Alamofire
 import SwiftyJSON
-
+import FirebaseAuth
 class NetworkManager {
     
     static let shared = NetworkManager()
     
-    typealias CompletionHandler<T: Mappable> = (Result<T, Error>) -> ()
+    typealias CompletionHandler<T: Mappable> = (Result<T, NSError>) -> ()
     
     func request<T: Mappable>(_ value: T.Type ,urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping CompletionHandler<T>){
         
         let header = headers == nil ? [.authorization(bearerToken: UserDefaults.standard.string(forKey: StringConstants.userIDToken) ?? "")] : headers
         print(header)
+        
         AF.request(URLConfig.baseUrl + urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
             switch response.result {
             case .success(let data):
@@ -27,7 +28,13 @@ class NetworkManager {
                     print(data)
                     if (400 ... 405).contains(response.response?.statusCode ?? 0) {
                         if let error = data["error"] as? String {
-                            completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
+                            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                                    UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                                    NetworkManager.shared.request(value, urlExt: urlExt, method: method, param: param, encoding: encoding, headers: headers, completion: completion)
+                                }
+                            })
+//                            completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
                         } else {
                         completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: (data["errorMessage"] as? String) ?? ""]  )))
                         }
@@ -37,7 +44,7 @@ class NetworkManager {
                 }
             case .failure(let error):
                 print(String(describing: error))
-                completion(.failure(error))
+                completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: error.localizedDescription]  )))
             }
         }
     }

@@ -15,6 +15,7 @@ class HomeViewModel: HomeService, AccountService {
     var cusines: Observable<[CusineListModel]> = Observable([])
     var address: Observable<String> = Observable(nil)
     var user: Observable<UserModel> = Observable(nil)
+    var refresh: Observable<String> = Observable(nil)
     
     func fetchChefBy(location: LLocation, name: String?) {
         self.loading.value = true
@@ -25,7 +26,11 @@ class HomeViewModel: HomeService, AccountService {
                 self.success.value = model.data?.chefs
                 self.cusines.value = model.data?.cuisines
             case .failure(let error):
-                self.error.value = error.localizedDescription
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
             }
         }
     }
@@ -40,7 +45,11 @@ class HomeViewModel: HomeService, AccountService {
             case .success(let model):
                 self.user.value = model.data?.user
             case .failure(let error):
-                self.error.value = error.localizedDescription
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ class CartDetailViewModel: MenuItemService, CartService {
     var error: Observable<String> = Observable(nil)
     var cartList: Observable<CartListModel> = Observable(nil)
     var deleteState: Observable<String> = Observable(nil)
+    var refresh: Observable<String> = Observable(nil)
     
     func updateToCart(_ chefId: String, cartModels: [CartItems]) {
         self.loading.value = true
@@ -22,7 +23,11 @@ class CartDetailViewModel: MenuItemService, CartService {
             case .success(let model):
                 self.cartList.value = model.data
             case .failure(let error):
-                self.error.value = error.localizedDescription
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
             }
         }
     }
@@ -35,7 +40,11 @@ class CartDetailViewModel: MenuItemService, CartService {
             case .success(let model):
                 self.deleteState.value = model.status
             case .failure(let error):
-                self.error.value = error.localizedDescription
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
             }
         }
     }
