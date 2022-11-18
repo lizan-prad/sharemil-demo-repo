@@ -27,17 +27,12 @@ class NetworkManager {
                 if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {
                     print(data)
                     if (400 ... 405).contains(response.response?.statusCode ?? 0) {
-                        if let error = data["error"] as? String {
-                            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
-                                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                                    UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-                                    NetworkManager.shared.request(value, urlExt: urlExt, method: method, param: param, encoding: encoding, headers: headers, completion: completion)
-                                }
-                            })
-//                            completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: error]  )))
-                        } else {
-                        completion(.failure(NSError.init(domain: "login", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: (data["errorMessage"] as? String) ?? ""]  )))
-                        }
+                        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                                NetworkManager.shared.request(value, urlExt: urlExt, method: method, param: param, encoding: encoding, headers: headers, completion: completion)
+                            }
+                        })
                     } else {
                         completion(.success(model))
                     }
