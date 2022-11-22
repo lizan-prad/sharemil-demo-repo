@@ -27,11 +27,10 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     
     var chef: ChefListModel? {
         didSet {
-            let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0) , longitude: Double(chef?.longitude ?? 0)))
-            let arrow = UIImage.init(systemName: "arrowtriangle.right.fill")
-            marker.icon = arrow?.withTintColor(.red, renderingMode: .alwaysTemplate)
+            let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
             marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.isFlat = true
+            marker.icon = UIImage.init(named: "end")?.withTintColor(.green, renderingMode: .alwaysTemplate)
 //            marker.rotation = angle
             marker.map = self.mapView
         }
@@ -39,6 +38,7 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     
     var polylines: [GMSPath]? {
         didSet {
+            setup()
             polylines?.forEach({ path in
                 let polyline = GMSPolyline(path: path)
                 polyline.strokeColor = .red
@@ -55,13 +55,14 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     }
     
     func setup() {
-        let camera = GMSCameraPosition.camera(withLatitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0, zoom: 13.5)
+        let cor = polylines?.first?.coordinate(at: (polylines?.first?.count() ?? 0)/2)
+        let camera = GMSCameraPosition.camera(withLatitude: cor?.latitude ?? 0, longitude: cor?.longitude ?? 0, zoom: 13.5)
         mapView.camera = camera
-        let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: 34.06915277223104, longitude: -118.2931372947856))
-        let locationImage = UIImage.init(named: "location")
-        locationMarker.icon = locationImage?.withTintColor(.black)
-        locationMarker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+        let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0))
+        locationMarker.groundAnchor = CGPoint(x: 0.5, y: 1)
         locationMarker.isFlat = true
+        locationMarker.icon = UIImage.init(named: "start")
+        locationMarker.map = self.mapView
 //            marker.rotation = angle
 //        locationMarker.map = self.mapView
     }

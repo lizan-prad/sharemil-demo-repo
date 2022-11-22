@@ -257,11 +257,12 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
             cell.chef = self.chef
-            cell.setup()
+            
             cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
             cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
             cell.polylines = self.polylines
+         
             cell.didSelectTime = { type in
                 self.scheduleType = type
                 if self.scheduleType == "standard" {

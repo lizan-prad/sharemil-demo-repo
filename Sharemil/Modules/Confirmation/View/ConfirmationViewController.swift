@@ -141,10 +141,11 @@ extension ConfirmationViewController: UITableViewDataSource, UITableViewDelegate
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmationDetailTableViewCell") as! ConfirmationDetailTableViewCell
-            cell.setup()
+   
             cell.model = self.model
-            cell.chef = self.model?.cart?.chef
             cell.polylines = self.polylines
+            cell.chef = self.model?.cart?.chef
+            
             cell.didTapDirection = {
                 let coordinator = ShowDirectionCoordinator.init(navigationController: UINavigationController())
                 coordinator.chef = self.model?.cart?.chef

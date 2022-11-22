@@ -37,17 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-        self.loadProductionSelection()
+        if let _ = UserDefaults.standard.string(forKey: StringConstants.verificationToken) {
+            self.loadHome()
+        } else {
+            self.loadRegistration()
+        }
         window?.makeKeyAndVisible()
         registerNotification(application)
         Messaging.messaging().delegate = self
         return true
     }
     
-    private func loadProductionSelection() {
-        let vc = UIStoryboard.init(name: "ProductionSelection", bundle: nil).instantiateViewController(identifier: "ProductionSelectionViewController") as! ProductionSelectionViewController
-        window?.rootViewController = vc
+    
+    private func loadHome() {
+        let navigation = UINavigationController()
+        let homeCoordinator = BaseTabbarCoordinator.init(navigationController: navigation)
+        appdelegate.window?.rootViewController = homeCoordinator.getMainView()
     }
+    
     
     func loadRegistration() {
         let navigation = UINavigationController()

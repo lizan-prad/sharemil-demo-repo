@@ -40,7 +40,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     
     var polylines: [GMSPath]? {
         didSet {
-            
+            self.setup()
             polylines?.forEach({ path in
                 let polyline = GMSPolyline(path: path)
                 polyline.strokeColor = .red
@@ -96,7 +96,8 @@ class CheckoutMapTableViewCell: UITableViewCell {
         picker.addTarget(self, action: #selector(didSelectDate(_:)), for: .valueChanged)
         scheduleDateField.inputView = picker
         scheduleDateField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
-        let camera = GMSCameraPosition.camera(withLatitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0, zoom: 15)
+        let cor = polylines?.first?.coordinate(at: (polylines?.first?.count() ?? 0)/2)
+        let camera = GMSCameraPosition.camera(withLatitude: cor?.latitude ?? 0, longitude: cor?.longitude ?? 0, zoom: 13.5)
         mapView.camera = camera
         let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0))
         locationMarker.groundAnchor = CGPoint(x: 0.5, y: 1)

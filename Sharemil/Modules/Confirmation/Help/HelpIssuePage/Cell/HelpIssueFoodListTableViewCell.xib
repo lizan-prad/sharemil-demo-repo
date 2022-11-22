@@ -118,7 +118,7 @@
     </objects>
     <designables>
         <designable name="Pms-q5-Pia">
-            <size key="intrinsicContentSize" width="24" height="18"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
     </designables>
     <resources>

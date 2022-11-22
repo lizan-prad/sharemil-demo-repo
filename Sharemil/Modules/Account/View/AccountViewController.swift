@@ -14,6 +14,8 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
     
+    var count = 0
+    
     var user: UserModel? {
         didSet {
             if user?.profileImage == nil {
@@ -30,6 +32,23 @@ class AccountViewController: UIViewController {
         self.viewModel = AccountViewModel()
         profilePic.rounded()
         bindViewModel()
+        nameLabel.isUserInteractionEnabled = true
+        nameLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openEnvSettings)))
+    }
+    
+    @objc func openEnvSettings() {
+        count += 1
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+            self.count = 0
+        }
+        if count == 5 {
+            loadProductionSelection()
+        }
+    }
+    
+    private func loadProductionSelection() {
+        let vc = UIStoryboard.init(name: "ProductionSelection", bundle: nil).instantiateViewController(identifier: "ProductionSelectionViewController") as! ProductionSelectionViewController
+        self.present(vc , animated: true)
     }
  
     private func bindViewModel() {
