@@ -402,6 +402,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
         if collectionView == mapCollectionView {
             guard let nav = self.navigationController else {return}
             let coordinator = ChefMenuCoordinator.init(navigationController: nav)
