@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         } else {
             self.loadRegistration()
         }
-        fatalError("abv", file: "akm", line: 0)
+       
         window?.makeKeyAndVisible()
         registerNotification(application)
         Messaging.messaging().delegate = self
