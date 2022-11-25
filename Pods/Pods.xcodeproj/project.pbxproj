@@ -1101,8 +1101,8 @@
 		BE649A29E5FB32C54FDAE55994804F6D /* SDWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7185873014C71718F607F55774B1DB4A /* SDWebImageOperation.m */; };
 		BE6550F2F302F8E958280F2AE86D3A5E /* TextFieldElement+AccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945B63D80369A5047BB7FD5F010D0710 /* TextFieldElement+AccountFactory.swift */; };
 		BE9FBF0C87DCC0A0ACEEB72942700ABD /* BillingDetails+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA52D338A275A6A1CC6D30523DAF45F7 /* BillingDetails+ApplePay.swift */; };
-		BEE69DB828F6A5C4003AEF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE69DB628F6A5C4003AEF09 /* Assets.xcassets */; };
-		BEE69DB928F6A5C4003AEF09 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE69DB728F6A5C4003AEF09 /* CardManager.swift */; };
+		BEA7BCB02931045900E0E5C9 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA7BCAE2931045900E0E5C9 /* CardManager.swift */; };
+		BEA7BCB12931045900E0E5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA7BCAF2931045900E0E5C9 /* Assets.xcassets */; };
 		BEEDA84DC02944FA5FC2BFC74C09EB6B /* LinkPaymentMethodPicker-RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26E6F7C3903E65B17298730FFCF5EE2 /* LinkPaymentMethodPicker-RadioButton.swift */; };
 		BF248012C6BF70A866FF25A0ACBE68E4 /* STPAUBECSFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EB9FB28B53F31B89D9D151763049B0 /* STPAUBECSFormViewModel.swift */; };
 		BF34DC44F1EBD1AA860AA9AE6A95EF3C /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2665AA2098FD275425CB890E1CF852A9 /* tr.lproj */; };
@@ -2845,9 +2845,9 @@
 		BE80FCEA5F5C430F4E4D6D3AD785F69C /* PhoneNumberKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PhoneNumberKit.release.xcconfig; sourceTree = "<group>"; };
 		BEA658679E37788A1D6EBCB0E8B9F8E2 /* pt-BR.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "pt-BR.lproj"; path = "Stripe/Resources/Localizations/pt-BR.lproj"; sourceTree = "<group>"; };
 		BEA717E2B60175B72034506898FD7B4F /* APIRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = Stripe/APIRequest.swift; sourceTree = "<group>"; };
+		BEA7BCAE2931045900E0E5C9 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		BEA7BCAF2931045900E0E5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BED0FCF7A6BEF283588E16EEF1F7E313 /* STPDeviceUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = STPDeviceUtils.swift; path = StripeCore/StripeCore/Source/Helpers/STPDeviceUtils.swift; sourceTree = "<group>"; };
-		BEE69DB628F6A5C4003AEF09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BEE69DB728F6A5C4003AEF09 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		BEEE01655E56646B8B94E256507B8A83 /* bank_icon_default@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bank_icon_default@3x.png"; path = "Stripe/Resources/Images/Link/InstantDebitIcons/bank_icon_default@3x.png"; sourceTree = "<group>"; };
 		BF2ECC367C171EA91FE982EDB201E63E /* PickerFieldView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerFieldView.swift; path = StripeUICore/StripeUICore/Source/Elements/PickerField/PickerFieldView.swift; sourceTree = "<group>"; };
 		BF73A110057E718B31085016BCA1651C /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
@@ -3799,8 +3799,8 @@
 				1C39143BE51D08DD881E826B5FCE853E /* CreditCardViewSwift.h */,
 				BD4F732EF356D79C8D6FD6BD5DDD377F /* CreditCardViewSwift.podspec */,
 				B8E0A7AD382AE4B75657062FBADDBE2A /* CreditCardViewSwift.swift */,
-				BEE69DB628F6A5C4003AEF09 /* Assets.xcassets */,
-				BEE69DB728F6A5C4003AEF09 /* CardManager.swift */,
+				BEA7BCAF2931045900E0E5C9 /* Assets.xcassets */,
+				BEA7BCAE2931045900E0E5C9 /* CardManager.swift */,
 				49B3634817C11E3F3CD755ECC03D97D4 /* CreditCardViewSwift.xib */,
 				D895964D33E5F11350D6B28A5083B0E3 /* Enums.swift */,
 				1A0544D6DC342A11D63E1BD717363BC2 /* LICENSE */,
@@ -6267,8 +6267,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -6698,7 +6698,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE69DB828F6A5C4003AEF09 /* Assets.xcassets in Resources */,
+				BEA7BCB12931045900E0E5C9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7754,7 +7754,7 @@
 				41AE6FCAD91D687763C95257A8E27471 /* Podfile in Sources */,
 				6C17DBD0C02015A9F4679EFF62F929B3 /* Podfile.lock in Sources */,
 				484E072D11696AA14237240F87452B22 /* Pods-CreditCardViewSwift.modulemap in Sources */,
-				BEE69DB928F6A5C4003AEF09 /* CardManager.swift in Sources */,
+				BEA7BCB02931045900E0E5C9 /* CardManager.swift in Sources */,
 				DAE9D0426C43B4A7BAB119E90100F309 /* Pods-CreditCardViewSwift.xcscheme in Sources */,
 				0F5CDDA5DEEFED9B2B4DDCF1CB5DC819 /* Pods-CreditCardViewSwift-acknowledgements.markdown in Sources */,
 				2CB0172F4420F5D158168BEA9A92D05B /* Pods-CreditCardViewSwift-dummy.m in Sources */,
