@@ -15,6 +15,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import Alamofire
 import StripeApplePay
+import Mixpanel
 
 let db = Firestore.firestore()
 
@@ -31,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         StripeAPI.defaultPublishableKey = "pk_test_51KgHBhEYsFc3t3viMQOBYoGfyFWgPIruKiWjSIO7IKqU0GREnosyUh3HeGw0hxc7lAQ3emeODmvUUjiRUXHvDZ5U00egomEJjd"
         IQKeyboardManager.shared().isEnabled = true
+        Mixpanel.initialize(token: "0e14a883d35c0890cd38ef768ea7d10c", trackAutomaticEvents: true)
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4")
         GMSPlacesClient.provideAPIKey("AIzaSyBlypJ0XqI0gRXSMz0nlvGRCKN5R_pNNO4")

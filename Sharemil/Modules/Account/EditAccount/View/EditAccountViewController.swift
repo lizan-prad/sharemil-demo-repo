@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 class EditAccountViewController: UIViewController, Storyboarded {
 
@@ -89,6 +90,13 @@ class EditAccountViewController: UIViewController, Storyboarded {
         }
         self.viewModel.user.bind { user in
             self.user = user
+            Mixpanel.mainInstance().track(event: "Initiated registration", properties: [
+                "name": "\(user?.firstName ?? "") \(user?.lastName ?? "")",
+                "phone": "\(user?.phoneNumber ?? "")",
+                "email": "\(user?.email ?? "")",
+                "image": "\(user?.profileImage ?? "")",
+                "id": "\(user?.id ?? "")"
+                ])
         }
     }
     

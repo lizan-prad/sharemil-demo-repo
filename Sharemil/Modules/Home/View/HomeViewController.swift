@@ -10,6 +10,7 @@ import GooglePlaces
 import CoreLocation
 import FirebaseAuth
 import GoogleMaps
+import Mixpanel
 
 var loc: LLocation?
 var isFirst = true
@@ -367,6 +368,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Mixpanel.mainInstance().track(event: "Chef selected", properties: [
+            "chef_id": self.filtered?[indexPath.row].id ?? "",
+            "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",
+            "chef": "\(self.filtered?[indexPath.row].firsName ?? "") \(self.filtered?[indexPath.row].lastName ?? "")"
+            ])
         guard let nav = self.navigationController else {return}
         let coordinator = ChefMenuCoordinator.init(navigationController: nav)
         coordinator.chef = self.filtered?[indexPath.row]
@@ -414,6 +420,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 return
             }
             self.selectedCusine = self.cusines?[indexPath.row - 1]
+            Mixpanel.mainInstance().track(event: "Cuisine selected", properties: [
+                "cuisine_id": self.selectedCusine?.id ?? "",
+                "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",
+                "cuisine": self.selectedCusine?.name ?? ""
+                ])
         }
     }
 

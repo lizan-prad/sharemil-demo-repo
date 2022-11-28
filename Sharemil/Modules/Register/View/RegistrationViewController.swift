@@ -12,6 +12,7 @@ import GoogleSignIn
 import CryptoKit
 import AuthenticationServices
 import FirebaseAuth
+import Mixpanel
 
 class RegistrationViewController: UIViewController, Storyboarded {
     
@@ -48,6 +49,9 @@ class RegistrationViewController: UIViewController, Storyboarded {
         }
         
         viewModel.signInSuccess.bind { msg in
+            Mixpanel.mainInstance().track(event: "Initiated registration", properties: [
+                "phone": self.phoneField.text ?? ""
+                ])
             guard let nav = self.navigationController, let number = self.phoneField.phoneNumber?.nationalNumber, let code = self.phoneField.phoneNumber?.countryCode else {return}
             let coordinator = OtpVerificationCoordinator.init(navigationController: nav)
             coordinator.phoneNumber = "+\(code)\(number)"

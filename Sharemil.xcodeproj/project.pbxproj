@@ -163,6 +163,7 @@
 		BEA7BCBC293108F100E0E5C9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BEA7BCBB293108F100E0E5C9 /* FirebaseFirestore */; };
 		BEA7BCBE293108F100E0E5C9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BEA7BCBD293108F100E0E5C9 /* FirebaseMessaging */; };
 		BEA7BCC0293108F100E0E5C9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BEA7BCBF293108F100E0E5C9 /* FirebaseStorage */; };
+		BEAEB04B293532F300C3E289 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = BEAEB04A293532F300C3E289 /* Mixpanel */; };
 		BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF32112870BCAB0007F9B0 /* PaymentIntentModel.swift */; };
 		BEAF32182874072D0007F9B0 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF32172874072D0007F9B0 /* OrdersViewModel.swift */; };
 		BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAF3219287407360007F9B0 /* OrdersService.swift */; };
@@ -503,6 +504,7 @@
 				A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */,
 				BE8CD3C228F61EFF007A476B /* GoogleSignIn in Frameworks */,
 				BEA7BCB8293108F100E0E5C9 /* FirebaseCrashlytics in Frameworks */,
+				BEAEB04B293532F300C3E289 /* Mixpanel in Frameworks */,
 				BEA7BCB4293108F100E0E5C9 /* FirebaseAnalytics in Frameworks */,
 				BEA7BCB6293108F100E0E5C9 /* FirebaseAuth in Frameworks */,
 				BEA7BCBC293108F100E0E5C9 /* FirebaseFirestore in Frameworks */,
@@ -1778,6 +1780,7 @@
 				BEA7BCBB293108F100E0E5C9 /* FirebaseFirestore */,
 				BEA7BCBD293108F100E0E5C9 /* FirebaseMessaging */,
 				BEA7BCBF293108F100E0E5C9 /* FirebaseStorage */,
+				BEAEB04A293532F300C3E289 /* Mixpanel */,
 			);
 			productName = Sharemil;
 			productReference = 52A423C7285119D9007549BB /* Sharemil.app */;
@@ -1810,6 +1813,7 @@
 			packageReferences = (
 				BE8CD3C028F61EFE007A476B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				BEA7BCB2293108F100E0E5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BEAEB049293532F200C3E289 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = 52A423C8285119D9007549BB /* Products */;
 			projectDirPath = "";
@@ -2395,6 +2399,14 @@
 				kind = branch;
 			};
 		};
+		BEAEB049293532F200C3E289 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2437,6 +2449,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BEA7BCB2293108F100E0E5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		BEAEB04A293532F300C3E289 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEAEB049293532F200C3E289 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
