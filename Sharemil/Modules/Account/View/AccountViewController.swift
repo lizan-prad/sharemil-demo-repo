@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Mixpanel
 
 class AccountViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class AccountViewController: UIViewController {
             profilePic.sd_setImage(with: URL.init(string: user?.profileImage ?? ""))
             }
             self.nameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
+            Mixpanel.mainInstance().people.set(properties: [ "$first_name": "\(user?.firstName ?? "")", "$last_name" : "\(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : user?.profileImage ?? "", "$phone" : user?.phoneNumber ?? ""])
         }
     }
     

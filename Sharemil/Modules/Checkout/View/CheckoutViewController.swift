@@ -233,7 +233,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                     // There is a problem with your Apple Pay configuration
                 }
             } else {
-                self.viewModel.continuePayment(self.paymentIntent ?? "")
+                self.viewModel.createOrderWith(self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
             }
         }
         vc.didCancel = {

@@ -58,6 +58,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
         }
     }
     
+    var user: UserModel? {
+        didSet {
+            Mixpanel.mainInstance().people.set(properties: [ "$first_name": "\(user?.firstName ?? "")", "$last_name" : "\(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : user?.profileImage ?? "", "$phone" : user?.phoneNumber ?? ""])
+        }
+    }
+    
     var chefs: [ChefListModel]? {
         didSet {
             self.filtered = chefs?.sorted(by: { a, b in
@@ -371,6 +377,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         Mixpanel.mainInstance().track(event: "Chef selected", properties: [
             "chef_id": self.filtered?[indexPath.row].id ?? "",
             "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",
+            "address": self.address ?? "",
             "chef": "\(self.filtered?[indexPath.row].firsName ?? "") \(self.filtered?[indexPath.row].lastName ?? "")"
             ])
         guard let nav = self.navigationController else {return}
@@ -423,6 +430,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             Mixpanel.mainInstance().track(event: "Cuisine selected", properties: [
                 "cuisine_id": self.selectedCusine?.id ?? "",
                 "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",
+                "address": self.address ?? "",
                 "cuisine": self.selectedCusine?.name ?? ""
                 ])
         }
