@@ -10,7 +10,7 @@ target 'Sharemil' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'ObjectMapper'
-  pod 'Stripe'
+#  pod 'Stripe'
 #  pod 'Firebase/Auth'
 #  pod 'Firebase/Messaging'
 #  pod 'Firebase/Firestore'
