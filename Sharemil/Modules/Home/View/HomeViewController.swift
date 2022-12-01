@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     
     var user: UserModel? {
         didSet {
-            Mixpanel.mainInstance().people.set(properties: [ "$unique_id": user?.id ?? "", "$first_name": "\(user?.firstName ?? "")", "$last_name" : "\(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : user?.profileImage ?? "", "$phone" : user?.phoneNumber ?? ""])
+            Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": user?.id ?? "", "$first_name": "\(user?.firstName ?? "")", "$last_name" : "\(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : user?.profileImage ?? "", "$phone" : user?.phoneNumber ?? ""])
         }
     }
     
