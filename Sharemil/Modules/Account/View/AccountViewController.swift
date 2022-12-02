@@ -25,7 +25,10 @@ class AccountViewController: UIViewController {
             profilePic.sd_setImage(with: URL.init(string: user?.profileImage ?? ""))
             }
             self.nameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
-            Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": user?.id ?? "", "$first_name": "\(user?.firstName ?? "")", "$last_name" : "\(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : user?.profileImage ?? "", "$phone" : user?.phoneNumber ?? ""])
+            Mixpanel.mainInstance().identify(distinctId: user?.id ?? "") {
+                print("doneeee")
+            }
+            Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": user?.id ?? "", "$name": "\(user?.firstName ?? "") \(user?.lastName ?? "")", "$email": user?.email ?? "", "$avatar" : (user?.profileImage?.components(separatedBy: ".jpg").first ?? "") + ".jpg", "$phone" : user?.phoneNumber ?? ""])
         }
     }
     

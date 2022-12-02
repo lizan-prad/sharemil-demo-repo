@@ -18,7 +18,7 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
     var viewModel: PaymentOptionsViewModel!
     var model: PaymentIntentModel?
     var cartId: String?
-    var paymentSheet: PaymentSheet?
+//    var paymentSheet: PaymentSheet?
     
     var models: [PaymentMethods]? {
         didSet {

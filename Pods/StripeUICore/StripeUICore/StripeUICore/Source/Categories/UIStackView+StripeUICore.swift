@@ -1,6 +1,6 @@
 //
 //  UIStackView+StripeUICore.swift
-//  StripeiOS
+//  StripeUICore
 //
 //  Created by Ramon Torres on 10/22/21.
 //  Copyright © 2021 Stripe, Inc. All rights reserved.
@@ -38,7 +38,7 @@ import UIKit
     ///   - view: Arranged subview to update.
     ///   - shouldShow: Whether or not to show the view.
     ///   - animated: Whether or not to animate the transition.
-    func toggleArrangedSubview(_ view: UIView, shouldShow: Bool, animated: Bool = true) {
+    func toggleArrangedSubview(_ view: UIView, shouldShow: Bool, animated: Bool) {
         toggleArrangedSubviews([view], shouldShow: shouldShow, animated: animated)
     }
 

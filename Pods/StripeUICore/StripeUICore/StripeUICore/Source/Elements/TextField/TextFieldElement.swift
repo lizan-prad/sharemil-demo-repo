@@ -19,13 +19,6 @@ import UIKit
     
     // MARK: - Properties
     weak public var delegate: ElementDelegate?
-    public var isOptional: Bool = false {
-        didSet {
-            textFieldView.updateUI(with: viewModel)
-            delegate?.didUpdate(element: self)
-        }
-    }
-    
     lazy var textFieldView: TextFieldView = {
         return TextFieldView(viewModel: viewModel, delegate: self)
     }()
@@ -37,9 +30,25 @@ import UIKit
     public private(set) lazy var text: String = {
         sanitize(text: configuration.defaultValue ?? "")
     }()
-    var isEditing: Bool = false
-    public var validationState: ValidationState {
-        return configuration.validate(text: text, isOptional: isOptional)
+    public private(set) var isEditing: Bool = false
+    private(set) var didReceiveAutofill: Bool = false
+    public var validationState: ElementValidationState {
+        return .init(
+            from: configuration.validate(text: text, isOptional: configuration.isOptional),
+            isUserEditing: isEditing
+        )
+    }
+    
+    private let theme: ElementsUITheme
+    
+    public var inputAccessoryView: UIView? {
+        set {
+            textFieldView.textField.inputAccessoryView = newValue
+        }
+        
+        get {
+            return textFieldView.textField.inputAccessoryView
+        }
     }
     
     // MARK: - ViewModel
@@ -56,18 +65,19 @@ import UIKit
     }
 
     struct ViewModel {
-        let floatingPlaceholder: String?
-        let staticPlaceholder: String? // optional placeholder that does not float/stays in the underlying text field
+        let placeholder: String
         let accessibilityLabel: String
         let attributedText: NSAttributedString
         let keyboardProperties: KeyboardProperties
         let validationState: ValidationState
         let logo: (lightMode: UIImage, darkMode: UIImage)?
+        let shouldShowClearButton: Bool
+        let theme: ElementsUITheme
     }
     
     var viewModel: ViewModel {
         let placeholder: String = {
-            if !isOptional {
+            if !configuration.isOptional {
                 return configuration.label
             } else {
                 let localized = String.Localized.optional_field
@@ -75,26 +85,31 @@ import UIKit
             }
         }()
         return ViewModel(
-            floatingPlaceholder: configuration.placeholderShouldFloat ? placeholder : nil,
-            staticPlaceholder: configuration.placeholderShouldFloat ? nil : placeholder,
+            placeholder: placeholder,
             accessibilityLabel: configuration.accessibilityLabel,
             attributedText: configuration.makeDisplayText(for: text),
             keyboardProperties: configuration.keyboardProperties(for: text),
-            validationState: validationState,
-            logo: configuration.logo(for: text)
+            validationState: configuration.validate(text: text, isOptional: configuration.isOptional),
+            logo: configuration.logo(for: text),
+            shouldShowClearButton: configuration.shouldShowClearButton,
+            theme: theme
         )
     }
 
     // MARK: - Initializer
     
-    public required init(configuration: TextFieldElementConfiguration) {
+    public required init(configuration: TextFieldElementConfiguration, theme: ElementsUITheme = .default) {
         self.configuration = configuration
+        self.theme = theme
     }
     
     /// Call this to manually set the text of the text field.
     public func setText(_ text: String) {
         self.text = sanitize(text: text)
         
+        // Since we're setting the text manually, disable any previous autofill
+        didReceiveAutofill = false
+
         // Glue: Update the view and our delegate
         textFieldView.updateUI(with: viewModel)
         delegate?.didUpdate(element: self)
@@ -115,18 +130,19 @@ extension TextFieldElement: Element {
         return textFieldView
     }
     
+    @discardableResult
     public func beginEditing() -> Bool {
         return textFieldView.textField.becomeFirstResponder()
     }
     
-    public var errorText: String? {
-        guard
-            case .invalid(let error) = validationState,
-            error.shouldDisplay(isUserEditing: isEditing)
-        else {
-            return nil
+    @discardableResult
+    public func endEditing(_ force: Bool = false, continueToNextField: Bool = true) -> Bool {
+        let didResign = textFieldView.endEditing(force)
+        isEditing = textFieldView.isEditing
+        if continueToNextField {
+            delegate?.continueToNextField(element: self)
         }
-        return error.localizedDescription
+        return didResign
     }
 
     public var subLabelText: String? {
@@ -144,11 +160,12 @@ extension TextFieldElement: TextFieldViewDelegate {
             text = newText
             // Advance to the next field if text is maximum length and valid
             if text.count == configuration.maxLength(for: text), case .valid = validationState {
-                view.endEditing(true)
                 delegate?.continueToNextField(element: self)
+                view.resignFirstResponder()
             }
         }
         isEditing = view.isEditing
+        didReceiveAutofill = view.didReceiveAutofill
         
         // Glue: Update the view and our delegate
         view.updateUI(with: viewModel)

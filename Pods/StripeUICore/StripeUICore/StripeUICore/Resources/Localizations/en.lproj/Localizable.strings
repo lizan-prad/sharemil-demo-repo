@@ -17,6 +17,9 @@ Section header for address fields */
 /* Label of an address field */
 "Area" = "Area";
 
+/* Label for a checkbox that makes customers billing address same as their shipping address */
+"Billing address is same as shipping" = "Billing address is same as shipping";
+
 /* Placeholder for AU BECS BSB number */
 "BSB number" = "BSB number";
 
@@ -25,6 +28,9 @@ Section header for address fields */
 
 /* Caption for City field on address form */
 "City" = "City";
+
+/* Label for Company field on form */
+"Company" = "Company";
 
 /* Text for continue button */
 "Continue" = "Continue";
@@ -51,6 +57,9 @@ Label of an address field */
 /* Done button title */
 "Done" = "Done";
 
+/* Button title to enter editing mode */
+"Edit" = "Edit";
+
 /* Label of an address field */
 "Eircode" = "Eircode";
 
@@ -60,20 +69,26 @@ Label of an address field */
 /* Label of an address field */
 "Emirate" = "Emirate";
 
+/* Text for error labels */
+"Error" = "Error";
+
 /* Label for first (given) name field */
 "First" = "First";
 
+/* Label for Full name field on form */
+"Full name" = "Full name";
+
 /* Error description for incomplete phone number */
 "Incomplete phone number" = "Incomplete phone number";
+
+/* Error message when UPI ID is invalid */
+"Invalid UPI ID" = "Invalid UPI ID";
 
 /* Label of an address field */
 "Island" = "Island";
 
 /* Label for last (family) name field */
 "Last" = "Last";
-
-/* Form field header for entering a mobile phone number */
-"Mobile number" = "Mobile number";
 
 /* Label for Name field on form */
 "Name" = "Name";
@@ -140,6 +155,12 @@ Label of an address field */
 
 /* Error string when we can't parse a phone number */
 "Unable to parse phone number" = "Unable to parse phone number";
+
+/* Label for UPI ID number field on form */
+"UPI ID" = "UPI ID";
+
+/* Accessibility hint indicating to use the accessibility rotor to open links. The word 'rotor' should be localized to match Apple's language here: https://support.apple.com/HT204783 */
+"Use rotor to access links" = "Use rotor to access links";
 
 /* Error message when email is invalid */
 "Your email is invalid." = "Your email is invalid.";

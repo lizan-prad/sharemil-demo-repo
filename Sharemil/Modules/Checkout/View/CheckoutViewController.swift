@@ -43,7 +43,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: CheckoutViewModel!
-    var paymentSheet: PaymentSheet?
+//    var paymentSheet: PaymentSheet?
  
     var polylines: [GMSPath]? {
         didSet {
@@ -71,6 +71,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.cardImage.isHidden = false
             self.cardImage.image = UIImage.init(named: selectedPayment?.stripePaymentMethod?.card?.brand ?? "")
             self.cardLabel.text = (selectedPayment?.name?.contains("Apple") ?? false ? selectedPayment?.name : selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted())
+            self.placeOrderBtn.enable()
 //            if !(selectedPayment?.name?.contains("Apple") ?? false) {
 //            self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
 //            }
@@ -173,29 +174,29 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         
         self.viewModel.payment.bind { model in
-            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
-            // MARK: Create a PaymentSheet instance
-            var configuration = PaymentSheet.Configuration()
-            configuration.merchantDisplayName = "Sharemil, Inc."
-            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
-            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
-            // methods that complete payment after a delay, like SEPA Debit and Sofort.
-            configuration.allowsDelayedPaymentMethods = true
-            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
-            self.paymentSheet?.present(from: self) { paymentResult in
-                // MARK: Handle the payment result
-                switch paymentResult {
-                case .completed:
-                    self.showToastMsg("You order has been placed!", state: .success, location: .bottom)
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                        self.dismiss(animated: true)
-                    }
-                case .canceled:
-                   break
-                case .failed(let error):
-                    self.showToastMsg("We are having some issues checking out!", state: .error, location: .bottom)
-                }
-              }
+//            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
+//            // MARK: Create a PaymentSheet instance
+//            var configuration = PaymentSheet.Configuration()
+//            configuration.merchantDisplayName = "Sharemil, Inc."
+//            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
+//            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+//            // methods that complete payment after a delay, like SEPA Debit and Sofort.
+//            configuration.allowsDelayedPaymentMethods = true
+//            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
+//            self.paymentSheet?.present(from: self) { paymentResult in
+//                // MARK: Handle the payment result
+//                switch paymentResult {
+//                case .completed:
+//                    self.showToastMsg("You order has been placed!", state: .success, location: .bottom)
+//                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                        self.dismiss(animated: true)
+//                    }
+//                case .canceled:
+//                   break
+//                case .failed(let error):
+//                    self.showToastMsg("We are having some issues checking out!", state: .error, location: .bottom)
+//                }
+//              }
         }
     }
     

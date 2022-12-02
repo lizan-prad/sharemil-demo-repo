@@ -1,6 +1,6 @@
 //
 //  CheckboxButton.swift
-//  StripeiOS
+//  StripeUICore
 //
 //  Created by Cameron Sabol on 12/11/20.
 //  Copyright © 2020 Stripe, Inc. All rights reserved.
@@ -31,7 +31,7 @@ import UIKit
     }
 
     private lazy var textView: UITextView = {
-        let textView = UITextView()
+        let textView = LinkOpeningTextView()
         textView.isEditable = false
         textView.isSelectable = false
         textView.isScrollEnabled = false
@@ -40,6 +40,7 @@ import UIKit
         textView.textContainer.lineFragmentPadding = 0
         textView.adjustsFontForContentSizeCategory = true
         textView.delegate = self
+        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return textView
     }()
 
@@ -47,14 +48,12 @@ import UIKit
         let label = UILabel()
         label.numberOfLines = 0
         label.isAccessibilityElement = false
+        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return label
     }()
 
     private lazy var checkbox: CheckBox = {
         let checkbox = CheckBox(theme: theme)
-        checkbox.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        checkbox.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        checkbox.backgroundColor = .clear
         checkbox.isSelected = true
         checkbox.translatesAutoresizingMaskIntoConstraints = false
         return checkbox
@@ -105,7 +104,12 @@ import UIKit
         }
     }
 
-    let theme: ElementsUITheme
+    public var theme: ElementsUITheme {
+        didSet {
+            checkbox.theme = theme
+            updateLabels()
+        }
+    }
 
     // MARK: - Initializers
 
@@ -153,21 +157,23 @@ import UIKit
     }
 
     public func setText(_ text: String) {
-        accessibilityLabel = text
         textView.text = text
         updateLabels()
+        updateAccessibility()
     }
 
     public func setAttributedText(_ attributedText: NSAttributedString) {
-        accessibilityLabel = attributedText.string
         textView.attributedText = attributedText
         updateLabels()
+        updateAccessibility()
     }
 
     private func setupUI() {
         addSubview(checkbox)
         addSubview(stackView)
 
+        let minimizeHeight = stackView.heightAnchor.constraint(equalTo: heightAnchor)
+        minimizeHeight.priority = .defaultLow
         NSLayoutConstraint.activate([
             // Checkbox
             checkboxAlignmentConstraint,
@@ -179,7 +185,8 @@ import UIKit
             stackView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: checkbox.trailingAnchor, constant: 6),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            minimizeHeight
         ])
     }
 
@@ -206,6 +213,27 @@ import UIKit
         // the offset from baseline to line center, and apply the offset to the constraint.
         let baselineToLineCenterOffset = (textFont.ascender + textFont.descender) / 2
         checkboxAlignmentConstraint.constant = -baselineToLineCenterOffset
+    }
+
+    private func updateAccessibility() {
+        // Copy the text view's accessibilityValue which will describe any links
+        // contained in the text to the user
+        accessibilityLabel = textView.accessibilityValue ?? textView.text
+
+        // If the text contains a link, allow links to be opened with the text
+        // view's link rotor
+        let linkRotors = textView.accessibilityCustomRotors?.filter({ $0.systemRotorType == .link }) ?? []
+        accessibilityCustomRotors = linkRotors
+
+        // iOS 13 automatically includes a hint if there is a link rotor, but
+        // iOS 14+ do not so we must add one ourselves.
+        if #available(iOS 14, *) {
+            var hints = [descriptionLabel.text]
+            if !linkRotors.isEmpty {
+                hints.append(.Localized.useRotorToAccessLinks)
+            }
+            accessibilityHint = hints.compactMap { $0 }.joined(separator: ", ")
+        }
     }
 }
 
@@ -234,12 +262,28 @@ class CheckBox: UIView {
         return theme.colors.background
     }
 
-    let theme: ElementsUITheme
+    var theme: ElementsUITheme {
+        didSet {
+            layer.applyShadow(shadow: theme.shadow)
+            setNeedsDisplay()
+        }
+    }
 
-    init(theme: ElementsUITheme) {
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 20, height: 20)
+    }
+
+    init(theme: ElementsUITheme = .default) {
         self.theme = theme
         super.init(frame: .zero)
+
+        backgroundColor = .clear
         layer.applyShadow(shadow: theme.shadow)
+
+        setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        setContentHuggingPriority(.defaultHigh, for: .vertical)
+        setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
     }
     
     required init?(coder: NSCoder) {
@@ -283,9 +327,5 @@ class CheckBox: UIView {
             }
             checkmarkPath.stroke()
         }
-    }
-
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 20, height: 20)
     }
 }

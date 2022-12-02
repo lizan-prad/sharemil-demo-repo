@@ -1,6 +1,6 @@
 //
 //  CheckboxElement.swift
-//  StripeiOS
+//  StripeUICore
 //
 //  Created by Yuki Tokuhiro on 6/15/21.
 //  Copyright © 2021 Stripe, Inc. All rights reserved.
@@ -23,7 +23,15 @@ import UIKit
     let label: String
     let isSelectedByDefault: Bool
     let theme: ElementsUITheme
-    let didToggle: (Bool) -> ()
+    var didToggle: (Bool) -> ()
+    var isSelected: Bool {
+        get {
+            return checkboxButton.isSelected
+        }
+        set {
+            checkboxButton.isSelected = newValue
+        }
+    }
     
     @objc func didToggleCheckbox() {
         didToggle(checkboxButton.isSelected)

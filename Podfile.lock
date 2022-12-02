@@ -24,20 +24,26 @@ PODS:
     - SDWebImage/Core (= 5.12.6)
   - SDWebImage/Core (5.12.6)
   - SkyFloatingLabelTextField (3.8.0)
-  - Stripe (22.4.0):
-    - Stripe/Stripe3DS2 (= 22.4.0)
-    - StripeApplePay (= 22.4.0)
-    - StripeCore (= 22.4.0)
-    - StripeUICore (= 22.4.0)
-  - Stripe/Stripe3DS2 (22.4.0):
-    - StripeApplePay (= 22.4.0)
-    - StripeCore (= 22.4.0)
-    - StripeUICore (= 22.4.0)
-  - StripeApplePay (22.4.0):
-    - StripeCore (= 22.4.0)
-  - StripeCore (22.4.0)
-  - StripeUICore (22.4.0):
-    - StripeCore (= 22.4.0)
+  - Stripe (23.2.0):
+    - StripeApplePay (= 23.2.0)
+    - StripeCore (= 23.2.0)
+    - StripePayments (= 23.2.0)
+    - StripePaymentsUI (= 23.2.0)
+    - StripeUICore (= 23.2.0)
+  - StripeApplePay (23.2.0):
+    - StripeCore (= 23.2.0)
+  - StripeCore (23.2.0)
+  - StripePayments (23.2.0):
+    - StripeCore (= 23.2.0)
+    - StripePayments/Stripe3DS2 (= 23.2.0)
+  - StripePayments/Stripe3DS2 (23.2.0):
+    - StripeCore (= 23.2.0)
+  - StripePaymentsUI (23.2.0):
+    - StripeCore (= 23.2.0)
+    - StripePayments (= 23.2.0)
+    - StripeUICore (= 23.2.0)
+  - StripeUICore (23.2.0):
+    - StripeCore (= 23.2.0)
   - SVPinView (1.0.11)
   - SwiftyJSON (5.0.1)
 
@@ -76,6 +82,8 @@ SPEC REPOS:
     - Stripe
     - StripeApplePay
     - StripeCore
+    - StripePayments
+    - StripePaymentsUI
     - StripeUICore
     - SVPinView
     - SwiftyJSON
@@ -94,10 +102,12 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
   SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
-  Stripe: a925dfa9a7e51aa8f782f428abc10cb828b45a85
-  StripeApplePay: 369857bafe8baf02e31b47478db1574febd2a2f3
-  StripeCore: a94d2823817c97c79fce60884ab9027a2da798c1
-  StripeUICore: a8e24a6c91a5c99075c7a490d45695fb912876e8
+  Stripe: cc895392856dc7f401119a612e31f020b97cb8d1
+  StripeApplePay: 7e43d6b4b9f18e922ba683e549f199a4f6db6fde
+  StripeCore: 6da916796f87ab91f3dae1d78a93602465964cbc
+  StripePayments: 7651a56a2a7fe320e5e8b1cb0c2e881536b75021
+  StripePaymentsUI: 50270053a2e348308d13ba4bc5082df789cb9b64
+  StripeUICore: 7727bbfd146f5c4a8dca7f9be241e2d0cdb70310
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 

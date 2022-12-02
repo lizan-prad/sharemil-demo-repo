@@ -3,6 +3,7 @@
 //  StripeUICore
 //
 //  Created by Cameron Sabol on 9/22/21.
+//  Copyright © 2021 Stripe, Inc. All rights reserved.
 //
 
 import UIKit
@@ -40,6 +41,7 @@ import UIKit
         return string(as: .national).count >= metadata.pattern.count
     }
     
+    /// The phone number without the country prefix and containing only digits
     public let number: String
     private let metadata: Metadata
     

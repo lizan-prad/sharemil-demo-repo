@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+@_spi(STP) import StripeCore
 
 /**
  Contains the business logic for a TextField.
@@ -16,9 +17,18 @@ import UIKit
  */
 @_spi(STP) public protocol TextFieldElementConfiguration {
     var label: String { get }
+    
+    /**
+     Defaults to `label`
+     */
     var accessibilityLabel: String { get }
-    var placeholderShouldFloat: Bool { get }
+    var shouldShowClearButton: Bool { get }
     var disallowedCharacters: CharacterSet { get }
+    /**
+     If `true`, adds " (optional)" to the field's label . Defaults to `false`.
+     - Note: This value is passed to the `validate(text:isOptional:)` method.
+     */
+    var isOptional: Bool { get }
     
     /**
       - Note: The text field gets a sanitized version of this (i.e. after stripping disallowed characters, applying max length, etc.)
@@ -61,6 +71,11 @@ import UIKit
      - Note: The light mode image will be shown on light backgrounds while the dark mode image will be displayed on dark backgrounds.
      */
     func logo(for text: String) -> (lightMode: UIImage, darkMode: UIImage)?
+    
+    /**
+     Convenience method that creates a TextFieldElement using this Configuration
+    */
+    func makeElement(theme: ElementsUITheme) -> TextFieldElement
 }
 
 // MARK: - Default implementation
@@ -74,12 +89,17 @@ public extension TextFieldElementConfiguration {
         return .newlines
     }
     
+    var isOptional: Bool {
+        return false
+    }
+    
     var defaultValue: String? {
         return nil
     }
-    
-    var placeholderShouldFloat: Bool {
-        return true
+
+    // Hide clear button by default
+    var shouldShowClearButton: Bool {
+        return false
     }
     
     func makeDisplayText(for text: String) -> NSAttributedString {
@@ -91,7 +111,7 @@ public extension TextFieldElementConfiguration {
     }
     
     func validate(text: String, isOptional: Bool) -> TextFieldElement.ValidationState {
-        if text.isEmpty {
+        if text.stp_stringByRemovingCharacters(from: .whitespacesAndNewlines).isEmpty {
             return isOptional ? .valid : .invalid(TextFieldElement.Error.empty)
         }
         return .valid
@@ -107,5 +127,9 @@ public extension TextFieldElementConfiguration {
     
     func logo(for text: String) -> (lightMode: UIImage, darkMode: UIImage)? {
         return nil
+    }
+    
+    func makeElement(theme: ElementsUITheme) -> TextFieldElement {
+        return TextFieldElement(configuration: self, theme: theme)
     }
 }
