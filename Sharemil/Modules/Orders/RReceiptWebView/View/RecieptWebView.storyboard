@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,18 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCU-g6-IoN">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVW-pd-Ww8">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-vJ-XW3">
-                                <rect key="frame" x="343" y="79" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-vJ-XW3">
+                                <rect key="frame" x="349" y="79" width="24" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="8Tm-TT-9vE"/>
-                                    <constraint firstAttribute="height" constant="30" id="grp-ze-gat"/>
+                                    <constraint firstAttribute="width" constant="24" id="8Tm-TT-9vE"/>
+                                    <constraint firstAttribute="height" constant="24" id="grp-ze-gat"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="close-with-transparency.png"/>
+                                <state key="normal" image="multiply" catalog="system"/>
                                 <connections>
                                     <action selector="closeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xRf-a8-NRo"/>
                                 </connections>
@@ -37,27 +42,25 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kCU-g6-IoN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1xL-2p-sf8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kCU-g6-IoN" secondAttribute="trailing" id="Hda-5J-HMs"/>
-                            <constraint firstItem="kCU-g6-IoN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="KKu-Kj-PL1"/>
+                            <constraint firstItem="nVW-pd-Ww8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="80v-QF-1Ai"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nVW-pd-Ww8" secondAttribute="bottom" id="FTr-qE-Ud2"/>
+                            <constraint firstItem="nVW-pd-Ww8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SHx-Ct-HA3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6ve-vJ-XW3" secondAttribute="trailing" constant="20" id="bxg-L6-wKB"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kCU-g6-IoN" secondAttribute="bottom" id="sWi-GW-qd3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nVW-pd-Ww8" secondAttribute="trailing" id="iBG-AX-cAK"/>
                             <constraint firstItem="6ve-vJ-XW3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="y9u-Tl-57m"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="container" destination="kCU-g6-IoN" id="Gi6-8p-5f7"/>
+                        <outlet property="closeBtn" destination="6ve-vJ-XW3" id="0tz-sv-PqV"/>
+                        <outlet property="webView" destination="nVW-pd-Ww8" id="lBe-nF-JYU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11" y="4"/>
+            <point key="canvasLocation" x="9.9236641221374047" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
-        <image name="close-with-transparency.png" width="44" height="44"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="multiply" catalog="system" width="128" height="111"/>
     </resources>
 </document>
