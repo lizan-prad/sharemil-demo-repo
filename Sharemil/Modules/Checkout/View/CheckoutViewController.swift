@@ -64,7 +64,13 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
-    var scheduleDate: String?
+    var scheduleDate: String? {
+        didSet {
+            if scheduleType != "standard" {
+                (scheduleDate == nil || scheduleDate == "") ? self.placeOrderBtn.disable() : self.placeOrderBtn.enable()
+            }
+        }
+    }
     
     var selectedPayment: PaymentMethods? {
         didSet {

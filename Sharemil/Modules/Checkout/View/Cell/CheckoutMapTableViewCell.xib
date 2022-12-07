@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -193,6 +193,7 @@
                 <outlet property="chefLocation" destination="sk7-qX-3iW" id="nZg-IL-4dD"/>
                 <outlet property="chefName" destination="PmK-EI-AH7" id="Hux-No-ZnM"/>
                 <outlet property="mapView" destination="tDM-zB-gjF" id="xtx-Wq-tT8"/>
+                <outlet property="pickUpLabel" destination="RCz-p0-eLi" id="qwC-HE-ccL"/>
                 <outlet property="scheduleContainer" destination="fxX-7m-OI0" id="A9y-RD-JbF"/>
                 <outlet property="scheduleDateField" destination="M5m-Ed-Mjv" id="99z-Qk-O1a"/>
                 <outlet property="standardContainer" destination="sbF-9U-en4" id="Uig-q0-u7Z"/>

@@ -11,6 +11,7 @@ import GoogleMaps
 class CheckoutMapTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var pickUpLabel: UILabel!
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var scheduleDateField: UITextField!
     @IBOutlet weak var scheduleContainer: UIView!
@@ -35,6 +36,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
             marker.icon = UIImage.init(named: "end")?.withTintColor(.green, renderingMode: .alwaysTemplate)
 //            marker.rotation = angle
             marker.map = self.mapView
+            self.pickUpLabel.text = "Pick Up (\(chef?.preparationTime ?? ""))"
         }
     }
     
@@ -97,7 +99,11 @@ class CheckoutMapTableViewCell: UITableViewCell {
         scheduleDateField.inputView = picker
         scheduleDateField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
         let cor = polylines?.first?.coordinate(at: (polylines?.first?.count() ?? 0)/2)
-        let camera = GMSCameraPosition.camera(withLatitude: cor?.latitude ?? 0, longitude: cor?.longitude ?? 0, zoom: 13.5)
+        
+        let coordinate0 = CLLocation(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0)
+        let coordinate1 = CLLocation(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0)
+        let distanceInMeters = coordinate0.distance(from: coordinate1)*0.001
+        let camera = GMSCameraPosition.camera(withLatitude: cor?.latitude ?? 0, longitude: cor?.longitude ?? 0, zoom: Float(14.5 - Double(distanceInMeters )/2))
         mapView.camera = camera
         let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0))
         locationMarker.groundAnchor = CGPoint(x: 0.5, y: 1)
