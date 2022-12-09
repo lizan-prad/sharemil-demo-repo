@@ -386,6 +386,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let nav = self.navigationController else {return}
         let coordinator = ChefMenuCoordinator.init(navigationController: nav)
         coordinator.chef = self.filtered?[indexPath.row]
+        coordinator.cusine = cusines?.filter({$0.id == self.filtered?[indexPath.row].cuisineId}).first
         coordinator.start()
     }
 }
@@ -422,6 +423,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == mapCollectionView {
             guard let nav = self.navigationController else {return}
             let coordinator = ChefMenuCoordinator.init(navigationController: nav)
+            coordinator.cusine = cusines?.filter({$0.id == self.filtered?[indexPath.row].cuisineId}).first
             coordinator.chef = self.filtered?[indexPath.row]
             coordinator.start()
         } else {

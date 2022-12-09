@@ -19,6 +19,7 @@ class RecieptWebViewViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupWebView()
+        
         closeBtn.rounded()
     }
 
@@ -27,6 +28,9 @@ class RecieptWebViewViewController: UIViewController, Storyboarded {
         if let url = URL.init(string: recieptUrl ?? "") {
             let request = URLRequest(url: url)
             self.webView.load(request)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.webView.scrollView.setZoomScale(3.0, animated: true)
+            }
         }
     }
 

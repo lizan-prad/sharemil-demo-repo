@@ -56,6 +56,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
+    var cusines: [CusineListModel]?
+    
     var chef: ChefListModel?
     var cartItems: [CartItems]?
     var paymentIntent: String? {
@@ -93,6 +95,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         setTableView()
         self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0))
         self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: nil)
         self.viewModel.getDefaultMethod()
     }
     
@@ -153,6 +156,12 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         self.viewModel.success.bind { msg in
             self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        }
+        self.viewModel.chefs.bind { chefs in
+            self.chef = chefs?.filter({$0.id == self.chef?.id}).first
+        }
+        self.viewModel.cusines.bind { cusines in
+            self.cusines = cusines
         }
         
         self.viewModel.cartList.bind { cartItems in
@@ -294,6 +303,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 guard let nav = self.navigationController else {return}
                 let coordinator = ChefMenuCoordinator.init(navigationController: nav)
                 coordinator.chef = self.chef
+                coordinator.cusine = self.cusines?.filter({$0.id == self.chef?.cuisineId}).first
                 coordinator.start()
             }
             return cell

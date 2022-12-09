@@ -12,6 +12,7 @@ class ChefMenuCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     var chef: ChefListModel?
+    var cusine: CusineListModel?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -30,6 +31,7 @@ class ChefMenuCoordinator: Coordinator {
         let viewModel = ChefMenuViewModel()
         viewModel.chef = self.chef
         vc.viewModel = viewModel
+        vc.cusine = self.cusine
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }

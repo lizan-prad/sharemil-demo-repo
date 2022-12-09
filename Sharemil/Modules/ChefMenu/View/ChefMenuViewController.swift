@@ -28,6 +28,8 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         }
     }
     
+    var cusine: CusineListModel?
+    
     var cartItems: [CartItems]? {
         didSet {
             self.tableView.reloadData()
@@ -116,15 +118,28 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     
     private func setupData() {
         chefNameLabel.text = "\(viewModel.chef?.firsName ?? "") \(viewModel.chef?.lastName ?? "")"
+        self.businessName.text = viewModel.chef?.businessName
+        
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "eee"
         let now = formatter.string(from: Date()).lowercased()
-        self.businessName.text = viewModel.chef?.businessName
         let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
         formatter.dateFormat = "HH:mm:ss"
+        let nowStrDate = formatter.string(from: Date())
+        let nowDate = formatter.date(from: nowStrDate)
         let date = formatter.date(from: hour?.endTime ?? "")
+        let sdate = formatter.date(from: hour?.startTime ?? "")
         formatter.dateFormat = "hh:mm a"
-        self.chefTime.text = date == nil ? "Closed" : "Opens till \(formatter.string(from: date ?? Date()))"
+        
+        if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
+            chefTime.text = "Open until \(formatter.string(from: date ?? Date()))"
+        } else if date == nil {
+            chefTime.text = "Closed"
+        } else {
+            chefTime.text = "Opens at \(formatter.string(from: sdate ?? Date()))"
+        }
+        self.chefRating.text = "★ 4.8 (500+ rating) · \(self.cusine?.name ?? "") · $$"
     }
 
 }
