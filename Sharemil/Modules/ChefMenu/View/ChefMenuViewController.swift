@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class ChefMenuViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var businessHoursTap: UILabel!
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var addToCartView: UIView!
     @IBOutlet weak var tableviewBottomView: UIView!
@@ -116,7 +117,16 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         
     }
     
+    @objc func openBusinessHours() {
+        let coordinator = ChefBusinessHoursCoordinator.init(navigationController: UINavigationController())
+        coordinator.chef = self.viewModel.chef
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
     private func setupData() {
+        businessHoursTap.isUserInteractionEnabled = true
+        businessHoursTap.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openBusinessHours)))
+        
         chefNameLabel.text = "\(viewModel.chef?.firsName ?? "") \(viewModel.chef?.lastName ?? "")"
         self.businessName.text = viewModel.chef?.businessName
         

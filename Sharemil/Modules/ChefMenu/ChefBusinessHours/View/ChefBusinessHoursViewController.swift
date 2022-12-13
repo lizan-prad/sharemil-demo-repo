@@ -1,0 +1,150 @@
+//
+//  ChefBusinessHoursViewController.swift
+//  Sharemil
+//
+//  Created by Lizan on 13/12/2022.
+//
+
+import UIKit
+import GoogleMaps
+
+class ChefBusinessHoursViewController: UIViewController, Storyboarded {
+
+    @IBOutlet weak var openUntilLabel: UILabel!
+    @IBOutlet weak var collapseBtn: UILabel!
+    @IBOutlet weak var hourCollapsView: UIView!
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    @IBOutlet weak var businessName: UILabel!
+    
+    @IBOutlet weak var chefLocation: UILabel!
+    @IBOutlet weak var chefName: UILabel!
+    
+    @IBOutlet weak var thursday: UILabel!
+    @IBOutlet weak var monday: UILabel!
+    @IBOutlet weak var tuesday: UILabel!
+    @IBOutlet weak var friday: UILabel!
+    @IBOutlet weak var wednesday: UILabel!
+    @IBOutlet weak var saturday: UILabel!
+    @IBOutlet weak var sunday: UILabel!
+    
+    
+    
+    var viewModel: ChefBusinessHoursViewModel!
+    var chef: ChefListModel?
+    
+    var polylines: [GMSPath]? {
+        didSet {
+            setup()
+            polylines?.forEach({ path in
+                let polyline = GMSPolyline(path: path)
+                polyline.strokeColor = .red
+                polyline.strokeWidth = 2.0
+                polyline.map = self.mapView
+            })
+        }
+    }
+    
+    var collapse = true
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupDates()
+        bindViewModel()
+        self.hourCollapsView.isHidden = collapse
+        viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(latitude: 0, longitude: 0), destination: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
+        collapseBtn.isUserInteractionEnabled = true
+        collapseBtn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openCollapseAction)))
+    }
+    
+    @objc func openCollapseAction() {
+        self.collapse = !self.collapse
+        self.hourCollapsView.isHidden = collapse
+    }
+    
+    private func setupDates() {
+        chef?.hours?.forEach({ h in
+            switch h.day ?? "" {
+            case "MON":
+                self.monday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "TUE":
+                self.tuesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "WED":
+                self.wednesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "THU":
+                self.thursday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "FRI":
+                self.friday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "SAT":
+                self.saturday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            case "SUN":
+                self.sunday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            }
+        })
+    }
+    
+    private func bindViewModel() {
+        viewModel.polylines.bind { polylines in
+            self.polylines = polylines
+        }
+        
+        self.viewModel.loading.bind { status in
+            status ?? true ? self.showProgressHud() : self.hideProgressHud()
+        }
+        
+        self.viewModel.error.bind { msg in
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        
+    }
+    
+    @IBAction func dismissAction(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    private func setup() {
+        businessName.text = chef?.businessName
+        chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
+        chefLocation.text = "\(chef?.address ?? ""), \(chef?.city ?? "") \(chef?.postalCode ?? ""), \(chef?.state ?? "")"
+        let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
+        marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+        marker.isFlat = true
+        marker.icon = UIImage.init(named: "end")?.withTintColor(.green, renderingMode: .alwaysTemplate)
+//            marker.rotation = angle
+        marker.map = self.mapView
+       
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee"
+        let now = formatter.string(from: Date()).lowercased()
+        let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        formatter.dateFormat = "HH:mm:ss"
+        let nowStrDate = formatter.string(from: Date())
+        let nowDate = formatter.date(from: nowStrDate)
+        let date = formatter.date(from: hour?.endTime ?? "")
+        let sdate = formatter.date(from: hour?.startTime ?? "")
+        formatter.dateFormat = "hh:mm a"
+        
+        if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
+            openUntilLabel.text = "Open until \(formatter.string(from: date ?? Date()))"
+        } else if date == nil {
+            openUntilLabel.text = "Closed"
+        } else {
+            openUntilLabel.text = "Opens at \(formatter.string(from: sdate ?? Date()))"
+        }
+        
+        let cor = polylines?.first?.coordinate(at: (polylines?.first?.count() ?? 0)/2)
+        
+        let coordinate0 = CLLocation(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0)
+        let coordinate1 = CLLocation(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0)
+        let distanceInMeters = coordinate0.distance(from: coordinate1)*0.001
+        let camera = GMSCameraPosition.camera(withLatitude: cor?.latitude ?? 0, longitude: cor?.longitude ?? 0, zoom: Float(14.5 - Double(distanceInMeters )/2))
+        mapView.camera = camera
+        let locationMarker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: loc?.location?.coordinate.latitude ?? 0, longitude: loc?.location?.coordinate.longitude ?? 0))
+        locationMarker.groundAnchor = CGPoint(x: 0.5, y: 1)
+        locationMarker.isFlat = true
+        locationMarker.icon = UIImage.init(named: "start")
+//            marker.rotation = angle
+        locationMarker.map = self.mapView
+    }
+    
+}
