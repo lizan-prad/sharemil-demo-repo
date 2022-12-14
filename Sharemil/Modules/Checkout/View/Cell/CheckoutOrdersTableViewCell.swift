@@ -45,6 +45,7 @@ extension CheckoutOrdersTableViewCell: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartDetailTableViewCell") as! CartDetailTableViewCell
+        cell.setup()
         cell.item = self.cartItems?[indexPath.row]
         return cell
     }
