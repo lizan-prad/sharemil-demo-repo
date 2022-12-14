@@ -30,7 +30,6 @@ class ChefBusinessHoursCoordinator: Coordinator {
         let viewModel = ChefBusinessHoursViewModel()
         vc.viewModel = viewModel
         vc.chef = self.chef
-        vc.didCheckoutComplete = self.didCheckoutComplete
         return vc
     }
 

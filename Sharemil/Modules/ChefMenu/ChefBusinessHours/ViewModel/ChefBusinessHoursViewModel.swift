@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import GoogleMaps
 class ChefBusinessHoursViewModel: CheckoutService {
     
     var loading: Observable<Bool> = Observable(nil)

@@ -10,8 +10,9 @@ import GoogleMaps
 
 class ChefBusinessHoursViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var collapseTriggerView: UIView!
     @IBOutlet weak var openUntilLabel: UILabel!
-    @IBOutlet weak var collapseBtn: UILabel!
+    @IBOutlet weak var collapseBtn: UIButton!
     @IBOutlet weak var hourCollapsView: UIView!
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -51,13 +52,19 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         self.setupDates()
         bindViewModel()
-        self.hourCollapsView.isHidden = collapse
+//        self.hourCollapsView.isHidden = collapse
         viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(latitude: 0, longitude: 0), destination: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
-        collapseBtn.isUserInteractionEnabled = true
-        collapseBtn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openCollapseAction)))
+        collapseTriggerView.isUserInteractionEnabled = true
+        collapseTriggerView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(collapseAction)))
+      
     }
     
-    @objc func openCollapseAction() {
+    @objc func collapseAction() {
+        self.collapse = !self.collapse
+        self.hourCollapsView.isHidden = collapse
+    }
+    
+    @IBAction func openCollapseAction(_ sender: Any) {
         self.collapse = !self.collapse
         self.hourCollapsView.isHidden = collapse
     }
@@ -79,6 +86,7 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
                 self.saturday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "SUN":
                 self.sunday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+            default: break
             }
         })
     }
@@ -116,7 +124,8 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
         let formatter = DateFormatter()
         formatter.dateFormat = "eee"
         let now = formatter.string(from: Date()).lowercased()
-        let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        let h: [HoursModel] = chef?.hours ?? []
+        let hour = h.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
         formatter.dateFormat = "HH:mm:ss"
         let nowStrDate = formatter.string(from: Date())
         let nowDate = formatter.date(from: nowStrDate)
