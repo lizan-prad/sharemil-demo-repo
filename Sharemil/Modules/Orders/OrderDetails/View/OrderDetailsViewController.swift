@@ -54,6 +54,7 @@ class OrderDetailsViewController: UIViewController, Storyboarded {
     @IBAction func helpNavAction(_ sender: Any) {
         let coordinator = HelpCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.model?.cart
+        coordinator.order = self.model?.id
         coordinator.orderId = "\(self.model?.orderNumber ?? 0)"
         self.present(coordinator.getMainView(), animated: true)
     }

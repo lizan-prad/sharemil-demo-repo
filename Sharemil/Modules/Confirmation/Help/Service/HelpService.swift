@@ -25,7 +25,8 @@ extension HelpService {
         let param: [String: Any] = [
             "orderNumber": model.orderNo ?? "",
             "issues": createIssueArray(model.issues, model.id),
-            "note": model.note ?? ""
+            "note": model.note ?? "",
+            "orderId": model.id ?? ""
         ]
         NetworkManager.shared.request(BaseMappableModel<SupportIssueContainer>.self, urlExt: "support/tickets", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             completion(result)
@@ -36,8 +37,7 @@ extension HelpService {
         return list?.map({ m in
             return [
                 "cartItem": m.item?.id ?? "",
-                "supportCategory": m.issue?.id ?? "",
-                "orderId": id ?? ""
+                "supportCategory": m.issue?.id ?? ""
             ]
         }) ?? []
     }
