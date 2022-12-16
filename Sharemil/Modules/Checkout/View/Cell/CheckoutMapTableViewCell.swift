@@ -11,6 +11,7 @@ import GoogleMaps
 class CheckoutMapTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var timeErrorLabel: UILabel!
     @IBOutlet weak var pickUpLabel: UILabel!
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var scheduleDateField: UITextField!
@@ -24,9 +25,11 @@ class CheckoutMapTableViewCell: UITableViewCell {
     var selectedDate: Date?
     var didSelectMainDate: ((Date?) -> ())?
     var didSelectTime: ((String) -> ())?
+    var didProcessDateError: ((String) -> ())?
     
     var chef: ChefListModel? {
         didSet {
+            self.timeErrorLabel.text = ""
             businessName.text = chef?.businessName
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             chefLocation.text = "\(chef?.address ?? ""), \(chef?.city ?? "") \(chef?.postalCode ?? ""), \(chef?.state ?? "")"
@@ -59,28 +62,46 @@ class CheckoutMapTableViewCell: UITableViewCell {
     }
   
     @objc private func didSelectDate(_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
+        let formatter1 = DateFormatter()
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: sender.date)
         let remaining = (minutes%15) == 0 ? 0 : (15 - (minutes%15))
-        if remaining == 0 {
-            let date = sender.date.addingTimeInterval(Double(remaining*60))
-            formatter.dateFormat = "eee, MMM dd HH:mm a"
-            self.selectedDate = sender.date
-            self.scheduleDateField.text = formatter.string(from: date)
-        } else {
-            let date = Date().addingTimeInterval(Double(remaining*60))
-            formatter.dateFormat = "eee, MMM dd HH:mm a"
-            self.selectedDate = sender.date
-            self.scheduleDateField.text = formatter.string(from: date)
-        }
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee"
+        let now = formatter.string(from: Date()).lowercased()
+        let hour = chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        formatter.dateFormat = "HH:mm:ss"
+        let nowStrDate = formatter.string(from: sender.date)
+        let nowDate = formatter.date(from: nowStrDate) ?? Date()
+        let date = formatter.date(from: hour?.endTime ?? "") ?? Date()
+        let sdate = formatter.date(from: hour?.startTime ?? "") ?? Date()
+        if (sdate ... date).contains(nowDate) {
+            self.timeErrorLabel.text = ""
+            if remaining == 0 {
+                let date = sender.date.addingTimeInterval(Double(remaining*60))
+                formatter1.dateFormat = "eee, MMM dd HH:mm a"
+                self.selectedDate = date
+                self.scheduleDateField.text = formatter1.string(from: date)
+            } else {
+                let date = Date().addingTimeInterval(Double(remaining*60))
+                formatter1.dateFormat = "eee, MMM dd HH:mm a"
+                self.selectedDate = date
+                self.scheduleDateField.text = formatter1.string(from: date)
+            }
+        } else {
+            self.timeErrorLabel.text = "Time out of bound. (\(hour?.startTime ?? "") - \(hour?.endTime ?? ""))"
+        }
     }
 
     @objc private func doneButtonClicked(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee"
+        let now = formatter.string(from: Date()).lowercased()
         didSelectMainDate?(self.selectedDate)
         didSelectTime?(self.scheduleDateField.text ?? "")
-        
+        let hour = chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        self.didProcessDateError?("The operating hour of restaurant is \(hour?.startTime ?? "") till \(hour?.endTime ?? "")")
     }
     
     func setup() {

@@ -159,6 +159,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         self.viewModel.chefs.bind { chefs in
             self.chef = chefs?.filter({$0.id == self.chef?.id}).first
+            self.tableView.reloadData()
         }
         self.viewModel.cusines.bind { cusines in
             self.cusines = cusines
@@ -278,7 +279,12 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
             cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
             cell.polylines = self.polylines
-         
+            cell.didProcessDateError = { error in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                    self.showToastMsg(error, state: .error, location: .top)
+                }
+                
+            }
             cell.didSelectTime = { type in
                 self.scheduleType = type
                 if self.scheduleType == "standard" {
