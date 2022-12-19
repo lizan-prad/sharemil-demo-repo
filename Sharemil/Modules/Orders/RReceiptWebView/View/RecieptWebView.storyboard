@@ -38,20 +38,37 @@
                                     <action selector="closeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xRf-a8-NRo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-g0-s3S">
+                                <rect key="frame" x="309" y="79" width="24" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="2Gc-s0-7h4"/>
+                                    <constraint firstAttribute="height" constant="24" id="7Lw-zv-Q0S"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="tray.and.arrow.down.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="downlaodBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WE7-Uf-860"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nVW-pd-Ww8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="80v-QF-1Ai"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nVW-pd-Ww8" secondAttribute="bottom" id="FTr-qE-Ud2"/>
+                            <constraint firstItem="6ve-vJ-XW3" firstAttribute="leading" secondItem="gtG-g0-s3S" secondAttribute="trailing" constant="16" id="MgL-U9-MbT"/>
                             <constraint firstItem="nVW-pd-Ww8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SHx-Ct-HA3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6ve-vJ-XW3" secondAttribute="trailing" constant="20" id="bxg-L6-wKB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nVW-pd-Ww8" secondAttribute="trailing" id="iBG-AX-cAK"/>
+                            <constraint firstItem="gtG-g0-s3S" firstAttribute="centerY" secondItem="6ve-vJ-XW3" secondAttribute="centerY" id="kPU-YU-wmL"/>
                             <constraint firstItem="6ve-vJ-XW3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="y9u-Tl-57m"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeBtn" destination="6ve-vJ-XW3" id="0tz-sv-PqV"/>
+                        <outlet property="download" destination="gtG-g0-s3S" id="NwD-tK-pEZ"/>
                         <outlet property="webView" destination="nVW-pd-Ww8" id="lBe-nF-JYU"/>
                     </connections>
                 </viewController>
@@ -62,5 +79,6 @@
     </scenes>
     <resources>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="tray.and.arrow.down.fill" catalog="system" width="128" height="115"/>
     </resources>
 </document>
