@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class RecieptWebViewViewController: UIViewController, Storyboarded, WKNavigationDelegate {
+class RecieptWebViewViewController: UIViewController, Storyboarded, WKNavigationDelegate, UIDocumentPickerDelegate {
     
     @IBOutlet weak var download: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
@@ -46,38 +46,15 @@ class RecieptWebViewViewController: UIViewController, Storyboarded, WKNavigation
     }
 
     @IBAction func downlaodBtn(_ sender: Any) {
-        let config = WKPDFConfiguration.init()
-        
-        //Set the page size (this can match the html{} size in your CSS
-        
         if #available(iOS 14.0, *) {
-            config.rect = CGRect(x: 0, y: 0, width: 792, height: 612)
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 14.0, *) {
-            webView.createPDF(configuration: config){ result in
-                switch result{
-                case .success(let data):
-                    var docURL = (FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask)).last
-                    
-                    var new = (docURL?.absoluteString ?? "") + "invoice-\(Date().timeIntervalSince1970).pdf"
-                    if #available(iOS 16.0, *) {
-                        do {
-                            try data.write(to: URL.init(filePath: new))
-                            DispatchQueue.main.async {
-                                self.showToastMsg("Saved!!", state: .success, location: .bottom)
-                            }
-                        } catch {
-                            print(error)
-                        }
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            let documentPicker =
+            UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
+            documentPicker.delegate = self
+
+            // Set the initial directory.
+
+            // Present the document picker.
+            present(documentPicker, animated: true, completion: nil)
         } else {
             // Fallback on earlier versions
         }
@@ -85,6 +62,31 @@ class RecieptWebViewViewController: UIViewController, Storyboarded, WKNavigation
         
         //Render the PDF
           
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        let render = UIPrintPageRenderer()
+            render.addPrintFormatter(webView.viewPrintFormatter(), startingAtPageAt: 0);
+
+
+            let page = CGRect(x: 0, y: 10, width: webView.frame.size.width, height: webView.frame.size.height) // take the size of the webView
+            let printable = page.insetBy(dx: 0, dy: 0)
+            render.setValue(NSValue(cgRect: page), forKey: "paperRect")
+            render.setValue(NSValue(cgRect: printable), forKey: "printableRect")
+
+            // 4. Create PDF context and draw
+            let pdfData = NSMutableData()
+            UIGraphicsBeginPDFContextToData(pdfData, CGRect.zero, nil)
+            for i in 1...render.numberOfPages {
+
+                UIGraphicsBeginPDFPage();
+                let bounds = UIGraphicsGetPDFContextBounds()
+                render.drawPage(at: i - 1, in: bounds)
+            }
+            UIGraphicsEndPDFContext();
+        guard let url = urls.first?.startAccessingSecurityScopedResource() else {return}
+
+        pdfData.write(toFile: "\(urls.first?.absoluteString ?? "")/invoice-\(Date().timeIntervalSince1970).pdf", atomically: true)
     }
     
     @IBAction func closeAction(_ sender: Any) {
