@@ -109,13 +109,26 @@ class CheckoutMapTableViewCell: UITableViewCell {
         standardContainer.isUserInteractionEnabled = true
         
         standardContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(standardAction)))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eee"
+        let now = formatter.string(from: Date()).lowercased()
+        let hour = chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+        formatter.dateFormat = "HH:mm:ss"
+        let date = formatter.date(from: hour?.endTime ?? "") ?? Date()
+        let sdate = formatter.date(from: hour?.startTime ?? "") ?? Date()
+        
+        let nowDateStr = formatter.string(from: Date())
+        let nowDate = formatter.date(from: nowDateStr) ?? Date()
+        let calendar = Calendar.current
+        let d = calendar.dateComponents([.hour,.minute], from: nowDate, to: date)
+        var h = (d.hour ?? 0)*60*60
+        var m = (d.minute ?? 0)*60
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .wheels
         picker.datePickerMode = .dateAndTime
         picker.minuteInterval = 15
         picker.minimumDate = Date()
-        
-        picker.maximumDate = Date().addingTimeInterval(604800)
+        picker.maximumDate = Date().addingTimeInterval(Double(h+m))
         picker.addTarget(self, action: #selector(didSelectDate(_:)), for: .valueChanged)
         scheduleDateField.inputView = picker
         scheduleDateField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
