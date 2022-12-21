@@ -214,6 +214,8 @@
 		BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */; };
 		BED11BAB2953325C00EA0855 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */; };
 		BED11BAD2953326800EA0855 /* CustomPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED11BAC2953326800EA0855 /* CustomPicker.storyboard */; };
+		BED11BB32953389800EA0855 /* CustomPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */; };
+		BED11BB42953389800EA0855 /* CustomPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -465,6 +467,8 @@
 		BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewChefListCollectionViewCell.xib; sourceTree = "<group>"; };
 		BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		BED11BAC2953326800EA0855 /* CustomPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomPicker.storyboard; sourceTree = "<group>"; };
+		BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -1603,10 +1607,20 @@
 		BED11BA52951DEB700EA0855 /* CustomPicker */ = {
 			isa = PBXGroup;
 			children = (
+				BED11BAE2953387600EA0855 /* Cell */,
 				BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */,
 				BED11BAC2953326800EA0855 /* CustomPicker.storyboard */,
 			);
 			path = CustomPicker;
+			sourceTree = "<group>";
+		};
+		BED11BAE2953387600EA0855 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */,
+				BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BEE661662858DDF1007812B2 /* Models */ = {
@@ -1935,6 +1949,7 @@
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
 				BE4CDDB528530D7E006AB129 /* Inter-Bold.ttf in Resources */,
 				BE5B6A2828904A47008CC57F /* ConfirmationDetailTableViewCell.xib in Resources */,
+				BED11BB42953389800EA0855 /* CustomPickerCollectionViewCell.xib in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
 				BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */,
@@ -2147,6 +2162,7 @@
 				BE8CD3AD28F60A3B007A476B /* HelpItemIssueTableViewCell.swift in Sources */,
 				BEF7EAD8286478EC002D553E /* CartDetailViewModel.swift in Sources */,
 				BE214B182861C9A800B26B50 /* ChefMenuItemViewController.swift in Sources */,
+				BED11BB32953389800EA0855 /* CustomPickerCollectionViewCell.swift in Sources */,
 				BEEDC7A72922D53700C5CF76 /* ProductionSelectionViewController.swift in Sources */,
 				BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */,
 				BE7C7291285F9BF60008161B /* Menu.swift in Sources */,

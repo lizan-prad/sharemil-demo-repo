@@ -299,6 +299,11 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 }
                 
             }
+            cell.didTapSchedule = { hours in
+                let vc = UIStoryboard.init(name: "CustomPicker", bundle: nil).instantiateViewController(withIdentifier: "CustomPickerViewController") as! CustomPickerViewController
+                vc.hours = hours
+                self.present(vc, animated: true)
+            }
             cell.didSelectTime = { type in
                 self.scheduleType = type
                 if self.scheduleType == "standard" {

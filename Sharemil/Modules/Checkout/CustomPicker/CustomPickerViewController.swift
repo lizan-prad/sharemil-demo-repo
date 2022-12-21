@@ -18,6 +18,7 @@ class CustomPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.setupCollection()
     }
     
     private func setup() {
@@ -38,7 +39,7 @@ class CustomPickerViewController: UIViewController {
         var m = (d.minute ?? 0)*60
         
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.datePickerMode = .dateAndTime
+        datePicker.datePickerMode = .time
         datePicker.minuteInterval = 15
         datePicker.minimumDate = Date()
         datePicker.maximumDate = Date().addingTimeInterval(Double(h+m))
@@ -52,6 +53,7 @@ class CustomPickerViewController: UIViewController {
     private func setupCollection() {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.register(UINib.init(nibName: "CustomPickerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomPickerCollectionViewCell")
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -67,14 +69,16 @@ class CustomPickerViewController: UIViewController {
 extension CustomPickerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomPickerCollectionViewCell", for: indexPath) as! CustomPickerCollectionViewCell
+        cell.setup()
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        
     }
 }

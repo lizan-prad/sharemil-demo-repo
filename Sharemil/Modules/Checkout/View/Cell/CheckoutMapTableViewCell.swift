@@ -26,6 +26,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     var didSelectMainDate: ((Date?) -> ())?
     var didSelectTime: ((String) -> ())?
     var didProcessDateError: ((String) -> ())?
+    var didTapSchedule: (([HoursModel]?) -> ())?
     
     var chef: ChefListModel? {
         didSet {
@@ -109,6 +110,8 @@ class CheckoutMapTableViewCell: UITableViewCell {
         standardContainer.isUserInteractionEnabled = true
         
         standardContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(standardAction)))
+        scheduleContainer.isUserInteractionEnabled = true
+        scheduleContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openSchefuleView)))
         let formatter = DateFormatter()
         formatter.dateFormat = "eee"
         let now = formatter.string(from: Date()).lowercased()
@@ -145,5 +148,9 @@ class CheckoutMapTableViewCell: UITableViewCell {
         locationMarker.icon = UIImage.init(named: "start")
 //            marker.rotation = angle
         locationMarker.map = self.mapView
+    }
+    
+    @objc func openSchefuleView() {
+        self.didTapSchedule?(self.chef?.hours)
     }
 }
