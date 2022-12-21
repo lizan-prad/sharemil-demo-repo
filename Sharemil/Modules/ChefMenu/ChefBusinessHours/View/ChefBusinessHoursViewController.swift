@@ -9,7 +9,14 @@ import UIKit
 import GoogleMaps
 
 class ChefBusinessHoursViewController: UIViewController, Storyboarded {
-
+    @IBOutlet weak var sunStack: UIStackView!
+    @IBOutlet weak var satStack: UIStackView!
+    @IBOutlet weak var friStack: UIStackView!
+    @IBOutlet weak var thuStack: UIStackView!
+    @IBOutlet weak var wedStack: UIStackView!
+    @IBOutlet weak var tueStack: UIStackView!
+    @IBOutlet weak var monStack: UIStackView!
+    
     @IBOutlet weak var collapseTriggerView: UIView!
     @IBOutlet weak var openUntilLabel: UILabel!
     @IBOutlet weak var collapseBtn: UIButton!
@@ -50,6 +57,14 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.monStack.isHidden = true
+        self.tueStack.isHidden = true
+        self.wedStack.isHidden = true
+        self.thuStack.isHidden = true
+        self.friStack.isHidden = true
+        self.satStack.isHidden = true
+        self.sunStack.isHidden = true
+       
         self.setupDates()
         bindViewModel()
 //        self.hourCollapsView.isHidden = collapse
@@ -70,21 +85,28 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
     }
     
     private func setupDates() {
-        chef?.hours?.forEach({ h in
+        chef?.hours?.filter({$0.isOpen == true}).forEach({ h in
             switch h.day ?? "" {
             case "MON":
+                self.monStack.isHidden = false
                 self.monday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "TUE":
+                self.tueStack.isHidden = false
                 self.tuesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "WED":
+                self.wedStack.isHidden = false
                 self.wednesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "THU":
+                self.thuStack.isHidden = false
                 self.thursday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "FRI":
+                self.friStack.isHidden = false
                 self.friday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "SAT":
+                self.satStack.isHidden = false
                 self.saturday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             case "SUN":
+                self.sunStack.isHidden = false
                 self.sunday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
             default: break
             }

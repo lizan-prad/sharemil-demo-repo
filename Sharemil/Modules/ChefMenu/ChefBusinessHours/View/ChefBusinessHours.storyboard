@@ -361,15 +361,22 @@
                         <outlet property="chefName" destination="Npo-eN-okg" id="c1v-xo-l90"/>
                         <outlet property="collapseBtn" destination="qCe-uV-6tR" id="tKl-nf-UNg"/>
                         <outlet property="collapseTriggerView" destination="pBE-ff-qAG" id="Syr-0p-ZU4"/>
+                        <outlet property="friStack" destination="dzz-EQ-t9T" id="Obc-Sq-2Hi"/>
                         <outlet property="friday" destination="p13-WE-PcZ" id="Lcz-hn-n9o"/>
                         <outlet property="hourCollapsView" destination="KEH-Iu-pzF" id="pEI-b1-EI1"/>
                         <outlet property="mapView" destination="Ar8-zX-L1I" id="MPL-SR-BUJ"/>
+                        <outlet property="monStack" destination="6VN-uG-Rf7" id="7PV-0I-dkf"/>
                         <outlet property="monday" destination="y1V-LY-E9h" id="rHG-oc-6fF"/>
                         <outlet property="openUntilLabel" destination="3TR-VU-v63" id="gLR-WM-XYG"/>
+                        <outlet property="satStack" destination="SGX-zs-3UK" id="AVy-Rh-lPC"/>
                         <outlet property="saturday" destination="4Do-SY-F8L" id="Ae4-S1-bOC"/>
+                        <outlet property="sunStack" destination="I5g-2C-MtJ" id="Scj-sP-u7y"/>
                         <outlet property="sunday" destination="EJT-Np-15W" id="GkY-PX-zlb"/>
+                        <outlet property="thuStack" destination="kPU-da-jRo" id="2dc-47-RfW"/>
                         <outlet property="thursday" destination="alD-5E-3NB" id="XLQ-Oq-M83"/>
+                        <outlet property="tueStack" destination="qDg-rO-eQX" id="sys-Xw-RhC"/>
                         <outlet property="tuesday" destination="YpM-ab-ueR" id="QKA-eq-lPE"/>
+                        <outlet property="wedStack" destination="gph-ti-fDy" id="i6O-9K-ulG"/>
                         <outlet property="wednesday" destination="VdO-n7-X38" id="wZr-9F-VDl"/>
                     </connections>
                 </viewController>

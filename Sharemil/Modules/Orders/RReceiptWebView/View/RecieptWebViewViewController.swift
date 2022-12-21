@@ -31,9 +31,9 @@ class RecieptWebViewViewController: UIViewController, Storyboarded, WKNavigation
         if let url = URL.init(string: recieptUrl ?? "") {
             let request = URLRequest(url: url)
             self.webView.load(request)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.webView.scrollView.setZoomScale(3.0, animated: true)
-            }
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                self.webView.scrollView.setZoomScale(3.0, animated: true)
+//            }
         }
     }
     
