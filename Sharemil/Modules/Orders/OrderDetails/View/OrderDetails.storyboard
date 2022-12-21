@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -82,7 +82,7 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="View reciept">
+                                                    <buttonConfiguration key="configuration" style="plain" title="View receipt">
                                                         <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                                     </buttonConfiguration>
                                                     <connections>

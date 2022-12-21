@@ -212,8 +212,8 @@
 		BECB463C28C7C20700E48872 /* TabbarControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */; };
 		BECB46BC28C913A400E48872 /* MapViewChefListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */; };
 		BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */; };
-		BED11BA72951DFF200EA0855 /* CustomPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED11BA62951DFF200EA0855 /* CustomPicker.xib */; };
-		BED11BA92951E02A00EA0855 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BA82951E02A00EA0855 /* CustomPicker.swift */; };
+		BED11BAB2953325C00EA0855 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */; };
+		BED11BAD2953326800EA0855 /* CustomPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED11BAC2953326800EA0855 /* CustomPicker.storyboard */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -463,8 +463,8 @@
 		BECB463B28C7C20700E48872 /* TabbarControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarControllerViewModel.swift; sourceTree = "<group>"; };
 		BECB46BA28C913A400E48872 /* MapViewChefListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewChefListCollectionViewCell.swift; sourceTree = "<group>"; };
 		BECB46BB28C913A400E48872 /* MapViewChefListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewChefListCollectionViewCell.xib; sourceTree = "<group>"; };
-		BED11BA62951DFF200EA0855 /* CustomPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPicker.xib; sourceTree = "<group>"; };
-		BED11BA82951E02A00EA0855 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
+		BED11BAC2953326800EA0855 /* CustomPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomPicker.storyboard; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -1603,8 +1603,8 @@
 		BED11BA52951DEB700EA0855 /* CustomPicker */ = {
 			isa = PBXGroup;
 			children = (
-				BED11BA62951DFF200EA0855 /* CustomPicker.xib */,
-				BED11BA82951E02A00EA0855 /* CustomPicker.swift */,
+				BED11BAA2953325C00EA0855 /* CustomPickerViewController.swift */,
+				BED11BAC2953326800EA0855 /* CustomPicker.storyboard */,
 			);
 			path = CustomPicker;
 			sourceTree = "<group>";
@@ -1909,7 +1909,6 @@
 				BE727E3F28ACFE8800B7C068 /* ShowDirection.storyboard in Resources */,
 				BE4CDDBB28530D7E006AB129 /* OFL.txt in Resources */,
 				BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
-				BED11BA72951DFF200EA0855 /* CustomPicker.xib in Resources */,
 				BE7302D3287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.xib in Resources */,
 				BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
@@ -1930,6 +1929,7 @@
 				52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */,
 				BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */,
 				BE8CD3AE28F60A3B007A476B /* HelpItemIssueTableViewCell.xib in Resources */,
+				BED11BAD2953326800EA0855 /* CustomPicker.storyboard in Resources */,
 				BECB46BD28C913A400E48872 /* MapViewChefListCollectionViewCell.xib in Resources */,
 				BE7C7283285F94F40008161B /* ChefMenuTableViewCell.xib in Resources */,
 				BE4CDDBC28530D7E006AB129 /* README.txt in Resources */,
@@ -2087,7 +2087,6 @@
 				BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */,
 				BEF7EB172865CCAD002D553E /* Southwest.swift in Sources */,
 				BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */,
-				BED11BA92951E02A00EA0855 /* CustomPicker.swift in Sources */,
 				BEC08C1728EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift in Sources */,
 				BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */,
 				BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */,
@@ -2128,6 +2127,7 @@
 				BEAF323328754EB90007F9B0 /* EditAccountService.swift in Sources */,
 				BEF7EB3A28697FC1002D553E /* CartViewModel.swift in Sources */,
 				BE7302C5287EC87F00CC6383 /* OrderDetailsViewModel.swift in Sources */,
+				BED11BAB2953325C00EA0855 /* CustomPickerViewController.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
 				BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */,
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
