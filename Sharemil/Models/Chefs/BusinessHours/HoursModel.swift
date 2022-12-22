@@ -23,6 +23,8 @@ struct HoursModel : Mappable {
 	var day : String?
 	var startTime : String?
 	var endTime : String?
+    var endTimeGmt: String?
+    var startTimeGmt: String?
 	var isOpen : Bool?
 
 	init?(map: Map) {
@@ -39,6 +41,8 @@ struct HoursModel : Mappable {
 		day <- map["day"]
 		startTime <- map["startTime"]
 		endTime <- map["endTime"]
+        startTimeGmt = "\(startTime ?? "") GMT"
+        endTimeGmt = "\(endTime ?? "") GMT"
 		isOpen <- map["isOpen"]
 	}
 

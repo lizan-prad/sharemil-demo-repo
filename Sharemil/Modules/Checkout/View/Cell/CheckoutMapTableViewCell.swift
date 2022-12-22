@@ -133,7 +133,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
         picker.minimumDate = Date()
         picker.maximumDate = Date().addingTimeInterval(Double(h+m))
         picker.addTarget(self, action: #selector(didSelectDate(_:)), for: .valueChanged)
-        scheduleDateField.inputView = picker
+//        scheduleDateField.inputView = picker
         scheduleDateField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
         let cor = polylines?.first?.coordinate(at: (polylines?.first?.count() ?? 0)/2)
         

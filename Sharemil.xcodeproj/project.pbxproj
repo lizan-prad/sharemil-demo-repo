@@ -216,6 +216,7 @@
 		BED11BAD2953326800EA0855 /* CustomPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED11BAC2953326800EA0855 /* CustomPicker.storyboard */; };
 		BED11BB32953389800EA0855 /* CustomPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */; };
 		BED11BB42953389800EA0855 /* CustomPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */; };
+		BED11BB62954E83700EA0855 /* DateListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED11BB52954E83700EA0855 /* DateListTableViewCell.swift */; };
 		BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE661672858DDF8007812B2 /* BaseMappableModel.swift */; };
 		BEE6616B2858DE4F007812B2 /* ChefListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616A2858DE4F007812B2 /* ChefListModel.swift */; };
 		BEE6616D2858DE83007812B2 /* ChefListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */; };
@@ -469,6 +470,7 @@
 		BED11BAC2953326800EA0855 /* CustomPicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomPicker.storyboard; sourceTree = "<group>"; };
 		BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		BED11BB52954E83700EA0855 /* DateListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListTableViewCell.swift; sourceTree = "<group>"; };
 		BEE661672858DDF8007812B2 /* BaseMappableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMappableModel.swift; sourceTree = "<group>"; };
 		BEE6616A2858DE4F007812B2 /* ChefListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListModel.swift; sourceTree = "<group>"; };
 		BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefListContainerModel.swift; sourceTree = "<group>"; };
@@ -1619,6 +1621,7 @@
 			children = (
 				BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */,
 				BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */,
+				BED11BB52954E83700EA0855 /* DateListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2145,6 +2148,7 @@
 				BED11BAB2953325C00EA0855 /* CustomPickerViewController.swift in Sources */,
 				BEB13DB5285C54AD00F63933 /* MyLocationViewController.swift in Sources */,
 				BE7302D6287EE13300CC6383 /* OrderSummaryListTableViewCell.swift in Sources */,
+				BED11BB62954E83700EA0855 /* DateListTableViewCell.swift in Sources */,
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
 				BEAF322E28754E8B0007F9B0 /* EditAccountViewController.swift in Sources */,
 				BEF816B228BEC7E70094A0EA /* HoursModel.swift in Sources */,

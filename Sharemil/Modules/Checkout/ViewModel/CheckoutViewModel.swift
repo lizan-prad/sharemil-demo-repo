@@ -133,9 +133,9 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
         }
     }
     
-    func createOrderWith(_ paymentMethodId: String, _ cartId: String) {
+    func createOrderWith(_ pickUpDate: String?, _ paymentMethodId: String, _ cartId: String) {
         self.loading.value = true
-        self.createOrder(paymentMethodId, cartId) { result in
+        self.createOrder(pickUpDate, paymentMethodId, cartId) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

@@ -64,6 +64,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.tableView.reloadData()
         }
     }
+    var selectedScheduleDate: String?
     var scheduleType: String? {
         didSet {
             self.tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
@@ -264,7 +265,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                     // There is a problem with your Apple Pay configuration
                 }
             } else {
-                self.viewModel.createOrderWith(self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
             }
         }
         vc.didCancel = {
@@ -302,6 +303,10 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.didTapSchedule = { hours in
                 let vc = UIStoryboard.init(name: "CustomPicker", bundle: nil).instantiateViewController(withIdentifier: "CustomPickerViewController") as! CustomPickerViewController
                 vc.hours = hours
+                vc.didSelectDate = { (str, date) in
+                    self.scheduleType = str
+                    self.selectedScheduleDate = date
+                }
                 self.present(vc, animated: true)
             }
             cell.didSelectTime = { type in
@@ -315,7 +320,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.didSelectMainDate = { date in
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-                self.viewModel.updateToCartWith(date: formatter.string(from: date ?? Date()), self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                self.selectedScheduleDate = formatter.string(from: date ?? Date())
             }
             
             return cell
