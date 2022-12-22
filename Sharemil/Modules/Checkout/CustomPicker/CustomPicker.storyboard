@@ -28,6 +28,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fis-3N-ocu">
                                 <rect key="frame" x="0.0" y="674" width="393" height="178"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dB-Zr-GSf">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Md7-4k-P5b"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hK9-IM-haI">
                                         <rect key="frame" x="24" y="20" width="345" height="118"/>
                                         <subviews>
@@ -64,8 +71,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hK9-IM-haI" secondAttribute="trailing" constant="24" id="1YI-sM-YY3"/>
+                                    <constraint firstItem="2dB-Zr-GSf" firstAttribute="top" secondItem="Fis-3N-ocu" secondAttribute="top" id="GjD-Hr-d2m"/>
                                     <constraint firstAttribute="bottom" secondItem="hK9-IM-haI" secondAttribute="bottom" constant="40" id="Iv9-0J-EYw"/>
+                                    <constraint firstItem="2dB-Zr-GSf" firstAttribute="leading" secondItem="Fis-3N-ocu" secondAttribute="leading" id="MlC-Ic-seN"/>
                                     <constraint firstItem="hK9-IM-haI" firstAttribute="leading" secondItem="Fis-3N-ocu" secondAttribute="leading" constant="24" id="aWb-u0-srV"/>
+                                    <constraint firstAttribute="trailing" secondItem="2dB-Zr-GSf" secondAttribute="trailing" id="n9A-wg-ia8"/>
                                     <constraint firstItem="hK9-IM-haI" firstAttribute="top" secondItem="Fis-3N-ocu" secondAttribute="top" constant="20" id="pBh-1I-Ghc"/>
                                 </constraints>
                             </view>

@@ -157,7 +157,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-7m-OI0">
                                                 <rect key="frame" x="0.0" y="61" width="272" height="52"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Schedule date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5m-Ed-Mjv">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Schedule date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5m-Ed-Mjv">
                                                         <rect key="frame" x="12" y="17" width="248" height="18.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
