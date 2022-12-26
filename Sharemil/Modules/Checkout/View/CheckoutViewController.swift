@@ -250,7 +250,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     
     private func openConfirmation() {
         let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
-        vc.isUserReg = self.user?.isValid() ?? false
+        vc.isUserReg = !(self.user?.isValid() ?? false)
         vc.didApprove = {
             if self.user?.isValid() == false {
                 guard let nav = self.navigationController else {return}
