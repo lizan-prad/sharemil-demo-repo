@@ -86,6 +86,7 @@
 		BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */; };
 		BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDEE28534605006AB129 /* AccountViewController.swift */; };
 		BE4CDDF12853460B006AB129 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDF02853460B006AB129 /* Account.storyboard */; };
+		BE549732295982FA00A03D8F /* ClosedBusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE549731295982FA00A03D8F /* ClosedBusinessTableViewCell.swift */; };
 		BE5B69E4288C7B88008CC57F /* Checks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DA288C7B87008CC57F /* Checks.swift */; };
 		BE5B69E5288C7B88008CC57F /* StripeCardModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DB288C7B87008CC57F /* StripeCardModelContainer.swift */; };
 		BE5B69E6288C7B88008CC57F /* StripePaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B69DC288C7B87008CC57F /* StripePaymentMethod.swift */; };
@@ -348,6 +349,7 @@
 		BE4CDDEB285345F1006AB129 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		BE4CDDEE28534605006AB129 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		BE4CDDF02853460B006AB129 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BE549731295982FA00A03D8F /* ClosedBusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedBusinessTableViewCell.swift; sourceTree = "<group>"; };
 		BE5B69DA288C7B87008CC57F /* Checks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checks.swift; sourceTree = "<group>"; };
 		BE5B69DB288C7B87008CC57F /* StripeCardModelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeCardModelContainer.swift; sourceTree = "<group>"; };
 		BE5B69DC288C7B87008CC57F /* StripePaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripePaymentMethod.swift; sourceTree = "<group>"; };
@@ -1622,6 +1624,7 @@
 				BED11BB12953389800EA0855 /* CustomPickerCollectionViewCell.swift */,
 				BED11BB22953389800EA0855 /* CustomPickerCollectionViewCell.xib */,
 				BED11BB52954E83700EA0855 /* DateListTableViewCell.swift */,
+				BE549731295982FA00A03D8F /* ClosedBusinessTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2140,6 +2143,7 @@
 				BE5B6A2B28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift in Sources */,
 				BEF7EB132865CCAD002D553E /* Geocoded_waypoints.swift in Sources */,
 				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
+				BE549732295982FA00A03D8F /* ClosedBusinessTableViewCell.swift in Sources */,
 				BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */,
 				BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */,
 				BEAF323328754EB90007F9B0 /* EditAccountService.swift in Sources */,

@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -145,6 +145,30 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="bgQ-il-XIm" id="fCQ-H8-bJr"/>
                                             <outlet property="selectionImage" destination="mZ3-Lq-fqd" id="MRW-WE-mJO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClosedBusinessTableViewCell" rowHeight="71" id="sza-kS-Q67" customClass="ClosedBusinessTableViewCell" customModule="Sharemil" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="121" width="393" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sza-kS-Q67" id="pzu-pO-RUf">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The restaurant is closed." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-4L-jyL">
+                                                    <rect key="frame" x="24" y="24.666666666666671" width="325" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dbk-4L-jyL" firstAttribute="centerY" secondItem="pzu-pO-RUf" secondAttribute="centerY" id="dRc-g4-gAx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Dbk-4L-jyL" secondAttribute="trailing" constant="24" id="g09-ff-wRa"/>
+                                                <constraint firstItem="Dbk-4L-jyL" firstAttribute="leading" secondItem="pzu-pO-RUf" secondAttribute="leading" constant="24" id="xOJ-X5-HNr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="Dbk-4L-jyL" id="c2N-cK-kX2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

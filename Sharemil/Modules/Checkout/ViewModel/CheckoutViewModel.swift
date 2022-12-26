@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 
-class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService, MenuItemService, CustomStripeService, HomeService {
+class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService, MenuItemService, CustomStripeService, HomeService, AccountService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
@@ -22,6 +22,20 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var cusines: Observable<[CusineListModel]> = Observable([])
     var chefs: Observable<[ChefListModel]> = Observable([])
     var refresh: Observable<String> = Observable(nil)
+    var user: Observable<UserModel> = Observable(nil)
+    
+    func fetchUserProfile() {
+        self.loading.value = true
+        self.fetchProfile { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.user.value = model.data?.user
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
     
     func fetchChefBy(location: LLocation, name: String?) {
         self.loading.value = true

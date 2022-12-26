@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -27,29 +27,29 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQH-yK-DuC">
-                                <rect key="frame" x="0.0" y="620" width="414" height="306"/>
+                                <rect key="frame" x="0.0" y="618.5" width="414" height="307.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick up?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7At-kO-15D">
-                                        <rect key="frame" x="172" y="24" width="70.5" height="21"/>
+                                        <rect key="frame" x="171.5" y="24" width="71.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
                                         <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJf-Wq-0Rs">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="61" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="WZb-aa-LG6"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm that you’ll pick up this order." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNz-4C-2RT">
-                                        <rect key="frame" x="24" y="83" width="366" height="19"/>
+                                        <rect key="frame" x="24" y="84" width="366" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                         <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qt3-95-qPL">
-                                        <rect key="frame" x="40" y="122" width="334" height="120"/>
+                                        <rect key="frame" x="40" y="123.5" width="334" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-Wo-Sw3">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
@@ -117,8 +117,10 @@
                     <connections>
                         <outlet property="chooseNetworkTitle" destination="7At-kO-15D" id="L3X-mO-LqF"/>
                         <outlet property="container" destination="RQH-yK-DuC" id="plu-FD-kNb"/>
+                        <outlet property="contentTitle" destination="oNz-4C-2RT" id="vSM-um-NoF"/>
                         <outlet property="margin" destination="kJf-Wq-0Rs" id="6Pn-XP-VWH"/>
-                        <outlet property="smoke" destination="8It-Jl-cqu" id="5lR-cu-jhZ"/>
+                        <outlet property="smoke" destination="8It-Jl-cqu" id="yn9-Fb-5Nq"/>
+                        <outlet property="yesbtn" destination="nhF-Wo-Sw3" id="Wrs-L2-f6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5D-gH-WyX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

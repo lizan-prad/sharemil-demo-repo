@@ -71,6 +71,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
+    var user: UserModel?
+    
     var cusines: [CusineListModel]?
     
     var chef: ChefListModel?
@@ -112,6 +114,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
         self.viewModel.fetchChefBy(location: loc ?? LLocation.init(location: nil), name: nil)
         self.viewModel.getDefaultMethod()
+        self.viewModel.fetchUserProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,6 +175,10 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.viewModel.success.bind { msg in
             self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
         }
+        self.viewModel.user.bind { user in
+            self.user = user
+        }
+        
         self.viewModel.chefs.bind { chefs in
             self.chef = chefs?.filter({$0.id == self.chef?.id}).first
             self.tableView.reloadData()
@@ -243,29 +250,38 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     
     private func openConfirmation() {
         let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
+        vc.isUserReg = self.user?.isValid() ?? false
         vc.didApprove = {
-            if self.selectedPayment?.name?.contains("Apple") ?? false {
-                let merchantIdentifier = "merchant.com.sharemil.sharemil"
-                let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
-                var item = PKPaymentSummaryItem()
-                item.label = "Sharemil Inc"
-                let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
-                let amount = a?.reduce(0, +).withDecimal(2)
-                item.amount = NSDecimalNumber.init(string: amount)
-//                item.amount = NSDecimalNumber.init(string: amount)
-                // Configure the line items on the payment request
-                paymentRequest.paymentSummaryItems = [
-                    item
-                ]
-                
-                if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
-                    // Present Apple Pay payment sheet
-                    applePayContext.presentApplePay(on: self)
-                } else {
-                    // There is a problem with your Apple Pay configuration
-                }
+            if self.user?.isValid() == false {
+                guard let nav = self.navigationController else {return}
+                let coordinator = EditAccountCoordinator.init(navigationController: nav)
+                let vc = UINavigationController.init(rootViewController: coordinator.getMainView())
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc , animated: true)
             } else {
-                self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                if self.selectedPayment?.name?.contains("Apple") ?? false {
+                    let merchantIdentifier = "merchant.com.sharemil.sharemil"
+                    let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
+                    var item = PKPaymentSummaryItem()
+                    item.label = "Sharemil Inc"
+                    let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
+                    let amount = a?.reduce(0, +).withDecimal(2)
+                    item.amount = NSDecimalNumber.init(string: amount)
+                    //                item.amount = NSDecimalNumber.init(string: amount)
+                    // Configure the line items on the payment request
+                    paymentRequest.paymentSummaryItems = [
+                        item
+                    ]
+                    
+                    if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
+                        // Present Apple Pay payment sheet
+                        applePayContext.presentApplePay(on: self)
+                    } else {
+                        // There is a problem with your Apple Pay configuration
+                    }
+                } else {
+                    self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                }
             }
         }
         vc.didCancel = {

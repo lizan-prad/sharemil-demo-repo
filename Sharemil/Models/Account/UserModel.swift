@@ -24,5 +24,9 @@ struct UserModel : Mappable {
 		email <- map["email"]
         profileImage <- map["profileImage"]
 	}
+    
+    func isValid() -> Bool {
+        return (firstName != nil || firstName != nil) && (lastName != nil || lastName != "") && (phoneNumber != nil || phoneNumber != "") && (email != nil || email != "")
+    }
 
 }

@@ -13,14 +13,26 @@ class ConfirmationAskViewController: UIViewController, Storyboarded {
     @IBOutlet weak var chooseNetworkTitle: UILabel!
     @IBOutlet weak var smoke: UIView!
     
+    @IBOutlet weak var yesbtn: UIButton!
+    @IBOutlet weak var contentTitle: UILabel!
     @IBOutlet weak var container: UIView!
 
     var didApprove: (() -> ())?
     var didCancel: (() -> ())?
+    var isUserReg = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        if isUserReg {
+            self.chooseNetworkTitle.text = "User Profile Completion"
+            self.contentTitle.text = "Complete your user profile to continue."
+            self.yesbtn.setTitle("Update", for: .normal)
+        } else {
+            self.chooseNetworkTitle.text = "Pick up?"
+            self.contentTitle.text = "Confirm that you’ll pick up this order."
+            self.yesbtn.setTitle("Yes, Pick Up", for: .normal)
+        }
     }
 
     @IBAction func yesAction(_ sender: Any) {

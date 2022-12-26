@@ -19,13 +19,15 @@ class ConfirmationAskCoordinator: Coordinator {
     var didApprove: (() -> ())?
     var didCancel: (() -> ())?
     
+    var isUserReg = false
+    
     
     func getMainView() -> ConfirmationAskViewController {
         let vc = ConfirmationAskViewController.instantiate()
        
         vc.didApprove = self.didApprove
         vc.didCancel = self.didCancel
-
+        vc.isUserReg = self.isUserReg
         return vc
     }
     

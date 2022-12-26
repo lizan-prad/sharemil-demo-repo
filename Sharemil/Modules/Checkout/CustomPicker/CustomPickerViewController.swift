@@ -17,7 +17,11 @@ class CustomPickerViewController: UIViewController {
     
     var filteredHour: HoursModel? {
         didSet {
-            self.getHours()
+            if filteredHour?.isOpen == true {
+                self.getHours()
+            } else {
+                self.dateList = []
+            }
         }
     }
     var selectedIndex = 0 {
@@ -120,15 +124,20 @@ class CustomPickerViewController: UIViewController {
 extension CustomPickerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dateList?.count ?? 0
+        return dateList?.count == 0 ? 1 : dateList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DateListTableViewCell") as! DateListTableViewCell
-        cell.index = indexPath.row
-        cell.selectionImage.isHidden = indexPath.row != self.selectedIndexTable
-        cell.date = self.dateList?[indexPath.row]
-        return cell
+        if dateList?.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ClosedBusinessTableViewCell") as! ClosedBusinessTableViewCell
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DateListTableViewCell") as! DateListTableViewCell
+            cell.index = indexPath.row
+            cell.selectionImage.isHidden = indexPath.row != self.selectedIndexTable
+            cell.date = self.dateList?[indexPath.row]
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -136,18 +145,22 @@ extension CustomPickerViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! DateListTableViewCell
-        self.selectedIndexTable = cell.index ?? 0
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEE, dd MMM"
-        let m = formatter.string(from: collectionDates[selectedIndex])
-        formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd"
-        let str = formatter.string(from: collectionDates[selectedIndex])
-        formatter.dateFormat = "HH:mm:ss"
-        let str2 = formatter.string(from: cell.date ?? Date())
-        
-        self.selectedDate = ("\(m) (\(cell.dateLabel.text ?? ""))", "\(str) \(str2) GMT")
+        if dateList?.count == 0 {
+            return
+        } else {
+            let cell = tableView.cellForRow(at: indexPath) as! DateListTableViewCell
+            self.selectedIndexTable = cell.index ?? 0
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEE, dd MMM"
+            let m = formatter.string(from: collectionDates[selectedIndex])
+            formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
+            formatter.dateFormat = "yyyy-MM-dd"
+            let str = formatter.string(from: collectionDates[selectedIndex])
+            formatter.dateFormat = "HH:mm:ss"
+            let str2 = formatter.string(from: cell.date ?? Date())
+            
+            self.selectedDate = ("\(m) (\(cell.dateLabel.text ?? ""))", "\(str) \(str2) GMT")
+        }
     }
 }
 
