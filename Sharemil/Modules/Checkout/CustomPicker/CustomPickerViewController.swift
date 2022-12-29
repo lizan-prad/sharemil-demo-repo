@@ -24,12 +24,23 @@ class CustomPickerViewController: UIViewController {
             }
         }
     }
+    
+    var dateTerm: String? {
+        didSet {
+            self.getHours()
+        }
+    }
     var selectedIndex = 0 {
         didSet {
             self.collectionView.reloadData()
         }
     }
     
+    let relativeDateFormatter = DateFormatter()
+    
+    var date: Date?
+    var index: Int?
+       
     var dateList: [Date]? {
         didSet {
             self.tableView.reloadData()
@@ -56,6 +67,12 @@ class CustomPickerViewController: UIViewController {
     }
     
     private func setup() {
+        dateTerm = "Today"
+        relativeDateFormatter.timeStyle = .none
+        relativeDateFormatter.dateStyle = .medium
+        relativeDateFormatter.locale = Locale(identifier: "en_GB")
+        relativeDateFormatter.doesRelativeDateFormatting = true
+    
         self.container.setStandardShadow()
         [1,2,3,4].forEach { num in
             self.collectionDates.append(Date().addingTimeInterval((num - 1)*86400))
@@ -85,10 +102,9 @@ class CustomPickerViewController: UIViewController {
         let end = formatter.date(from: hour?.endTimeGmt ?? "") ?? Date()
         let sDate = formatter.date(from: hour?.startTimeGmt ?? "") ?? Date()
         let nowDate = (sDate...end).contains((formatter.date(from: nowStrDate) ?? Date())) ? (formatter.date(from: nowStrDate) ?? Date()) : sDate
-        if (formatter.date(from: nowStrDate) ?? Date()) > end {
+        if ((formatter.date(from: nowStrDate) ?? Date()) > end) && dateTerm == "Today"  {
             self.dateList = []
         } else {
-            
             let quarter: TimeInterval = 15 * 60
             
             var dateInterval = DateInterval(start: nowDate, end: end)
@@ -162,7 +178,6 @@ extension CustomPickerViewController: UITableViewDataSource, UITableViewDelegate
             let str = formatter.string(from: collectionDates[selectedIndex])
             formatter.dateFormat = "HH:mm:ss"
             let str2 = formatter.string(from: cell.date ?? Date())
-            
             self.selectedDate = ("\(m) (\(cell.dateLabel.text ?? ""))", "\(str) \(str2) GMT")
         }
     }
@@ -195,6 +210,7 @@ extension CustomPickerViewController: UICollectionViewDataSource, UICollectionVi
             formatter.dateFormat = "eee"
             return h.day?.lowercased() == formatter.string(from: cell.date ?? Date()).lowercased()
         }).first
+        self.dateTerm = cell.dayLabel.text
         self.selectedIndex = cell.index ?? 0
     }
 }
