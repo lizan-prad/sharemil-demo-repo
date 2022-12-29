@@ -18,7 +18,7 @@ class CustomPickerViewController: UIViewController {
     var filteredHour: HoursModel? {
         didSet {
             if filteredHour?.isOpen == true {
-                self.getHours()
+                    self.getHours()
             } else {
                 self.dateList = []
             }
@@ -82,20 +82,24 @@ class CustomPickerViewController: UIViewController {
         formatter.dateFormat = "HH:mm:ss"
         let nowStrDate = "\(formatter.string(from: nDate)) GMT"
         formatter.dateFormat = "HH:mm:ss Z"
-        let sDate = formatter.date(from: hour?.startTimeGmt ?? "") ?? Date()
-        let nowDate = (formatter.date(from: nowStrDate) ?? Date()) > sDate ? (formatter.date(from: nowStrDate) ?? Date()) : sDate
         let end = formatter.date(from: hour?.endTimeGmt ?? "") ?? Date()
-        
-        let quarter: TimeInterval = 15 * 60
-        let dateInterval = DateInterval(start: nowDate, end: end)
-
-        var date = nowDate
-        var result = [Date]()
-        while dateInterval.contains(date) {
-            result.append(date)
-            date = date.addingTimeInterval(quarter)
+        let sDate = formatter.date(from: hour?.startTimeGmt ?? "") ?? Date()
+        let nowDate = (sDate...end).contains((formatter.date(from: nowStrDate) ?? Date())) ? (formatter.date(from: nowStrDate) ?? Date()) : sDate
+        if (formatter.date(from: nowStrDate) ?? Date()) > end {
+            self.dateList = []
+        } else {
+            
+            let quarter: TimeInterval = 15 * 60
+            
+            var dateInterval = DateInterval(start: nowDate, end: end)
+            var date = nowDate
+            var result = [Date]()
+            while dateInterval.contains(date) {
+                result.append(date)
+                date = date.addingTimeInterval(quarter)
+            }
+            self.dateList = result
         }
-        self.dateList = result
     }
     
     private func setupTable() {
