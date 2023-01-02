@@ -101,7 +101,7 @@ class CustomPickerViewController: UIViewController {
         formatter.dateFormat = "HH:mm:ss Z"
         let end = formatter.date(from: hour?.endTimeGmt ?? "") ?? Date()
         let sDate = formatter.date(from: hour?.startTimeGmt ?? "") ?? Date()
-        let nowDate = (sDate...end).contains((formatter.date(from: nowStrDate) ?? Date())) ? (formatter.date(from: nowStrDate) ?? Date()) : sDate
+        let nowDate = dateTerm == "Today" ? ( (sDate...end).contains((formatter.date(from: nowStrDate) ?? Date())) ? (formatter.date(from: nowStrDate) ?? Date()) : sDate) : sDate
         if ((formatter.date(from: nowStrDate) ?? Date()) > end) && dateTerm == "Today"  {
             self.dateList = []
         } else {
