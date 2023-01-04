@@ -205,6 +205,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                     self.didCheckoutComplete?()
                     self.dismiss(animated: true) {
                         NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CHECK"), object: msg?.id ?? "")
+                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: msg?.id ?? "")
+                        
                     }
                 }
             }
