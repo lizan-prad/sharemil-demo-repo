@@ -30,6 +30,9 @@ class CheckoutMapTableViewCell: UITableViewCell {
     
     var chef: ChefListModel? {
         didSet {
+            
+            standardContainer.isHidden = chef?.isOpen == false
+            
             self.timeErrorLabel.text = ""
             businessName.text = chef?.businessName
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"

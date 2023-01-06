@@ -96,7 +96,9 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.cardImage.isHidden = false
             self.cardImage.image = UIImage.init(named: selectedPayment?.stripePaymentMethod?.card?.brand ?? "")
             self.cardLabel.text = (selectedPayment?.name?.contains("Apple") ?? false ? selectedPayment?.name : selectedPayment?.stripePaymentMethod?.card?.last4?.getCardNumberFormatted())
-            self.placeOrderBtn.enable()
+            if self.chef?.isOpen == true {
+                self.placeOrderBtn.enable()
+            }
 //            if !(selectedPayment?.name?.contains("Apple") ?? false) {
 //            self.viewModel.createPayment(cartItems?.first?.cartId ?? "", paymentMethodId: selectedPayment?.id ?? "")
 //            }
@@ -181,6 +183,13 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         self.viewModel.chefs.bind { chefs in
             self.chef = chefs?.filter({$0.id == self.chef?.id}).first
+            if self.chef?.isOpen == false {
+                self.scheduleType = ""
+                self.placeOrderBtn.disable()
+            } else {
+                self.scheduleType = "standard"
+                self.placeOrderBtn.enable()
+            }
             self.tableView.reloadData()
         }
         self.viewModel.cusines.bind { cusines in
@@ -323,6 +332,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 vc.hours = hours
                 vc.didSelectDate = { (str, date) in
                     self.scheduleType = str
+                    self.scheduleDate = date
                     self.selectedScheduleDate = date
                 }
                 self.present(vc, animated: true)
@@ -362,7 +372,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 457
+            return UITableView.automaticDimension
         case 1:
             return UITableView.automaticDimension
         default: return 0

@@ -30,7 +30,7 @@ class NetworkManager {
                         Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
                             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                                 UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-                                NetworkManager.shared.request(value, urlExt: urlExt, method: method, param: param, encoding: encoding, headers: headers, completion: completion)
+                                NetworkManager.shared.request(value, urlExt: urlExt, method: method, param: param, encoding: encoding, headers: [.authorization(bearerToken: UserDefaults.standard.string(forKey: StringConstants.userIDToken) ?? "")], completion: completion)
                             }
                         })
                     } else {
