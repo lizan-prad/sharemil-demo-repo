@@ -20,11 +20,16 @@ class ConfirmationAskViewController: UIViewController, Storyboarded {
     var didApprove: (() -> ())?
     var didCancel: (() -> ())?
     var isUserReg = false
+    var isSchedue = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        if isUserReg {
+        if isSchedue {
+            self.chooseNetworkTitle.text = "Schedule order?"
+            self.contentTitle.text = "Confirm that you'll schedule this order."
+            self.yesbtn.setTitle("Yes, Schedule", for: .normal)
+        } else if isUserReg {
             self.chooseNetworkTitle.text = "User Profile Completion"
             self.contentTitle.text = "Complete your user profile to continue."
             self.yesbtn.setTitle("Update", for: .normal)

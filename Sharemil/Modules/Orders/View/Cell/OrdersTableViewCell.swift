@@ -30,8 +30,10 @@ class OrdersTableViewCell: UITableViewCell {
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let time = formatter.date(from: model?.pickupTime ?? "")
             let orderDate = formatter.date(from: model?.createdAt ?? "")
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "MMM dd"
             self.dateStatusLabel.text = "\(formatter.string(from: orderDate ?? Date())) · \(model?.status ?? "")"
+            
             formatter.dateFormat = "hh:mm a"
             self.itemsPriceLabel.text = "\(count) \(count == 1 ? "item" : "items")" + (model?.status?.lowercased() == "completed" ? "" : (" · " + (formatter.string(from: time ?? Date()))))
         }

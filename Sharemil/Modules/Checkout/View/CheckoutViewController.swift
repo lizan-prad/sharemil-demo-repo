@@ -208,14 +208,28 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.paymentIntent = model?.paymentIntentId
         }
         self.viewModel.completeCheckout.bind { msg in
-            self.showToastMsg("Order placed!", state: .success, location: .bottom)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-                self.dismiss(animated: true) {
-                    self.didCheckoutComplete?()
+            
+            if self.scheduleType != "standard" {
+                self.showToastMsg("Order scheduled successfully!", state: .success, location: .bottom)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                     self.dismiss(animated: true) {
-                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CHECK"), object: msg?.id ?? "")
-                        NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: msg?.id ?? "")
-                        
+                        self.didCheckoutComplete?()
+                        self.dismiss(animated: true) {
+                            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: msg?.id ?? "")
+                        }
+                    }
+                    
+                }
+            } else {
+                self.showToastMsg("Order placed!", state: .success, location: .bottom)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    self.dismiss(animated: true) {
+                        self.didCheckoutComplete?()
+                        self.dismiss(animated: true) {
+                            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CHECK"), object: msg?.id ?? "")
+                            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: msg?.id ?? "")
+                            
+                        }
                     }
                 }
             }
@@ -262,6 +276,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     private func openConfirmation() {
         let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
         vc.isUserReg = !(self.user?.isValid() ?? false)
+        vc.isSchedule = self.scheduleType != "standard"
         vc.didApprove = {
             if self.user?.isValid() == false {
                 guard let nav = self.navigationController else {return}

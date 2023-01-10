@@ -13,7 +13,7 @@ struct ChefMenuListModel : Mappable {
 	var createdAt : String?
 	var price : Double?
     var options: [MenuItemOptionsModel]?
-    
+    var dailySalesLimit: Int?
     init() {}
     
 	init?(map: Map) {
@@ -31,6 +31,7 @@ struct ChefMenuListModel : Mappable {
 		options <- map["options"]
 		createdAt <- map["createdAt"]
 		price <- map["price"]
+        dailySalesLimit <- map["dailySaleLimit"]
 	}
 
 }

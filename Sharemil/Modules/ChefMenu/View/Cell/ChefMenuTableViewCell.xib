@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
-            <string>Inter-Regular</string>
-        </array>
         <array key="Inter-SemiBold.ttf">
             <string>Inter-SemiBold</string>
+        </array>
+        <array key="Inter-VariableFont_slnt,wght.ttf">
+            <string>Inter-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -113,6 +113,8 @@
                 <outlet property="dishImage" destination="XcW-qv-dnQ" id="Jwy-3K-OeK"/>
                 <outlet property="dishName" destination="Qa6-ij-jwR" id="FKp-Tw-RAW"/>
                 <outlet property="dishPrice" destination="Js3-KF-E7B" id="Qcy-1w-eca"/>
+                <outlet property="itemCount" destination="28I-AD-8DD" id="tVu-XG-B9m"/>
+                <outlet property="itemLeftView" destination="Flu-uD-Evw" id="IYD-x0-juK"/>
                 <outlet property="quantity" destination="gHw-Za-QOF" id="F5J-Nz-gJM"/>
                 <outlet property="quantityContainer" destination="V1M-xC-6zI" id="5Cz-tW-sef"/>
             </connections>
