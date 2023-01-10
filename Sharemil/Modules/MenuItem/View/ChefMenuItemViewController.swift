@@ -11,6 +11,8 @@ import CoreLocation
 import FirebaseAuth
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var itemLeftView: UIView!
+    @IBOutlet weak var itemLeft: UILabel!
     @IBOutlet weak var quantityStack: UIStackView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var removeBtn: UIButton!
@@ -186,6 +188,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$" + (model?.price ?? 0).withDecimal(2)
         self.initialQuantity = 1
+        self.itemLeftView.isHidden = (model?.dailySalesLimit == 0 || model?.dailySalesLimit == nil)
+        self.itemLeft.text = "Only \(model?.dailySalesLimit ?? 0) left"
     }
     
     private func bindViewModel() {
