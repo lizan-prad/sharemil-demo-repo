@@ -25,12 +25,12 @@ class ChefMenuTableViewCell: UITableViewCell {
             quantityContainer.addBorder(.black)
             dishImage.sd_setImage(with: URL.init(string: model?.imageUri ?? ""))
             
-            self.itemLeftView.isHidden =  model?.dailySalesLimit == nil || model?.dailySalesLimit == 0
+            self.itemLeftView.isHidden =  model?.remainingItems == nil || model?.remainingItems == 0
             
             dishDesc.text = model?.description
             dishName.text = model?.name
             dishPrice.text = "$" + (model?.price ?? 0).withDecimal(2)
-            self.itemCount.text = "only \(model?.dailySalesLimit ?? 0) left"
+            self.itemCount.text = "only \(model?.remainingItems ?? 0) left"
         }
     }
 }
