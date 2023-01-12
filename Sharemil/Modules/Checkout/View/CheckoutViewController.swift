@@ -389,7 +389,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return UITableView.automaticDimension
         case 1:
-            return UITableView.automaticDimension
+            return 109 + (CGFloat(self.cartItems?.count ?? 0) * 65)
         default: return 0
         }
     }

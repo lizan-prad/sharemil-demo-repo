@@ -28,7 +28,7 @@ class CheckoutOrdersTableViewCell: UITableViewCell {
     func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*65)
+//        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*65)
         tableView.register(UINib.init(nibName: "CartDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CartDetailTableViewCell")
     }
     
