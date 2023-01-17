@@ -36,6 +36,11 @@ class CartDetailViewController: UIViewController, Storyboarded {
         setTable()
         setupGestures()
         self.cartId = cartItems?.first?.cartId
+        NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: Notification.Name.init("ITEMR"), object: nil)
+    }
+    
+    @objc func updateData() {
+        self.viewModel.fetchCarts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,6 +192,10 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.isUpdate = true
         coordinator.didAddToCart = { model in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+            
+            self.cartItems = self.cartItems?.filter({$0.id != model})
+            self.tableViewHeight.constant = CGFloat((self.cartItems?.count ?? 0)*65) + 65
+            self.tableView.reloadData()
 //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
             self.didUpdate?()
 //            self.viewModel.fetchCarts(model?.cart?.id ?? "")

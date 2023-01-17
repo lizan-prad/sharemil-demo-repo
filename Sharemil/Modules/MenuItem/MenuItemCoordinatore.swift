@@ -12,7 +12,7 @@ class MenuItemCoordinator: Coordinator {
     var navigationController: UINavigationController
    
     var menuItemModel: ChefMenuListModel?
-    var didAddToCart: ((CartListModel?) -> ())?
+    var didAddToCart: ((String?) -> ())?
     var cartModel: [CartItems]?
     var selectedItem: CartItems?
     var isUpdate = false

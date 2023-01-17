@@ -15,6 +15,23 @@ class CartDetailViewModel: MenuItemService, CartService {
     var deleteState: Observable<String> = Observable(nil)
     var refresh: Observable<String> = Observable(nil)
     
+    func fetchCarts() {
+        self.loading.value = true
+        self.fetchCarts { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.cartList.value = model.data
+            case .failure(let error):
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
+            }
+        }
+    }
+    
     func updateToCart(_ chefId: String, cartModels: [CartItems]) {
         self.loading.value = true
         self.updateCart(chefId, cartItems: cartModels) { result in

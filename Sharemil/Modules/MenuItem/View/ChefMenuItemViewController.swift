@@ -40,7 +40,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     var isUpdate = false
     var updateItem = false
     
-    var didAddToCart: ((CartListModel?) -> ())?
+    var didAddToCart: ((String?) -> ())?
     
     var selectedOptions = [MenuItemOptionsModel]() {
         didSet {
@@ -210,7 +210,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
         viewModel.cartList.bind { model in
             self.dismiss(animated: true) {
-                self.didAddToCart?(model)
+                self.didAddToCart?(self.selectedItem?.id)
             }
         }
     }

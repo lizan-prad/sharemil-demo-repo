@@ -34,7 +34,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPApplePayContext.PaymentStatus, error: Error?) {
         switch status {
         case .success:
-            self.viewModel.continuePayment(self.paymentIntent ?? "")
+            self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
             // Payment succeeded, show a receipt view
         case .error:
             // Payment failed, show the error
