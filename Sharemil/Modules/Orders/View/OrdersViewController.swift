@@ -144,6 +144,15 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
             coordinator.chef = model
             coordinator.start()
         }
+        cell.didPickUp = { orderId in
+            guard let nav = self.navigationController else {return}
+            let coordinator = PickUpCoordinator.init(navigationController: nav)
+            coordinator.orderId = orderId
+            coordinator.didDismiss = {
+                self.viewModel.fetchOrders()
+            }
+            self.present(coordinator.getMainView(), animated: true)
+        }
         return cell
     }
     

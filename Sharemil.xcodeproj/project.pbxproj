@@ -203,6 +203,11 @@
 		BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */; };
 		BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */; };
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
+		BEB7A5712978629400F72E0D /* PickUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB7A5702978629400F72E0D /* PickUp.storyboard */; };
+		BEB7A573297866D300F72E0D /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A572297866D300F72E0D /* PickUpViewController.swift */; };
+		BEB7A57529786A1200F72E0D /* PickUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57429786A1200F72E0D /* PickUpViewModel.swift */; };
+		BEB7A57729786A1D00F72E0D /* PickUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57629786A1D00F72E0D /* PickUpCoordinator.swift */; };
+		BEB7A57C29786B1E00F72E0D /* PickUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57B29786B1E00F72E0D /* PickUpService.swift */; };
 		BEC08C0B28EDB681005AA875 /* HelpIssuePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */; };
 		BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */; };
 		BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */; };
@@ -458,6 +463,11 @@
 		BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationCoordinator.swift; sourceTree = "<group>"; };
 		BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewModel.swift; sourceTree = "<group>"; };
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
+		BEB7A5702978629400F72E0D /* PickUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickUp.storyboard; sourceTree = "<group>"; };
+		BEB7A572297866D300F72E0D /* PickUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
+		BEB7A57429786A1200F72E0D /* PickUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpViewModel.swift; sourceTree = "<group>"; };
+		BEB7A57629786A1D00F72E0D /* PickUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpCoordinator.swift; sourceTree = "<group>"; };
+		BEB7A57B29786B1E00F72E0D /* PickUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpService.swift; sourceTree = "<group>"; };
 		BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpIssuePage.storyboard; sourceTree = "<group>"; };
 		BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewController.swift; sourceTree = "<group>"; };
 		BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
@@ -996,6 +1006,7 @@
 		BE4CDDE8285345E2006AB129 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				BEB7A56D2978625E00F72E0D /* PickUp */,
 				BE38FD8E293A7AB3007EC51B /* RReceiptWebView */,
 				BE7302BD287EC7FF00CC6383 /* OrderDetails */,
 				BEAF3215287407070007F9B0 /* Service */,
@@ -1563,6 +1574,42 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BEB7A56D2978625E00F72E0D /* PickUp */ = {
+			isa = PBXGroup;
+			children = (
+				BEB7A57A29786B1100F72E0D /* Service */,
+				BEB7A57929786B0200F72E0D /* ViewModel */,
+				BEB7A57829786AF300F72E0D /* View */,
+				BEB7A57629786A1D00F72E0D /* PickUpCoordinator.swift */,
+			);
+			path = PickUp;
+			sourceTree = "<group>";
+		};
+		BEB7A57829786AF300F72E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEB7A5702978629400F72E0D /* PickUp.storyboard */,
+				BEB7A572297866D300F72E0D /* PickUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEB7A57929786B0200F72E0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEB7A57429786A1200F72E0D /* PickUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEB7A57A29786B1100F72E0D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BEB7A57B29786B1E00F72E0D /* PickUpService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BEC08C0928EDB66D005AA875 /* HelpIssuePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1971,6 +2018,7 @@
 				BE7302DA287FF14A00CC6383 /* Confirmation.storyboard in Resources */,
 				BEAF324128755F640007F9B0 /* AccountName.storyboard in Resources */,
 				BE4CDDB728530D7E006AB129 /* Inter-ExtraBold.ttf in Resources */,
+				BEB7A5712978629400F72E0D /* PickUp.storyboard in Resources */,
 				BE2954CB286E43D50048E9DD /* PaymentOptions.storyboard in Resources */,
 				BE4CDDC628532EEE006AB129 /* OtpVerification.storyboard in Resources */,
 				BEA586E528E44A0900D5C8F3 /* PaymentEditOption.storyboard in Resources */,
@@ -2160,6 +2208,7 @@
 				BE5B69E4288C7B88008CC57F /* Checks.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
 				BE118335287C893A0073970B /* MyLocationService.swift in Sources */,
+				BEB7A57529786A1200F72E0D /* PickUpViewModel.swift in Sources */,
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BEF7EB4528699B01002D553E /* CartItems.swift in Sources */,
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
@@ -2178,6 +2227,7 @@
 				BEE661682858DDF8007812B2 /* BaseMappableModel.swift in Sources */,
 				BE5B69E6288C7B88008CC57F /* StripePaymentMethod.swift in Sources */,
 				BE8CD3C828F6236E007A476B /* ImagePickerManager.swift in Sources */,
+				BEB7A573297866D300F72E0D /* PickUpViewController.swift in Sources */,
 				BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */,
 				BEAF322928740DCA0007F9B0 /* OrdersContainerModel.swift in Sources */,
 				BEF7EAF62865B03D002D553E /* CheckoutViewController.swift in Sources */,
@@ -2202,6 +2252,7 @@
 				BE7302CA287EC89A00CC6383 /* OrderDetailsCoordinator.swift in Sources */,
 				BE8CD3B328F6105B007A476B /* HelpItemIssueListCoordinator.swift in Sources */,
 				BE214B122861ABB700B26B50 /* SaveLocationViewController.swift in Sources */,
+				BEB7A57C29786B1E00F72E0D /* PickUpService.swift in Sources */,
 				BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */,
 				BEF7EB122865CCAD002D553E /* Distance.swift in Sources */,
 				BEAF323A28755D650007F9B0 /* AccountService.swift in Sources */,
@@ -2222,6 +2273,7 @@
 				BE7302C1287EC81A00CC6383 /* OrderDetailsViewController.swift in Sources */,
 				BE5B6A1C28902469008CC57F /* CreatePaymentModel.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
+				BEB7A57729786A1D00F72E0D /* PickUpCoordinator.swift in Sources */,
 				BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */,
 				BE5B69E7288C7B88008CC57F /* Address.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,

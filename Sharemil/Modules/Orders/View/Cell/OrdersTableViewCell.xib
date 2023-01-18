@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -19,10 +19,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrdersTableViewCell" rowHeight="117" id="KGk-i7-Jjw" customClass="OrdersTableViewCell" customModule="Sharemil" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+            <rect key="frame" x="0.0" y="0.0" width="409" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="409" height="117"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BPH-rj-lOu">
@@ -33,52 +33,73 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-uY-kR4">
-                        <rect key="frame" x="120" y="19.5" width="99" height="78.5"/>
+                        <rect key="frame" x="120" y="19.5" width="113" height="78.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chef Jang Hoo Kim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V70-Wf-r6c">
-                                <rect key="frame" x="0.0" y="0.0" width="99" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="113" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chef Jang Hoo Kim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZW-rv-Vsl">
-                                <rect key="frame" x="0.0" y="23.5" width="99" height="17"/>
+                                <rect key="frame" x="0.0" y="23.5" width="113" height="17"/>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items · $31.98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk8-0Z-ggH">
-                                <rect key="frame" x="0.0" y="44.5" width="99" height="15"/>
+                                <rect key="frame" x="0.0" y="44.5" width="113" height="15"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                 <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 16 · Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqr-5c-zBz">
-                                <rect key="frame" x="0.0" y="63.5" width="99" height="15"/>
+                                <rect key="frame" x="0.0" y="63.5" width="113" height="15"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
                                 <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4g-DK-His">
-                        <rect key="frame" x="229" y="46" width="75" height="25"/>
-                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="75" id="3oi-KR-3hs"/>
-                            <constraint firstAttribute="height" constant="25" id="GhC-jD-soF"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Reorder">
-                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="reorderAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ucO-gg-xAD"/>
-                        </connections>
-                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45E-Nh-1Mc">
+                        <rect key="frame" x="243" y="46" width="150" height="25"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4g-DK-His">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="25"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="3oi-KR-3hs"/>
+                                    <constraint firstAttribute="height" constant="25" id="GhC-jD-soF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Reorder">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reorderAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ucO-gg-xAD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cd-hu-0q2">
+                                <rect key="frame" x="75" y="0.0" width="75" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="WLD-2j-dQv"/>
+                                    <constraint firstAttribute="width" constant="75" id="sNd-s3-RNf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Pick up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickUpAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Q12-dm-8Ul"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzT-n1-z8p">
-                        <rect key="frame" x="0.0" y="116" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="116" width="409" height="1"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="DhE-Ak-tqt"/>
@@ -88,13 +109,13 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gzT-n1-z8p" secondAttribute="bottom" id="1Lf-Fa-Q4F"/>
                     <constraint firstItem="TeC-uY-kR4" firstAttribute="centerY" secondItem="BPH-rj-lOu" secondAttribute="centerY" id="4IK-AW-FbX"/>
-                    <constraint firstItem="T4g-DK-His" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8To-MN-3uy"/>
-                    <constraint firstItem="T4g-DK-His" firstAttribute="leading" secondItem="TeC-uY-kR4" secondAttribute="trailing" constant="10" id="Prw-nT-kPr"/>
                     <constraint firstItem="BPH-rj-lOu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zrw-UA-HCz"/>
-                    <constraint firstAttribute="trailing" secondItem="T4g-DK-His" secondAttribute="trailing" constant="16" id="ejY-0H-LOr"/>
+                    <constraint firstItem="45E-Nh-1Mc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="d7N-Wn-I8r"/>
                     <constraint firstItem="BPH-rj-lOu" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kne-Pn-VUF"/>
+                    <constraint firstAttribute="trailing" secondItem="45E-Nh-1Mc" secondAttribute="trailing" constant="16" id="q49-BS-WMx"/>
                     <constraint firstAttribute="trailing" secondItem="gzT-n1-z8p" secondAttribute="trailing" id="qeN-Wq-YUZ"/>
                     <constraint firstItem="TeC-uY-kR4" firstAttribute="leading" secondItem="BPH-rj-lOu" secondAttribute="trailing" constant="20" id="vDu-04-s62"/>
+                    <constraint firstItem="45E-Nh-1Mc" firstAttribute="leading" secondItem="TeC-uY-kR4" secondAttribute="trailing" constant="10" id="w0M-NW-WxC"/>
                     <constraint firstItem="gzT-n1-z8p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yE6-qc-3Jl"/>
                 </constraints>
             </tableViewCellContentView>
@@ -105,9 +126,10 @@
                 <outlet property="dateStatusLabel" destination="bqr-5c-zBz" id="IID-GN-t8L"/>
                 <outlet property="itemsPriceLabel" destination="Gk8-0Z-ggH" id="fa4-N8-VJe"/>
                 <outlet property="orderImage" destination="BPH-rj-lOu" id="Dkk-Vk-v97"/>
+                <outlet property="pickUpBtn" destination="0Cd-hu-0q2" id="S2c-xt-rFx"/>
                 <outlet property="reorderBtn" destination="T4g-DK-His" id="RkC-n6-nXa"/>
             </connections>
-            <point key="canvasLocation" x="44.927536231884062" y="165.06696428571428"/>
+            <point key="canvasLocation" x="109.42028985507247" y="165.06696428571428"/>
         </tableViewCell>
     </objects>
 </document>
