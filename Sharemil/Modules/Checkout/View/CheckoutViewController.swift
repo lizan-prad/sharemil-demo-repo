@@ -355,15 +355,15 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.didSelectTime = { type in
                 self.scheduleType = type
                 if self.scheduleType == "standard" {
-                    self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                    self.selectedScheduleDate = nil
                 } else {
                     self.scheduleDate = type
                 }
             }
             cell.didSelectMainDate = { date in
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-                self.selectedScheduleDate = formatter.string(from: date ?? Date())
+//                let formatter = DateFormatter()
+//                formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+//                self.selectedScheduleDate = formatter.string(from: date ?? Date())
             }
             
             return cell
