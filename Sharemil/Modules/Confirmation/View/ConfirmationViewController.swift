@@ -53,9 +53,17 @@ class ConfirmationViewController: UIViewController, Storyboarded {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let time = formatter.date(from: model?.pickupTime ?? "")
-            formatter.dateFormat = "hh:mm a"
             formatter.timeZone = TimeZone(secondsFromGMT: 0)
-            self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
+            formatter.dateFormat = "yyyy-MM-dd"
+            let todayDate = formatter.string(from: Date())
+            let timeDate = formatter.string(from: time ?? Date())
+            if todayDate == timeDate {
+                formatter.dateFormat = "hh:mm a"
+                self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
+            } else {
+                formatter.dateFormat = "dd MMM,EEE,hh:mm a"
+                self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
+            }
             self.tableView.reloadData()
         }
     }
