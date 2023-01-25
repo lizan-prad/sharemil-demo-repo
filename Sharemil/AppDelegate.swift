@@ -73,8 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         OneSignal.add(self)
         // promptForPushNotifications will show the native iOS notification permission prompt.
         // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
-        
-        
         OneSignal.promptForPushNotifications(userResponse: {  accepted in
             if accepted {
                 let state = OneSignal.getDeviceState()

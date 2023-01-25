@@ -11,6 +11,7 @@ import CoreLocation
 import FirebaseAuth
 import GoogleMaps
 import Mixpanel
+import OneSignal
 
 var loc: LLocation?
 var isFirst = true
@@ -60,6 +61,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     
     var user: UserModel? {
         didSet {
+            OneSignal.setExternalUserId(user?.id ?? "")
             Mixpanel.mainInstance().identify(distinctId: user?.id ?? "") {
                 Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? ""])
             }
