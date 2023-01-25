@@ -16,6 +16,8 @@ import FirebaseFirestore
 import Alamofire
 import StripeApplePay
 import Mixpanel
+import OneSignal
+//Onesignal app id - 5abbae8b-137a-444c-8977-1e61fd5cdf1f
 
 let db = Firestore.firestore()
 
@@ -24,7 +26,22 @@ var order_id: String?
 let appdelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate, OSSubscriptionObserver {
+    func onOSSubscriptionChanged(_ stateChanges: OSSubscriptionStateChanges) {
+        if !stateChanges.from.isSubscribed && stateChanges.to.isSubscribed {
+             print("Subscribed for OneSignal push notifications!")
+          }
+          print("SubscriptionStateChange: \n\(stateChanges)")
+
+          //The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
+        if let playerId = stateChanges.to.userId {
+            let url = "account/user"
+            let param: [String: Any] = ["onesignal_player_id": playerId]
+//            NetworkManager.shared.request(LoginModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
+//            }
+        }
+    }
+    
 
     var window: UIWindow?
 
@@ -48,6 +65,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         window?.makeKeyAndVisible()
         registerNotification(application)
         Messaging.messaging().delegate = self
+        
+        OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
+        // OneSignal initialization
+        OneSignal.initWithLaunchOptions(launchOptions)
+        OneSignal.setAppId("5abbae8b-137a-444c-8977-1e61fd5cdf1f")
+        OneSignal.add(self)
+        // promptForPushNotifications will show the native iOS notification permission prompt.
+        // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
+        
+        
+        OneSignal.promptForPushNotifications(userResponse: {  accepted in
+            if accepted {
+                let state = OneSignal.getDeviceState()
+                if let playerId = state?.userId {
+                    let url = "account/user"
+                    let param: [String: Any] = ["onesignal_player_id": playerId]
+//                    NetworkManager.shared.request(LoginModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
+//                    }
+                }
+            }
+        }, fallbackToSettings: true)
         return true
     }
     
