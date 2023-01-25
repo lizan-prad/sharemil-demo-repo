@@ -61,7 +61,9 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     
     var user: UserModel? {
         didSet {
-            OneSignal.setExternalUserId(user?.id ?? "")
+            OneSignal.setExternalUserId(user?.id ?? "") { data in
+                print(data)
+            }
             Mixpanel.mainInstance().identify(distinctId: user?.id ?? "") {
                 Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? ""])
             }
@@ -333,6 +335,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
         }
         
         self.viewModel.user.bind { models in
+            self.user = models
             UserDefaults.standard.set(models?.id ?? "", forKey: "UID")
         }
         
