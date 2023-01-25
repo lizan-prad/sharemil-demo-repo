@@ -188,8 +188,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$" + (model?.price ?? 0).withDecimal(2)
         self.initialQuantity = 1
-        self.itemLeftView.isHidden = (model?.dailySalesLimit == 0 || model?.dailySalesLimit == nil)
-        self.itemLeft.text = "Only \(model?.dailySalesLimit ?? 0) left"
+        self.itemLeftView.isHidden = (model?.remainingItems == 0 || model?.remainingItems == nil)
+        self.itemLeft.text = "Only \(model?.remainingItems ?? 0) left"
     }
     
     private func bindViewModel() {
