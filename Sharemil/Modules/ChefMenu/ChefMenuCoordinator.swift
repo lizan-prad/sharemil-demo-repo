@@ -13,6 +13,7 @@ class ChefMenuCoordinator: Coordinator {
 
     var chef: ChefListModel?
     var cusine: CusineListModel?
+    var isFromCheckout = false
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,6 +24,7 @@ class ChefMenuCoordinator: Coordinator {
         let viewModel = ChefMenuViewModel()
         viewModel.chef = self.chef
         vc.viewModel = viewModel
+        vc.isFromCheckout = isFromCheckout
         return vc
     }
     

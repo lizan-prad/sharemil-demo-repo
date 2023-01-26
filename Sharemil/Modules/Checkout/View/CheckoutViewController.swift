@@ -201,7 +201,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.total.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
             self.placeOrderBtn.setTitle("Place order · \("$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
-            self.tableView.reloadData()
+            self.tableView.reloadRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
         }
         
         self.viewModel.paymentIntent.bind { model in
@@ -376,6 +376,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 guard let nav = self.navigationController else {return}
                 let coordinator = ChefMenuCoordinator.init(navigationController: nav)
                 coordinator.chef = self.chef
+                coordinator.isFromCheckout = true
                 coordinator.cusine = self.cusines?.filter({$0.id == self.chef?.cuisineId}).first
                 coordinator.start()
             }

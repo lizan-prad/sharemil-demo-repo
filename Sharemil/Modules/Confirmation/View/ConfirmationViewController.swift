@@ -61,7 +61,7 @@ class ConfirmationViewController: UIViewController, Storyboarded {
                 formatter.dateFormat = "hh:mm a"
                 self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
             } else {
-                formatter.dateFormat = "dd MMM,EEE,hh:mm a"
+                formatter.dateFormat = "dd MMM, EEE, hh:mm a"
                 self.readyAtLabel.text = "Ready at \(formatter.string(from: time ?? Date()))"
             }
             self.tableView.reloadData()

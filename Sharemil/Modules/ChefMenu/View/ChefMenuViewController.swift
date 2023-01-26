@@ -23,6 +23,8 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     
     var viewModel: ChefMenuViewModel!
     
+    var isFromCheckout = false
+    
     var menuItems: [ChefMenuListModel]? {
         didSet {
             self.tableView.reloadData()
@@ -130,7 +132,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         chefNameLabel.text = "\(viewModel.chef?.firsName ?? "") \(viewModel.chef?.lastName ?? "")"
         self.businessName.text = viewModel.chef?.businessName
         
-        
+        self.viewCartBtn.isHidden = self.isFromCheckout
         let formatter = DateFormatter()
         formatter.dateFormat = "eee"
         let now = formatter.string(from: Date()).lowercased()
