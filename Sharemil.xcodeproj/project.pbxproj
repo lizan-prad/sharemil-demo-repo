@@ -499,6 +499,7 @@
 		BEB7A58E298167A400F72E0D /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB7A590298167A400F72E0D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEB7A592298167A400F72E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEB7A5B42984147500F72E0D /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpIssuePage.storyboard; sourceTree = "<group>"; };
 		BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewController.swift; sourceTree = "<group>"; };
 		BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
@@ -1655,6 +1656,7 @@
 		BEB7A58F298167A400F72E0D /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				BEB7A5B42984147500F72E0D /* OneSignalNotificationServiceExtension.entitlements */,
 				BEB7A590298167A400F72E0D /* NotificationService.swift */,
 				BEB7A592298167A400F72E0D /* Info.plist */,
 			);
@@ -2625,6 +2627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2653,6 +2656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H897FZT8JU;
