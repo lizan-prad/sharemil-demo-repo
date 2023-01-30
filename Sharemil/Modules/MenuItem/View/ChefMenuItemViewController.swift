@@ -163,7 +163,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     @objc func plusAction() {
-        if (self.model?.remainingItems ?? 0) < self.initialQuantity {
+        if (self.model?.remainingItems ?? 0) > self.initialQuantity {
+            self.initialQuantity += 1
+        } else if self.model?.remainingItems == nil {
             self.initialQuantity += 1
         }
     }
