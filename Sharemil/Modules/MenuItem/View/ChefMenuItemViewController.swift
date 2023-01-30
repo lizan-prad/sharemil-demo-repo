@@ -163,7 +163,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     @objc func plusAction() {
-        self.initialQuantity += 1
+        if (self.model?.remainingItems ?? 0) < self.initialQuantity {
+            self.initialQuantity += 1
+        }
     }
     
     @objc func minusAction() {
@@ -190,6 +192,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.initialQuantity = 1
         self.itemLeftView.isHidden = (model?.remainingItems == 0 || model?.remainingItems == nil)
         self.itemLeft.text = "Only \(model?.remainingItems ?? 0) left"
+        model?.remainingItems != nil && model?.remainingItems == 0 ? self.addToCartBtn.disable() : self.addToCartBtn.enable()
     }
     
     private func bindViewModel() {

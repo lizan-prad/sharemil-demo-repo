@@ -38,8 +38,10 @@ class CartDetailTableViewCell: UITableViewCell {
     
   
     @IBAction func plusAction(_ sender: Any) {
-        self.quantityLabel.text = "\((Int(quantityLabel.text ?? "") ?? 0) + 1)"
-        self.didChangeQuantity?(Int(quantityLabel.text ?? "") ?? 0, index)
+        if (item?.menuItem?.remainingItems ?? 0) > (Int(quantityLabel.text ?? "") ?? 0) {
+            self.quantityLabel.text = "\((Int(quantityLabel.text ?? "") ?? 0) + 1)"
+            self.didChangeQuantity?(Int(quantityLabel.text ?? "") ?? 0, index)
+        }
     }
     
     @IBAction func minusAction(_ sender: Any) {

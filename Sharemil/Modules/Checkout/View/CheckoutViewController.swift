@@ -288,7 +288,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                 if self.selectedPayment?.name?.contains("Apple") ?? false {
                     let merchantIdentifier = "merchant.com.sharemil.sharemil"
                     let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
-                    var item = PKPaymentSummaryItem()
+                    let item = PKPaymentSummaryItem()
                     item.label = "Sharemil Inc"
                     let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
                     let amount = a?.reduce(0, +).withDecimal(2)
