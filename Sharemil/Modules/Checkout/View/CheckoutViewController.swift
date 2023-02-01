@@ -135,6 +135,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
+        self.viewModel.fetchUserProfile()
 //        self.viewModel.getDefaultMethod()
 //        self.viewModel.getCart(self.cartItems?.first?.cartId ?? "")
     }
@@ -301,11 +302,11 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         vc.isSchedule = self.scheduleType != "standard"
         vc.didApprove = {
             if self.user?.isValid() == false {
-                guard let nav = self.navigationController else {return}
-                let coordinator = EditAccountCoordinator.init(navigationController: nav)
-                let vc = UINavigationController.init(rootViewController: coordinator.getMainView())
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc , animated: true)
+                
+                let coordinator = EditAccountCoordinator.init(navigationController: UINavigationController())
+//                let vc = UINavigationController.init(rootViewController: coordinator.getMainView())
+//                vc.modalPresentationStyle = .overFullScreen
+                self.navigationController?.pushViewController(coordinator.getMainView(), animated: true)
             } else {
                 self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
                

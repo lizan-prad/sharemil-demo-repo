@@ -126,6 +126,9 @@ class EditAccountViewController: UIViewController, Storyboarded {
 
 
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true) {
+            
+        }
     }
 }

@@ -25,15 +25,15 @@ class ConfirmationAskViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        if isSchedue {
-            self.chooseNetworkTitle.text = "Schedule order?"
-            self.contentTitle.text = "Confirm that you'll schedule this order."
-            self.yesbtn.setTitle("Yes, Schedule", for: .normal)
-        } else if isUserReg {
+        if isUserReg {
             self.chooseNetworkTitle.text = "User Profile Completion"
             self.contentTitle.text = "Complete your user profile to continue."
             self.yesbtn.setTitle("Update", for: .normal)
-        } else {
+        } else if isSchedue {
+            self.chooseNetworkTitle.text = "Schedule order?"
+            self.contentTitle.text = "Confirm that you'll schedule this order."
+            self.yesbtn.setTitle("Yes, Schedule", for: .normal)
+        }  else {
             self.chooseNetworkTitle.text = "Pick up?"
             self.contentTitle.text = "Confirm that you’ll pick up this order."
             self.yesbtn.setTitle("Yes, Pick Up", for: .normal)
