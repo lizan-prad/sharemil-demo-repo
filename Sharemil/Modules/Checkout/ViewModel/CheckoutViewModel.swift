@@ -18,6 +18,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var payment: Observable<PaymentIntentModel> = Observable(nil)
     var paymentIntent: Observable<CreatePaymentModel> = Observable(nil)
     var completeCheckout: Observable<OrderModel> = Observable(nil)
+    var orderCreated: Observable<OrderModel> = Observable(nil)
     var method: Observable<PaymentMethods> = Observable(nil)
     var cusines: Observable<[CusineListModel]> = Observable([])
     var chefs: Observable<[ChefListModel]> = Observable([])
@@ -121,9 +122,9 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
         }
     }
     
-    func createPayment(_ cartId: String, paymentMethodId: String) {
+    func createPayment(_ cartId: String, paymentMethodId: String, _ orderId: String) {
         self.loading.value = true
-        self.createPaymentIntent(cartId, paymentMethodId: paymentMethodId, completion: { result in
+        self.createPaymentIntent(cartId, paymentMethodId: paymentMethodId, orderId, completion: { result in
             self.loading.value = false
             switch result {
             case .success(let model):
@@ -153,7 +154,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.completeCheckout.value = model.data?.orders
+                self.orderCreated.value = model.data?.orders
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }

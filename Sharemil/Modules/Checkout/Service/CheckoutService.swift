@@ -23,11 +23,9 @@ extension CheckoutService {
     
     func createOrder(_ pickupDate: String?, _ paymentMethodId: String, _ cartId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ()) {
         let param: [String: Any] = pickupDate == nil ? [
-            "cartId": cartId,
-            "paymentMethodId": paymentMethodId
+            "cartId": cartId
         ] : [
             "cartId": cartId,
-            "paymentMethodId": paymentMethodId,
             "pickupTime": pickupDate ?? ""
         ]
         NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "orders", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in

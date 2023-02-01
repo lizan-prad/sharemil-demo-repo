@@ -26,7 +26,7 @@ struct UserModel : Mappable {
 	}
     
     func isValid() -> Bool {
-        return (firstName != "" || firstName != nil) && (lastName != nil || lastName != "") && (phoneNumber != nil || phoneNumber != "") && (email != nil || email != "")
+        return (firstName != "" && firstName != nil) && (lastName != nil && lastName != "") && (phoneNumber != nil && phoneNumber != "") && (email != nil && email != "")
     }
 
 }

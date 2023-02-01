@@ -11,7 +11,7 @@ import Alamofire
 protocol PaymentOptionsService {
     func paymentIntent(_ cartId: String, completion: @escaping (Result<PaymentIntentModel, NSError>) -> ())
     
-    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ())
+    func createPaymentIntent(_ cartId: String, paymentMethodId: String, _ orderId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ())
     
     func confirmPaymentIntent(_ paymentIntentId: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
 }
@@ -26,9 +26,10 @@ extension PaymentOptionsService {
         }
     }
     
-    func createPaymentIntent(_ cartId: String, paymentMethodId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ()) {
+    func createPaymentIntent(_ cartId: String, paymentMethodId: String, _ orderId: String, completion: @escaping (Result<BaseMappableModel<CreatePaymentModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "cartId": cartId,
+            "orderId": orderId,
             "paymentMethodId": paymentMethodId
         ]
         NetworkManager.shared.request(BaseMappableModel<CreatePaymentModel>.self, urlExt: "payment/intents", method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in

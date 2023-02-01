@@ -26,15 +26,26 @@ extension Date {
     }
 }
 
-class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate {
+class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate, PaymentOptionsService {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: StripeAPI.PaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
-        completion(self.paymentIntent ?? "", nil);
+        
+        self.createPaymentIntent(self.cartItems?.first?.cartId ?? "", paymentMethodId: paymentMethod.id, self.orderModel?.id ?? "", completion: { result in
+            
+            switch result {
+            case .success(let model):
+                self.paymentIntent = model.data?.paymentIntentId ?? ""
+                completion(model.data?.paymentIntentIdSecret ?? "", nil);
+            case .failure(let error):
+                break
+            }
+        })
+        
     }
     
     func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPApplePayContext.PaymentStatus, error: Error?) {
         switch status {
         case .success:
-            self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+            self.viewModel.continuePayment(self.paymentIntent ?? "")
             // Payment succeeded, show a receipt view
         case .error:
             // Payment failed, show the error
@@ -106,6 +117,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     }
     
     var didCheckoutComplete: (() -> ())?
+    var orderModel: OrderModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,6 +218,16 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         self.viewModel.paymentIntent.bind { model in
             self.paymentIntent = model?.paymentIntentId
+            self.viewModel.continuePayment(self.paymentIntent ?? "")
+        }
+        
+        self.viewModel.orderCreated.bind { m in
+            self.orderModel = m
+            if self.selectedPayment?.name?.contains("Apple") ?? false {
+                self.openApplePay()
+            } else {
+                self.viewModel.createPayment(self.cartItems?.first?.cartId ?? "", paymentMethodId: self.selectedPayment?.id ?? "", m?.id ?? "")
+            }
         }
         self.viewModel.completeCheckout.bind { msg in
             
@@ -285,29 +307,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                 vc.modalPresentationStyle = .overFullScreen
                 self.present(vc , animated: true)
             } else {
-                if self.selectedPayment?.name?.contains("Apple") ?? false {
-                    let merchantIdentifier = "merchant.com.sharemil.sharemil"
-                    let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
-                    let item = PKPaymentSummaryItem()
-                    item.label = "Sharemil Inc"
-                    let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
-                    let amount = a?.reduce(0, +).withDecimal(2)
-                    item.amount = NSDecimalNumber.init(string: amount)
-                    //                item.amount = NSDecimalNumber.init(string: amount)
-                    // Configure the line items on the payment request
-                    paymentRequest.paymentSummaryItems = [
-                        item
-                    ]
-                    
-                    if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
-                        // Present Apple Pay payment sheet
-                        applePayContext.presentApplePay(on: self)
-                    } else {
-                        // There is a problem with your Apple Pay configuration
-                    }
-                } else {
-                    self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
-                }
+                self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+               
             }
         }
         vc.didCancel = {
@@ -316,7 +317,27 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.present(vc.getMainView(), animated: true)
     }
     
-  
+    private func openApplePay() {
+        let merchantIdentifier = "merchant.com.sharemil.sharemil"
+        let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
+        let item = PKPaymentSummaryItem()
+        item.label = "Sharemil Inc"
+        let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
+        let amount = a?.reduce(0, +).withDecimal(2)
+        item.amount = NSDecimalNumber.init(string: amount)
+        //                item.amount = NSDecimalNumber.init(string: amount)
+        // Configure the line items on the payment request
+        paymentRequest.paymentSummaryItems = [
+            item
+        ]
+        
+        if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
+            // Present Apple Pay payment sheet
+            applePayContext.presentApplePay()
+        } else {
+            // There is a problem with your Apple Pay configuration
+        }
+    }
     
 }
 
