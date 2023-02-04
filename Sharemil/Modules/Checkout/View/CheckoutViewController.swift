@@ -29,7 +29,7 @@ extension Date {
 class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate, PaymentOptionsService {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: StripeAPI.PaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
         
-        self.createPaymentIntent(self.cartItems?.first?.cartId ?? "", paymentMethodId: paymentMethod.id, self.orderModel?.id ?? "", completion: { result in
+        self.createPaymentIntent(.apple ,self.cartItems?.first?.cartId ?? "", paymentMethodId: paymentMethod.id, self.orderModel?.id ?? "", completion: { result in
             
             switch result {
             case .success(let model):

@@ -124,7 +124,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     
     func createPayment(_ cartId: String, paymentMethodId: String, _ orderId: String) {
         self.loading.value = true
-        self.createPaymentIntent(cartId, paymentMethodId: paymentMethodId, orderId, completion: { result in
+        self.createPaymentIntent(.card, cartId, paymentMethodId: paymentMethodId, orderId, completion: { result in
             self.loading.value = false
             switch result {
             case .success(let model):
