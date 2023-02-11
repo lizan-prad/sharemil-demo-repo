@@ -19,12 +19,17 @@ class OrdersViewController: UIViewController, Storyboarded{
             self.tableView.reloadData()
         }
     }
+    var chefs: [ChefListModel]?
+    var cuisines: [CusineListModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()
+        if let loc = loc {
+            self.viewModel.fetchChefBy(location: loc, name: "")
+        }
         self.getOrderStatusUpdate()
     }
     
@@ -33,8 +38,14 @@ class OrdersViewController: UIViewController, Storyboarded{
             status ?? true ? self.showProgressHud() : self.hideProgressHud()
         }
         self.viewModel.error.bind { msg in
-//            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
-            self.start()
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+//            self.start()
+        }
+        self.viewModel.chefs.bind { models in
+            self.chefs = models
+        }
+        self.viewModel.cusines.bind { models in
+            self.cuisines = models
         }
         self.viewModel.orders.bind { orders in
             self.orders = orders?.sorted(by: { a, b in
@@ -141,7 +152,7 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.didSelectReorder = { model in
             guard let nav = self.navigationController else {return}
             let coordinator = ChefMenuCoordinator.init(navigationController: nav)
-            coordinator.chef = model
+            coordinator.chef = self.chefs?.filter({$0.id == model?.id}).first
             coordinator.start()
         }
         cell.didPickUp = { orderId in

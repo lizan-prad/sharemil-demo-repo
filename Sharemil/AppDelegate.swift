@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        StripeAPI.defaultPublishableKey = "pk_live_51KgHBhEYsFc3t3vi6dtj1unr25ctwTJkY9Ua5r3WHk2J89Ign01VESp7y10ueKtd87kPEoPwXc1xF4jDqh3PQxsy00ZSHHjRxx"
+        StripeAPI.defaultPublishableKey = UserDefaults.standard.string(forKey: "ENV") == "D" ? "pk_test_51KgHBhEYsFc3t3viMQOBYoGfyFWgPIruKiWjSIO7IKqU0GREnosyUh3HeGw0hxc7lAQ3emeODmvUUjiRUXHvDZ5U00egomEJjd" : "pk_live_51KgHBhEYsFc3t3vi6dtj1unr25ctwTJkY9Ua5r3WHk2J89Ign01VESp7y10ueKtd87kPEoPwXc1xF4jDqh3PQxsy00ZSHHjRxx"
         IQKeyboardManager.shared().isEnabled = true
         Mixpanel.initialize(token: "0e14a883d35c0890cd38ef768ea7d10c", trackAutomaticEvents: true)
         FirebaseApp.configure()
@@ -67,23 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //        Messaging.messaging().delegate = self
         
         OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
-        // OneSignal initialization
-        OneSignal.initWithLaunchOptions(launchOptions)
-        OneSignal.setAppId("5abbae8b-137a-444c-8977-1e61fd5cdf1f")
-        OneSignal.add(self)
-        // promptForPushNotifications will show the native iOS notification permission prompt.
-        // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
-        OneSignal.promptForPushNotifications(userResponse: {  accepted in
-            if accepted {
-                let state = OneSignal.getDeviceState()
-                if let playerId = state?.userId {
-                    let url = "account/user"
-                    let param: [String: Any] = ["onesignal_player_id": playerId]
-//                    NetworkManager.shared.request(LoginModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
-//                    }
-                }
-            }
-        }, fallbackToSettings: true)
+          
+          // OneSignal initialization
+          OneSignal.initWithLaunchOptions(launchOptions)
+          OneSignal.setAppId("5abbae8b-137a-444c-8977-1e61fd5cdf1f")
+          
+          // promptForPushNotifications will show the native iOS notification permission prompt.
+          // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
+          OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+          })
         return true
     }
     

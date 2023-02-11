@@ -14,7 +14,7 @@ class HelpItemIssueTableViewCell: UITableViewCell, RadioButtonDelegate {
     @IBOutlet weak var issueTitle: UILabel!
     @IBOutlet weak var issueRadio: RadioButton!
     
-    var selectedModel: ((SupportIssues?) -> ())?
+//    var selectedModel: ((SupportIssues?) -> ())?
     
     var model: SupportIssues? {
         didSet {
@@ -29,7 +29,7 @@ class HelpItemIssueTableViewCell: UITableViewCell, RadioButtonDelegate {
     }
     
     func radioButtonDidSelect(_ button: RadioButton) {
-        self.selectedModel?(model)
+//        self.selectedModel?(model)
     }
     
     func radioButtonDidDeselect(_ button: RadioButton) {

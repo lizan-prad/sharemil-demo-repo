@@ -24,6 +24,7 @@ class ChefMenuCoordinator: Coordinator {
         let viewModel = ChefMenuViewModel()
         viewModel.chef = self.chef
         vc.viewModel = viewModel
+        vc.cusine = self.cusine
         vc.isFromCheckout = isFromCheckout
         return vc
     }

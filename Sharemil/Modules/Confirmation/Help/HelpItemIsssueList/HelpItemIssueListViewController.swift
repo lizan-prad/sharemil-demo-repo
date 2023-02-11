@@ -109,10 +109,15 @@ extension HelpItemIssueListViewController: UITableViewDataSource, UITableViewDel
         cell.model = self.issueList?[indexPath.row]
         cell.setup()
         cell.issueRadio.isOn = cell.model?.id == self.selectedModel?.id
-        cell.selectedModel = { model in
-            self.selectedModel = model
-        }
+//        cell.selectedModel = { model in
+//            self.selectedModel = model
+//        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedModel = self.issueList?[indexPath.row]
+        self.tableVie.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
