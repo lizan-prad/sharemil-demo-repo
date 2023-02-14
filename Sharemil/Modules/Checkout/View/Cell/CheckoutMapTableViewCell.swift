@@ -28,10 +28,12 @@ class CheckoutMapTableViewCell: UITableViewCell {
     var didProcessDateError: ((String) -> ())?
     var didTapSchedule: (([HoursModel]?) -> ())?
     
+    var containsOutOfStockItem = false
+    
     var chef: ChefListModel? {
         didSet {
             
-            standardContainer.isHidden = chef?.isOpen == false
+            standardContainer.isHidden = (chef?.isOpen == false) || containsOutOfStockItem
             
             self.timeErrorLabel.text = ""
             businessName.text = chef?.businessName

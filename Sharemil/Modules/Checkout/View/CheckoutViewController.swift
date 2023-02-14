@@ -215,6 +215,9 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.placeOrderBtn.setTitle("Place order · \("$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
+            if self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).count != 0 {
+                self.showToastMsg("Some items in your cart seems to be out of stock today, either remove the item or you can schedule your order for another day.", state: .warning, location: .bottom)
+            }
         }
         
         self.viewModel.paymentIntent.bind { model in
@@ -352,8 +355,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
+            cell.containsOutOfStockItem = !(self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).isEmpty ?? false)
             cell.chef = self.chef
-            
             cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
             cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
