@@ -18,7 +18,7 @@ import StripeApplePay
 import Mixpanel
 import OneSignal
 //Onesignal app id - 5abbae8b-137a-444c-8977-1e61fd5cdf1f
-
+//Onesignal prod app id - 25e41f3e-d9ad-4107-a042-f2cff3bcd6eb
 let db = Firestore.firestore()
 
 var order_id: String?
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
           
           // OneSignal initialization
           OneSignal.initWithLaunchOptions(launchOptions)
-          OneSignal.setAppId("5abbae8b-137a-444c-8977-1e61fd5cdf1f")
+        OneSignal.setAppId(UserDefaults.standard.string(forKey: "ENV") == "D" ? "5abbae8b-137a-444c-8977-1e61fd5cdf1f" : "25e41f3e-d9ad-4107-a042-f2cff3bcd6eb")
           
           // promptForPushNotifications will show the native iOS notification permission prompt.
           // We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 8)
