@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92e-ZJ-bNA">
-                                <rect key="frame" x="20" y="54" width="25" height="25"/>
+                                <rect key="frame" x="20" y="58" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="BSZ-Vo-ZVN"/>
                                     <constraint firstAttribute="height" constant="25" id="IC4-Hr-oZ2"/>
@@ -42,13 +42,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you need help with?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1c-0u-R9R">
-                                <rect key="frame" x="20" y="105" width="374" height="29.5"/>
+                                <rect key="frame" x="20" y="109" width="374" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ocn-BN-Z81">
-                                <rect key="frame" x="65" y="47.5" width="284" height="38.5"/>
+                                <rect key="frame" x="65" y="51.5" width="284" height="38.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQL-IC-wqN">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="19.5"/>
@@ -65,7 +65,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ire-E5-EFN">
-                                <rect key="frame" x="0.0" y="154.5" width="414" height="112"/>
+                                <rect key="frame" x="0.0" y="158.5" width="414" height="168"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DdU-0U-QnB">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -145,11 +145,11 @@
                                             <constraint firstAttribute="trailing" secondItem="0J6-Q1-WLB" secondAttribute="trailing" constant="20" id="vX9-3T-v3I"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-ye-IeJ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-ye-IeJ">
                                         <rect key="frame" x="0.0" y="112" width="414" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="it's missing something" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-Wd-khj">
-                                                <rect key="frame" x="16" y="18.5" width="170.5" height="19.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="other issues" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-Wd-khj">
+                                                <rect key="frame" x="16" y="18.5" width="94" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                 <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -207,6 +207,7 @@
                         <outlet property="chefName" destination="Wf9-JK-l7i" id="JtT-CN-tD2"/>
                         <outlet property="issueOption" destination="DdU-0U-QnB" id="TUw-Ue-WUL"/>
                         <outlet property="missingView" destination="wxp-Em-EPK" id="DyR-n7-EOU"/>
+                        <outlet property="otherIssueView" destination="ToY-ye-IeJ" id="Mi7-j4-N1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,8 +216,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="32" height="32"/>
-        <image name="chevron.right" catalog="system" width="32" height="32"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

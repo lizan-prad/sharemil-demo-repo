@@ -342,11 +342,19 @@
                                     <constraint firstAttribute="trailing" secondItem="LQY-jd-eK3" secondAttribute="trailing" id="trK-iN-LB6"/>
                                 </constraints>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-4M-nSP">
+                                <rect key="frame" x="128.66666666666669" y="78" width="135.66666666666669" height="22"/>
+                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3XI-6A-uCc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="m3J-4M-nSP" firstAttribute="centerX" secondItem="Qv7-Un-XbU" secondAttribute="centerX" id="1co-2N-17Z"/>
                             <constraint firstItem="cBY-ts-0cp" firstAttribute="top" secondItem="Ixy-hK-4uD" secondAttribute="bottom" constant="10" id="B7c-go-MHe"/>
+                            <constraint firstItem="m3J-4M-nSP" firstAttribute="centerY" secondItem="Ixy-hK-4uD" secondAttribute="centerY" id="G3C-tD-fIp"/>
                             <constraint firstItem="cBY-ts-0cp" firstAttribute="leading" secondItem="3XI-6A-uCc" secondAttribute="leading" id="LJH-BQ-unR"/>
                             <constraint firstItem="Ixy-hK-4uD" firstAttribute="top" secondItem="3XI-6A-uCc" secondAttribute="top" constant="20" id="Vzh-zi-N1M"/>
                             <constraint firstItem="LQY-jd-eK3" firstAttribute="width" secondItem="Qv7-Un-XbU" secondAttribute="width" id="eZe-Dr-6CZ"/>

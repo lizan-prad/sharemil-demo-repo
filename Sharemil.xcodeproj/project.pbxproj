@@ -55,6 +55,11 @@
 		BE38FD95293A7D9A007EC51B /* RecieptWebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FD94293A7D9A007EC51B /* RecieptWebViewCoordinator.swift */; };
 		BE38FD97293A7E70007EC51B /* RecieptWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FD96293A7E70007EC51B /* RecieptWebViewViewController.swift */; };
 		BE3A44A128B8CCD600E3E90F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE3A44A028B8CCD600E3E90F /* GoogleService-Info.plist */; };
+		BE3B1168299D65A30002C347 /* OtherHelp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE3B1167299D65A30002C347 /* OtherHelp.storyboard */; };
+		BE3B116A299D65B90002C347 /* OtherHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B1169299D65B90002C347 /* OtherHelpViewController.swift */; };
+		BE3B116E299D65D90002C347 /* OtherHelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B116D299D65D90002C347 /* OtherHelpViewModel.swift */; };
+		BE3B1171299D65E90002C347 /* OtherHelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B1170299D65E90002C347 /* OtherHelpService.swift */; };
+		BE3B1173299D65F40002C347 /* OtherHelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B1172299D65F40002C347 /* OtherHelpCoordinator.swift */; };
 		BE4CDDA02853046B006AB129 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDD9F2853046B006AB129 /* NetworkManager.swift */; };
 		BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CDDA12853048C006AB129 /* URLConfig.swift */; };
 		BE4CDDB128530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */; };
@@ -351,6 +356,11 @@
 		BE38FD94293A7D9A007EC51B /* RecieptWebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptWebViewCoordinator.swift; sourceTree = "<group>"; };
 		BE38FD96293A7E70007EC51B /* RecieptWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptWebViewViewController.swift; sourceTree = "<group>"; };
 		BE3A44A028B8CCD600E3E90F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE3B1167299D65A30002C347 /* OtherHelp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherHelp.storyboard; sourceTree = "<group>"; };
+		BE3B1169299D65B90002C347 /* OtherHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHelpViewController.swift; sourceTree = "<group>"; };
+		BE3B116D299D65D90002C347 /* OtherHelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHelpViewModel.swift; sourceTree = "<group>"; };
+		BE3B1170299D65E90002C347 /* OtherHelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHelpService.swift; sourceTree = "<group>"; };
+		BE3B1172299D65F40002C347 /* OtherHelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherHelpCoordinator.swift; sourceTree = "<group>"; };
 		BE4CDD9F2853046B006AB129 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BE4CDDA12853048C006AB129 /* URLConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
 		BE4CDDA428530D7E006AB129 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
@@ -942,6 +952,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BE3B1166299D65930002C347 /* OtherHelp */ = {
+			isa = PBXGroup;
+			children = (
+				BE3B116F299D65DC0002C347 /* Service */,
+				BE3B116C299D65CB0002C347 /* ViewModel */,
+				BE3B116B299D65BC0002C347 /* View */,
+				BE3B1172299D65F40002C347 /* OtherHelpCoordinator.swift */,
+			);
+			path = OtherHelp;
+			sourceTree = "<group>";
+		};
+		BE3B116B299D65BC0002C347 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE3B1167299D65A30002C347 /* OtherHelp.storyboard */,
+				BE3B1169299D65B90002C347 /* OtherHelpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE3B116C299D65CB0002C347 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE3B116D299D65D90002C347 /* OtherHelpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE3B116F299D65DC0002C347 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE3B1170299D65E90002C347 /* OtherHelpService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		BE4CDDA328530D7E006AB129 /* Inter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1361,6 +1407,7 @@
 		BE958DC228EDB3AC00C71EBF /* Help */ = {
 			isa = PBXGroup;
 			children = (
+				BE3B1166299D65930002C347 /* OtherHelp */,
 				BE8CD39F28F5A1E8007A476B /* HelpItemIsssueList */,
 				BEC08C0928EDB66D005AA875 /* HelpIssuePage */,
 				BEC08C0F28EE0878005AA875 /* ViewModel */,
@@ -2104,6 +2151,7 @@
 				BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
 				BEA9821B2948A93600828C38 /* ChefBusinessHours.storyboard in Resources */,
+				BE3B1168299D65A30002C347 /* OtherHelp.storyboard in Resources */,
 				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
 				BEAF3220287408570007F9B0 /* OrdersTableViewCell.xib in Resources */,
 				BEB13DBC285DBD5A00F63933 /* MyLocationHeaderTableViewCell.xib in Resources */,
@@ -2226,6 +2274,7 @@
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BEA9821E2948A94900828C38 /* ChefBusinessHoursViewModel.swift in Sources */,
 				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
+				BE3B1173299D65F40002C347 /* OtherHelpCoordinator.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,
 				BE5B69E5288C7B88008CC57F /* StripeCardModelContainer.swift in Sources */,
 				BE5B6A212890266C008CC57F /* ConfirmationAskViewController.swift in Sources */,
@@ -2277,6 +2326,7 @@
 				BE5B6A2B28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift in Sources */,
 				BEF7EB132865CCAD002D553E /* Geocoded_waypoints.swift in Sources */,
 				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
+				BE3B116E299D65D90002C347 /* OtherHelpViewModel.swift in Sources */,
 				BE549732295982FA00A03D8F /* ClosedBusinessTableViewCell.swift in Sources */,
 				BEAF321A287407360007F9B0 /* OrdersService.swift in Sources */,
 				BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */,
@@ -2290,6 +2340,7 @@
 				BE2954CD286E43E00048E9DD /* PaymentOptionsViewController.swift in Sources */,
 				BEAF322E28754E8B0007F9B0 /* EditAccountViewController.swift in Sources */,
 				BEF816B228BEC7E70094A0EA /* HoursModel.swift in Sources */,
+				BE3B116A299D65B90002C347 /* OtherHelpViewController.swift in Sources */,
 				BE38FD97293A7E70007EC51B /* RecieptWebViewViewController.swift in Sources */,
 				BE5B69E4288C7B88008CC57F /* Checks.swift in Sources */,
 				BE4CDDEC285345F1006AB129 /* OrdersViewController.swift in Sources */,
@@ -2393,6 +2444,7 @@
 				BE5B6A2F28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift in Sources */,
 				BEF7EB102865CCAD002D553E /* Routes.swift in Sources */,
 				BE5B6A232890438E008CC57F /* ConfirmationAskCoordinator.swift in Sources */,
+				BE3B1171299D65E90002C347 /* OtherHelpService.swift in Sources */,
 				BEAF323C28755D6D0007F9B0 /* AccountViewModel.swift in Sources */,
 				BE214B382862F9FE00B26B50 /* MenuItemService.swift in Sources */,
 			);

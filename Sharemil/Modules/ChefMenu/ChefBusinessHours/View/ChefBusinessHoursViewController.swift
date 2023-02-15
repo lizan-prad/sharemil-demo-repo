@@ -85,29 +85,39 @@ class ChefBusinessHoursViewController: UIViewController, Storyboarded {
     }
     
     private func setupDates() {
+        
         chef?.hours?.filter({$0.isOpen == true}).forEach({ h in
+            print(h.startTime ?? "")
+            let formatter = DateFormatter()
+            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let start = formatter.date(from: "2022-11-10 " + (h.startTime ?? ""))
+            let end = formatter.date(from: "2022-11-10 " + (h.endTime ?? ""))
+            formatter.dateFormat = "hh:mm a"
+            let startStr = formatter.string(from: start ?? Date())
+            let endStr = formatter.string(from: end ?? Date())
             switch h.day ?? "" {
             case "MON":
                 self.monStack.isHidden = false
-                self.monday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.monday.text = "\(startStr) - \(endStr)"
             case "TUE":
                 self.tueStack.isHidden = false
-                self.tuesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.tuesday.text = "\(startStr) - \(endStr)"
             case "WED":
                 self.wedStack.isHidden = false
-                self.wednesday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.wednesday.text = "\(startStr) - \(endStr)"
             case "THU":
                 self.thuStack.isHidden = false
-                self.thursday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.thursday.text = "\(startStr) - \(endStr)"
             case "FRI":
                 self.friStack.isHidden = false
-                self.friday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.friday.text = "\(startStr) - \(endStr)"
             case "SAT":
                 self.satStack.isHidden = false
-                self.saturday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.saturday.text = "\(startStr) - \(endStr)"
             case "SUN":
                 self.sunStack.isHidden = false
-                self.sunday.text = "\(h.startTime ?? "") \(h.endTime ?? "")"
+                self.sunday.text = "\(startStr) - \(endStr)"
             default: break
             }
         })

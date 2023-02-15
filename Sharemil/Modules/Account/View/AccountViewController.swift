@@ -11,7 +11,9 @@ import Mixpanel
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var supportView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
     
@@ -39,6 +41,12 @@ class AccountViewController: UIViewController {
         bindViewModel()
         nameLabel.isUserInteractionEnabled = true
         nameLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openEnvSettings)))
+        
+        supportView.isUserInteractionEnabled = true
+        supportView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(supportAction)))
+        
+        logoutView.isUserInteractionEnabled = true
+        logoutView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(logoutAction)))
     }
     
     @objc func openEnvSettings() {
@@ -83,10 +91,14 @@ class AccountViewController: UIViewController {
         self.present(vc , animated: true)
     }
     
-    @IBAction func logoutAction(_ sender: Any) {
+    @objc func logoutAction() {
         UserDefaults.standard.set(nil, forKey: StringConstants.verificationToken)
         appdelegate.loadRegistration()
     }
     
+    @objc func supportAction() {
+        let coordinator = OtherHelpCoordinator.init(navigationController: UINavigationController())
+        self.present(coordinator.getMainView(), animated: true)
+    }
 
 }
