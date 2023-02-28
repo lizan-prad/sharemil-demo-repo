@@ -10,7 +10,7 @@ import Alamofire
 protocol OrdersService {
     func fetchOrders(completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
     
-    func fetchOrder(_ id: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ())
+    func fetchOrder(_ id: String, completion: @escaping (Result<BaseMappableModel<OrderModel>, NSError>) -> ())
 }
 
 extension OrdersService {
@@ -20,8 +20,8 @@ extension OrdersService {
         }
     }
     
-    func fetchOrder(_ id: String, completion: @escaping (Result<BaseMappableModel<OrdersContainerModel>, NSError>) -> ()) {
-        NetworkManager.shared.request(BaseMappableModel<OrdersContainerModel>.self, urlExt: "orders/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+    func fetchOrder(_ id: String, completion: @escaping (Result<BaseMappableModel<OrderModel>, NSError>) -> ()) {
+        NetworkManager.shared.request(BaseMappableModel<OrderModel>.self, urlExt: "orders/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)
         }
     }

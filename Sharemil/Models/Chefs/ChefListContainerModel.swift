@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 class ChefListContainerModel: Mappable {
-    
+    var chef: ChefListModel?
     var chefs: [ChefListModel]?
     var cuisines: [CusineListModel]?
     
@@ -18,6 +18,7 @@ class ChefListContainerModel: Mappable {
     }
     
     func mapping(map: Map) {
+        chef <- map["chef"]
         chefs <- map["chefs"]
         cuisines <- map["cuisines"]
     }

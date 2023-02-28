@@ -93,16 +93,16 @@ class ChefMenuViewController: UIViewController, Storyboarded {
             self.viewModel.fetchCarts()
             self.viewModel.fetchChefMenu()
         }
-        coordinator.didCheckout = { [weak self] in
+        coordinator.didCheckout = { chef in
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
-            coordinator.cartList = self?.cartItems
-            coordinator.chef = self?.viewModel.chef
+            coordinator.cartList = self.cartItems
+            coordinator.chef = chef
             coordinator.didCheckoutComplete = {
-                self?.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
             let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
             nav.modalPresentationStyle = .overFullScreen
-            self?.present(nav, animated: true)
+            self.present(nav, animated: true)
         }
         self.present(coordinator.getMainView(), animated: true)
     }

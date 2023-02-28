@@ -93,11 +93,11 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.didUpdate = {
             self.viewModel.fetchCarts()
         }
-        coordinator.didCheckout = {
+        coordinator.didCheckout = { chef in
           
             let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
             coordinator.cartList = self.carts?[indexPath.row].cartItems
-            coordinator.chef = self.carts?[indexPath.row].chef
+            coordinator.chef = chef
             coordinator.didCheckoutComplete = {
                 self.viewModel.fetchCarts()
             }

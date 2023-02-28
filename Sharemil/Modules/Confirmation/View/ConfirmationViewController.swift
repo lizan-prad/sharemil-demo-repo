@@ -72,6 +72,7 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setTableView()
         bindViewModel()
+//        self.viewModel.getOrder(self.id ?? "")
         self.getOrderStatusUpdate()
     }
     

@@ -7,13 +7,14 @@
 
 import Foundation
 
-class CartDetailViewModel: MenuItemService, CartService {
+class CartDetailViewModel: MenuItemService, CartService, HomeService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     var cartList: Observable<CartListModel> = Observable(nil)
     var deleteState: Observable<String> = Observable(nil)
     var refresh: Observable<String> = Observable(nil)
+    var chef: Observable<ChefListModel> = Observable(nil)
     
     func fetchCarts() {
         self.loading.value = true
@@ -22,6 +23,23 @@ class CartDetailViewModel: MenuItemService, CartService {
             switch result {
             case .success(let model):
                 self.cartList.value = model.data
+            case .failure(let error):
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
+            }
+        }
+    }
+    
+    func fetchChefBy(_ id: String) {
+        self.loading.value = true
+        self.fetchChefBy(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.chef.value = model.data?.chef
             case .failure(let error):
                 if error.code == 401 {
                     self.refresh.value = error.localizedDescription

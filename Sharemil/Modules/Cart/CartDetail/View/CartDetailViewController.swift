@@ -26,7 +26,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     
     var didUpdate: (() -> ())?
     
-    var didSelectCheckout: (() -> ())?
+    var didSelectCheckout: ((ChefListModel?) -> ())?
     var isEdit = false
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
         setupGestures()
         self.cartId = cartItems?.first?.cartId
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: Notification.Name.init("ITEMR"), object: nil)
+        self.viewModel.fetchChefBy(self.chef?.id ?? "")
     }
     
     @objc func updateData() {
@@ -61,6 +62,9 @@ class CartDetailViewController: UIViewController, Storyboarded {
         }
         self.viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
+        }
+        self.viewModel.chef.bind { model in
+            self.chef = model
         }
         self.viewModel.deleteState.bind { msg in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
@@ -129,7 +133,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     
     @IBAction func checkoutAction(_ sender: Any) {
         self.dismiss(animated: true) {
-            self.didSelectCheckout?()
+            self.didSelectCheckout?(self.chef)
         }
     }
 }

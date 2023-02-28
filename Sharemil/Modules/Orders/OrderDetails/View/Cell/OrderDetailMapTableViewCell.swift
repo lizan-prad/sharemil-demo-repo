@@ -30,7 +30,7 @@ class OrderDetailMapTableViewCell: UITableViewCell {
             let orderD = formatter.string(from: orderCreated ?? Date())
             formatter.dateFormat = "hh:mm a"
             let orderTime = formatter.string(from: orderCreated ?? Date())
-            orderDate.text = "\(orderD) at \(orderTime))"
+            orderDate.text = "\(orderD) at \(orderTime)"
         }
     }
     

@@ -16,7 +16,7 @@ class CartDetailCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    var didCheckout: (() -> ())?
+    var didCheckout: ((ChefListModel?) -> ())?
     var didUpdate: (() -> ())?
     var cartItems: [CartItems]?
     var menuItems: [ChefMenuListModel]?

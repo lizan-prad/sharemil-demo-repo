@@ -20,7 +20,7 @@ class ConfirmationViewModel: CheckoutService, OrdersService {
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.order.value = model.data?.orders
+                self.order.value = model.data
             case .failure(let error):
                 self.error.value = error.localizedDescription
             }
