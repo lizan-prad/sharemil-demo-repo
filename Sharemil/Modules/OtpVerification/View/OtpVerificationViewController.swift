@@ -46,7 +46,7 @@ class OtpVerificationViewController: UIViewController, Storyboarded {
         
         viewModel.error.bind { msg in
             self.pinView.clearPin()
-            print(msg)
+            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
     }
     

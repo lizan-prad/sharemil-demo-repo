@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="5" failures="0">
+    <testsuite name="SharemilTests" tests="2" failures="0" skipped="0" time="0.586527943611145">
+        <properties>
+          <property name="Configuration" value="Test Scheme Action"/>
+        </properties>
+        <testcase classname="SharemilTests" name="testExample()" time="0.004647970199584961">
+        </testcase>
+        <testcase classname="SharemilTests" name="testPerformanceExample()" time="0.5818799734115601">
+        </testcase>
+    </testsuite>
+    <testsuite name="SharemilUITests" tests="3" failures="0" skipped="0" time="123.04478907585144">
+        <properties>
+          <property name="Configuration" value="Test Scheme Action"/>
+        </properties>
+        <testcase classname="SharemilUITests" name="testExample()" time="13.000707030296326">
+        </testcase>
+        <testcase classname="SharemilUITests" name="testLaunchPerformance()" time="28.31674599647522">
+        </testcase>
+        <testcase classname="SharemilUITestsLaunchTests" name="testLaunch()" time="6.595404028892517">
+        </testcase>
+        <testcase classname="SharemilUITestsLaunchTests" name="testLaunch()" time="66.07949900627136">
+        </testcase>
+        <testcase classname="SharemilUITestsLaunchTests" name="testLaunch()" time="4.548476934432983">
+        </testcase>
+        <testcase classname="SharemilUITestsLaunchTests" name="testLaunch()" time="4.503956079483032">
+        </testcase>
+    </testsuite>
+</testsuites>

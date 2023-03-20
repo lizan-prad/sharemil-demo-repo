@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 struct IssueListStruct {
     var item: CartItems?
@@ -106,6 +107,17 @@ class HelpIssuePageViewController: UIViewController, Storyboarded, UITextViewDel
     }
     
     @IBAction func continueAction(_ sender: Any) {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        Mixpanel.mainInstance().track(event: "Support Order Selection", properties: [
+            "order_no": self.orderId ?? "",
+            "order_id": self.order ?? "",
+            "chef": "\(cart?.chef?.firsName ?? "") \(cart?.chef?.lastName ?? "")",
+            "type": type ?? "",
+            "issue_list": issueList?.map({"[Category: \($0.issue?.category ?? ""), ID: \($0.issue?.id ?? "")]"}).joined(separator: ", ") ?? "",
+            "note": detailsTextView.text,
+            "app_version": appVersion ?? ""
+            ])
+        
         viewModel.createSupportTicket(SupportTicketStruct.init(issues: issueList, orderNo: orderId ?? "", note: detailsTextView.text, id: self.order))
     }
 }

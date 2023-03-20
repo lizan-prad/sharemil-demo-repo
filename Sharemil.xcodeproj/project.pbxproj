@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4850AC6EAEA8F216F433A951 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		52A423CB285119D9007549BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423CA285119D9007549BB /* AppDelegate.swift */; };
 		52A423D4285119DF007549BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D3285119DF007549BB /* Assets.xcassets */; };
 		52A423D7285119DF007549BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D5285119DF007549BB /* LaunchScreen.storyboard */; };
@@ -215,8 +216,6 @@
 		BEB7A57C29786B1E00F72E0D /* PickUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57B29786B1E00F72E0D /* PickUpService.swift */; };
 		BEB7A591298167A400F72E0D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A590298167A400F72E0D /* NotificationService.swift */; };
 		BEB7A595298167A400F72E0D /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BEB7A58E298167A400F72E0D /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BEB7A59C298168E500F72E0D /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = BEB7A59B298168E500F72E0D /* OneSignal */; };
-		BEB7A59E298168E500F72E0D /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = BEB7A59D298168E500F72E0D /* OneSignalExtension */; };
 		BEC08C0B28EDB681005AA875 /* HelpIssuePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */; };
 		BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */; };
 		BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */; };
@@ -321,6 +320,7 @@
 		52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
 		871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharemilRelease.entitlements; sourceTree = "<group>"; };
 		9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.debug.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.debug.xcconfig"; sourceTree = "<group>"; };
+		AF8204860FE7FFD01608067B /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		BE11832C287C865C0073970B /* SaveLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationService.swift; sourceTree = "<group>"; };
 		BE118331287C87250073970B /* SaveLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationViewModel.swift; sourceTree = "<group>"; };
 		BE118334287C893A0073970B /* MyLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationService.swift; sourceTree = "<group>"; };
@@ -415,6 +415,9 @@
 		BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationOrderSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationSummaryListTableViewCell.swift; sourceTree = "<group>"; };
 		BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationSummaryListTableViewCell.xib; sourceTree = "<group>"; };
+		BE63844229C3AD1E00265A1D /* SharemilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITests.swift; sourceTree = "<group>"; };
+		BE63844429C3AD1E00265A1D /* SharemilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE63845129C3AD2C00265A1D /* SharemilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilTests.swift; sourceTree = "<group>"; };
 		BE727E3E28ACFE8800B7C068 /* ShowDirection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowDirection.storyboard; sourceTree = "<group>"; };
 		BE727E4028ACFEA000B7C068 /* ShowDirectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDirectionViewController.swift; sourceTree = "<group>"; };
 		BE727E4228AD02D000B7C068 /* ShowDirectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDirectionCoordinator.swift; sourceTree = "<group>"; };
@@ -569,6 +572,8 @@
 		BEF7EB4328699B00002D553E /* CartItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItems.swift; sourceTree = "<group>"; };
 		BEF816B028BEC7E70094A0EA /* HoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursModel.swift; sourceTree = "<group>"; };
 		BEFB861B28FEA6B300D340B2 /* HelpIssuePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewModel.swift; sourceTree = "<group>"; };
+		C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAEF31384A4B1A5860C5D532 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,10 +588,8 @@
 				BE8CD3C228F61EFF007A476B /* GoogleSignIn in Frameworks */,
 				BEA7BCB8293108F100E0E5C9 /* FirebaseCrashlytics in Frameworks */,
 				BEAEB04B293532F300C3E289 /* Mixpanel in Frameworks */,
-				BEB7A59E298168E500F72E0D /* OneSignalExtension in Frameworks */,
 				BEA7BCB4293108F100E0E5C9 /* FirebaseAnalytics in Frameworks */,
 				BEA7BCB6293108F100E0E5C9 /* FirebaseAuth in Frameworks */,
-				BEB7A59C298168E500F72E0D /* OneSignal in Frameworks */,
 				BEA7BCBC293108F100E0E5C9 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +598,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4850AC6EAEA8F216F433A951 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +610,8 @@
 			children = (
 				9657F1065D38354F9BC79120 /* Pods-Sharemil.debug.xcconfig */,
 				3F25767DDDBA81A0903B7CE3 /* Pods-Sharemil.release.xcconfig */,
+				CAEF31384A4B1A5860C5D532 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				AF8204860FE7FFD01608067B /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */,
+				C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -623,6 +630,8 @@
 			children = (
 				52A423C9285119D9007549BB /* Sharemil */,
 				BEB7A58F298167A400F72E0D /* OneSignalNotificationServiceExtension */,
+				BE63844129C3AD1E00265A1D /* SharemilUITests */,
+				BE63845029C3AD2C00265A1D /* SharemilTests */,
 				52A423C8285119D9007549BB /* Products */,
 				454E21101C2C27F66512AC9E /* Pods */,
 				51BA570F4EA87D1522C67AE4 /* Frameworks */,
@@ -1163,6 +1172,23 @@
 				BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE63844129C3AD1E00265A1D /* SharemilUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE63844229C3AD1E00265A1D /* SharemilUITests.swift */,
+				BE63844429C3AD1E00265A1D /* SharemilUITestsLaunchTests.swift */,
+			);
+			path = SharemilUITests;
+			sourceTree = "<group>";
+		};
+		BE63845029C3AD2C00265A1D /* SharemilTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE63845129C3AD2C00265A1D /* SharemilTests.swift */,
+			);
+			path = SharemilTests;
 			sourceTree = "<group>";
 		};
 		BE727E3D28ACFE7100B7C068 /* ShowDirection */ = {
@@ -2025,8 +2051,6 @@
 				BEA7BCBD293108F100E0E5C9 /* FirebaseMessaging */,
 				BEA7BCBF293108F100E0E5C9 /* FirebaseStorage */,
 				BEAEB04A293532F300C3E289 /* Mixpanel */,
-				BEB7A59B298168E500F72E0D /* OneSignal */,
-				BEB7A59D298168E500F72E0D /* OneSignalExtension */,
 			);
 			productName = Sharemil;
 			productReference = 52A423C7285119D9007549BB /* Sharemil.app */;
@@ -2036,6 +2060,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEB7A599298167A400F72E0D /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
+				CD74931CD6DAB5A23C6756D5 /* [CP] Check Pods Manifest.lock */,
 				BEB7A58A298167A400F72E0D /* Sources */,
 				BEB7A58B298167A400F72E0D /* Frameworks */,
 				BEB7A58C298167A400F72E0D /* Resources */,
@@ -2056,7 +2081,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					52A423C6285119D9007549BB = {
@@ -2080,7 +2105,6 @@
 				BE8CD3C028F61EFE007A476B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				BEA7BCB2293108F100E0E5C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BEAEB049293532F200C3E289 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
-				BEB7A59A298168E500F72E0D /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = 52A423C8285119D9007549BB /* Products */;
 			projectDirPath = "";
@@ -2240,6 +2264,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CD74931CD6DAB5A23C6756D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E22E8B3418309B593C8788C7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2247,6 +2293,7 @@
 			);
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -2603,10 +2650,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sharemil/Sharemil.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 18;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = H897FZT8JU;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = H897FZT8JU;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
@@ -2618,17 +2667,21 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Sharemil-prov";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2644,9 +2697,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sharemil/SharemilRelease.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = H897FZT8JU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = H897FZT8JU;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
@@ -2658,16 +2713,21 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Registration;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Sharemil-prov";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2677,58 +2737,68 @@
 		};
 		BEB7A597298167A400F72E0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEF31384A4B1A5860C5D532 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H897FZT8JU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = H897FZT8JU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Sharemil-prov-notif";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		BEB7A598298167A400F72E0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF8204860FE7FFD01608067B /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H897FZT8JU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = H897FZT8JU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil.OneSignalNotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Sharemil-prov-notif";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2789,14 +2859,6 @@
 				kind = branch;
 			};
 		};
-		BEB7A59A298168E500F72E0D /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2844,16 +2906,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BEAEB049293532F200C3E289 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
 			productName = Mixpanel;
-		};
-		BEB7A59B298168E500F72E0D /* OneSignal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BEB7A59A298168E500F72E0D /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignal;
-		};
-		BEB7A59D298168E500F72E0D /* OneSignalExtension */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BEB7A59A298168E500F72E0D /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalExtension;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

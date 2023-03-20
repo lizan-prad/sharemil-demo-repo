@@ -17,8 +17,9 @@ class NetworkManager {
     typealias CompletionHandler<T: Mappable> = (Result<T, NSError>) -> ()
     
     func request<T: Mappable>(_ value: T.Type ,urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping CompletionHandler<T>){
-        
-        let header = headers == nil ? [.authorization(bearerToken: UserDefaults.standard.string(forKey: StringConstants.userIDToken) ?? "")] : headers
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        var header = headers == nil ? [.authorization(bearerToken: UserDefaults.standard.string(forKey: StringConstants.userIDToken) ?? "")] : headers
+        header?["app-version"] = appVersion ?? ""
         print(header)
         
         AF.request(URLConfig.baseUrl + urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in

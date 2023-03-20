@@ -49,8 +49,10 @@ class RegistrationViewController: UIViewController, Storyboarded {
         }
         
         viewModel.signInSuccess.bind { msg in
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
             Mixpanel.mainInstance().track(event: "Initiated registration", properties: [
-                "phone": self.phoneField.text ?? ""
+                "phone": self.phoneField.text ?? "",
+                "app_version": appVersion ?? ""
                 ])
             guard let nav = self.navigationController, let number = self.phoneField.phoneNumber?.nationalNumber, let code = self.phoneField.phoneNumber?.countryCode else {return}
             let coordinator = OtpVerificationCoordinator.init(navigationController: nav)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 class HelpViewController: UIViewController, Storyboarded {
 
@@ -38,24 +39,47 @@ class HelpViewController: UIViewController, Storyboarded {
     }
     
     @objc func openMissing() {
+        Mixpanel.mainInstance().track(event: "Support Order Selection", properties: [
+            "order_id": self.orderId ?? "",
+            "chef": "\(cart?.chef?.firsName ?? "") \(cart?.chef?.lastName ?? "")",
+            "type": "Missing or incorrect item"
+            ])
+        
         let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.cart
         coordinator.type = "missing"
         coordinator.orderId = orderId
         coordinator.order = self.order
+       
         self.present(coordinator.getMainView(), animated: true)
     }
     
     @objc func openIssue() {
+        Mixpanel.mainInstance().track(event: "Support Order Selection", properties: [
+            "order_no": self.orderId ?? "",
+            "order_id": self.order ?? "",
+            "chef": "\(cart?.chef?.firsName ?? "") \(cart?.chef?.lastName ?? "")",
+            "type": "Item quality issues"
+            ])
+        
         let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.cart
         coordinator.orderId = orderId
         coordinator.type = "item_quality"
         coordinator.order = self.order
+        
         self.present(coordinator.getMainView(), animated: true)
     }
     
     @objc func openOtherIssue() {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        Mixpanel.mainInstance().track(event: "Support Order Selection", properties: [
+            "order_id": self.orderId ?? "",
+            "chef": "\(cart?.chef?.firsName ?? "") \(cart?.chef?.lastName ?? "")",
+            "type": "Other issues",
+            "app_version": appVersion ?? ""
+            ])
+        
         let coordinator = OtherHelpCoordinator.init(navigationController: UINavigationController())
         self.present(coordinator.getMainView(), animated: true)
     }

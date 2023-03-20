@@ -61,13 +61,14 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     
     var user: UserModel? {
         didSet {
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
             OneSignal.setExternalUserId(user?.id ?? "") { data in
                 print(data)
             }
             Mixpanel.mainInstance().identify(distinctId: user?.id ?? "") {
-                Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? ""])
+                Mixpanel.mainInstance().people.set(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? "", "Environment": UserDefaults.standard.string(forKey: "ENV") == "D" ? "Stage" : "Production"])
             }
-            Mixpanel.mainInstance().people.setOnce(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? ""])
+            Mixpanel.mainInstance().people.setOnce(properties: [ "$distinct_id": self.user?.id ?? "", "$name": "\(self.user?.firstName ?? "") \(self.user?.lastName ?? "")", "$email": self.user?.email ?? "", "$avatar" : self.user?.profileImage ?? "", "$phone" : self.user?.phoneNumber ?? "", "Environment": UserDefaults.standard.string(forKey: "ENV") == "D" ? "Stage" : "Production"])
         }
     }
     
@@ -382,11 +383,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         Mixpanel.mainInstance().track(event: "Chef selected", properties: [
             "chef_id": self.filtered?[indexPath.row].id ?? "",
             "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",
             "address": self.address ?? "",
-            "chef": "\(self.filtered?[indexPath.row].firsName ?? "") \(self.filtered?[indexPath.row].lastName ?? "")"
+            "chef": "\(self.filtered?[indexPath.row].firsName ?? "") \(self.filtered?[indexPath.row].lastName ?? "")",
+            "app_version": appVersion ?? ""
             ])
         guard let nav = self.navigationController else {return}
         let coordinator = ChefMenuCoordinator.init(navigationController: nav)
@@ -437,6 +440,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 return
             }
             self.selectedCusine = self.cusines?[indexPath.row - 1]
+            
             Mixpanel.mainInstance().track(event: "Cuisine selected", properties: [
                 "cuisine_id": self.selectedCusine?.id ?? "",
                 "user_location": "\(loc?.location?.coordinate.latitude ?? 0) , \(loc?.location?.coordinate.longitude ?? 0)",

@@ -30,10 +30,10 @@ class EditAccountViewController: UIViewController, Storyboarded {
             } else {
             profilePic.sd_setImage(with: URL.init(string: user?.profileImage ?? ""))
             }
-            self.firstName.text = user?.firstName
-            self.lastName.text = user?.lastName
-            self.phoneLabel.text = user?.phoneNumber
-            self.email.text = user?.email
+            self.firstName.text = (user?.firstName == "") || (user?.firstName == nil)  ? "N/A" : user?.firstName
+            self.lastName.text = (user?.lastName == "") || (user?.lastName == nil)  ? "N/A" : user?.lastName
+            self.phoneLabel.text = (user?.phoneNumber == "") || (user?.phoneNumber == nil)  ? "N/A" : user?.phoneNumber
+            self.email.text = (user?.email == "") || (user?.email == nil)  ? "N/A" : user?.email
             self.emailVerification.isHidden = user?.email == ""
         }
     }

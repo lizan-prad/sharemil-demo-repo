@@ -60,9 +60,28 @@ class AccountNameViewController: UIViewController {
     }
     
     @IBAction func updateAction(_ sender: Any) {
-        let param: [String: Any] = self.currentNameType == .first ? [
-            "firstName": self.nameFIeld.text ?? ""
-        ] : (currentNameType == .last ? [  "lastName": self.nameFIeld.text ?? "" ] : [  "email": self.nameFIeld.text ?? "" ] )
-        self.viewModel.updateUserProfile(param: param)
+        if currentNameType == .email {
+            if isValidEmail(nameFIeld.text ?? "") {
+                let param: [String: Any] = self.currentNameType == .first ? [
+                    "firstName": self.nameFIeld.text ?? ""
+                ] : (currentNameType == .last ? [  "lastName": self.nameFIeld.text ?? "" ] : [  "email": self.nameFIeld.text ?? "" ] )
+                self.viewModel.updateUserProfile(param: param)
+            } else {
+                self.showToastMsg("Enter a valid email address", state: .error, location: .bottom)
+            }
+        } else {
+            let param: [String: Any] = self.currentNameType == .first ? [
+                "firstName": self.nameFIeld.text ?? ""
+            ] : (currentNameType == .last ? [  "lastName": self.nameFIeld.text ?? "" ] : [  "email": self.nameFIeld.text ?? "" ] )
+            self.viewModel.updateUserProfile(param: param)
+        }
+        
     }
+}
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
 }

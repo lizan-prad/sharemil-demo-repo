@@ -7,7 +7,7 @@
 		<key>OneSignalNotificationServiceExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>29</integer>
+			<integer>56</integer>
 		</dict>
 		<key>Sharemil.xcscheme_^#shared#^_</key>
 		<dict>
@@ -18,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>52A423C6285119D9007549BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEB7A58D298167A400F72E0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

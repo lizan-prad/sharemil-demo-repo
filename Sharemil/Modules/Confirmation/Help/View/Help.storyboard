@@ -148,8 +148,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-ye-IeJ">
                                         <rect key="frame" x="0.0" y="112" width="414" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="other issues" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-Wd-khj">
-                                                <rect key="frame" x="16" y="18.5" width="94" height="19.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other issues" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-Wd-khj">
+                                                <rect key="frame" x="16" y="18.5" width="96.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                                 <color key="textColor" red="0.066666666669999999" green="0.094117647060000004" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
