@@ -7,6 +7,7 @@
 
 import UIKit
 import Mixpanel
+import FirebaseAuth
 
 class EditAccountViewController: UIViewController, Storyboarded {
 
@@ -42,7 +43,7 @@ class EditAccountViewController: UIViewController, Storyboarded {
         didSet {
             self.profilePic.image = selectedImage
             self.showProgressHud()
-            FirebaseService.shared.uploadMedia(selectedImage ?? UIImage(), name: "profile_pic") { url in
+            FirebaseService.shared.uploadMedia(selectedImage ?? UIImage(), name: Auth.auth().currentUser?.uid ?? "") { url in
                 self.hideProgressHud()
                 let param: [String: Any] =  [
                     "profileImage": url ?? ""
