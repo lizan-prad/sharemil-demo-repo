@@ -217,7 +217,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
         viewModel.deleteState.bind { model in
             self.dismiss(animated: true) {
-                self.didAddToCart?(nil)
+                self.didAddToCart?(self.selectedItem?.id)
             }
         }
         viewModel.cartList.bind { model in

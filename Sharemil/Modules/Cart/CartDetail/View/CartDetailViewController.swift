@@ -68,6 +68,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
         }
         self.viewModel.deleteState.bind { msg in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTUPDATE"), object: nil)
             self.dismiss(animated: true) {
                 self.didUpdate?()
             }
@@ -127,7 +128,11 @@ class CartDetailViewController: UIViewController, Storyboarded {
         } else {
             self.editBtn.setImage(UIImage.init(named: "edit"), for: .normal)
             self.editBtn.setTitle(nil, for: .normal)
-            self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems?.filter({$0.quantity != 0}) ?? [])
+            if cartItems?.filter({$0.quantity != 0}).count == 0 {
+                self.viewModel.deleteCart(self.cartId ?? "")
+            } else {
+                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems?.filter({$0.quantity != 0}) ?? [])
+            }
         }
     }
     
@@ -200,8 +205,14 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
             self.cartItems = self.cartItems?.filter({$0.id != model})
             self.tableViewHeight.constant = CGFloat((self.cartItems?.count ?? 0)*65) + 65
             self.tableView.reloadData()
-//            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
-            self.didUpdate?()
+            if self.cartItems?.isEmpty == true {
+                self.dismiss(animated: true) {
+                    self.didUpdate?()
+                }
+            } else {
+                //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+                self.didUpdate?()
+            }
 //            self.viewModel.fetchCarts(model?.cart?.id ?? "")
         }
         self.present(coordinator.getMainView(), animated: true)

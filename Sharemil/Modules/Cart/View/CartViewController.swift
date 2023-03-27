@@ -22,6 +22,7 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CartViewModel()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCartItems), name: Notification.Name.init("CARTUPDATE"), object: nil)
         bindViewModel()
         setTableView()
     }
@@ -41,6 +42,10 @@ class CartViewController: UIViewController {
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.viewModel.fetchCarts()
         }
+    }
+    
+    @objc func updateCartItems() {
+        self.viewModel.fetchCarts()
     }
     
     private func start() {
