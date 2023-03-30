@@ -19,6 +19,7 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
 	ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "120" 
+	ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "5"
     increment_build_number(xcodeproj: "Sharemil.xcodeproj")
     build_app(workspace: "Sharemil.xcworkspace", scheme: "Sharemil")
     upload_to_testflight

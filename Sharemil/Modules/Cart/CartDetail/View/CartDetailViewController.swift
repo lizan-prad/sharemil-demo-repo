@@ -27,16 +27,19 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var didUpdate: (() -> ())?
     
     var didSelectCheckout: ((ChefListModel?) -> ())?
+    var menu: [ChefMenuListModel]?
     var isEdit = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        container.addCornerRadius(15)
         setup()
         setTable()
         setupGestures()
         self.cartId = cartItems?.first?.cartId
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: Notification.Name.init("ITEMR"), object: nil)
+        self.viewModel.fetchChefMenu(self.chef?.id ?? "")
         self.viewModel.fetchChefBy(self.chef?.id ?? "")
     }
     
@@ -80,10 +83,12 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.cartItems = self.cartItems?.filter({$0.quantity != 0})
             self.tableView.reloadData()
         }
+        self.viewModel.menuItems.bind { menu in
+            self.menu = menu
+        }
     }
     
     private func setup() {
-        container.addCornerRadius(15)
         var prices = [Double]()
         cartItems?.enumerated().forEach({ (index, item) in
             let price = (Double(item.quantity ?? 0)*(cartItems?[index].menuItem?.price ?? 0))
@@ -155,11 +160,13 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setup()
         cell.index = indexPath.row
         cell.item = self.cartItems?[indexPath.row]
+        cell.menuItem = menu?.filter({$0.id == self.cartItems?[indexPath.row].menuItemId}).first
         cell.didChangeQuantity = { (quantity, index) in
             if var item = self.cartItems?[index ?? 0] {
                 item.quantity = quantity
                 self.cartItems?.remove(at: index ?? 0)
                 self.cartItems?.insert(item, at: index ?? 0)
+                self.setup()
                 self.tableView.reloadData()
             }
         }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CartDetailViewModel: MenuItemService, CartService, HomeService {
+class CartDetailViewModel: MenuItemService, CartService, HomeService, ChefMenuService {
     
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
@@ -15,6 +15,21 @@ class CartDetailViewModel: MenuItemService, CartService, HomeService {
     var deleteState: Observable<String> = Observable(nil)
     var refresh: Observable<String> = Observable(nil)
     var chef: Observable<ChefListModel> = Observable(nil)
+    var menuItems: Observable<[ChefMenuListModel]> = Observable([])
+    
+    
+    func fetchChefMenu(_ id: String) {
+        self.loading.value = true
+        self.fetchChefMenu(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.menuItems.value = model.data?.menu
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
     
     func fetchCarts() {
         self.loading.value = true

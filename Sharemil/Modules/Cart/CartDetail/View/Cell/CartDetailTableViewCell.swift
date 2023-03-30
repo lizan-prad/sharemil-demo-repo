@@ -18,7 +18,7 @@ class CartDetailTableViewCell: UITableViewCell {
     
     var isEdit = false
     var index: Int?
-    
+    var menuItem: ChefMenuListModel?
     var didChangeQuantity: ((Int, Int?) -> ())?
     
     var item: CartItems? {
@@ -38,10 +38,10 @@ class CartDetailTableViewCell: UITableViewCell {
     
   
     @IBAction func plusAction(_ sender: Any) {
-        if (item?.menuItem?.remainingItems ?? 0) > (Int(quantityLabel.text ?? "") ?? 0) {
+        if (menuItem?.remainingItems ?? 0) > (Int(quantityLabel.text ?? "") ?? 0) {
             self.quantityLabel.text = "\((Int(quantityLabel.text ?? "") ?? 0) + 1)"
             self.didChangeQuantity?(Int(quantityLabel.text ?? "") ?? 0, index)
-        } else if item?.menuItem?.remainingItems == nil {
+        } else if menuItem?.remainingItems == nil {
             self.quantityLabel.text = "\((Int(quantityLabel.text ?? "") ?? 0) + 1)"
             self.didChangeQuantity?(Int(quantityLabel.text ?? "") ?? 0, index)
         }
