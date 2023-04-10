@@ -43,6 +43,7 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupData()
         setTableView()
+        self.title = "hello"
         bindViewModel()
     }
     
