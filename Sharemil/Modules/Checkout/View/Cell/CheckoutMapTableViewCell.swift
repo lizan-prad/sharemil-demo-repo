@@ -11,6 +11,8 @@ import GoogleMaps
 class CheckoutMapTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var deliveryAddressView: UIView!
+    @IBOutlet weak var pickupTitleLabel: UILabel!
     @IBOutlet weak var timeErrorLabel: UILabel!
     @IBOutlet weak var pickUpLabel: UILabel!
     @IBOutlet weak var businessName: UILabel!
@@ -21,6 +23,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     @IBOutlet weak var chefLocation: UILabel!
     @IBOutlet weak var chefName: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var addressView: UIView!
     
     var selectedDate: Date?
     var didSelectMainDate: ((Date?) -> ())?
@@ -29,12 +32,24 @@ class CheckoutMapTableViewCell: UITableViewCell {
     var didTapSchedule: (([HoursModel]?) -> ())?
     
     var containsOutOfStockItem = false
+    var checkoutType: CheckoutType?
     
     var chef: ChefListModel? {
         didSet {
             
-            standardContainer.isHidden = (chef?.isOpen == false) || containsOutOfStockItem
             
+            if checkoutType == .delivery {
+                standardContainer.isHidden = true
+                mapView.isHidden = true
+                addressView.isHidden = true
+                deliveryAddressView.isHidden = false
+            } else {
+                standardContainer.isHidden = (chef?.isOpen == false) || containsOutOfStockItem
+                mapView.isHidden = false
+                addressView.isHidden = false
+                deliveryAddressView.isHidden = true
+            }
+            self.pickupTitleLabel.text = checkoutType == .delivery ? "Delivery Schedule" : "Pickup Time"
             self.timeErrorLabel.text = ""
             businessName.text = chef?.businessName
             chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"

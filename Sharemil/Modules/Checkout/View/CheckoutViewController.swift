@@ -12,6 +12,44 @@ import GooglePlaces
 import StripeApplePay
 import PassKit
 
+class CustomSegmentedControl: UISegmentedControl{
+    private let segmentInset: CGFloat = 5       //your inset amount
+    private let segmentImage: UIImage? = UIImage(color: UIColor.white)    //your color
+
+    override func layoutSubviews(){
+        super.layoutSubviews()
+
+        //background
+        layer.cornerRadius = bounds.height/2
+        //foreground
+        let foregroundIndex = numberOfSegments
+        if subviews.indices.contains(foregroundIndex), let foregroundImageView = subviews[foregroundIndex] as? UIImageView
+        {
+            foregroundImageView.bounds = foregroundImageView.bounds.insetBy(dx: segmentInset, dy: segmentInset)
+            foregroundImageView.image = segmentImage    //substitute with our own colored image
+            foregroundImageView.layer.removeAnimation(forKey: "SelectionBounds")    //this removes the weird scaling animation!
+            foregroundImageView.layer.masksToBounds = true
+            foregroundImageView.layer.cornerRadius = foregroundImageView.bounds.height/2
+        }
+    }
+}
+
+extension UIImage{
+    
+    //creates a UIImage given a UIColor
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+    
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+
 extension Date {
     static func dates(from fromDate: Date, to toDate: Date) -> [Date] {
         var dates: [Date] = []
@@ -24,6 +62,11 @@ extension Date {
         }
         return dates
     }
+}
+
+enum CheckoutType {
+    case delivery
+    case pickup
 }
 
 class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDelegate, PaymentOptionsService {
@@ -58,7 +101,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
-
+    @IBOutlet weak var deliveryPickupSegment: CustomSegmentedControl!
+    
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var placeOrderBtn: UIButton!
@@ -66,6 +110,14 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var paymentView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    var defaultCheckoutType: CheckoutType = .pickup {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     var viewModel: CheckoutViewModel!
 //    var paymentSheet: PaymentSheet?
@@ -122,6 +174,10 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.deliveryPickupSegment.selectedSegmentIndex = 1
+        self.deliveryPickupSegment.layer.masksToBounds = true
+        deliveryPickupSegment.layer.cornerRadius = 20
+        self.deliveryPickupSegment.backgroundColor = UIColor.init(hex: "D9D9D9")
         bindViewModel()
         setTableView()
         self.viewModel.getRoute(loc?.location?.coordinate ?? CLLocationCoordinate2D.init(), destination: CLLocationCoordinate2D.init(latitude: chef?.latitude ?? 0, longitude: chef?.longitude ?? 0))
@@ -151,6 +207,14 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.placeOrderBtn.disable()
         paymentView.isUserInteractionEnabled = true
         paymentView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openPaymentMethods)))
+    }
+    
+    @IBAction func deliveryPickupAction(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.defaultCheckoutType = .delivery
+        } else {
+            self.defaultCheckoutType = .pickup
+        }
     }
     
     @objc private func openPaymentMethods() {
@@ -356,6 +420,7 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
             cell.containsOutOfStockItem = !(self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).isEmpty ?? false)
+            cell.checkoutType = self.defaultCheckoutType
             cell.chef = self.chef
             cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
