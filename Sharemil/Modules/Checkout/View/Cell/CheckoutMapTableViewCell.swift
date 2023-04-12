@@ -24,6 +24,8 @@ class CheckoutMapTableViewCell: UITableViewCell {
     @IBOutlet weak var chefName: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var delivaryName: UILabel!
+    @IBOutlet weak var deliveryAddressLabel: UILabel!
     
     var selectedDate: Date?
     var didSelectMainDate: ((Date?) -> ())?
@@ -33,11 +35,17 @@ class CheckoutMapTableViewCell: UITableViewCell {
     
     var containsOutOfStockItem = false
     var checkoutType: CheckoutType?
+    var didTapDeliveryAction: (() -> ())?
+    var currentDeliveryLocation: MyLocationModel?
     
     var chef: ChefListModel? {
         didSet {
-            
-            
+            deliveryAddressView.isUserInteractionEnabled = true
+            deliveryAddressView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(deliveryAddressAction)))
+            self.delivaryName.text = currentDeliveryLocation?.name
+            GoogleMapsServices.shared.getAddress(LLocation.init(location: CLLocation.init(latitude: currentDeliveryLocation?.latitude ?? 0 , longitude: currentDeliveryLocation?.longitude ?? 0))) { address in
+                self.deliveryAddressLabel.text = address
+            }
             if checkoutType == .delivery {
                 standardContainer.isHidden = true
                 mapView.isHidden = true
@@ -62,6 +70,10 @@ class CheckoutMapTableViewCell: UITableViewCell {
             marker.map = self.mapView
             self.pickUpLabel.text = "Pick Up (\(chef?.preparationTime ?? ""))"
         }
+    }
+    
+    @objc func deliveryAddressAction() {
+        self.didTapDeliveryAction?()
     }
     
     var polylines: [GMSPath]? {

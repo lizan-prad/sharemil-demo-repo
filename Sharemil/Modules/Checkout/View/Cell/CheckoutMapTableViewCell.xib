@@ -259,6 +259,8 @@
                 <outlet property="businessName" destination="ndz-wD-J0E" id="LO5-Bj-Cj6"/>
                 <outlet property="chefLocation" destination="sk7-qX-3iW" id="nZg-IL-4dD"/>
                 <outlet property="chefName" destination="PmK-EI-AH7" id="Hux-No-ZnM"/>
+                <outlet property="delivaryName" destination="Q5V-qU-LfB" id="aF7-ZF-RdU"/>
+                <outlet property="deliveryAddressLabel" destination="05h-Rm-Vuk" id="C6h-h0-M2h"/>
                 <outlet property="deliveryAddressView" destination="Bwm-Un-ngM" id="bRp-f3-ZfD"/>
                 <outlet property="mapView" destination="tDM-zB-gjF" id="xtx-Wq-tT8"/>
                 <outlet property="pickUpLabel" destination="RCz-p0-eLi" id="qwC-HE-ccL"/>

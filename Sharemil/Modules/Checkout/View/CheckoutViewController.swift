@@ -111,7 +111,11 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     @IBOutlet weak var paymentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var selectedDeliveryLocation: MyLocationModel? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     var defaultCheckoutType: CheckoutType = .pickup {
         didSet {
@@ -385,6 +389,14 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.present(vc.getMainView(), animated: true)
     }
     
+    @objc func openLocationView() {
+        let vc = MyLocationCoordinator.init(navigationController: self.navigationController!)
+        vc.didSelectPlace = { place in
+            self.selectedDeliveryLocation = place
+        }
+        self.present(vc.getMainView(), animated: true)
+    }
+    
     private func openApplePay() {
         let merchantIdentifier = "merchant.com.sharemil.sharemil"
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
@@ -420,12 +432,16 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutMapTableViewCell") as! CheckoutMapTableViewCell
             cell.containsOutOfStockItem = !(self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).isEmpty ?? false)
+            cell.currentDeliveryLocation = self.selectedDeliveryLocation
             cell.checkoutType = self.defaultCheckoutType
             cell.chef = self.chef
             cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
             cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
             cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
             cell.polylines = self.polylines
+            cell.didTapDeliveryAction = {
+                self.openLocationView()
+            }
             cell.didProcessDateError = { error in
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                     self.showToastMsg(error, state: .error, location: .top)
