@@ -148,6 +148,19 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
         }
     }
     
+    func createOrderWithDelivery(_ deliveryAddress: String?, _ deliveryDate: String?, _ paymentMethodId: String, _ cartId: String) {
+        self.loading.value = true
+        self.createOrderDelivery(deliveryAddress, deliveryDate, paymentMethodId, cartId) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.orderCreated.value = model.data?.orders
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
+    
     func createOrderWith(_ pickUpDate: String?, _ paymentMethodId: String, _ cartId: String) {
         self.loading.value = true
         self.createOrder(pickUpDate, paymentMethodId, cartId) { result in

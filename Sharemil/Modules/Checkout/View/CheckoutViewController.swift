@@ -379,7 +379,11 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
 //                vc.modalPresentationStyle = .overFullScreen
                 self.navigationController?.pushViewController(coordinator.getMainView(), animated: true)
             } else {
-                self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                if self.defaultCheckoutType == .delivery {
+                    self.viewModel.createOrderWithDelivery(self.selectedDeliveryLocation?.id, self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                } else {
+                    self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                }
                
             }
         }
