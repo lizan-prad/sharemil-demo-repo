@@ -396,6 +396,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     
     @objc func openLocationView() {
         let vc = MyLocationCoordinator.init(navigationController: self.navigationController!)
+        vc.isDeliverySection = true
         vc.didSelectPlace = { place in
             self.selectedDeliveryLocation = place
         }

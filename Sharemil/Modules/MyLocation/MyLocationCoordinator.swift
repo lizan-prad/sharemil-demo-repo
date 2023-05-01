@@ -14,6 +14,7 @@ class MyLocationCoordinator: Coordinator {
 
     var locationName: String?
     var didSelectPlace: ((MyLocationModel?) -> ())?
+    var isDeliverySection = false
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,6 +25,7 @@ class MyLocationCoordinator: Coordinator {
         let viewModel = MyLocationViewModel()
         viewModel.currentLocation = locationName
         vc.viewModel = viewModel
+        vc.isDeliverySection = isDeliverySection
         vc.didGetPlace = didSelectPlace
         return vc
     }
@@ -34,6 +36,7 @@ class MyLocationCoordinator: Coordinator {
         viewModel.currentLocation = locationName
         vc.viewModel = viewModel
         vc.didGetPlace = didSelectPlace
+        vc.isDeliverySection = isDeliverySection
         navigationController.pushViewController(vc, animated: true)
     }
 
