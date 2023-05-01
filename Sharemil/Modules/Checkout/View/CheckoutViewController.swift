@@ -371,6 +371,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         let vc = ConfirmationAskCoordinator.init(navigationController: UINavigationController())
         vc.isUserReg = !(self.user?.isValid() ?? false)
         vc.isSchedule = self.scheduleType != "standard"
+        vc.isDeliver = self.defaultCheckoutType == .delivery
         vc.didApprove = {
             if self.user?.isValid() == false {
                 

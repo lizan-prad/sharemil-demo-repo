@@ -1,4 +1,5 @@
-//
+
+    //
 //  MyLocationViewController.swift
 //  Sharemil
 //
@@ -11,23 +12,29 @@ import GooglePlaces
 class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteTableDataSourceDelegate {
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
-        let coordinator = SaveLocationCoordinator.init(navigationController: UINavigationController())
-        coordinator.location = place
-        self.place = place
-        coordinator.didSaveLocation = {
-            self.setTableView()
-            self.showToastMsg("Location saved successfully!", state: .success, location: .bottom)
-            self.searchAddressField.text = ""
-            self.viewModel.getLocations()
+        if isDeliverySection {
+            var location = MyLocationModel()
+            location.latitude = place.coordinate.latitude
+            location.longitude = place.coordinate.longitude
+            self.didGetPlace?(location)
+        } else {
+            let coordinator = SaveLocationCoordinator.init(navigationController: UINavigationController())
+            coordinator.location = place
+            self.place = place
+            coordinator.didSaveLocation = {
+                self.setTableView()
+                self.showToastMsg("Location saved successfully!", state: .success, location: .bottom)
+                self.searchAddressField.text = ""
+                self.viewModel.getLocations()
+            }
+            coordinator.didUpdateLocation = {
+                self.setTableView()
+                self.showToastMsg("Location updated successfully!", state: .success, location: .bottom)
+                self.searchAddressField.text = ""
+                self.viewModel.getLocations()
+            }
+            self.present(coordinator.getMainView(), animated: true)
         }
-        coordinator.didUpdateLocation = {
-            self.setTableView()
-            self.showToastMsg("Location updated successfully!", state: .success, location: .bottom)
-            self.searchAddressField.text = ""
-            self.viewModel.getLocations()
-        }
-        self.present(coordinator.getMainView(), animated: true)
-        
     }
     
     func didRequestAutocompletePredictions(for tableDataSource: GMSAutocompleteTableDataSource) {
@@ -55,6 +62,7 @@ class MyLocationViewController: UIViewController, Storyboarded, GMSAutocompleteT
     var place: GMSPlace?
     
     var didGetPlace: ((MyLocationModel?) -> ())?
+    var isDeliverySection = false
     
     var locations: [MyLocationModel]? {
         didSet {

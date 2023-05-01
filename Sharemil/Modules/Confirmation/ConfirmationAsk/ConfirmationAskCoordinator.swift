@@ -21,6 +21,7 @@ class ConfirmationAskCoordinator: Coordinator {
     
     var isUserReg = false
     var isSchedule = false
+    var isDeliver = false
     
     func getMainView() -> ConfirmationAskViewController {
         let vc = ConfirmationAskViewController.instantiate()
@@ -29,6 +30,7 @@ class ConfirmationAskCoordinator: Coordinator {
         vc.didCancel = self.didCancel
         vc.isUserReg = self.isUserReg
         vc.isSchedue = self.isSchedule
+        vc.isDeliver = self.isDeliver
         return vc
     }
     
