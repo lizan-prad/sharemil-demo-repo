@@ -45,6 +45,7 @@ class HelpViewController: UIViewController, Storyboarded {
             "type": "Missing or incorrect item"
             ])
         
+        
         let coordinator = HelpIssueCoordinator.init(navigationController: UINavigationController())
         coordinator.cart = self.cart
         coordinator.type = "missing"
