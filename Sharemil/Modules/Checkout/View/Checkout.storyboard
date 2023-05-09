@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d6m-fy-Tc4">
-                                <rect key="frame" x="0.0" y="177.5" width="414" height="718.5"/>
+                                <rect key="frame" x="0.0" y="195.5" width="414" height="700.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="RUb-f5-6fk">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
@@ -143,12 +143,6 @@
                                     </constraints>
                                 </view>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVq-hF-rlm">
-                                <rect key="frame" x="20" y="88" width="114" height="29.5"/>
-                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccB-g8-zaI">
                                 <rect key="frame" x="20" y="58" width="20" height="20"/>
                                 <constraints>
@@ -177,35 +171,56 @@
                                     <action selector="placeOrderAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zsl-gl-1K0"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="In2-1e-5DP" customClass="CustomSegmentedControl" customModule="Sharemil" customModuleProvider="target">
-                                <rect key="frame" x="67" y="127.5" width="280" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="MUN-ow-HPI"/>
-                                    <constraint firstAttribute="height" constant="40" id="pQv-PW-acb"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Delivery"/>
-                                    <segment title="Pickup"/>
-                                </segments>
-                                <connections>
-                                    <action selector="deliveryPickupAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="WBA-zb-CD2"/>
-                                </connections>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zMV-rq-iQm">
+                                <rect key="frame" x="0.0" y="98" width="414" height="87.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVq-hF-rlm">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfc-91-vcC">
+                                        <rect key="frame" x="0.0" y="37.5" width="414" height="50"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="In2-1e-5DP" customClass="CustomSegmentedControl" customModule="Sharemil" customModuleProvider="target">
+                                                <rect key="frame" x="67" y="5" width="280" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="MUN-ow-HPI"/>
+                                                    <constraint firstAttribute="height" constant="40" id="pQv-PW-acb"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Delivery"/>
+                                                    <segment title="Pickup"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="deliveryPickupAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="WBA-zb-CD2"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="84o-FB-btQ"/>
+                                            <constraint firstItem="In2-1e-5DP" firstAttribute="centerX" secondItem="Lfc-91-vcC" secondAttribute="centerX" id="QsP-Zh-50l"/>
+                                            <constraint firstItem="In2-1e-5DP" firstAttribute="centerY" secondItem="Lfc-91-vcC" secondAttribute="centerY" id="fE9-ZM-LGL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Jz-Xs-lJr" secondAttribute="trailing" constant="40" id="1xn-EH-RpK"/>
                             <constraint firstAttribute="bottom" secondItem="d6m-fy-Tc4" secondAttribute="bottom" id="ASW-Ya-3KD"/>
-                            <constraint firstItem="In2-1e-5DP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Fxd-Eb-p9R"/>
-                            <constraint firstItem="FVq-hF-rlm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ghr-03-j3W"/>
-                            <constraint firstItem="d6m-fy-Tc4" firstAttribute="top" secondItem="In2-1e-5DP" secondAttribute="bottom" constant="10" id="Hfn-g7-DyE"/>
+                            <constraint firstItem="zMV-rq-iQm" firstAttribute="top" secondItem="ccB-g8-zaI" secondAttribute="bottom" constant="20" id="KRP-Gr-SWD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Jz-Xs-lJr" secondAttribute="bottom" constant="10" id="Nz5-uT-3sO"/>
                             <constraint firstItem="ccB-g8-zaI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="RUc-6U-Oll"/>
-                            <constraint firstItem="In2-1e-5DP" firstAttribute="top" secondItem="FVq-hF-rlm" secondAttribute="bottom" constant="10" id="U2u-NZ-hCU"/>
+                            <constraint firstItem="zMV-rq-iQm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="U1x-kC-hvi"/>
                             <constraint firstItem="ccB-g8-zaI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="YPf-Sw-aRb"/>
-                            <constraint firstItem="FVq-hF-rlm" firstAttribute="top" secondItem="ccB-g8-zaI" secondAttribute="bottom" constant="10" id="dXf-Bm-c2w"/>
+                            <constraint firstItem="zMV-rq-iQm" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="apN-2a-XiG"/>
                             <constraint firstItem="d6m-fy-Tc4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lNR-yw-FMb"/>
+                            <constraint firstItem="d6m-fy-Tc4" firstAttribute="top" secondItem="zMV-rq-iQm" secondAttribute="bottom" constant="10" id="r53-j8-90S"/>
                             <constraint firstItem="2Jz-Xs-lJr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="u6k-6B-IUb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d6m-fy-Tc4" secondAttribute="trailing" id="yWg-MP-nUn"/>
                         </constraints>
@@ -214,6 +229,7 @@
                         <outlet property="cardImage" destination="s14-qJ-YRf" id="bZr-5a-d2U"/>
                         <outlet property="cardLabel" destination="n4n-hi-j3B" id="jbo-fx-3hH"/>
                         <outlet property="deliveryPickupSegment" destination="In2-1e-5DP" id="AEp-9n-aJM"/>
+                        <outlet property="deliveryStack" destination="Lfc-91-vcC" id="QI2-Sf-cph"/>
                         <outlet property="paymentView" destination="qCi-ZL-5FP" id="Zcd-op-wYt"/>
                         <outlet property="placeOrderBtn" destination="2Jz-Xs-lJr" id="Hfr-YS-r9J"/>
                         <outlet property="subTotal" destination="EFs-9P-6fO" id="Siy-9k-ZJi"/>

@@ -101,6 +101,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
     }
     
+    @IBOutlet weak var deliveryStack: UIView!
     @IBOutlet weak var deliveryPickupSegment: CustomSegmentedControl!
     
     @IBOutlet weak var cardImage: UIImageView!
@@ -194,7 +195,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.placeOrderBtn.enable()
         }
         self.viewModel.getDefaultMethod()
-        self.viewModel.fetchUserProfile()
+        self.viewModel.fetchChefBy(location: loc ?? LLocation(location: nil), name: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -269,9 +270,9 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         
         self.viewModel.chefs.bind { chefs in
-//            self.chef = chefs?.filter({$0.id == self.chef?.id}).first
-//
-//            self.tableView.reloadData()
+            self.chef = chefs?.filter({$0.id == self.chef?.id}).first
+            self.deliveryStack.isHidden = !(self.chef?.deliverySettings?.deliveryEnabled ?? false)
+            self.tableView.reloadData()
         }
         self.viewModel.cusines.bind { cusines in
             self.cusines = cusines

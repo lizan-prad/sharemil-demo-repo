@@ -25,6 +25,8 @@ class ChefListModel: Mappable {
     var state : String?
     var businessName: String?
     var hours : [HoursModel]?
+    var deliveryHours: [HoursModel]?
+    var deliverySettings: DeliverySettingsModel?
     var postalCode : String?
     var countryCode : String?
     var cuisineId : String?
@@ -61,6 +63,8 @@ class ChefListModel: Mappable {
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         hours <- map["businessHours"]
+        deliveryHours <- map["deliveryHours"]
+        deliverySettings <- map["deliverySettings"]
         isOpen = isOpenToday()
     }
     

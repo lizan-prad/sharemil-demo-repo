@@ -52,6 +52,7 @@
 		BE2954D1286E44050048E9DD /* PaymentOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2954D0286E44050048E9DD /* PaymentOptionsViewModel.swift */; };
 		BE2954D4286E442A0048E9DD /* PaymentOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2954D3286E442A0048E9DD /* PaymentOptionsService.swift */; };
 		BE2954D6286E444E0048E9DD /* PaymentOptionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2954D5286E444E0048E9DD /* PaymentOptionsCoordinator.swift */; };
+		BE2F4A912A0AEEA700AF5A44 /* DeliverySettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F4A902A0AEEA700AF5A44 /* DeliverySettingsModel.swift */; };
 		BE38FD90293A7AC5007EC51B /* RecieptWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE38FD8F293A7AC5007EC51B /* RecieptWebView.storyboard */; };
 		BE38FD95293A7D9A007EC51B /* RecieptWebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FD94293A7D9A007EC51B /* RecieptWebViewCoordinator.swift */; };
 		BE38FD97293A7E70007EC51B /* RecieptWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FD96293A7E70007EC51B /* RecieptWebViewViewController.swift */; };
@@ -352,6 +353,7 @@
 		BE2954D0286E44050048E9DD /* PaymentOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsViewModel.swift; sourceTree = "<group>"; };
 		BE2954D3286E442A0048E9DD /* PaymentOptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsService.swift; sourceTree = "<group>"; };
 		BE2954D5286E444E0048E9DD /* PaymentOptionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsCoordinator.swift; sourceTree = "<group>"; };
+		BE2F4A902A0AEEA700AF5A44 /* DeliverySettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverySettingsModel.swift; sourceTree = "<group>"; };
 		BE38FD8F293A7AC5007EC51B /* RecieptWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecieptWebView.storyboard; sourceTree = "<group>"; };
 		BE38FD94293A7D9A007EC51B /* RecieptWebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptWebViewCoordinator.swift; sourceTree = "<group>"; };
 		BE38FD96293A7E70007EC51B /* RecieptWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptWebViewViewController.swift; sourceTree = "<group>"; };
@@ -941,6 +943,14 @@
 				BE2954D3286E442A0048E9DD /* PaymentOptionsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		BE2F4A8F2A0AEE6D00AF5A44 /* DeliverySettings */ = {
+			isa = PBXGroup;
+			children = (
+				BE2F4A902A0AEEA700AF5A44 /* DeliverySettingsModel.swift */,
+			);
+			path = DeliverySettings;
 			sourceTree = "<group>";
 		};
 		BE38FD8E293A7AB3007EC51B /* RReceiptWebView */ = {
@@ -1824,6 +1834,7 @@
 		BEE661692858DE43007812B2 /* Chefs */ = {
 			isa = PBXGroup;
 			children = (
+				BE2F4A8F2A0AEE6D00AF5A44 /* DeliverySettings */,
 				BEF816AE28BEC7E70094A0EA /* BusinessHours */,
 				BEE6616A2858DE4F007812B2 /* ChefListModel.swift */,
 				BEE6616C2858DE83007812B2 /* ChefListContainerModel.swift */,
@@ -2371,6 +2382,7 @@
 				BEF7EB142865CCAD002D553E /* Duration.swift in Sources */,
 				BE4CDDEF28534605006AB129 /* AccountViewController.swift in Sources */,
 				BE5B6A2B28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.swift in Sources */,
+				BE2F4A912A0AEEA700AF5A44 /* DeliverySettingsModel.swift in Sources */,
 				BEF7EB132865CCAD002D553E /* Geocoded_waypoints.swift in Sources */,
 				BE7C7286285F980B0008161B /* ChefMenuViewModel.swift in Sources */,
 				BE3B116E299D65D90002C347 /* OtherHelpViewModel.swift in Sources */,
