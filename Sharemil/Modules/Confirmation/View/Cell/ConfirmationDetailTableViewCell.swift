@@ -22,6 +22,7 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
             let chef = model?.cart?.chef
             self.chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             self.location.text = chef?.address
+            self.note.text = model?.deliverAddress
         }
     }
     

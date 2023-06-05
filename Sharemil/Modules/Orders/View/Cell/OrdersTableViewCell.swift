@@ -26,8 +26,13 @@ class OrdersTableViewCell: UITableViewCell {
             self.orderImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             self.chefName.text = "\(model?.cart?.chef?.firsName ?? "") \(model?.cart?.chef?.lastName ?? "")"
             let count = (model?.cart?.cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
-            self.pickUpBtn.isHidden = model?.status != "READY"
-            self.reorderBtn.isHidden = model?.status != "COMPLETED"
+            if (model?.deliverAddress != nil && model?.deliverAddress != "") {
+                self.pickUpBtn.isHidden = true
+            } else {
+                self.pickUpBtn.isHidden = model?.status != "READY"
+                
+                self.reorderBtn.isHidden = model?.status != "COMPLETED"
+            }
             self.model?.customerIsHere ?? false ? self.pickUpBtn.disable() : self.pickUpBtn.enable()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"

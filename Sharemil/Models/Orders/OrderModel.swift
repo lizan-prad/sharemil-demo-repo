@@ -17,13 +17,14 @@ struct OrderModel : Mappable {
     var orderNumber: Int?
     var customerIsHere: Bool?
     var customerNote: String?
+    var deliverAddress: String?
     
 	init?(map: Map) {
 
 	}
 
 	mutating func mapping(map: Map) {
-
+        deliverAddress <- map["deliveryAddress"]
 		id <- map["id"]
 		createdAt <- map["createdAt"]
 		cartId <- map["cartId"]
