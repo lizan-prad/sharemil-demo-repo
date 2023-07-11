@@ -53,7 +53,7 @@ class ConfirmationViewController: UIViewController, Storyboarded {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let time = formatter.date(from: model?.pickupTime ?? "")
-            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+//            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "yyyy-MM-dd"
             let todayDate = formatter.string(from: Date())
             let timeDate = formatter.string(from: time ?? Date())

@@ -25,7 +25,7 @@ class OrderDetailMapTableViewCell: UITableViewCell {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let orderCreated = formatter.date(from: model?.pickupTime ?? "")
-            formatter.timeZone = TimeZone(secondsFromGMT: 0)
+//            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "MMM dd, yyyy"
             let orderD = formatter.string(from: orderCreated ?? Date())
             formatter.dateFormat = "hh:mm a"
