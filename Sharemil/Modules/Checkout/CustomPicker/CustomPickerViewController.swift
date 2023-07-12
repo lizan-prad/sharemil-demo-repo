@@ -179,10 +179,11 @@ extension CustomPickerViewController: UITableViewDataSource, UITableViewDelegate
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE, dd MMM"
             let m = formatter.string(from: collectionDates[selectedIndex])
-            formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
+//            formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
             formatter.dateFormat = "yyyy-MM-dd"
             let str = formatter.string(from: collectionDates[selectedIndex])
             formatter.dateFormat = "HH:mm:ss"
+            formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
             let str2 = formatter.string(from: cell.date ?? Date())
             self.selectedDate = ("\(m) (\(cell.dateLabel.text ?? ""))", "\(str) \(str2) GMT")
         }

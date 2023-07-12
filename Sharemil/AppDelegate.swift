@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if let playerId = stateChanges.to.userId {
             let url = "push-notifications/token"
             let param: [String: Any] = ["token": playerId]
-            NetworkManager.shared.request(HoursModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
+            NetworkManager.shared.request(HoursModel.self, urlExt: url, method: .post, param: param, encoding: JSONEncoding.default, headers: nil) { result in
             }
         }
     }
@@ -73,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         if UserDefaults.standard.string(forKey: "ENV") == nil {
             UserDefaults.standard.set("D", forKey: "ENV")
         }
+        OneSignal.add(self)
         OneSignal.setAppId(UserDefaults.standard.string(forKey: "ENV") == "D" ? "5abbae8b-137a-444c-8977-1e61fd5cdf1f" : "25e41f3e-d9ad-4107-a042-f2cff3bcd6eb")
           
           // promptForPushNotifications will show the native iOS notification permission prompt.
