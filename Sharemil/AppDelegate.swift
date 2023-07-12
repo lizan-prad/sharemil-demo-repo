@@ -70,6 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
           
           // OneSignal initialization
           OneSignal.initWithLaunchOptions(launchOptions)
+        if UserDefaults.standard.string(forKey: "ENV") == nil {
+            UserDefaults.standard.set("D", forKey: "ENV")
+        }
         OneSignal.setAppId(UserDefaults.standard.string(forKey: "ENV") == "D" ? "5abbae8b-137a-444c-8977-1e61fd5cdf1f" : "25e41f3e-d9ad-4107-a042-f2cff3bcd6eb")
           
           // promptForPushNotifications will show the native iOS notification permission prompt.
