@@ -52,11 +52,11 @@ extension MenuItemService {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
-                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)}),
-            "pickupTime": [
-                    "date": date,
-                    "startTime": time
-                ]
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+//            "pickupTime": [
+//                    "date": date,
+//                    "startTime": time
+//                ]
             
         ]
         
@@ -69,8 +69,8 @@ extension MenuItemService {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
-                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)}),
-            "pickupTime": [String:Any]()
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+//            "pickupTime": [String:Any]()
         ]
         
         NetworkManager.shared.request(BaseMappableModel<CartListModel>.self, urlExt: "carts/\(cartItems.first?.cartId ?? "")", method: .put, param: param, encoding: JSONEncoding.default, headers: nil) { result in

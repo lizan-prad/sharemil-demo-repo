@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
           //The player id is inside stateChanges. But be careful, this value can be nil if the user has not granted you permission to send notifications.
         if let playerId = stateChanges.to.userId {
-            let url = "account/user"
-            let param: [String: Any] = ["onesignal_player_id": playerId]
-//            NetworkManager.shared.request(LoginModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
-//            }
+            let url = "push-notifications/token"
+            let param: [String: Any] = ["token": playerId]
+            NetworkManager.shared.request(HoursModel.self, urlExt: url, method: .patch, param: param, encoding: URLEncoding.default, headers: nil) { result in
+            }
         }
     }
     

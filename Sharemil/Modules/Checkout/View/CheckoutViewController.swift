@@ -461,7 +461,11 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 vc.didSelectDate = { (str, date) in
                     self.scheduleType = str
                     self.scheduleDate = date
-                    self.selectedScheduleDate = date
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let d = formatter.date(from: date.replacingOccurrences(of: " GMT", with: ""))
+                    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+                    self.selectedScheduleDate = formatter.string(from: d ?? Date())
                 }
                 self.present(vc, animated: true)
             }
