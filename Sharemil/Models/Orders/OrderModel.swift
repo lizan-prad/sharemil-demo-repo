@@ -40,7 +40,7 @@ struct OrderModel : Mappable {
 		cart <- map["Cart"]
         pickupTime <- map["pickupTime"]
         orderNumber <- map["orderNumber"]
-        deliverTime <- map["deliverTime"]
+        deliverTime <- map["deliveryTime"]
 	}
 
 }
