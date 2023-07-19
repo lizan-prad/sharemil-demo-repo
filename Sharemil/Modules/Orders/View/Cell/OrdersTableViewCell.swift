@@ -36,7 +36,7 @@ class OrdersTableViewCell: UITableViewCell {
             self.model?.customerIsHere ?? false ? self.pickUpBtn.disable() : self.pickUpBtn.enable()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let time = formatter.date(from: model?.pickupTime ?? "")
+            let time = formatter.date(from: model?.deliverTime == nil ? model?.pickupTime ?? "" : model?.deliverTime ?? "")
             let orderDate = formatter.date(from: model?.createdAt ?? "")
 //            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "MMM dd"

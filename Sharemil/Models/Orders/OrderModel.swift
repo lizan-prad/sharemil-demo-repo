@@ -18,6 +18,7 @@ struct OrderModel : Mappable {
     var customerIsHere: Bool?
     var customerNote: String?
     var deliverAddress: String?
+    var deliverTime: String?
     
 	init?(map: Map) {
 
@@ -39,6 +40,7 @@ struct OrderModel : Mappable {
 		cart <- map["Cart"]
         pickupTime <- map["pickupTime"]
         orderNumber <- map["orderNumber"]
+        deliverTime <- map["deliverTime"]
 	}
 
 }

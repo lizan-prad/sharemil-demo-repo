@@ -24,7 +24,7 @@ class OrderDetailMapTableViewCell: UITableViewCell {
             self.chefImage.sd_setImage(with: URL.init(string: model?.cart?.chef?.mainImageUrl ?? ""))
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let orderCreated = formatter.date(from: model?.pickupTime ?? "")
+            let orderCreated = formatter.date(from: model?.deliverTime == nil ? model?.pickupTime ?? "" : model?.deliverTime ?? "")
 //            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "MMM dd, yyyy"
             let orderD = formatter.string(from: orderCreated ?? Date())
