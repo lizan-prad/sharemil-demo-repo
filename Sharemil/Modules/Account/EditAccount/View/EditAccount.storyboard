@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDL-fm-Ja8">
-                                <rect key="frame" x="30" y="74" width="20" height="20"/>
+                                <rect key="frame" x="30" y="78" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Oya-lp-Faj"/>
                                     <constraint firstAttribute="width" constant="20" id="jy8-8A-RIx"/>
@@ -36,13 +36,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UD-Vo-XZT">
-                                <rect key="frame" x="70" y="72" width="120.5" height="24.5"/>
+                                <rect key="frame" x="70" y="76" width="120.5" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhE-yy-X3D">
-                                <rect key="frame" x="0.0" y="112.5" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="110"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-profile" translatesAutoresizingMaskIntoConstraints="NO" id="axR-2h-8U3">
                                         <rect key="frame" x="20" y="10" width="90" height="90"/>
@@ -51,16 +51,25 @@
                                             <constraint firstAttribute="width" constant="90" id="tKW-gE-i28"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="8mX-Vn-Gg1">
+                                        <rect key="frame" x="13" y="71" width="38" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="AIp-wl-64W"/>
+                                            <constraint firstAttribute="height" constant="34" id="QFh-Tu-YQO"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="8mX-Vn-Gg1" firstAttribute="leading" secondItem="axR-2h-8U3" secondAttribute="leading" constant="-7" id="8U6-ra-OpQ"/>
+                                    <constraint firstItem="8mX-Vn-Gg1" firstAttribute="bottom" secondItem="axR-2h-8U3" secondAttribute="bottom" constant="5" id="EbQ-Sy-7CZ"/>
                                     <constraint firstAttribute="height" constant="110" id="Z4m-KU-yLb"/>
                                     <constraint firstItem="axR-2h-8U3" firstAttribute="centerY" secondItem="ZhE-yy-X3D" secondAttribute="centerY" id="aYM-IV-4CE"/>
                                     <constraint firstItem="axR-2h-8U3" firstAttribute="leading" secondItem="ZhE-yy-X3D" secondAttribute="leading" constant="20" id="jVS-SU-cHe"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YT3-1X-ikX">
-                                <rect key="frame" x="0.0" y="222.5" width="414" height="360"/>
+                                <rect key="frame" x="0.0" y="226.5" width="414" height="360"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4d-Jq-iyV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -324,7 +333,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="edit-icon" width="258.5" height="241.5"/>
         <image name="edit-profile" width="182" height="160"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

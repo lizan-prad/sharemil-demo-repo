@@ -70,6 +70,7 @@ class EditAccountViewController: UIViewController, Storyboarded {
         emailStack.isUserInteractionEnabled = true
         emailStack.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openEmailEdit)))
         profilePic.rounded()
+        profilePic.clipsToBounds = true
         profilePic.isUserInteractionEnabled = true
         profilePic.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(editAction)))
     }

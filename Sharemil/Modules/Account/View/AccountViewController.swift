@@ -38,6 +38,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
         profilePic.rounded()
+        profilePic.clipsToBounds = true
         bindViewModel()
         nameLabel.isUserInteractionEnabled = true
         nameLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(openEnvSettings)))
