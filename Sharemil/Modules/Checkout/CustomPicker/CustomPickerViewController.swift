@@ -217,7 +217,9 @@ extension CustomPickerViewController: UICollectionViewDataSource, UICollectionVi
             formatter.dateFormat = "eee"
             return h.day?.lowercased() == formatter.string(from: cell.date ?? Date()).lowercased()
         }).first
-        self.dateTerm = cell.dayLabel.text
+        if self.filteredHour?.isOpen ?? false {
+            self.dateTerm = cell.dayLabel.text
+        }
         self.selectedIndex = cell.index ?? 0
     }
 }

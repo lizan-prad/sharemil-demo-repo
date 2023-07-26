@@ -39,9 +39,9 @@ struct ChoicesModel : Mappable {
     mutating func mapping(map: Map) {
 
         name <- map["name"]
-        price <- map["price:"]
+        price <- map["price"]
         if price == nil {
-            price <- map["price"]
+            price <- map["price:"]
         }
         
     }

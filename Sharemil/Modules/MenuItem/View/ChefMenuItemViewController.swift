@@ -264,7 +264,8 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             if isUpdate {
                 cell.isUserInteractionEnabled = false
             }
-            cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row].name
+            cell.model = model?.options?[indexPath.section].choices?[indexPath.row]
+           
             cell.setup()
             cell.section = indexPath.section
             cell.didSelect = { (val, section) in
