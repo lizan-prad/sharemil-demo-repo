@@ -44,8 +44,13 @@ extension MenuItemService {
     
     private func getParam(option: MenuItemOptionsModel) -> [String: Any] {
         return ["title": option.title ?? "",
-                "choices:": option.choices ?? [],
+                "choices:": option.choices?.map({self.getChoices(option: $0)}) ?? [],
                 "multipleChoice": option.multipleChoice ?? false]
+    }
+    
+    private func getChoices(option: ChoicesModel?) -> [String: Any] {
+        return ["name": option?.name ?? "",
+                "price:": option?.price ?? 0]
     }
     
     func updateCartWith(_ date: String, _ time: String, _ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {

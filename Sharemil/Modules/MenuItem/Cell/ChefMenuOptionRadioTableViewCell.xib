@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -36,9 +36,17 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk6-Ri-FAB">
+                        <rect key="frame" x="274" y="8.5" width="30" height="17"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Sk6-Ri-FAB" secondAttribute="trailing" constant="16" id="CMl-tj-ZgH"/>
                     <constraint firstItem="ZR5-Dy-W9F" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="Ic7-nb-sKo"/>
+                    <constraint firstItem="Sk6-Ri-FAB" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="JTJ-d0-Wsz"/>
                     <constraint firstItem="RuI-bN-ygz" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="Rmh-Ot-fcc"/>
                     <constraint firstItem="ZR5-Dy-W9F" firstAttribute="leading" secondItem="Z9T-D1-S0a" secondAttribute="leading" constant="18" id="oWl-om-kBA"/>
                     <constraint firstItem="RuI-bN-ygz" firstAttribute="leading" secondItem="ZR5-Dy-W9F" secondAttribute="trailing" constant="14" id="wyg-dy-mbS"/>
@@ -47,6 +55,7 @@
             <viewLayoutGuide key="safeArea" id="Nwj-iB-OhQ"/>
             <connections>
                 <outlet property="optionName" destination="RuI-bN-ygz" id="UIg-pI-mUj"/>
+                <outlet property="optionPrice" destination="Sk6-Ri-FAB" id="0Pn-hZ-j5z"/>
                 <outlet property="radioButton" destination="ZR5-Dy-W9F" id="bZ6-pE-sUH"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="111.16071428571428"/>
@@ -54,7 +63,7 @@
     </objects>
     <designables>
         <designable name="ZR5-Dy-W9F">
-            <size key="intrinsicContentSize" width="30" height="30"/>
+            <size key="intrinsicContentSize" width="22" height="18"/>
         </designable>
     </designables>
 </document>

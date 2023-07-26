@@ -279,9 +279,14 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         
         self.viewModel.cartList.bind { cartItems in
-            self.subTotal.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
-            self.total.text = "$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))"
-            self.placeOrderBtn.setTitle("Place order · \("$\((cartItems?.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)}).reduce(0, +) ?? 0).withDecimal(2))")", for: .normal)
+            let val = cartItems?.cartItems?.compactMap({ item in
+                let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+                return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
+            })
+            let totalPrice = val?.reduce(0, +) ?? 0
+            self.subTotal.text = "$\(totalPrice.withDecimal(2))"
+            self.total.text = "$\(totalPrice.withDecimal(2))"
+            self.placeOrderBtn.setTitle("Place order · \("$\(totalPrice.withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
             if self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).count != 0 {
@@ -409,8 +414,11 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier, country: "US", currency: "USD")
         let item = PKPaymentSummaryItem()
         item.label = "Sharemil Inc"
-        let a = self.cartItems?.map({($0.menuItem?.price ?? 0)*Double($0.quantity ?? 0)})
-        let amount = a?.reduce(0, +).withDecimal(2)
+        let val = self.cartItems?.compactMap({ item in
+            let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+            return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
+        })
+        let amount = val?.reduce(0, +).withDecimal(2) ?? ""
         item.amount = NSDecimalNumber.init(string: amount)
         //                item.amount = NSDecimalNumber.init(string: amount)
         // Configure the line items on the payment request

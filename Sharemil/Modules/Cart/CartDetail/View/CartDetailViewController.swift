@@ -91,7 +91,8 @@ class CartDetailViewController: UIViewController, Storyboarded {
     private func setup() {
         var prices = [Double]()
         cartItems?.enumerated().forEach({ (index, item) in
-            let price = (Double(item.quantity ?? 0)*(cartItems?[index].menuItem?.price ?? 0))
+            let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+            let price = (Double(item.quantity ?? 0)*((cartItems?[index].menuItem?.price ?? 0) + options))
             prices.append(price)
         })
         self.subTotal.text = "$\(String(format:"%.2f", prices.reduce(0, +)))"

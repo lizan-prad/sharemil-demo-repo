@@ -25,9 +25,10 @@ class CartDetailTableViewCell: UITableViewCell {
         didSet {
             itemName.text = item?.menuItem?.name
             quantityLabel.text = "\(item?.quantity ?? 0)"
-            itemPrice.text = "$" + ((item?.menuItem?.price ?? 0)*Double(item?.quantity ?? 0)).withDecimal(2)
-            options.isHidden = item?.options?.map({$0.choices?.first ?? ""}).joined(separator: ", ") == nil ||  item?.options?.map({$0.choices?.first ?? ""}).joined(separator: ", ") == ""
-            options.text = item?.options?.map({$0.choices?.joined(separator: ", ") ?? ""}).joined(separator: ", ")
+            let itemOptions = self.item?.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+            itemPrice.text = "$" + (((item?.menuItem?.price ?? 0) + itemOptions)*Double(item?.quantity ?? 0)).withDecimal(2)
+            options.isHidden = item?.options?.map({$0.choices?.first?.name ?? ""}).joined(separator: ", ") == nil ||  item?.options?.map({$0.choices?.first?.name ?? ""}).joined(separator: ", ") == ""
+            options.text = item?.options?.map({$0.choices?.map({$0.name ?? ""}).joined(separator: ", ") ?? ""}).joined(separator: ", ")
         }
     }
     

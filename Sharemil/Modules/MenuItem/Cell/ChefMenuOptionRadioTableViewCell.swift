@@ -10,18 +10,27 @@ import MBRadioCheckboxButton
 
 class ChefMenuOptionRadioTableViewCell: UITableViewCell, RadioButtonDelegate {
 
+    @IBOutlet weak var optionPrice: UILabel!
     @IBOutlet weak var optionName: UILabel!
     @IBOutlet weak var radioButton: RadioButton!
     
     var section: Int?
-    var didSelect: ((String, Int) -> ())?
+    var didSelect: ((ChoicesModel?, Int) -> ())?
+    
+    var model: ChoicesModel? {
+        didSet {
+            self.optionName.text = model?.name
+            self.optionPrice.text = model?.price == 0 ? "" : "$\(model?.price ?? 0)"
+        }
+    }
+    
     
     func setup() {
         radioButton.delegate = self
     }
     
     func radioButtonDidSelect(_ button: RadioButton) {
-        self.didSelect?(optionName.text ?? "", section ?? 0)
+        self.didSelect?(model, section ?? 0)
     }
     
     func radioButtonDidDeselect(_ button: RadioButton) {

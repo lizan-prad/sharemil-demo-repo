@@ -12,12 +12,19 @@ class ChefMenuOptionCheckBoxTableViewCell: UITableViewCell, CheckboxButtonDelega
     
     
 
+    @IBOutlet weak var optionPrice: UILabel!
     @IBOutlet weak var optionName: UILabel!
     @IBOutlet weak var checkBox: CheckboxButton!
     
     var section: Int?
+    var model: ChoicesModel? {
+        didSet {
+            self.optionName.text = model?.name
+            self.optionPrice.text = model?.price == 0 ? "" : "$\(model?.price ?? 0)"
+        }
+    }
     
-    var didSelect: ((String, Int) -> ())?
+    var didSelect: ((ChoicesModel?, Int) -> ())?
     var didDeSelect: ((String, Int) -> ())?
     
     func setup() {
@@ -25,7 +32,7 @@ class ChefMenuOptionCheckBoxTableViewCell: UITableViewCell, CheckboxButtonDelega
     }
     
     func chechboxButtonDidSelect(_ button: CheckboxButton) {
-        didSelect?(optionName.text ?? "",section ?? 0)
+        didSelect?(model,section ?? 0)
     }
     
     func chechboxButtonDidDeselect(_ button: CheckboxButton) {

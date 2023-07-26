@@ -19,8 +19,13 @@ class CartListTableViewCell: UITableViewCell {
     var cart: Cart? {
         didSet {
             cartImage.rounded()
+            
             addressLabel.text = "Pickup at \(cart?.chef?.address ?? "")"
-            let totalPrice = (cart?.cartItems?.compactMap({Double($0.quantity ?? 0)*($0.menuItem?.price ?? 0)}).reduce(0, +) ?? 0)
+            let val = cart?.cartItems?.compactMap({ item in
+                let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+                return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
+            })
+            let totalPrice = val?.reduce(0, +) ?? 0
             businessName.text = cart?.chef?.businessName
             let count = (cart?.cartItems?.map({$0.quantity ?? 0}).reduce(0,+) ?? 0)
             itemsLabel.text = "\(count) \(count == 1 ? "item" : "items") · $\(String(format:"%.2f", totalPrice))"

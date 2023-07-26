@@ -45,6 +45,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     var selectedOptions = [MenuItemOptionsModel]() {
         didSet {
             validateAddToCart()
+            self.getQuantity()
         }
     }
     
@@ -53,13 +54,19 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     var initialQuantity = 1 {
         didSet {
-            self.quantityLabel.text = "\(initialQuantity)"
-            if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
-                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\((Double(initialQuantity)*(model?.price ?? 0)).withDecimal(2))", for: .normal)
-            } else {
-                self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\((Double(initialQuantity)*(model?.price ?? 0)).withDecimal(2))", for: .normal)
-            }
-            
+           
+            self.getQuantity()
+        }
+    }
+    
+    func getQuantity() {
+        self.quantityLabel.text = "\(initialQuantity)"
+        if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
+            let options = self.selectedOptions.map({$0.choices?.first?.price ?? 0}).reduce(0,+)
+            self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
+        } else {
+            let options = self.selectedOptions.map({$0.choices?.first?.price ?? 0}).reduce(0,+)
+            self.addToCartBtn.setTitle("Add \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
         }
     }
     
@@ -257,7 +264,7 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             if isUpdate {
                 cell.isUserInteractionEnabled = false
             }
-            cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row]
+            cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row].name
             cell.setup()
             cell.section = indexPath.section
             cell.didSelect = { (val, section) in
@@ -265,7 +272,7 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
                 let m = self.selectedOptions.filter({$0.multipleChoice == true}).first
                     check.title = self.model?.options?[section].title
                     check.multipleChoice = true
-                check.choices = m == nil ? [val] : [val, m?.choices?.filter({$0 != val}).first ?? ""]
+                check.choices = m == nil ? [val ?? ChoicesModel()] : [val ?? ChoicesModel(), m?.choices?.filter({$0.name != val?.name}).first ?? ChoicesModel()]
                     self.selectedOptions = self.selectedOptions.filter({$0.multipleChoice != true})
                     self.selectedOptions.append(check)
             }
@@ -273,7 +280,7 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
                 guard var check = self.selectedOptions.filter({$0.multipleChoice == true}).first else {return}
                 if check.choices?.count == 2 {
                     var m = self.selectedOptions.filter({$0.multipleChoice != true})
-                    check.choices = check.choices?.filter({$0 != val})
+                    check.choices = check.choices?.filter({$0.name != val})
                     m.append(check)
                     self.selectedOptions = m
                 } else {
@@ -291,21 +298,21 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             if isUpdate {
                 cell.isUserInteractionEnabled = false
             }
-            cell.optionName.text = model?.options?[indexPath.section].choices?[indexPath.row]
+            cell.model = model?.options?[indexPath.section].choices?[indexPath.row]
             cell.section = indexPath.section
             cell.setup()
             cell.radioButton.isOn = cell.optionName.text == selectedOption?.0 
             cell.didSelect = { (val,section) in
-                self.selectedOption = (val, section)
+                self.selectedOption = (val?.name ?? "", section)
                 if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
                     var check = MenuItemOptionsModel()
                     check.title = self.model?.options?[indexPath.section].title
                     check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
-                    check.choices = [val]
+                    check.choices = [val ?? ChoicesModel()]
                     self.selectedOptions.append(check)
                 } else if section <= (self.selectedOptions.count - 1) {
                     var check = self.selectedOptions[section]
-                    check.choices = [val]
+                    check.choices = [val ?? ChoicesModel()]
                     self.selectedOptions.remove(at: section)
                     self.selectedOptions.insert(check, at: section)
                 }

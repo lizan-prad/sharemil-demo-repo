@@ -4,7 +4,7 @@ import ObjectMapper
 
 struct MenuItemOptionsModel : Mappable {
 	var title : String?
-	var choices: [String]?
+	var choices: [ChoicesModel]?
 	var multipleChoice : Bool?
     
     init() {}
@@ -22,5 +22,28 @@ struct MenuItemOptionsModel : Mappable {
         }
 		multipleChoice <- map["multipleChoice"]
 	}
+
+}
+
+struct ChoicesModel : Mappable {
+    
+    var name : String?
+    var price: Double?
+    
+    init() {}
+
+    init?(map: Map) {
+
+    }
+
+    mutating func mapping(map: Map) {
+
+        name <- map["name"]
+        price <- map["price:"]
+        if price == nil {
+            price <- map["price"]
+        }
+        
+    }
 
 }
