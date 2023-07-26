@@ -26,8 +26,10 @@ class OrderDetailSummaryTableViewCell: UITableViewCell {
     
         tableView.register(UINib.init(nibName: "OrderSummaryListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderSummaryListTableViewCell")
         let totalPrice = cartItems?.map({ c in
-            return (c.menuItem?.price ?? 0)*Double(c.quantity ?? 0)
+            let options = c.menuItem?.options?.map({$0.choices?.first?.price ?? 0}).reduce(0, +) ?? 0
+            return ((c.menuItem?.price ?? 0)+options)*Double(c.quantity ?? 0)
         }).reduce(0, +)
+        
         total.text = "$" + (totalPrice ?? 0).withDecimal(2)
     }
 }
