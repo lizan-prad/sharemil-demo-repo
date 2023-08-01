@@ -280,7 +280,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         self.viewModel.cartList.bind { cartItems in
             let val = cartItems?.cartItems?.compactMap({ item in
-                let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+                let opt = item.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
+                let options = opt?.reduce(0,+) ?? 0
                 return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
             })
             let totalPrice = val?.reduce(0, +) ?? 0

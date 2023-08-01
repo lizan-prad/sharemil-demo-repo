@@ -13,6 +13,7 @@ class MenuItemCoordinator: Coordinator {
    
     var menuItemModel: ChefMenuListModel?
     var didAddToCart: ((String?) -> ())?
+    var didRemove: ((String?) -> ())?
     var cartModel: [CartItems]?
     var selectedItem: CartItems?
     var isUpdate = false
@@ -29,6 +30,7 @@ class MenuItemCoordinator: Coordinator {
         vc.viewModel = viewModel
         vc.cartModel = cartModel
         vc.didAddToCart = self.didAddToCart
+        vc.didRemove = didRemove
         vc.selectedItem = self.selectedItem
         vc.isUpdate = self.isUpdate
         vc.updateItem = self.updateItem
@@ -44,6 +46,7 @@ class MenuItemCoordinator: Coordinator {
         vc.isUpdate = self.isUpdate
         vc.selectedItem = self.selectedItem
         vc.didAddToCart = self.didAddToCart
+        vc.didRemove = didRemove
         vc.updateItem = self.updateItem
         navigationController.pushViewController(vc, animated: true)
     }

@@ -22,7 +22,8 @@ class CartListTableViewCell: UITableViewCell {
             
             addressLabel.text = "Pickup at \(cart?.chef?.address ?? "")"
             let val = cart?.cartItems?.compactMap({ item in
-                let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+                let opt = item.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
+                let options = opt?.reduce(0,+) ?? 0
                 return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
             })
             let totalPrice = val?.reduce(0, +) ?? 0

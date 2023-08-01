@@ -15,7 +15,8 @@ class ChefMenuOptionRadioTableViewCell: UITableViewCell, RadioButtonDelegate {
     @IBOutlet weak var radioButton: RadioButton!
     
     var section: Int?
-    var didSelect: ((ChoicesModel?, Int) -> ())?
+    var row: Int?
+    var didSelect: ((ChoicesModel?, Int, Int) -> ())?
     
     var model: ChoicesModel? {
         didSet {
@@ -30,7 +31,7 @@ class ChefMenuOptionRadioTableViewCell: UITableViewCell, RadioButtonDelegate {
     }
     
     func radioButtonDidSelect(_ button: RadioButton) {
-        self.didSelect?(model, section ?? 0)
+        self.didSelect?(model, section ?? 0, row ?? 0)
     }
     
     func radioButtonDidDeselect(_ button: RadioButton) {

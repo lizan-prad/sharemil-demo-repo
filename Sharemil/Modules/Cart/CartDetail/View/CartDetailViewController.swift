@@ -80,6 +80,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.setup()
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.didUpdate?()
+            self.cartItems = cart?.carts?.filter({$0.id == self.cartItems?.first?.cartId}).first?.cartItems
             self.cartItems = self.cartItems?.filter({$0.quantity != 0})
             self.tableView.reloadData()
         }
@@ -91,7 +92,8 @@ class CartDetailViewController: UIViewController, Storyboarded {
     private func setup() {
         var prices = [Double]()
         cartItems?.enumerated().forEach({ (index, item) in
-            let options = item.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+            let opt = item.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
+            let options = opt?.reduce(0,+) ?? 0
             let price = (Double(item.quantity ?? 0)*((cartItems?[index].menuItem?.price ?? 0) + options))
             prices.append(price)
         })
@@ -208,6 +210,22 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.selectedItem = cartItems?[indexPath.row]
         coordinator.isUpdate = true
         coordinator.didAddToCart = { model in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                self.viewModel.fetchCarts()
+//            })
+            
+            if self.cartItems?.isEmpty == true {
+                self.dismiss(animated: true) {
+                    self.didUpdate?()
+                }
+            } else {
+                //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+                self.didUpdate?()
+            }
+//            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+        }
+        coordinator.didRemove = { model in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             
             self.cartItems = self.cartItems?.filter({$0.id != model})
