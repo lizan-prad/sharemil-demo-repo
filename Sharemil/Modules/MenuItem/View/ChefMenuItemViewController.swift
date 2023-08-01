@@ -340,27 +340,18 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             
 //            }
             cell.didSelect = { (val,section,row) in
-                let option = self.selectedOptions.filter({self.model?.options?[section].title == $0.title}).first
-                if option == nil {
-                    var check = MenuItemOptionsModel()
-                    check.title = self.model?.options?[indexPath.section].title
-                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
-                    check.choices = [val ?? ChoicesModel()]
-                    self.selectedOptions.append(check)
-                    self.tableView.reloadRows(at: (0...((self.model?.options?[section].choices?.count ?? 0) - 1)).map({IndexPath.init(row: $0, section: section)}), with: .none)
-                } else {
-                    self.selectedOptions = self.selectedOptions.filter({self.model?.options?[section].title != $0.title})
-                    var check = MenuItemOptionsModel()
-                    check.title = self.model?.options?[indexPath.section].title
-                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
-                    check.choices = [val ?? ChoicesModel()]
-                    self.selectedOptions.append(check)
-                    self.tableView.reloadRows(at: (0...((self.model?.options?[section].choices?.count ?? 0) - 1)).map({IndexPath.init(row: $0, section: section)}), with: .none)
-                }
-//                self.selectedOption = (val?.name ?? "", section)
-//                if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
-//                    var check = MenuItemOptionsModel()
-//                    check.title = self.model?.options?[indexPath.section].title
+                self.selectedOptions = self.selectedOptions.filter({self.model?.options?[section].title != $0.title})
+                var check = MenuItemOptionsModel()
+                check.title = self.model?.options?[section].title
+                check.multipleChoice = self.model?.options?[section].multipleChoice
+                check.choices = [val ?? ChoicesModel()]
+                self.selectedOptions.append(check)
+                self.tableView.reloadRows(at: (0...((self.model?.options?[section].choices?.count ?? 0) - 1)).map({IndexPath.init(row: $0, section: section)}), with: .none)
+                
+                //                self.selectedOption = (val?.name ?? "", section)
+                //                if self.selectedOptions.isEmpty == true || section > (self.selectedOptions.count - 1) {
+                //                    var check = MenuItemOptionsModel()
+                //                    check.title = self.model?.options?[indexPath.section].title
 //                    check.multipleChoice = self.model?.options?[indexPath.section].multipleChoice
 //                    check.choices = [val ?? ChoicesModel()]
 //                    self.selectedOptions.append(check)
