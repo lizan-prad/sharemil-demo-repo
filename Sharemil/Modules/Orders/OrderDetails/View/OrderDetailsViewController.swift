@@ -105,7 +105,7 @@ extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate
         case 0:
             return UITableView.automaticDimension
         case 1:
-            return 65
+            return UITableView.automaticDimension
         default: return 0
         }
     }

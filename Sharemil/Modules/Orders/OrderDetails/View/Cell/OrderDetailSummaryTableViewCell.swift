@@ -50,7 +50,7 @@ extension OrderDetailSummaryTableViewCell: UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return UITableView.automaticDimension
     }
 
 }

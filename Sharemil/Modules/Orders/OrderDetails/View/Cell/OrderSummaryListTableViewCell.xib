@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -34,7 +34,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yv-Ku-4NY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yv-Ku-4NY">
                                         <rect key="frame" x="0.0" y="19.5" width="163.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,8 +82,10 @@
                     <constraint firstItem="cJo-fE-hjX" firstAttribute="centerY" secondItem="g6H-lW-zfT" secondAttribute="centerY" id="QFO-nP-m8S"/>
                     <constraint firstItem="Mba-K0-Gvu" firstAttribute="leading" secondItem="g6H-lW-zfT" secondAttribute="leading" constant="25" id="ahX-HX-XSJ"/>
                     <constraint firstItem="Mba-K0-Gvu" firstAttribute="centerY" secondItem="g6H-lW-zfT" secondAttribute="centerY" id="dsA-J2-IGA"/>
+                    <constraint firstItem="geR-Ny-pG2" firstAttribute="top" secondItem="cJo-fE-hjX" secondAttribute="bottom" constant="7" id="hWs-5w-K6B"/>
                     <constraint firstItem="geR-Ny-pG2" firstAttribute="trailing" secondItem="cJo-fE-hjX" secondAttribute="trailing" id="hYQ-Mj-d3K"/>
                     <constraint firstAttribute="bottom" secondItem="geR-Ny-pG2" secondAttribute="bottom" id="i27-TM-76Z"/>
+                    <constraint firstItem="cJo-fE-hjX" firstAttribute="top" secondItem="g6H-lW-zfT" secondAttribute="top" constant="8" id="xbk-6Q-fhW"/>
                     <constraint firstItem="cJo-fE-hjX" firstAttribute="leading" secondItem="Mba-K0-Gvu" secondAttribute="trailing" constant="16" id="yxZ-Xf-yof"/>
                 </constraints>
             </tableViewCellContentView>
