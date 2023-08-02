@@ -35,6 +35,7 @@ class OtpVerificationViewController: UIViewController, Storyboarded {
         
         viewModel.otpSuccess.bind { user in
             guard let nav = self.navigationController else {return}
+            NotificationCenter.default.post(name: Notification.Name.init("NOTIFSETUP"), object: nil)
             let vc = BaseTabbarCoordinator.init(navigationController: nav).getMainView()
             appdelegate.window?.rootViewController = vc
         }

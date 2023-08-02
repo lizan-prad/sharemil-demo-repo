@@ -61,15 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         } else {
             self.loadRegistration()
         }
-       
-        window?.makeKeyAndVisible()
-        registerNotification(application)
-//        Messaging.messaging().delegate = self
-        
         OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
           
           // OneSignal initialization
           OneSignal.initWithLaunchOptions(launchOptions)
+        window?.makeKeyAndVisible()
+        registerNotification(application)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupOneSignal), name: Notification.Name.init("NOTIFSETUP"), object: nil)
+//        Messaging.messaging().delegate = self
+        
+       
+        return true
+    }
+    
+    @objc func setupOneSignal() {
+        
         if UserDefaults.standard.string(forKey: "ENV") == nil {
             UserDefaults.standard.set("D", forKey: "ENV")
         }
@@ -81,9 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
           OneSignal.promptForPushNotifications(userResponse: { accepted in
             print("User accepted notifications: \(accepted)")
           })
-        return true
     }
-    
     
     private func loadHome() {
         let navigation = UINavigationController()
