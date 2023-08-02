@@ -12,6 +12,7 @@ class CartDetailViewModel: MenuItemService, CartService, HomeService, ChefMenuSe
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     var cartList: Observable<CartListModel> = Observable(nil)
+    var upDateList: Observable<CartListModel> = Observable(nil)
     var deleteState: Observable<String> = Observable(nil)
     var refresh: Observable<String> = Observable(nil)
     var chef: Observable<ChefListModel> = Observable(nil)
@@ -71,7 +72,7 @@ class CartDetailViewModel: MenuItemService, CartService, HomeService, ChefMenuSe
             self.loading.value = false
             switch result {
             case .success(let model):
-                self.cartList.value = model.data
+                self.upDateList.value = model.data
             case .failure(let error):
                 if error.code == 401 {
                     self.refresh.value = error.localizedDescription

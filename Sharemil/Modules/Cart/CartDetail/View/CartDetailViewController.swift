@@ -77,12 +77,16 @@ class CartDetailViewController: UIViewController, Storyboarded {
             }
         }
         self.viewModel.cartList.bind { cart in
-            self.setup()
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.didUpdate?()
             self.cartItems = cart?.carts?.filter({$0.id == self.cartItems?.first?.cartId}).first?.cartItems
             self.cartItems = self.cartItems?.filter({$0.quantity != 0})
+            self.setup()
             self.tableView.reloadData()
+        }
+        
+        self.viewModel.upDateList.bind { cart in
+            self.viewModel.fetchCarts()
         }
         self.viewModel.menuItems.bind { menu in
             self.menu = menu
@@ -228,9 +232,7 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
         coordinator.didRemove = { model in
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             
-            self.cartItems = self.cartItems?.filter({$0.id != model})
-            self.tableViewHeight.constant = CGFloat((self.cartItems?.count ?? 0)*65) + 65
-            self.tableView.reloadData()
+            self.viewModel.fetchCarts()
             if self.cartItems?.isEmpty == true {
                 self.dismiss(animated: true) {
                     self.didUpdate?()

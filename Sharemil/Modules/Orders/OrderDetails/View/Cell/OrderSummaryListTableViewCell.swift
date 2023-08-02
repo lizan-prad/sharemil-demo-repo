@@ -13,9 +13,11 @@ class OrderSummaryListTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemQuantity: UILabel!
     @IBOutlet weak var itemNamee: UILabel!
+    @IBOutlet weak var choices: UILabel!
     
     var item: CartItems? {
         didSet {
+            choices.text = item?.options?.map({$0.choices?.map({$0.name ?? ""}).joined(separator: ", ") ?? ""}).joined(separator: ", ")
             itemQuantity.text = "\(item?.quantity ?? 0)"
             itemNamee.text = item?.menuItem?.name
             let opt = item?.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})

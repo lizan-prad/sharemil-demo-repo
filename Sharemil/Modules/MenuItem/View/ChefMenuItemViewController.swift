@@ -166,13 +166,16 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             //            item.cartId = self.cartModel?.first?.cartId
             item.menuItemId = self.model?.id
    
-                item.quantity = self.initialQuantity - (self.selectedItem?.quantity ?? 0)
+                item.quantity = self.initialQuantity
           
-            
+            item.cartId = self.selectedItem?.cartId
+            item.id = self.selectedItem?.id
             item.options = self.selectedOptions
             var cart: [CartItems] = self.cartModel ?? []
             //            cart = cart.filter({$0.menuItemId != self.model?.id})
+            cart = cart.filter({$0.id != self.selectedItem?.id})
             cart.append(item)
+            
             self.viewModel.updateToCart(self.model?.chefId ?? "", cartModels: cart)
         }
     }
