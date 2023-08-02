@@ -84,7 +84,6 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         bindViewModel()
         setTableView()
         setupView()
-        setupUpdateView()
         if UIDevice.current.hasNotch {
             self.containerHeight.constant = 116
         } else {
@@ -116,7 +115,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             //            self.quantityStack.isHidden = true
             self.removeBtn.isHidden = false
             self.initialQuantity = selectedItem?.quantity ?? 0
-            let options = self.selectedItem?.options?.map({$0.choices?.first?.price ?? 0}).reduce(0,+) ?? 0
+            let opt = self.selectedItem?.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
+            let options = opt?.reduce(0,+) ?? 0
             self.addToCartBtn.setTitle("Update \(selectedItem?.quantity ?? 0) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
             //            self.plusBtn.alpha = 0.7
             //            self.minusBtn.alpha = 0.7
@@ -228,6 +228,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
         viewModel.itemModel.bind { model in
             self.model = model
+            self.setupUpdateView()
             self.validateAddToCart()
         }
         viewModel.deleteState.bind { model in
@@ -276,7 +277,8 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             
             cell.setup()
             cell.section = indexPath.section
-            let a = self.selectedOptions.map({$0.choices?.first?.name ?? ""})
+            let b = self.selectedOptions.filter({$0.title == self.model?.options?[indexPath.section].title}).first
+            let a = b?.choices?.map({$0.name ?? ""}) ?? []
             //            if isUpdate {
             cell.checkBox.isOn = a.contains(cell.model?.name ?? "")
             //            }

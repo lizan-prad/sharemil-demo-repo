@@ -32,6 +32,9 @@ struct ChefMenuListModel : Mappable {
 		options <- map["options"]
 		createdAt <- map["createdAt"]
 		price <- map["price"]
+        if price == nil {
+            price <- map["price:"]
+        }
         dailySalesLimit <- map["dailySaleLimit"]
         remainingItems <- map["remainingItems"]
 	}
