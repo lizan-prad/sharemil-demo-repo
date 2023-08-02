@@ -107,7 +107,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     private func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*65) + 65
+        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*((cartItems?.map({$0.options?.count ?? 0}).reduce(0, +) ?? 0) > 4 ? 84 : 65)) + 65
         tableView.register(UINib.init(nibName: "CartDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CartDetailTableViewCell")
     }
 
@@ -181,7 +181,7 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

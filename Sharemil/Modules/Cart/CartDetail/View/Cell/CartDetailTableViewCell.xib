@@ -83,17 +83,20 @@
                                     <constraint firstItem="ZbC-x6-Ya3" firstAttribute="leading" secondItem="Jrp-WJ-oad" secondAttribute="leading" id="fa6-kB-HqL"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="05y-jH-WdJ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="05y-jH-WdJ">
                                 <rect key="frame" x="97" y="0.0" width="111.5" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKs-wW-6QV">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19.5" id="OEg-vO-QLK"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-Lt-yaK">
-                                        <rect key="frame" x="0.0" y="27.5" width="111.5" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="19.5" width="111.5" height="35.5"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
