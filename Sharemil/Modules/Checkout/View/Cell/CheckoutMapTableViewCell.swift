@@ -65,7 +65,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
             let marker = GMSMarker.init(position: CLLocationCoordinate2D.init(latitude: Double(chef?.latitude ?? 0), longitude: Double(chef?.longitude ?? 0)))
             marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.isFlat = true
-            marker.icon = UIImage.init(named: "end")?.withTintColor(.green, renderingMode: .alwaysTemplate)
+            marker.icon = UIImage.init(named: "open_restaurant")?.withTintColor(.green, renderingMode: .alwaysTemplate)
 //            marker.rotation = angle
             marker.map = self.mapView
             self.pickUpLabel.text = "Pick Up (\(chef?.preparationTime ?? ""))"
