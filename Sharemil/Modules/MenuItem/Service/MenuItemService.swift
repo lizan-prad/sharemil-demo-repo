@@ -50,7 +50,8 @@ extension MenuItemService {
     
     private func getChoices(option: ChoicesModel?) -> [String: Any] {
         return ["name": option?.name ?? "",
-                "price:": option?.price ?? 0]
+                "price:": option?.price ?? 0,
+                "quantity": option?.quantity ?? 0]
     }
     
     func updateCartWith(_ date: String, _ time: String, _ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {

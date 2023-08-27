@@ -25,9 +25,17 @@ class ConfirmationOrderSummaryTableViewCell: UITableViewCell {
         tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*65)
     
         tableView.register(UINib.init(nibName: "ConfirmationSummaryListTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmationSummaryListTableViewCell")
-        let totalPrice = cartItems?.map({ c in
-            return (c.menuItem?.price ?? 0)*Double(c.quantity ?? 0)
-        }).reduce(0, +)
+        let val = cartItems?.compactMap({ item in
+            let opt = item.options?.map({ a in
+                var b = a.choices?.map({ m in
+                    return ((m.price ?? 0)*Double(m.quantity ?? 0))
+                })
+                return b?.reduce(0, +) ?? 0
+            })
+            let options = opt?.reduce(0,+) ?? 0
+            return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
+        })
+        let totalPrice = val?.reduce(0, +)
         total.text = "$" + (totalPrice ?? 0).withDecimal(2)
     }
 }

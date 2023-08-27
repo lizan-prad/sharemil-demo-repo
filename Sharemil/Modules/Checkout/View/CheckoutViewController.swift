@@ -279,12 +279,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         
         self.viewModel.cartList.bind { cartItems in
-            let val = cartItems?.cartItems?.compactMap({ item in
-                let opt = item.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
-                let options = opt?.reduce(0,+) ?? 0
-                return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
-            })
-            let totalPrice = val?.reduce(0, +) ?? 0
+            let val = self.getTotalVals(cartItems)
+            let totalPrice = val.reduce(0, +)
             self.subTotal.text = "$\(totalPrice.withDecimal(2))"
             self.total.text = "$\(totalPrice.withDecimal(2))"
             self.placeOrderBtn.setTitle("Place order · \("$\(totalPrice.withDecimal(2))")", for: .normal)
@@ -372,6 +368,20 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     
     @IBAction func placeOrderAction(_ sender: Any) {
         self.openConfirmation()
+    }
+    
+    func getTotalVals(_ cart: Cart?) -> [Double] {
+        let val = cart?.cartItems?.compactMap({ item in
+            let opt = item.options?.map({ a in
+                var b = a.choices?.map({ m in
+                    return ((m.price ?? 0)*Double(m.quantity ?? 0))
+                })
+                return b?.reduce(0, +) ?? 0
+            })
+            let options = opt?.reduce(0,+) ?? 0
+            return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
+        })
+        return val ?? []
     }
     
     private func openConfirmation() {

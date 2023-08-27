@@ -55,7 +55,6 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     var initialQuantity = 1 {
         didSet {
-            
             self.getQuantity()
         }
     }
@@ -63,11 +62,21 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     func getQuantity() {
         self.quantityLabel.text = "\(initialQuantity)"
         if cartModel?.filter({$0.menuItemId == self.model?.id}).isEmpty ?? true {
-            let options = self.selectedOptions.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0}).reduce(0,+)
-            self.addToCartBtn.setTitle("\(isUpdate ? "Update" : "Add") \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
+            let options = self.selectedOptions.map({ a in
+                return (a.choices?.map({ m in
+                    return Double(m.quantity ?? 1)*(m.price ?? 0)
+                }).reduce(0, +) ?? 0)
+            })
+            let o = options.reduce(0,+)
+            self.addToCartBtn.setTitle("\(isUpdate ? "Update" : "Add") \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + o)).withDecimal(2))", for: .normal)
         } else {
-            let options = self.selectedOptions.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0}).reduce(0,+)
-            self.addToCartBtn.setTitle("\(isUpdate ? "Update" : "Add") \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
+            let options = self.selectedOptions.map({ a in
+                return (a.choices?.map({ m in
+                    return Double(m.quantity ?? 1)*(m.price ?? 0)
+                }).reduce(0, +) ?? 0)
+            })
+            let o = options.reduce(0,+)
+            self.addToCartBtn.setTitle("\(isUpdate ? "Update" : "Add") \(initialQuantity) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + o)).withDecimal(2))", for: .normal)
         }
     }
     
@@ -75,7 +84,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         didSet {
             self.setupData()
             tableView.reloadData()
-            self.tableHeight.constant = CGFloat((self.model?.options?.count ?? 0)*60) + CGFloat((self.model?.options?.map({$0.choices ?? []}).flatMap({$0}).count ?? 0)*40) + 200
+            self.tableHeight.constant = CGFloat((self.model?.options?.count ?? 0)*60) + CGFloat((self.model?.options?.map({$0.choices ?? []}).flatMap({$0}).count ?? 0)*80) + 200
         }
     }
     
@@ -91,6 +100,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
         if isUpdate {
             self.selectedOptions = self.selectedItem?.options ?? []
+        } else {
+            self.addToCartBtn.setTitle("\("Add") \(initialQuantity) to cart · $\((model?.price ?? 0).withDecimal(2))", for: .normal)
         }
         
         self.viewModel.fetchChefMenuItem()
@@ -115,9 +126,13 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             //            self.quantityStack.isHidden = true
             self.removeBtn.isHidden = false
             self.initialQuantity = selectedItem?.quantity ?? 0
-            let opt = self.selectedItem?.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
-            let options = opt?.reduce(0,+) ?? 0
-            self.addToCartBtn.setTitle("Update \(selectedItem?.quantity ?? 0) to cart · $\((Double(initialQuantity)*((model?.price ?? 0) + options)).withDecimal(2))", for: .normal)
+            let options = self.selectedItem?.options?.map({ a in
+                return (a.choices?.map({ m in
+                    return Double(m.quantity ?? 1)*(m.price ?? 0)
+                }).reduce(0, +) ?? 0)
+            })
+            let o = options?.reduce(0,+) ?? 0
+            self.addToCartBtn.setTitle("Update \(selectedItem?.quantity ?? 0) to cart · $\(self.selectedItem?.price?.withDecimal(2) ?? "")", for: .normal)
             //            self.plusBtn.alpha = 0.7
             //            self.minusBtn.alpha = 0.7
             //            self.plusBtn.isEnabled = false
@@ -285,6 +300,29 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             //            if isUpdate {
             cell.checkBox.isOn = a.contains(cell.model?.name ?? "")
             //            }
+            cell.quantityLabel.text = "\(selectedItem?.options?[indexPath.section].choices?.filter({$0.name == cell.model?.name}).first?.quantity ?? 1)"
+            if cell.model?.price == 0.0 {
+                cell.quantityStack.isHidden = true
+            } else {
+                cell.quantityStack.isHidden = !cell.checkBox.isOn
+            }
+            
+            cell.didUpdateQuantity = { (val,section,quantity) in
+                var check = MenuItemOptionsModel()
+                //                let m = self.selectedOptions.filter({$0.multipleChoice == true}).first
+                check.title = self.model?.options?[section].title
+                check.multipleChoice = true
+                let option = self.selectedOptions.filter({$0.title == check.title}).first
+                self.selectedOptions = self.selectedOptions.filter({$0.title != check.title})
+                var choices = option?.choices?.filter({$0.name != val?.name}) ?? []
+                var newVal = val
+                newVal?.quantity = quantity
+                choices.append(newVal ?? ChoicesModel())
+                check.choices = choices
+                self.selectedOptions.append(check)
+                print(self.selectedOptions)
+            }
+            
             cell.didSelect = { (val, section) in
                 var check = MenuItemOptionsModel()
                 //                let m = self.selectedOptions.filter({$0.multipleChoice == true}).first
@@ -293,7 +331,9 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
                 let option = self.selectedOptions.filter({$0.title == check.title}).first
                 self.selectedOptions = self.selectedOptions.filter({$0.title != check.title})
                 var choices = option?.choices ?? []
-                choices.append(val ?? ChoicesModel())
+                var newVal = val
+                newVal?.quantity = 1
+                choices.append(newVal ?? ChoicesModel())
                 check.choices = choices
                 
                 //                check.choices = m == nil ? [val ?? ChoicesModel()] : [val ?? ChoicesModel(), m?.choices?.filter({$0.name != val?.name}).first ?? ChoicesModel()]
@@ -332,6 +372,7 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
             cell.model = model?.options?[indexPath.section].choices?[indexPath.row]
             cell.section = indexPath.section
             cell.row = indexPath.row
+            
             cell.setup()
             if self.selectedOptions.map({($0.choices?.first?.name ?? "", $0.title ?? "")}).contains(where: { a in
                 return (a.0 == cell.model?.name) && a.1 == self.model?.options?[indexPath.section].title
@@ -344,12 +385,33 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
 //            if isUpdate {
             
 //            }
+            cell.quantityLabel.text = "\(selectedItem?.options?[indexPath.section].choices?.filter({$0.name == cell.model?.name}).first?.quantity ?? 1)"
+             
+            if cell.model?.price == 0.0 {
+                cell.quantityStack.isHidden = true
+            } else {
+                cell.quantityStack.isHidden = !cell.radioButton.isOn
+            }
+            
+            cell.didUpdateQuantity = { (val,section,row,quantity) in
+                self.selectedOptions = self.selectedOptions.filter({self.model?.options?[section].title != $0.title})
+                var check = MenuItemOptionsModel()
+                check.title = self.model?.options?[section].title
+                check.multipleChoice = self.model?.options?[section].multipleChoice
+                var newVal = val
+                newVal?.quantity = quantity
+                check.choices = [newVal ?? ChoicesModel()]
+                self.selectedOptions.append(check)
+                print(self.selectedOptions)
+            }
             cell.didSelect = { (val,section,row) in
                 self.selectedOptions = self.selectedOptions.filter({self.model?.options?[section].title != $0.title})
                 var check = MenuItemOptionsModel()
                 check.title = self.model?.options?[section].title
                 check.multipleChoice = self.model?.options?[section].multipleChoice
-                check.choices = [val ?? ChoicesModel()]
+                var newVal = val
+                newVal?.quantity = 1
+                check.choices = [newVal ?? ChoicesModel()]
                 self.selectedOptions.append(check)
                 self.tableView.reloadRows(at: (0...((self.model?.options?[section].choices?.count ?? 0) - 1)).map({IndexPath.init(row: $0, section: section)}), with: .none)
                 
@@ -372,7 +434,16 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 80
+//        if let cell = tableView.cellForRow(at: indexPath) as? ChefMenuOptionRadioTableViewCell {
+//            return cell.radioButton.isOn ? 78 : 40
+//        } else {
+//            if let cell = tableView.cellForRow(at: indexPath) as? ChefMenuOptionCheckBoxTableViewCell {
+//                return cell.checkBox.isOn ? 78 : 40
+//            } else {
+//                return 40
+//            }
+//        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

@@ -26,11 +26,20 @@ class CartDetailTableViewCell: UITableViewCell {
             itemName.text = item?.menuItem?.name
             quantityLabel.text = "\(item?.quantity ?? 0)"
 
-            let itemst = self.item?.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
-            let itemOptions = itemst?.reduce(0,+) ?? 0
+            let opt = item?.options?.map({ a in
+                var b = a.choices?.map({ m in
+                    return ((m.price ?? 0)*Double(m.quantity ?? 0))
+                })
+                return b?.reduce(0, +) ?? 0
+            })
+            let itemOptions = opt?.reduce(0,+) ?? 0
             itemPrice.text = "$" + (((item?.menuItem?.price ?? 0) + itemOptions)*Double(item?.quantity ?? 0)).withDecimal(2)
             options.isHidden = item?.options?.map({$0.choices?.first?.name ?? ""}).joined(separator: ", ") == nil ||  item?.options?.map({$0.choices?.first?.name ?? ""}).joined(separator: ", ") == ""
-            options.text = item?.options?.map({$0.choices?.map({$0.name ?? ""}).joined(separator: ", ") ?? ""}).joined(separator: ", ")
+            options.text = item?.options?.map({ m in
+                return "\(m.title ?? ""): " + (m.choices?.map({ c in
+                    return c.quantity == nil ? (c.name ?? "") : (c.price == 0.0 ? (c.name ?? "") : "\(c.name ?? "")(x\(c.quantity ?? 0))")
+                }).joined(separator: " , ") ?? "")
+            }).joined(separator: ", ")
         }
     }
     

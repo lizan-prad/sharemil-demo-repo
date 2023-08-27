@@ -17,10 +17,19 @@ class OrderSummaryListTableViewCell: UITableViewCell {
     
     var item: CartItems? {
         didSet {
-            choices.text = item?.options?.map({$0.choices?.map({$0.name ?? ""}).joined(separator: ", ") ?? ""}).joined(separator: ", ")
+            choices.text = item?.options?.map({ m in
+                return "\(m.title ?? ""): " + (m.choices?.map({ c in
+                    return c.quantity == nil ? (c.name ?? "") : (c.price == 0.0 ? (c.name ?? "") : "\(c.name ?? "")(x\(c.quantity ?? 0))")
+                }).joined(separator: " , ") ?? "")
+            }).joined(separator: ", ")
             itemQuantity.text = "\(item?.quantity ?? 0)"
             itemNamee.text = item?.menuItem?.name
-            let opt = item?.options?.map({$0.choices?.map({$0.price ?? 0}).reduce(0, +) ?? 0})
+            let opt = item?.options?.map({ a in
+                var b = a.choices?.map({ m in
+                    return ((m.price ?? 0)*Double(m.quantity ?? 0))
+                })
+                return b?.reduce(0, +) ?? 0
+            })
             let options = opt?.reduce(0,+) ?? 0
             priceLabel.text = "$" + (((item?.menuItem?.price ?? 0) + options)*Double(item?.quantity ?? 0)).withDecimal(2)
         }

@@ -21,6 +21,7 @@ struct MenuItemOptionsModel : Mappable {
             choices <- map["choices"]
         }
 		multipleChoice <- map["multipleChoice"]
+       
 	}
 
 }
@@ -29,6 +30,7 @@ struct ChoicesModel : Mappable {
     
     var name : String?
     var price: Double?
+    var quantity: Int?
     
     init() {}
 
@@ -43,7 +45,7 @@ struct ChoicesModel : Mappable {
         if price == nil {
             price <- map["price:"]
         }
-        
+        quantity <- map["quantity"]
     }
 
 }

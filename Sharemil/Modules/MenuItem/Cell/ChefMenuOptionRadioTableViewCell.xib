@@ -8,22 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChefMenuOptionRadioTableViewCell" rowHeight="34" id="E7V-qk-5Rv" customClass="ChefMenuOptionRadioTableViewCell" customModule="Sharemil" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChefMenuOptionRadioTableViewCell" rowHeight="78" id="E7V-qk-5Rv" customClass="ChefMenuOptionRadioTableViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7V-qk-5Rv" id="Z9T-D1-S0a">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR5-Dy-W9F" customClass="RadioButton" customModule="MBRadioCheckboxButton">
-                        <rect key="frame" x="18" y="7" width="20" height="20"/>
+                        <rect key="frame" x="18" y="28" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="Ze5-IK-iLY"/>
                             <constraint firstAttribute="height" constant="20" id="cdj-JL-ifR"/>
@@ -31,23 +31,79 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice of Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuI-bN-ygz">
-                        <rect key="frame" x="52" y="8.5" width="114.5" height="17"/>
+                        <rect key="frame" x="52" y="29.5" width="114.5" height="17"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk6-Ri-FAB">
-                        <rect key="frame" x="274" y="8.5" width="30" height="17"/>
-                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="edX-5i-c2d">
+                        <rect key="frame" x="224" y="10" width="80" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGh-g6-kQu">
+                                <rect key="frame" x="25" y="0.0" width="30" height="24"/>
+                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-sb-0WJ">
+                                <rect key="frame" x="0.0" y="32" width="82" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMi-fu-Hc1">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="minus"/>
+                                        <connections>
+                                            <action selector="minusAction:" destination="E7V-qk-5Rv" eventType="touchUpInside" id="a4S-rZ-UAO"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-Zk-5fu">
+                                        <rect key="frame" x="29" y="0.0" width="24" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTL-Oa-ajc">
+                                                <rect key="frame" x="8.5" y="2.5" width="7.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="KTL-Oa-ajc" firstAttribute="centerY" secondItem="AbF-Zk-5fu" secondAttribute="centerY" id="GHW-js-aBv"/>
+                                            <constraint firstAttribute="height" constant="24" id="J7f-9c-rbz"/>
+                                            <constraint firstItem="KTL-Oa-ajc" firstAttribute="centerX" secondItem="AbF-Zk-5fu" secondAttribute="centerX" id="agY-mA-JRU"/>
+                                            <constraint firstAttribute="width" constant="24" id="scd-LQ-FKt"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyb-5q-fp7">
+                                        <rect key="frame" x="58" y="0.0" width="24" height="24"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="plus"/>
+                                        <connections>
+                                            <action selector="plusAction:" destination="E7V-qk-5Rv" eventType="touchUpInside" id="Cao-0T-UPA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Cyb-5q-fp7" firstAttribute="width" secondItem="AbF-Zk-5fu" secondAttribute="width" id="4V2-PG-4Wb"/>
+                                    <constraint firstAttribute="width" constant="82" id="OIp-5e-BqL"/>
+                                    <constraint firstItem="xMi-fu-Hc1" firstAttribute="width" secondItem="AbF-Zk-5fu" secondAttribute="width" id="c0F-sB-mXm"/>
+                                    <constraint firstAttribute="height" constant="24" id="jaS-nn-KWo"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="NZR-o6-Y46"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Sk6-Ri-FAB" secondAttribute="trailing" constant="16" id="CMl-tj-ZgH"/>
+                    <constraint firstAttribute="trailing" secondItem="edX-5i-c2d" secondAttribute="trailing" constant="16" id="58h-WM-cdO"/>
                     <constraint firstItem="ZR5-Dy-W9F" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="Ic7-nb-sKo"/>
-                    <constraint firstItem="Sk6-Ri-FAB" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="JTJ-d0-Wsz"/>
+                    <constraint firstItem="edX-5i-c2d" firstAttribute="top" secondItem="Z9T-D1-S0a" secondAttribute="top" constant="10" id="K3g-gv-Fni"/>
                     <constraint firstItem="RuI-bN-ygz" firstAttribute="centerY" secondItem="Z9T-D1-S0a" secondAttribute="centerY" id="Rmh-Ot-fcc"/>
+                    <constraint firstAttribute="bottom" secondItem="edX-5i-c2d" secondAttribute="bottom" constant="10" id="bbf-JP-lF1"/>
                     <constraint firstItem="ZR5-Dy-W9F" firstAttribute="leading" secondItem="Z9T-D1-S0a" secondAttribute="leading" constant="18" id="oWl-om-kBA"/>
                     <constraint firstItem="RuI-bN-ygz" firstAttribute="leading" secondItem="ZR5-Dy-W9F" secondAttribute="trailing" constant="14" id="wyg-dy-mbS"/>
                 </constraints>
@@ -55,15 +111,21 @@
             <viewLayoutGuide key="safeArea" id="Nwj-iB-OhQ"/>
             <connections>
                 <outlet property="optionName" destination="RuI-bN-ygz" id="UIg-pI-mUj"/>
-                <outlet property="optionPrice" destination="Sk6-Ri-FAB" id="0Pn-hZ-j5z"/>
+                <outlet property="optionPrice" destination="qGh-g6-kQu" id="aff-vg-Now"/>
+                <outlet property="quantityLabel" destination="KTL-Oa-ajc" id="Zrr-5Q-cEt"/>
+                <outlet property="quantityStack" destination="gdg-sb-0WJ" id="sYs-mW-dlR"/>
                 <outlet property="radioButton" destination="ZR5-Dy-W9F" id="bZ6-pE-sUH"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="111.16071428571428"/>
+            <point key="canvasLocation" x="137.68115942028987" y="125.22321428571428"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="ZR5-Dy-W9F">
-            <size key="intrinsicContentSize" width="22" height="18"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
     </designables>
+    <resources>
+        <image name="minus" width="24" height="24"/>
+        <image name="plus" width="24" height="24"/>
+    </resources>
 </document>
