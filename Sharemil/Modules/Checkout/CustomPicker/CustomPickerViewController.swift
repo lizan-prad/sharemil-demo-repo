@@ -114,13 +114,13 @@ class CustomPickerViewController: UIViewController {
                 result.append(date)
                 date = date.addingTimeInterval(quarter)
             }
-            if !result.isEmpty {
-                result.removeLast()
-                if !result.isEmpty {
-                    result.removeLast()
-                }
+//            if !result.isEmpty {
+//                result.removeLast()
+//                if !result.isEmpty {
+//                    result.removeLast()
+//                }
                 self.dateList = result
-            }
+//            }
         }
     }
     

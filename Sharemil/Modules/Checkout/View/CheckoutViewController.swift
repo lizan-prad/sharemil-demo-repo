@@ -462,8 +462,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             cell.checkoutType = self.defaultCheckoutType
             cell.chef = self.chef
             cell.scheduleDateField.text = self.scheduleType == "standard" ? scheduleDate : scheduleType
-            cell.standardContainer.addBorderwith(scheduleType == "standard" ? .black : UIColor.init(hex: "EAEAEA"), width: 1)
-            cell.scheduleContainer.addBorder( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : .black)
+            cell.standardContainer.addBorderwith(scheduleType == "standard" ? UIColor.init(hex: "E89A41") : UIColor.init(hex: "EAEAEA"), width: scheduleType == "standard" ? 2 : 1)
+            cell.scheduleContainer.addBorderwith( scheduleType == "standard" ? UIColor.init(hex: "EAEAEA") : UIColor.init(hex: "E89A41"), width: scheduleType == "standard" ? 1 : 2)
             cell.polylines = self.polylines
             cell.didTapDeliveryAction = {
                 self.openLocationView()

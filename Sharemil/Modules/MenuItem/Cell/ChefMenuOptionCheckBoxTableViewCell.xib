@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-Kf-4tU" customClass="CheckboxButton" customModule="MBRadioCheckboxButton">
-                        <rect key="frame" x="18" y="28" width="20" height="20"/>
+                        <rect key="frame" x="24" y="28" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="7D3-wE-YMF"/>
                             <constraint firstAttribute="height" constant="20" id="heE-Dh-KzQ"/>
@@ -31,7 +31,7 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice of Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNF-Q1-Mqk">
-                        <rect key="frame" x="52" y="29.5" width="114.5" height="17"/>
+                        <rect key="frame" x="58" y="29.5" width="114.5" height="17"/>
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -105,7 +105,7 @@
                     <constraint firstAttribute="bottom" secondItem="pUw-gX-Msl" secondAttribute="bottom" constant="10" id="DhB-ri-R5g"/>
                     <constraint firstItem="pUw-gX-Msl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KGQ-A3-8ML"/>
                     <constraint firstItem="yNF-Q1-Mqk" firstAttribute="leading" secondItem="l2k-Kf-4tU" secondAttribute="trailing" constant="14" id="NGq-83-60Y"/>
-                    <constraint firstItem="l2k-Kf-4tU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="moP-mx-7eM"/>
+                    <constraint firstItem="l2k-Kf-4tU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="moP-mx-7eM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
