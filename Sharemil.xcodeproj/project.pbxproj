@@ -210,6 +210,7 @@
 		BEB13DC7285DC79D00F63933 /* MyLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */; };
 		BEB13DCA285DC91500F63933 /* MyLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */; };
 		BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */; };
+		BEB7271A2ABA034C00E5D7EF /* RecommendedItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB727192ABA034C00E5D7EF /* RecommendedItemsCollectionViewCell.swift */; };
 		BEB7A5712978629400F72E0D /* PickUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB7A5702978629400F72E0D /* PickUp.storyboard */; };
 		BEB7A573297866D300F72E0D /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A572297866D300F72E0D /* PickUpViewController.swift */; };
 		BEB7A57529786A1200F72E0D /* PickUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57429786A1200F72E0D /* PickUpViewModel.swift */; };
@@ -506,6 +507,7 @@
 		BEB13DC6285DC79D00F63933 /* MyLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationCoordinator.swift; sourceTree = "<group>"; };
 		BEB13DC9285DC91500F63933 /* MyLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewModel.swift; sourceTree = "<group>"; };
 		BEB13DCB285DFDE700F63933 /* GoogleMapsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsServices.swift; sourceTree = "<group>"; };
+		BEB727192ABA034C00E5D7EF /* RecommendedItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BEB7A5702978629400F72E0D /* PickUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickUp.storyboard; sourceTree = "<group>"; };
 		BEB7A572297866D300F72E0D /* PickUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
 		BEB7A57429786A1200F72E0D /* PickUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpViewModel.swift; sourceTree = "<group>"; };
@@ -1895,6 +1897,7 @@
 			children = (
 				BEF7EADC28647982002D553E /* CartDetailTableViewCell.swift */,
 				BEF7EADD28647982002D553E /* CartDetailTableViewCell.xib */,
+				BEB727192ABA034C00E5D7EF /* RecommendedItemsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2367,6 +2370,7 @@
 				BEAF323528754ECC0007F9B0 /* EditAccountViewModel.swift in Sources */,
 				BE7302C8287EC88C00CC6383 /* OrderDetailService.swift in Sources */,
 				BE4CDDC828532EFE006AB129 /* OtpVerificationViewController.swift in Sources */,
+				BEB7271A2ABA034C00E5D7EF /* RecommendedItemsCollectionViewCell.swift in Sources */,
 				BE5B6A2728904A47008CC57F /* ConfirmationDetailTableViewCell.swift in Sources */,
 				BE214B232862EE8600B26B50 /* ChefMenuOptionHeaderTableViewCell.swift in Sources */,
 				52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */,

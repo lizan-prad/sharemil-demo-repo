@@ -17,6 +17,20 @@ class CartDetailViewModel: MenuItemService, CartService, HomeService, ChefMenuSe
     var refresh: Observable<String> = Observable(nil)
     var chef: Observable<ChefListModel> = Observable(nil)
     var menuItems: Observable<[ChefMenuListModel]> = Observable([])
+    var recommended: Observable<[ChefMenuListModel]> = Observable([])
+    
+    func fetchCartRecommendedItems(_ id: String) {
+        self.loading.value = true
+        self.fetchRecommendedItem(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.recommended.value = model.data?.menu
+            case .failure(let error):
+                self.error.value = error.localizedDescription
+            }
+        }
+    }
     
     
     func fetchChefMenu(_ id: String) {

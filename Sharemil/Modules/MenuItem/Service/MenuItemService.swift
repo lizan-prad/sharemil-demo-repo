@@ -11,11 +11,19 @@ import SwiftyJSON
 
 protocol MenuItemService {
     func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
+    func fetchRecommendedItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
     func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
     func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
 }
 
 extension MenuItemService {
+    
+    func fetchRecommendedItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ()) {
+        NetworkManager.shared.request(BaseMappableModel<ChefMenuContainerModel>.self, urlExt: "carts/\(id)/recommended", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
+            completion(result)
+        }
+    }
+    
     func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ()) {
         NetworkManager.shared.request(BaseMappableModel<ChefMenuContainerModel>.self, urlExt: "menus/\(id)", method: .get, param: nil, encoding: URLEncoding.default, headers: nil) { result in
             completion(result)

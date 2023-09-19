@@ -9,6 +9,8 @@ import UIKit
 
 class CartDetailViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var recommendedTitle: UIStackView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var subTotal: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -20,6 +22,18 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var viewModel: CartDetailViewModel!
     
     var cartItems: [CartItems]?
+    var recommendedItems: [ChefMenuListModel]? {
+        didSet {
+            if recommendedItems?.count == 0 {
+                self.collectionView.isHidden = true
+                self.recommendedTitle.isHidden = true
+            } else {
+                self.collectionView.isHidden = false
+                self.recommendedTitle.isHidden = false
+            }
+            self.collectionView.reloadData()
+        }
+    }
     
     var chef: ChefListModel?
     var cartId: String?
@@ -29,6 +43,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
     var didSelectCheckout: ((ChefListModel?) -> ())?
     var menu: [ChefMenuListModel]?
     var isEdit = false
+    var tableHeight = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +56,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: Notification.Name.init("ITEMR"), object: nil)
         self.viewModel.fetchChefMenu(self.chef?.id ?? "")
         self.viewModel.fetchChefBy(self.chef?.id ?? "")
+        self.viewModel.fetchCartRecommendedItems(self.cartItems?.first?.cartId ?? "")
     }
     
     @objc func updateData() {
@@ -81,13 +97,20 @@ class CartDetailViewController: UIViewController, Storyboarded {
             self.didUpdate?()
             self.cartItems = cart?.carts?.filter({$0.id == self.cartItems?.first?.cartId}).first?.cartItems
             self.cartItems = self.cartItems?.filter({$0.quantity != 0})
+            self.viewModel.fetchCartRecommendedItems(self.cartId ?? "")
             self.setup()
             self.tableView.reloadData()
+//            self.tableViewHeight.constant = CGFloat((self.cartItems?.count ?? 0)*((self.cartItems?.map({$0.options?.count ?? 0}).reduce(0, +) ?? 0) > 4 ? 84 : 65)) + 40
         }
         
         self.viewModel.upDateList.bind { cart in
             self.viewModel.fetchCarts()
         }
+        
+        self.viewModel.recommended.bind { menu in
+            self.recommendedItems = menu
+        }
+        
         self.viewModel.menuItems.bind { menu in
             self.menu = menu
         }
@@ -112,7 +135,10 @@ class CartDetailViewController: UIViewController, Storyboarded {
     private func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableViewHeight.constant = CGFloat((cartItems?.count ?? 0)*((cartItems?.map({$0.options?.count ?? 0}).reduce(0, +) ?? 0) > 4 ? 84 : 65)) + 65
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        
         tableView.register(UINib.init(nibName: "CartDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "CartDetailTableViewCell")
     }
 
@@ -153,10 +179,48 @@ class CartDetailViewController: UIViewController, Storyboarded {
         }
     }
     
+    func setHeight() {
+        tableView.visibleCells.forEach { c in
+            tableHeight += c.bounds.height
+        }
+        tableViewHeight.constant = tableHeight + 40
+    }
+    
     @IBAction func checkoutAction(_ sender: Any) {
         self.dismiss(animated: true) {
             self.didSelectCheckout?(self.chef)
         }
+    }
+}
+
+extension CartDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return recommendedItems?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendedItemsCollectionViewCell", for: indexPath) as! RecommendedItemsCollectionViewCell
+        cell.model = self.recommendedItems?[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
+        coordinator.menuItemModel = self.recommendedItems?[indexPath.row]
+        coordinator.cartModel = cartItems
+        coordinator.didAddToCart = { model in
+            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+//            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+            self.viewModel.fetchCartRecommendedItems(self.cartId ?? "")
+            self.viewModel.fetchCarts()
+//            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+        }
+        self.present(coordinator.getMainView(), animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 110, height: 130)
     }
 }
 
@@ -182,7 +246,26 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 self.tableView.reloadData()
             }
         }
+        
         return cell
+    }
+    
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if (indexPath.row + 1) == (cartItems?.count ?? 0) {
+//            self.tableHeight = 0.0
+////            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+//                self.setHeight()
+////            }
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row + 1) == (cartItems?.count ?? 0) {
+            self.tableHeight = 0.0
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                self.setHeight()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

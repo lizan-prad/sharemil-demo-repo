@@ -37,6 +37,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     var cartModel: [CartItems]?
     
+    var isFromRecommended = false
+    
     var isUpdate = false
     var updateItem = false
     
