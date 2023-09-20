@@ -220,7 +220,7 @@ extension CartDetailViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 110, height: 130)
+        return CGSize.init(width: 110, height: 135)
     }
 }
 

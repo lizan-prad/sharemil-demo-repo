@@ -13,7 +13,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7V4-Vh-gvG">
-                                <rect key="frame" x="0.0" y="348" width="414" height="568"/>
+                                <rect key="frame" x="0.0" y="328" width="414" height="588"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2L-1x-llO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
@@ -116,7 +116,7 @@
                                         </view>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-ko-Tb7">
-                                        <rect key="frame" x="30" y="449" width="354" height="55"/>
+                                        <rect key="frame" x="30" y="469" width="354" height="55"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="fHK-dj-sjO"/>
@@ -131,7 +131,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sTY-ke-5Id">
-                                        <rect key="frame" x="0.0" y="258" width="414" height="171"/>
+                                        <rect key="frame" x="0.0" y="258" width="414" height="191"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="te2-lW-Yct">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -185,10 +185,10 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QKO-61-M64">
-                                                <rect key="frame" x="0.0" y="51" width="414" height="120"/>
+                                                <rect key="frame" x="0.0" y="51" width="414" height="140"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="tM3-ck-T6V"/>
+                                                    <constraint firstAttribute="height" constant="140" id="tM3-ck-T6V"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iJc-K5-iro">
                                                     <size key="itemSize" width="124" height="155"/>
@@ -198,7 +198,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecommendedItemsCollectionViewCell" id="4Bq-8u-q1Q" customClass="RecommendedItemsCollectionViewCell" customModule="Sharemil" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="-17.5" width="124" height="155"/>
+                                                        <rect key="frame" x="20" y="-7.5" width="124" height="155"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rVW-0b-NTq">
                                                             <rect key="frame" x="0.0" y="0.0" width="124" height="155"/>
@@ -211,7 +211,7 @@
                                                                         <constraint firstAttribute="height" constant="80" id="zUq-4s-4JT"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Subtotal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmB-Km-YcW">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Subtotal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmB-Km-YcW">
                                                                     <rect key="frame" x="6" y="100" width="112" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                                                     <nil key="textColor"/>
