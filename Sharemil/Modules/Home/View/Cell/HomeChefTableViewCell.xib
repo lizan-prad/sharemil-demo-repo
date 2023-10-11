@@ -12,6 +12,9 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
         <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
@@ -88,15 +91,36 @@
                             <constraint firstItem="0VO-Tf-K3g" firstAttribute="centerX" secondItem="WLc-WZ-E5q" secondAttribute="centerX" id="giH-Ub-Xa9"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sr-pb-6WL">
+                        <rect key="frame" x="20" y="15" width="234.5" height="25"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to our restaurantour restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROl-M2-Z99">
+                                <rect key="frame" x="10" y="5" width="214.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19596806821229704" green="0.59091500482373516" blue="0.88150376081466675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ROl-M2-Z99" secondAttribute="bottom" constant="5" id="D8b-nJ-2Er"/>
+                            <constraint firstAttribute="trailing" secondItem="ROl-M2-Z99" secondAttribute="trailing" constant="10" id="EKb-4m-OMQ"/>
+                            <constraint firstAttribute="height" constant="25" id="G6G-Jc-j6C"/>
+                            <constraint firstItem="ROl-M2-Z99" firstAttribute="leading" secondItem="6sr-pb-6WL" secondAttribute="leading" constant="10" id="wQT-xQ-gLT"/>
+                            <constraint firstItem="ROl-M2-Z99" firstAttribute="top" secondItem="6sr-pb-6WL" secondAttribute="top" constant="5" id="zqL-xO-rNr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3oJ-7W-W9f"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="bottom" constant="8" id="8ve-7V-c0w"/>
+                    <constraint firstItem="6sr-pb-6WL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="CSN-Zw-ZMZ"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-16" id="FV0-ek-kTZ"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" id="Otn-hi-SwS"/>
                     <constraint firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="12" id="Ptr-NT-yrz"/>
                     <constraint firstItem="fgu-Ga-BUe" firstAttribute="top" secondItem="fcw-Wo-iX4" secondAttribute="top" constant="16" id="T3z-7X-FVd"/>
                     <constraint firstItem="fcw-Wo-iX4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="cCX-Z6-4EV"/>
+                    <constraint firstItem="6sr-pb-6WL" firstAttribute="leading" secondItem="fcw-Wo-iX4" secondAttribute="leading" constant="8" id="cEf-t8-7bH"/>
                     <constraint firstItem="E0c-JR-jRA" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" id="cag-hB-1Ql"/>
                     <constraint firstItem="WLc-WZ-E5q" firstAttribute="trailing" secondItem="fcw-Wo-iX4" secondAttribute="trailing" constant="-10" id="hKI-e3-Ed4"/>
                     <constraint firstAttribute="bottom" secondItem="E0c-JR-jRA" secondAttribute="bottom" constant="10" id="ofy-rs-5KA"/>
@@ -111,6 +135,8 @@
                 <outlet property="chefName" destination="J06-QO-NhP" id="oaX-gs-mp7"/>
                 <outlet property="closedView" destination="WLc-WZ-E5q" id="wbY-nN-DVy"/>
                 <outlet property="favBtn" destination="fgu-Ga-BUe" id="Y6K-rU-ga0"/>
+                <outlet property="offerBox" destination="6sr-pb-6WL" id="3YC-6a-kaU"/>
+                <outlet property="offerText" destination="ROl-M2-Z99" id="vjp-q5-nIM"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="180.46875"/>
         </tableViewCell>

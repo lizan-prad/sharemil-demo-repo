@@ -15,10 +15,14 @@ class HomeChefTableViewCell: UITableViewCell {
     @IBOutlet weak var favBtn: UIButton!
     @IBOutlet weak var chefImage: UIImageView!
     @IBOutlet weak var closedView: UIView!
+    @IBOutlet weak var offerBox: UIView!
     @IBOutlet weak var chefName: UILabel!
+    @IBOutlet weak var offerText: UILabel!
     
     var chef: ChefListModel? {
         didSet {
+            self.offerBox.isHidden = chef?.note == nil || chef?.note == ""
+            self.offerText.text = chef?.note
             closedView.rounded()
             businessName.text = chef?.businessName
             
@@ -51,6 +55,7 @@ class HomeChefTableViewCell: UITableViewCell {
     }
     
     func setup() {
+        offerBox.addCornerRadius(4)
         chefImage.addBorder(.black)
     }
 }

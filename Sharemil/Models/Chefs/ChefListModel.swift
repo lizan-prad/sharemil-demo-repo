@@ -35,6 +35,7 @@ class ChefListModel: Mappable {
     var latitude: Double?
     var longitude: Double?
     var isOpen: Bool?
+    var note: String?
 
     required init?(map: Map) {
 
@@ -65,6 +66,7 @@ class ChefListModel: Mappable {
         hours <- map["businessHours"]
         deliveryHours <- map["deliveryHours"]
         deliverySettings <- map["deliverySettings"]
+        note <- map["note"]
         isOpen = isOpenToday()
     }
     
