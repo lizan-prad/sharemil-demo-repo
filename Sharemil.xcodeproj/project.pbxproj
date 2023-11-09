@@ -2046,8 +2046,8 @@
 				52A423C5285119D9007549BB /* Resources */,
 				538E96DA7075ED9B435D149F /* [CP] Embed Pods Frameworks */,
 				E22E8B3418309B593C8788C7 /* [CP] Copy Pods Resources */,
-				BEA7BCAD293101D800E0E5C9 /* ShellScript */,
 				BEB7A596298167A400F72E0D /* Embed Foundation Extensions */,
+				BEA7BCAD293101D800E0E5C9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2307,7 +2307,6 @@
 			);
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sharemil/Pods-Sharemil-resources-${CONFIGURATION}-input-files.xcfilelist",
-				"",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
