@@ -1071,8 +1071,8 @@
 		BE1C0084DCC7CB88418A3EE10CA01DEC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A579970E389E9DA622B7EBA0DD774B /* CoreLocation.framework */; };
 		BE245408D77A4203D15B66A607B27C97 /* STPLabeledFormTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D293776C28D87E8F4D4A083EE0B46 /* STPLabeledFormTextFieldView.swift */; };
 		BE649A29E5FB32C54FDAE55994804F6D /* SDWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ABB1D1534B423AD7AAAD05A33800CD /* SDWebImageOperation.m */; };
-		BE6CC67D2AFD556E000BCD23 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CC67B2AFD556E000BCD23 /* CardManager.swift */; };
 		BE6CC67E2AFD556E000BCD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6CC67C2AFD556E000BCD23 /* Assets.xcassets */; };
+		BE6CC6802AFD6898000BCD23 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CC67F2AFD6898000BCD23 /* CardManager.swift */; };
 		BEB39D3E4751B663230AB77670E14288 /* STPPaymentMethodPayPalParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0B2069E3E5A763B497A97F4C1E010 /* STPPaymentMethodPayPalParams.swift */; };
 		BF29391C091B52104FD38FC8747C2929 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2AC49A18BE3ED1BEE8DBE5336F29A /* FormView.swift */; };
 		BF9A6E2CB8F67686C4B7E04538664919 /* UIImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 29398E7F201664B944819AF6522B1CC6 /* UIImage+Transform.m */; };
@@ -2840,6 +2840,7 @@
 		BE428195F5E451D9C4F851D5A6D3B08E /* STDSAuthenticationRequestParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSAuthenticationRequestParameters.h; path = Stripe3DS2/Stripe3DS2/include/STDSAuthenticationRequestParameters.h; sourceTree = "<group>"; };
 		BE6CC67B2AFD556E000BCD23 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../../CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
 		BE6CC67C2AFD556E000BCD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../CreditCardViewSwift/Assets.xcassets; sourceTree = "<group>"; };
+		BE6CC67F2AFD6898000BCD23 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		BE95A11D5FACFB2820FE6F83682EAD01 /* STDSBundleLocator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSBundleLocator.h; path = Stripe3DS2/Stripe3DS2/STDSBundleLocator.h; sourceTree = "<group>"; };
 		BED1737DCA93499348A280F3B1E87F7A /* STDSJSONDecodable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSJSONDecodable.h; path = Stripe3DS2/Stripe3DS2/include/STDSJSONDecodable.h; sourceTree = "<group>"; };
 		BED94D69EBF237072D99CC851B5D8201 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hu.lproj; path = StripeUICore/StripeUICore/Resources/Localizations/hu.lproj; sourceTree = "<group>"; };
@@ -4992,6 +4993,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				BE6CC67F2AFD6898000BCD23 /* CardManager.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				AF05E25BC5214EAFD8E7781B8806C564 /* Frameworks */,
 				B53ECAA59D62B8CC7C18234E22C9548C /* Pods */,
@@ -8016,6 +8018,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6CC6802AFD6898000BCD23 /* CardManager.swift in Sources */,
 				FAA931F8F8DA9CA01F0C98D203A84035 /* contents.xcworkspacedata in Sources */,
 				BD14B24FCD2A8A15E40FE5ECE78C5187 /* contents.xcworkspacedata in Sources */,
 				979B69512B6C92C045455DB620290BF0 /* CreditCardViewSwift.podspec in Sources */,
@@ -8028,7 +8031,6 @@
 				41AE6FCAD91D687763C95257A8E27471 /* Podfile in Sources */,
 				6C17DBD0C02015A9F4679EFF62F929B3 /* Podfile.lock in Sources */,
 				484E072D11696AA14237240F87452B22 /* Pods-CreditCardViewSwift.modulemap in Sources */,
-				BE6CC67D2AFD556E000BCD23 /* CardManager.swift in Sources */,
 				DAE9D0426C43B4A7BAB119E90100F309 /* Pods-CreditCardViewSwift.xcscheme in Sources */,
 				0F5CDDA5DEEFED9B2B4DDCF1CB5DC819 /* Pods-CreditCardViewSwift-acknowledgements.markdown in Sources */,
 				2CB0172F4420F5D158168BEA9A92D05B /* Pods-CreditCardViewSwift-dummy.m in Sources */,
