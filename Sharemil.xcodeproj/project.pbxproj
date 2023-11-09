@@ -163,7 +163,6 @@
 		BE8CD3C828F6236E007A476B /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CD3C728F6236C007A476B /* ImagePickerManager.swift */; };
 		BE958DC628EDB3C100C71EBF /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE958DC528EDB3C100C71EBF /* Help.storyboard */; };
 		BE958DC828EDB3C700C71EBF /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE958DC728EDB3C700C71EBF /* HelpViewController.swift */; };
-		BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9F1DB2289AE70A0077B6F9 /* CardManager.swift */; };
 		BEA586E528E44A0900D5C8F3 /* PaymentEditOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA586E428E44A0900D5C8F3 /* PaymentEditOption.storyboard */; };
 		BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA586E628E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift */; };
 		BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA586E828E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift */; };
@@ -2473,7 +2472,6 @@
 				BE5B6A1C28902469008CC57F /* CreatePaymentModel.swift in Sources */,
 				BE14271E28585BCD006E5240 /* HomeChefTableViewCell.swift in Sources */,
 				BEB7A57729786A1D00F72E0D /* PickUpCoordinator.swift in Sources */,
-				BE9F1DB3289AE70A0077B6F9 /* CardManager.swift in Sources */,
 				BE5B69E7288C7B88008CC57F /* Address.swift in Sources */,
 				BEF7EAE428648580002D553E /* CartListTableViewCell.swift in Sources */,
 				BE5B69EC288C7B88008CC57F /* Networks.swift in Sources */,
