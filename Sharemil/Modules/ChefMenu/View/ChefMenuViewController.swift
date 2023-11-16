@@ -171,16 +171,20 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
-        coordinator.menuItemModel = self.menuItems?[indexPath.row]
-        coordinator.cartModel = cartItems
-        coordinator.didAddToCart = { model in
-            NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
-//            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
-            self.viewModel.fetchCarts()
-//            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+        if self.viewModel.chef?.isOpen == false {
+            self.showToastMsg("The restaurant is closed. Please make your order when its open.", state: .info, location: .bottom)
+        } else {
+            let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
+            coordinator.menuItemModel = self.menuItems?[indexPath.row]
+            coordinator.cartModel = cartItems
+            coordinator.didAddToCart = { model in
+                NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+                //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+                self.viewModel.fetchCarts()
+                //            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+            }
+            self.present(coordinator.getMainView(), animated: true)
         }
-        self.present(coordinator.getMainView(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
