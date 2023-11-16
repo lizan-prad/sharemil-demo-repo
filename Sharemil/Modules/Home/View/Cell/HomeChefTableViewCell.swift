@@ -42,13 +42,22 @@ class HomeChefTableViewCell: UITableViewCell {
             
             self.chefImage.alpha = (chef?.isOpen == true && ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date())) ? 1 : 0.5
             closedView.isHidden = (chef?.isOpen == true && ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()))
-            
-            if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
-                chefDesc.text = "Open until \(formatter.string(from: date ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
-            } else if date == nil {
-                chefDesc.text = "\(chef?.distance?.withDecimal(2) ?? "") mi"
+            if ((sdate ?? Date()) > (date ?? Date())) {
+                if ((date ?? Date())...(sdate ?? Date())).contains(nowDate ?? Date()) {
+                    chefDesc.text = "Open until \(formatter.string(from: date ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
+                } else if date == nil {
+                    chefDesc.text = "\(chef?.distance?.withDecimal(2) ?? "") mi"
+                } else {
+                    chefDesc.text = "Opens at \(formatter.string(from: sdate ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
+                }
             } else {
-                chefDesc.text = "Opens at \(formatter.string(from: sdate ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
+                if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
+                    chefDesc.text = "Open until \(formatter.string(from: date ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
+                } else if date == nil {
+                    chefDesc.text = "\(chef?.distance?.withDecimal(2) ?? "") mi"
+                } else {
+                    chefDesc.text = "Opens at \(formatter.string(from: sdate ?? Date())) · \(chef?.distance?.withDecimal(2) ?? "") mi"
+                }
             }
 //            chefDesc.text = "\( date == nil ? "Opens at \(formatter.string(from: sdate ?? Date()))" : "Open until \(formatter.string(from: date ?? Date()))") · \(chef?.distance?.withDecimal(2) ?? "") mi"
         }

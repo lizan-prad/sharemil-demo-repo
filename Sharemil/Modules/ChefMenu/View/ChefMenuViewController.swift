@@ -85,26 +85,30 @@ class ChefMenuViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func viewCartAction(_ sender: Any) {
-        let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
-        coordinator.cartItems = self.cartItems
-        coordinator.menuItems = self.menuItems?.filter({self.cartItems?.map({$0.menuItemId ?? ""}).contains($0.id ?? "") ?? false})
-        coordinator.chef = self.viewModel.chef
-        coordinator.didUpdate = {
-            self.viewModel.fetchCarts()
-            self.viewModel.fetchChefMenu()
-        }
-        coordinator.didCheckout = { chef in
-            let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
-            coordinator.cartList = self.cartItems
-            coordinator.chef = chef
-            coordinator.didCheckoutComplete = {
-                self.navigationController?.popViewController(animated: true)
+        if self.viewModel.chef?.isOpen == false {
+            self.showToastMsg("The restaurant is closed. Please make your order when its open.", state: .info, location: .bottom)
+        } else {
+            let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
+            coordinator.cartItems = self.cartItems
+            coordinator.menuItems = self.menuItems?.filter({self.cartItems?.map({$0.menuItemId ?? ""}).contains($0.id ?? "") ?? false})
+            coordinator.chef = self.viewModel.chef
+            coordinator.didUpdate = {
+                self.viewModel.fetchCarts()
+                self.viewModel.fetchChefMenu()
             }
-            let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
-            nav.modalPresentationStyle = .overFullScreen
-            self.present(nav, animated: true)
+            coordinator.didCheckout = { chef in
+                let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
+                coordinator.cartList = self.cartItems
+                coordinator.chef = chef
+                coordinator.didCheckoutComplete = {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
+                nav.modalPresentationStyle = .overFullScreen
+                self.present(nav, animated: true)
+            }
+            self.present(coordinator.getMainView(), animated: true)
         }
-        self.present(coordinator.getMainView(), animated: true)
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -144,12 +148,22 @@ class ChefMenuViewController: UIViewController, Storyboarded {
         let sdate = formatter.date(from: hour?.startTime ?? "")
         formatter.dateFormat = "hh:mm a"
         
-        if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
-            chefTime.text = "Open until \(formatter.string(from: date ?? Date()))"
-        } else if date == nil {
-            chefTime.text = "Closed"
+        if ((sdate ?? Date()) > (date ?? Date())) {
+            if ((date ?? Date())...(sdate ?? Date())).contains(nowDate ?? Date()) {
+                chefTime.text = "Open until \(formatter.string(from: date ?? Date()))"
+            } else if date == nil {
+                chefTime.text = "Closed"
+            } else {
+                chefTime.text = "Opens at \(formatter.string(from: sdate ?? Date()))"
+            }
         } else {
-            chefTime.text = "Opens at \(formatter.string(from: sdate ?? Date()))"
+            if ((sdate ?? Date())...(date ?? Date())).contains(nowDate ?? Date()) {
+                chefTime.text = "Open until \(formatter.string(from: date ?? Date()))"
+            } else if date == nil {
+                chefTime.text = "Closed"
+            } else {
+                chefTime.text = "Opens at \(formatter.string(from: sdate ?? Date()))"
+            }
         }
         self.chefRating.text = "★ 4.8 (500+ rating) · \(self.cusine?.name ?? "") · $$"
     }

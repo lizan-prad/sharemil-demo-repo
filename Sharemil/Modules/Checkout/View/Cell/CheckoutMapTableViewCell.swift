@@ -138,7 +138,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
     }
     
     func setup() {
-        scheduleContainer.isHidden = true
+        scheduleContainer.isHidden = checkoutType == .pickup
         standardContainer.isUserInteractionEnabled = true
         
         standardContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(standardAction)))
