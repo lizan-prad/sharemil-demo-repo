@@ -81,7 +81,7 @@ class ChefListModel: Mappable {
         let origToday = dateFormatter.date(from: today) ?? Date()
         let start = dateFormatter.date(from: currentHour?.startTime ?? "") ?? Date()
         let end = dateFormatter.date(from: currentHour?.endTime ?? "") ?? Date()
-        return (origToday > start) && (origToday < end)
+        return (origToday > start) && (origToday < end) && (currentHour?.isOpen ?? false)
     }
 }
 
