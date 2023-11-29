@@ -186,7 +186,17 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.viewModel.chef?.isOpen == false {
-            self.showToastMsg("The restaurant is closed. Please make your order when its open.", state: .info, location: .bottom)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "eee"
+            let now = formatter.string(from: Date()).lowercased()
+            let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+            formatter.dateFormat = "HH:mm:ss"
+            let nowStrDate = formatter.string(from: Date())
+            let nowDate = formatter.date(from: nowStrDate)
+            let date = formatter.date(from: hour?.endTime ?? "")
+            let sdate = formatter.date(from: hour?.startTime ?? "")
+            formatter.dateFormat = "hh:mm a"
+            self.showToastMsg("The restaurant is closed. Restaurant hours are from \(formatter.string(from: sdate ?? Date())) - \(formatter.string(from: date ?? Date()))", state: .info, location: .bottom)
         } else {
             let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
             coordinator.menuItemModel = self.menuItems?[indexPath.row]

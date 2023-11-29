@@ -91,26 +91,40 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
-        coordinator.cartItems = self.carts?[indexPath.row].cartItems
-        coordinator.menuItems = self.carts?[indexPath.row].cartItems?.compactMap({$0.menuItem})
-        coordinator.chef = self.carts?[indexPath.row].chef
-        coordinator.didUpdate = {
-            self.viewModel.fetchCarts()
-        }
-        coordinator.didCheckout = { chef in
-          
-            let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
-            coordinator.cartList = self.carts?[indexPath.row].cartItems
-            coordinator.chef = chef
-            coordinator.didCheckoutComplete = {
+        if self.carts?[indexPath.row].chef?.isOpen == false {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "eee"
+            let now = formatter.string(from: Date()).lowercased()
+            let hour = self.carts?[indexPath.row].chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+            formatter.dateFormat = "HH:mm:ss"
+            let nowStrDate = formatter.string(from: Date())
+            let nowDate = formatter.date(from: nowStrDate)
+            let date = formatter.date(from: hour?.endTime ?? "")
+            let sdate = formatter.date(from: hour?.startTime ?? "")
+            formatter.dateFormat = "hh:mm a"
+            self.showToastMsg("The restaurant is closed. Restaurant hours are from \(formatter.string(from: sdate ?? Date())) - \(formatter.string(from: date ?? Date()))", state: .info, location: .bottom)
+        } else {
+            let coordinator = CartDetailCoordinator.init(navigationController: UINavigationController())
+            coordinator.cartItems = self.carts?[indexPath.row].cartItems
+            coordinator.menuItems = self.carts?[indexPath.row].cartItems?.compactMap({$0.menuItem})
+            coordinator.chef = self.carts?[indexPath.row].chef
+            coordinator.didUpdate = {
                 self.viewModel.fetchCarts()
             }
-            let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
-            nav.modalPresentationStyle = .overFullScreen
-            self.present(nav, animated: true)
+            coordinator.didCheckout = { chef in
+                
+                let coordinator = CheckoutCoordinator.init(navigationController: UINavigationController())
+                coordinator.cartList = self.carts?[indexPath.row].cartItems
+                coordinator.chef = chef
+                coordinator.didCheckoutComplete = {
+                    self.viewModel.fetchCarts()
+                }
+                let nav = UINavigationController.init(rootViewController: coordinator.getMainView())
+                nav.modalPresentationStyle = .overFullScreen
+                self.present(nav, animated: true)
+            }
+            self.present(coordinator.getMainView(), animated: true)
         }
-        self.present(coordinator.getMainView(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
