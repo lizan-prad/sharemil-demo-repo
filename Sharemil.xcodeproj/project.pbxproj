@@ -608,6 +608,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24C451A22B1CC162004060EC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52A423D5285119DF007549BB /* LaunchScreen.storyboard */,
+				52A423CA285119D9007549BB /* AppDelegate.swift */,
+				52A423D3285119DF007549BB /* Assets.xcassets */,
+				BECB463828C400C500E48872 /* MapStyle.json */,
+				BEB13D9D285B64D900F63933 /* Sharemil.entitlements */,
+				BE3A44A028B8CCD600E3E90F /* GoogleService-Info.plist */,
+				871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */,
+				24C451A32B1CC16A004060EC /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		24C451A32B1CC16A004060EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BE4CDDA328530D7E006AB129 /* Inter */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		454E21101C2C27F66512AC9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,21 +676,14 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
-				BE3A44A028B8CCD600E3E90F /* GoogleService-Info.plist */,
-				BEB13D9D285B64D900F63933 /* Sharemil.entitlements */,
-				BECB463828C400C500E48872 /* MapStyle.json */,
+				24C451A22B1CC162004060EC /* Resources */,
 				BEE661662858DDF1007812B2 /* Models */,
-				871FB9AC2858DA2300966910 /* SharemilRelease.entitlements */,
-				BE4CDDA328530D7E006AB129 /* Inter */,
 				52A423FC2851E34C007549BB /* Services */,
 				52A423F22851E248007549BB /* Architectures */,
 				52A423E628512E35007549BB /* Configs */,
 				52A423E328512BF3007549BB /* Constants */,
 				52A423DE28511A6A007549BB /* Extensions */,
 				52A423DF285129E0007549BB /* Modules */,
-				52A423CA285119D9007549BB /* AppDelegate.swift */,
-				52A423D3285119DF007549BB /* Assets.xcassets */,
-				52A423D5285119DF007549BB /* LaunchScreen.storyboard */,
 				52A423D8285119E0007549BB /* Info.plist */,
 			);
 			path = Sharemil;
@@ -2661,7 +2677,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sharemil/Sharemil.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sharemil/Resources/Sharemil.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 46;
@@ -2706,7 +2722,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Sharemil/SharemilRelease.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sharemil/Resources/SharemilRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 46;

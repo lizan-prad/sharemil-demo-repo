@@ -28,6 +28,8 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var menuItemImage: UIImageView!
     
+    @IBOutlet weak var specialInstructionsView: UIView!
+    
     var viewModel: MenuItemViewModel!
     var selectedOption: (String, Int)? {
         didSet {
@@ -112,6 +114,11 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func start() {
         self.showProgressHud()
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
@@ -155,11 +162,11 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.plusBtn.addTarget(self, action: #selector(plusAction), for: .touchUpInside)
         self.minusBtn.addTarget(self, action: #selector(minusAction), for: .touchUpInside)
         self.addToCartBtn.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+        specialInstructionsView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleSpecialInstructions)))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    @objc func handleSpecialInstructions(){
+        print("Special Intructions Section Pressed!!")
     }
     
     @IBAction func removeAction(_ sender: Any) {
