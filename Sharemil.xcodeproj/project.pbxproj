@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C451AF2B1F603C004060EC /* SpecialInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C451AD2B1F603C004060EC /* SpecialInstructionViewController.swift */; };
+		24C451B42B1F60D2004060EC /* SpecialInstruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C451B32B1F60D2004060EC /* SpecialInstruction.storyboard */; };
 		4850AC6EAEA8F216F433A951 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		52A423CB285119D9007549BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423CA285119D9007549BB /* AppDelegate.swift */; };
 		52A423D4285119DF007549BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A423D3285119DF007549BB /* Assets.xcassets */; };
@@ -304,6 +306,8 @@
 
 /* Begin PBXFileReference section */
 		1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sharemil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C451AD2B1F603C004060EC /* SpecialInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialInstructionViewController.swift; sourceTree = "<group>"; };
+		24C451B32B1F60D2004060EC /* SpecialInstruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpecialInstruction.storyboard; sourceTree = "<group>"; };
 		3F25767DDDBA81A0903B7CE3 /* Pods-Sharemil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharemil.release.xcconfig"; path = "Target Support Files/Pods-Sharemil/Pods-Sharemil.release.xcconfig"; sourceTree = "<group>"; };
 		52A423C7285119D9007549BB /* Sharemil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharemil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A423CA285119D9007549BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -631,6 +635,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		24C451A62B1F5F2C004060EC /* SpecialInstruction */ = {
+			isa = PBXGroup;
+			children = (
+				24C451AD2B1F603C004060EC /* SpecialInstructionViewController.swift */,
+				24C451B32B1F60D2004060EC /* SpecialInstruction.storyboard */,
+			);
+			path = SpecialInstruction;
+			sourceTree = "<group>";
+		};
 		454E21101C2C27F66512AC9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +713,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				24C451A62B1F5F2C004060EC /* SpecialInstruction */,
 				BE7302D8287FF07A00CC6383 /* Confirmation */,
 				BE2954C9286E43C80048E9DD /* PaymentOptions */,
 				BEF7EAE62865AFBB002D553E /* Checkout */,
@@ -2190,6 +2204,7 @@
 				BEF7EAE528648580002D553E /* CartListTableViewCell.xib in Resources */,
 				BE958DC628EDB3C100C71EBF /* Help.storyboard in Resources */,
 				BE4CDDBA28530D7E006AB129 /* Inter-SemiBold.ttf in Resources */,
+				24C451B42B1F60D2004060EC /* SpecialInstruction.storyboard in Resources */,
 				BE14271F28585BCD006E5240 /* HomeChefTableViewCell.xib in Resources */,
 				BEAF322C28754E7E0007F9B0 /* EditAccount.storyboard in Resources */,
 				52A423D4285119DF007549BB /* Assets.xcassets in Resources */,
@@ -2348,6 +2363,7 @@
 				BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BEA9821E2948A94900828C38 /* ChefBusinessHoursViewModel.swift in Sources */,
+				24C451AF2B1F603C004060EC /* SpecialInstructionViewController.swift in Sources */,
 				BE214B3B2862FB2400B26B50 /* MenuItemOptionsModel.swift in Sources */,
 				BE3B1173299D65F40002C347 /* OtherHelpCoordinator.swift in Sources */,
 				BE7C7289285F98350008161B /* ChefMenuCoordinator.swift in Sources */,

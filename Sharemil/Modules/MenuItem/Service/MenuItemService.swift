@@ -12,8 +12,8 @@ import SwiftyJSON
 protocol MenuItemService {
     func fetchChefMenuItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
     func fetchRecommendedItem(_ id: String, completion: @escaping (Result<BaseMappableModel<ChefMenuContainerModel>, NSError>) -> ())
-    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
-    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
+    func addToCart(_ chefId: String, itemId: String, quantity: Int,_ note:String, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
+    func updateCart(_ chefId: String,cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ())
 }
 
 extension MenuItemService {
@@ -30,12 +30,12 @@ extension MenuItemService {
         }
     }
     
-    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
+    func addToCart(_ chefId: String, itemId: String, quantity: Int,_ note:String, options: [MenuItemOptionsModel]?, completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
         
         let param: [String: Any] = [
             "chefId": chefId,
             "items": [
-                self.getItemParam(id: itemId, options: options, quantity: quantity)
+                self.getItemParam(id: itemId, options: options, note: note, quantity: quantity)
             ]
         ]
         
@@ -44,9 +44,10 @@ extension MenuItemService {
         }
     }
     
-    private func getItemParam(id: String, options: [MenuItemOptionsModel]?, quantity: Int) -> [String: Any] {
+    private func getItemParam(id: String, options: [MenuItemOptionsModel]?, note:String, quantity: Int) -> [String: Any] {
         return ["id": id,
                 "quantity": quantity,
+                "note":note,
                 "options": options?.map({getParam(option: $0)}) ?? []]
     }
     
@@ -66,7 +67,7 @@ extension MenuItemService {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
-                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, note: $0.note ?? "", quantity: $0.quantity ?? 0)})
 //            "pickupTime": [
 //                    "date": date,
 //                    "startTime": time
@@ -79,11 +80,11 @@ extension MenuItemService {
         }
     }
     
-    func updateCart(_ chefId: String, cartItems: [CartItems], completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
+    func updateCart(_ chefId: String,cartItems: [CartItems],completion: @escaping (Result<BaseMappableModel<CartListModel>, NSError>) -> ()) {
         let param: [String: Any] = [
             "chefId": chefId,
             "items":
-                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, quantity: $0.quantity ?? 0)})
+                cartItems.map({getItemParam(id: $0.menuItemId ?? "", options: $0.options, note: $0.note ?? "", quantity: $0.quantity ?? 0)})
 //            "pickupTime": [String:Any]()
         ]
         

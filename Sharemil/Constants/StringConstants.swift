@@ -9,7 +9,7 @@ import Foundation
 
 enum StringConstants {
 
-    
+    static let intructionLabelPlaceholder = "(eg. allergies,preferences,etc.)."
     static let controller = "ViewController"
     static let verificationToken = "VERIFYID"
     static let userIDToken = "UserIDToken"

@@ -80,9 +80,9 @@ class CartDetailViewModel: MenuItemService, CartService, HomeService, ChefMenuSe
         }
     }
     
-    func updateToCart(_ chefId: String, cartModels: [CartItems]) {
+    func updateToCart(_ chefId: String,cartModels: [CartItems]) {
         self.loading.value = true
-        self.updateCart(chefId, cartItems: cartModels) { result in
+        self.updateCart(chefId,cartItems: cartModels) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

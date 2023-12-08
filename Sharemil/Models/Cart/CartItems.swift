@@ -9,9 +9,11 @@ struct CartItems : Mappable {
 	var cartId : String?
 	var menuItemId : String?
 	var quantity : Int?
+    var note: String?
 	var options : [MenuItemOptionsModel]?
     var menuItem: ChefMenuListModel?
     var price: Double?
+    
     init() {}
     
 	init?(map: Map) {
@@ -28,6 +30,8 @@ struct CartItems : Mappable {
 		options <- map["options"]
         menuItem <- map["menuItem"]
         price <- map["price"]
+        note <- map["note"]
+        
 	}
 
 }

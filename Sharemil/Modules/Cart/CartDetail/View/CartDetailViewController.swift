@@ -174,7 +174,7 @@ class CartDetailViewController: UIViewController, Storyboarded {
             if cartItems?.filter({$0.quantity != 0}).count == 0 {
                 self.viewModel.deleteCart(self.cartId ?? "")
             } else {
-                self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems?.filter({$0.quantity != 0}) ?? [])
+                self.viewModel.updateToCart(self.chef?.id ?? "",cartModels: self.cartItems?.filter({$0.quantity != 0}) ?? [])
             }
         }
     }
@@ -284,7 +284,7 @@ extension CartDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 if self.cartItems?.isEmpty ?? true {
                     self.viewModel.deleteCart(self.cartId ?? "")
                 } else {
-                    self.viewModel.updateToCart(self.chef?.id ?? "", cartModels: self.cartItems ?? [])
+                    self.viewModel.updateToCart(self.chef?.id ?? "",cartModels: self.cartItems ?? [])
                 }
             }
             self.present(alert, animated: true)

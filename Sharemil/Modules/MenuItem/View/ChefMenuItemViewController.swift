@@ -11,6 +11,7 @@ import CoreLocation
 import FirebaseAuth
 class ChefMenuItemViewController: UIViewController, Storyboarded {
     
+    
     @IBOutlet weak var itemLeftView: UIView!
     @IBOutlet weak var itemLeft: UILabel!
     @IBOutlet weak var quantityStack: UIStackView!
@@ -29,7 +30,9 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     @IBOutlet weak var menuItemImage: UIImageView!
     
     @IBOutlet weak var specialInstructionsView: UIView!
+    @IBOutlet weak var lblInstruction: UILabel!
     
+    let placeholder = StringConstants.intructionLabelPlaceholder
     var viewModel: MenuItemViewModel!
     var selectedOption: (String, Int)? {
         didSet {
@@ -56,6 +59,16 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     
     var selectedItem: CartItems?
     
+//    {
+//        didSet{
+//            if let note = selectedItem?.note, note != "" {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {[weak self] in
+//                    self?.lblInstruction.text = note
+//                })
+//            }
+//        }
+//    }
+//    
     
     var initialQuantity = 1 {
         didSet {
@@ -155,9 +168,11 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     private func setupView() {
+        self.lblInstruction.text = placeholder
         self.plusBtn.rounded()
         self.minusBtn.rounded()
         self.closeBtn.rounded()
+        self.addToCartBtn.rounded()
         self.closeBtn.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         self.plusBtn.addTarget(self, action: #selector(plusAction), for: .touchUpInside)
         self.minusBtn.addTarget(self, action: #selector(minusAction), for: .touchUpInside)
@@ -166,7 +181,13 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     @objc func handleSpecialInstructions(){
-        print("Special Intructions Section Pressed!!")
+        let vc = UIStoryboard.init(name: "SpecialInstruction", bundle: nil).instantiateViewController(identifier: "SpecialInstructionViewController") as! SpecialInstructionViewController
+        vc.delegate = self
+        vc.selectedInstruction = lblInstruction.text! != self.placeholder ? self.lblInstruction.text : ""
+        vc.modalPresentationStyle = .overFullScreen
+       
+        self.present(vc , animated: true)
+        
     }
     
     @IBAction func removeAction(_ sender: Any) {
@@ -175,6 +196,12 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
             if self.cartModel?.isEmpty ?? true {
                 self.viewModel.deleteCart(self.selectedItem?.cartId ?? "")
             } else {
+                
+                var note = ""
+                if note != self.placeholder {
+                    note = self.lblInstruction.text ?? ""
+                }
+                
                 self.viewModel.updateToCart(self.selectedItem?.menuItem?.chefId ?? "", cartModels: self.cartModel ?? [])
             }
         }
@@ -182,25 +209,32 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     @objc func addToCart() {
+        var note = ""
+       
+        if self.lblInstruction.text! != self.placeholder {
+            note = self.lblInstruction.text ?? ""
+        }
+        
         if cartModel?.isEmpty ?? true {
-            self.viewModel.addToCart(self.model?.chefId ?? "", itemId: self.model?.id ?? "", quantity: self.initialQuantity, options: selectedOptions)
+            self.viewModel.addToCart(self.model?.chefId ?? "", itemId: self.model?.id ?? "", quantity: self.initialQuantity, note:note, options: selectedOptions)
         } else {
-            var item = CartItems.init()
+            var item = CartItems()
             //            item.id = self.cartModel?.first?.id
             //            item.cartId = self.cartModel?.first?.cartId
             item.menuItemId = self.model?.id
    
-                item.quantity = self.initialQuantity
+            item.quantity = self.initialQuantity
           
             item.cartId = self.selectedItem?.cartId
             item.id = self.selectedItem?.id
             item.options = self.selectedOptions
+            item.note = note
             var cart: [CartItems] = self.cartModel ?? []
             //            cart = cart.filter({$0.menuItemId != self.model?.id})
             cart = cart.filter({$0.id != self.selectedItem?.id})
             cart.append(item)
             
-            self.viewModel.updateToCart(self.model?.chefId ?? "", cartModels: cart)
+            self.viewModel.updateToCart(self.model?.chefId ?? "",cartModels: cart)
         }
     }
     
@@ -237,7 +271,7 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
         self.itemNamelabel.text = model?.name
         self.itemDescLabel.text = model?.description
         self.itemPriceLabel.text = "$" + (model?.price ?? 0).withDecimal(2)
-//        self.initialQuantity = 1
+        self.initialQuantity = 1
         self.itemLeftView.isHidden = (model?.remainingItems == 0 || model?.remainingItems == nil)
         self.itemLeft.text = "Only \(model?.remainingItems ?? 0) left"
         if model?.remainingItems != nil && model?.remainingItems == 0 {
@@ -463,5 +497,13 @@ extension ChefMenuItemViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+}
+
+
+extension ChefMenuItemViewController : SpecialInstructionDelegate {
+    func didSaveInstruction(txt: String) {
+        lblInstruction.text = txt
+        print(txt)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class MenuItemViewModel: MenuItemService, CartService {
-    
+  
     var menuItemModel: ChefMenuListModel?
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
@@ -31,7 +31,7 @@ class MenuItemViewModel: MenuItemService, CartService {
     
     func updateToCart(_ chefId: String, cartModels: [CartItems]) {
         self.loading.value = true
-        self.updateCart(chefId, cartItems: cartModels) { result in
+        self.updateCart(chefId,cartItems: cartModels) { result in
             self.loading.value = false
             switch result {
             case .success(let model):
@@ -55,9 +55,9 @@ class MenuItemViewModel: MenuItemService, CartService {
         }
     }
     
-    func addToCart(_ chefId: String, itemId: String, quantity: Int, options: [MenuItemOptionsModel]?) {
+    func addToCart(_ chefId: String, itemId: String, quantity: Int,note:String, options: [MenuItemOptionsModel]?) {
         self.loading.value = true
-        self.addToCart(chefId, itemId: itemId, quantity: quantity, options: options) { result in
+        self.addToCart(chefId, itemId: itemId, quantity: quantity,note, options: options) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

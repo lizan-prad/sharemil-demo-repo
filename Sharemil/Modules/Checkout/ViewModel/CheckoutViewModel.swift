@@ -96,7 +96,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
         }
     }
     
-    func updateToCartWith(date: String,_ chefId: String, cartModels: [CartItems]) {
+    func updateToCartWith(date: String,_ chefId: String,note:String, cartModels: [CartItems]) {
         self.loading.value = true
         self.updateCartWith(date.components(separatedBy: " ").first ?? "", date.components(separatedBy: " ").last ?? "", chefId, cartItems: cartModels) { result in
             self.loading.value = false
@@ -109,9 +109,9 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
         }
     }
     
-    func updateToCart(_ chefId: String, cartModels: [CartItems]) {
+    func updateToCart(_ chefId: String,note:String, cartModels: [CartItems]) {
         self.loading.value = true
-        self.updateCart(chefId, cartItems: cartModels) { result in
+        self.updateCart(chefId,cartItems: cartModels) { result in
             self.loading.value = false
             switch result {
             case .success(let model):

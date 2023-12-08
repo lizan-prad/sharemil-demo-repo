@@ -15,6 +15,7 @@ class CartDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var instructionLabel: UILabel!
     
     var isEdit = false
     var index: Int?
@@ -40,6 +41,12 @@ class CartDetailTableViewCell: UITableViewCell {
                     return c.quantity == nil ? (c.name ?? "") : (c.price == 0.0 ? (c.name ?? "") : "\(c.name ?? "")(x\(c.quantity ?? 0))")
                 }).joined(separator: " , ") ?? "")
             }).joined(separator: ", ")
+            if let note = item?.note, note != "" {
+                instructionLabel.isHidden = false
+                instructionLabel.text = note
+            }else {
+                instructionLabel.isHidden = true
+            }
         }
     }
     
