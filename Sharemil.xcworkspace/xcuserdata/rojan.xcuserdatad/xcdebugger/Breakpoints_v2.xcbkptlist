@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6E7CC73A-C866-4662-B985-0ADA382843BB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sharemil/Modules/MenuItem/Service/MenuItemService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "addToCart(_:itemId:quantity:_:options:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D27E99A-DFE3-4597-897E-8BC7F6B8AE90"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sharemil/Modules/MenuItem/Service/MenuItemService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "addToCart(_:itemId:quantity:_:options:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9DB69E79-2664-4C78-99DE-3CA6A32CF4BA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -46,56 +14,40 @@
             filePath = "Sharemil/Modules/MenuItem/View/ChefMenuItemViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "removeAction(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C6D46E1-18BF-4D9E-A404-E827FB25B853"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sharemil/Modules/MenuItem/View/ChefMenuItemViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "addToCart()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9C6D46E1-18BF-4D9E-A404-E827FB25B853 - 162c99624545c14d"
+                  uuid = "9DB69E79-2664-4C78-99DE-3CA6A32CF4BA - 50a9132eae2123d2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Sharemil.ChefMenuItemViewController.addToCart() -&gt; ()"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in Sharemil.ChefMenuItemViewController.removeAction(Any) -&gt; ()"
                   moduleName = "Sharemil"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rojan/Documents/IOS%20Projects/Coderamp/Sharemil-iOS/Sharemil/Modules/MenuItem/View/ChefMenuItemViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "210"
-                  endingLineNumber = "210"
-                  offsetFromSymbolStart = "184">
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "1248">
                </Location>
                <Location
-                  uuid = "9C6D46E1-18BF-4D9E-A404-E827FB25B853 - 162c99624545c064"
+                  uuid = "9DB69E79-2664-4C78-99DE-3CA6A32CF4BA - 50a9132eae2123d2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Sharemil.ChefMenuItemViewController.addToCart() -&gt; ()"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in Sharemil.ChefMenuItemViewController.removeAction(Any) -&gt; ()"
                   moduleName = "Sharemil"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rojan/Documents/IOS%20Projects/Coderamp/Sharemil-iOS/Sharemil/Modules/MenuItem/View/ChefMenuItemViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "2404">
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "1364">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -295,49 +247,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "644E1E8D-DA2B-46C7-A0ED-7A617C25EE51"
+            uuid = "EAD0C952-69B6-4FCD-8967-E9B4A06CB964"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sharemil/Modules/ChefMenu/View/ChefMenuViewController.swift"
+            filePath = "Sharemil/Modules/Cart/CartDetail/View/CartDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "644E1E8D-DA2B-46C7-A0ED-7A617C25EE51 - ad69c9038bdf91c0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Sharemil.ChefMenuViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Sharemil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rojan/Documents/IOS%20Projects/Coderamp/Sharemil-iOS/Sharemil/Modules/ChefMenu/View/ChefMenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "6956">
-               </Location>
-               <Location
-                  uuid = "644E1E8D-DA2B-46C7-A0ED-7A617C25EE51 - 495bc6b7c9b07426"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in Sharemil.ChefMenuViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Sharemil"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rojan/Documents/IOS%20Projects/Coderamp/Sharemil-iOS/Sharemil/Modules/ChefMenu/View/ChefMenuViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DF1CC04-048A-42E6-BD48-0ED969A56D0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Modules/SpecialInstruction/SpecialInstructionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "selectedInstruction"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

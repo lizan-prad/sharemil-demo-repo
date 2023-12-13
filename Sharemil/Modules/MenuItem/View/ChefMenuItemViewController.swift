@@ -58,16 +58,15 @@ class ChefMenuItemViewController: UIViewController, Storyboarded {
     }
     
     var selectedItem: CartItems?
-    
-//    {
-//        didSet{
-//            if let note = selectedItem?.note, note != "" {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {[weak self] in
-//                    self?.lblInstruction.text = note
-//                })
-//            }
-//        }
-//    }
+    {
+        didSet{
+            if let note = selectedItem?.note, note != "" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {[weak self] in
+                    self?.lblInstruction.text = note
+                })
+            }
+        }
+    }
 //    
     
     var initialQuantity = 1 {
