@@ -104,6 +104,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     @IBOutlet weak var deliveryStack: UIView!
     @IBOutlet weak var deliveryPickupSegment: CustomSegmentedControl!
     
+    @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
     @IBOutlet weak var placeOrderBtn: UIButton!
@@ -281,8 +282,10 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.viewModel.cartList.bind { cartItems in
             let val = self.getTotalVals(cartItems)
             let totalPrice = val.reduce(0, +)
+            let service = (totalPrice*(4.9/100))
+            self.serviceLabel.text = "$\(service.withDecimal(2))"
             self.subTotal.text = "$\(totalPrice.withDecimal(2))"
-            self.total.text = "$\(totalPrice.withDecimal(2))"
+            self.total.text = "$\((totalPrice + service).withDecimal(2))"
             self.placeOrderBtn.setTitle("Place order · \("$\(totalPrice.withDecimal(2))")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
@@ -382,6 +385,10 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             return Double(item.quantity ?? 0)*((item.menuItem?.price ?? 0) + options)
         })
         return val ?? []
+    }
+    
+    @IBAction func infoAction(_ sender: Any) {
+        self.showToastMsg("This fee goes to Sharemil and keep us 100% commission-free for restaurants. That means they don't have to raise their menu prices, so you save money on your orders.Its good for you, restaurants and us.", state: .info, location: .bottom)
     }
     
     private func openConfirmation() {

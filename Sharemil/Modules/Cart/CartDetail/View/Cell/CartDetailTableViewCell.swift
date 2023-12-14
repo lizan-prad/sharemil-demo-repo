@@ -43,7 +43,7 @@ class CartDetailTableViewCell: UITableViewCell {
             }).joined(separator: ", ")
             if let note = item?.note, note != "" {
                 instructionLabel.isHidden = false
-                instructionLabel.text = note
+                instructionLabel.text = "Note: \(note)"
             }else {
                 instructionLabel.isHidden = true
             }

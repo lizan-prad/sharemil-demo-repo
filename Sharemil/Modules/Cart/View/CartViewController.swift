@@ -19,6 +19,8 @@ class CartViewController: UIViewController {
         }
     }
     
+    var chefs: [ChefListModel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CartViewModel()
@@ -35,6 +37,11 @@ class CartViewController: UIViewController {
 //            self.showToastMsg(msg ?? "", state: .error, location: .bottom)
             self.start()
         }
+        
+        self.viewModel.chefs.bind { cartItems in
+            self.chefs = cartItems
+        }
+        
         self.viewModel.carts.bind { cartItems in
             self.carts = cartItems?.carts
         }
@@ -54,6 +61,7 @@ class CartViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
                 self.viewModel.fetchCarts()
+                
             }
         })
     }
@@ -63,6 +71,7 @@ class CartViewController: UIViewController {
         self.title = "Cart"
         navigationController?.navigationBar.prefersLargeTitles = true
         self.viewModel.fetchCarts()
+        self.viewModel.fetchChefBy(location: loc ?? LLocation(location: nil), name: "")
     }
     
     private func setTableView() {
@@ -91,11 +100,12 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.carts?[indexPath.row].chef?.isOpen == false {
+        let chef = chefs?.filter({$0.id == self.carts?[indexPath.row].chef?.id}).first
+        if chef?.isOpen == false {
             let formatter = DateFormatter()
             formatter.dateFormat = "eee"
             let now = formatter.string(from: Date()).lowercased()
-            let hour = self.carts?[indexPath.row].chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+            let hour = chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
             formatter.dateFormat = "HH:mm:ss"
             let nowStrDate = formatter.string(from: Date())
             let nowDate = formatter.date(from: nowStrDate)
