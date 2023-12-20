@@ -16,6 +16,9 @@
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
         <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
@@ -258,14 +261,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7t-OU-d7k">
                                         <rect key="frame" x="155" y="0.0" width="229" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="F14-eL-9AE"/>
-                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="13"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Add 1 to cart · $12.99">
-                                            <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="13"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Add 1 to cart · $12.99"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -288,6 +287,7 @@
                             <constraint firstAttribute="bottom" secondItem="FO8-hu-UZD" secondAttribute="bottom" id="mTc-y3-hej"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LGH-uK-ilY" secondAttribute="bottom" constant="10" id="tec-SX-0zi"/>
                             <constraint firstAttribute="bottom" secondItem="Q2l-Uu-bXD" secondAttribute="bottom" id="u0A-pN-DQR"/>
+                            <constraint firstItem="LGH-uK-ilY" firstAttribute="top" secondItem="zlg-nI-Q2l" secondAttribute="bottom" constant="26" id="xr4-Cr-Q3K"/>
                             <constraint firstItem="LGH-uK-ilY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="zuk-bN-eZ6"/>
                         </constraints>
                     </view>

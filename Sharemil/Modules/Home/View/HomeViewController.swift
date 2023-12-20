@@ -286,7 +286,8 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+        guard let currentLoc = self.currentLocation else { return }
+        self.viewModel.fetchChefBy(location: currentLoc, name: "")
     }
     
     private func setMapCollectionView() {
