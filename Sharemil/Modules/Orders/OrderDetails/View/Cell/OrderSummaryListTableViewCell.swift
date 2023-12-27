@@ -9,6 +9,7 @@ import UIKit
 
 class OrderSummaryListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var separator: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemQuantity: UILabel!
@@ -31,6 +32,7 @@ class OrderSummaryListTableViewCell: UITableViewCell {
                 return b?.reduce(0, +) ?? 0
             })
             let options = opt?.reduce(0,+) ?? 0
+            noteLabel.text = "Note: \(item?.note ?? "")"
             priceLabel.text = "$" + (((item?.menuItem?.price ?? 0) + options)*Double(item?.quantity ?? 0)).withDecimal(2)
         }
     }

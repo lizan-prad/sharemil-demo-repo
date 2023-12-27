@@ -10,6 +10,7 @@ import GoogleMaps
 
 class ConfirmationViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var pendingView: UIView!
     @IBOutlet weak var readyAtLabel: UILabel!
     @IBOutlet weak var orderStatusTitle: UILabel!
     @IBOutlet weak var readyView: UIView!
@@ -31,19 +32,27 @@ class ConfirmationViewController: UIViewController, Storyboarded {
     var model: OrderModel? {
         didSet {
             switch model?.status?.lowercased() ?? "" {
+            case "pending":
+                self.orderStatusTitle.text = "Your order is pending..."
+                self.pendingView.backgroundColor = UIColor.init(hex: "6A9962")
+                self.processingView.backgroundColor = UIColor.init(hex: "EAEAEA")
+                self.cookingView.backgroundColor = UIColor.init(hex: "EAEAEA")
+                self.readyView.backgroundColor = UIColor.init(hex: "EAEAEA")
             case "accepted":
                 self.orderStatusTitle.text = "Preparing your order..."
+                self.pendingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
-                
                 self.cookingView.backgroundColor = UIColor.init(hex: "EAEAEA")
                 self.readyView.backgroundColor = UIColor.init(hex: "EAEAEA")
             case "processing":
                 self.orderStatusTitle.text = "Your order is being cooked..."
+                self.pendingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.cookingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.readyView.backgroundColor = UIColor.init(hex: "EAEAEA")
             case "ready":
                 self.orderStatusTitle.text = "Your order is ready..."
+                self.pendingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.processingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.cookingView.backgroundColor = UIColor.init(hex: "6A9962")
                 self.readyView.backgroundColor = UIColor.init(hex: "6A9962")
