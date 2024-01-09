@@ -219,6 +219,7 @@
 		BEB7A57C29786B1E00F72E0D /* PickUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A57B29786B1E00F72E0D /* PickUpService.swift */; };
 		BEB7A591298167A400F72E0D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7A590298167A400F72E0D /* NotificationService.swift */; };
 		BEB7A595298167A400F72E0D /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BEB7A58E298167A400F72E0D /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BEB8A2EA2B4DA5510036962A /* Ready_sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = BEB8A2E92B4DA5510036962A /* Ready_sound.caf */; };
 		BEC08C0B28EDB681005AA875 /* HelpIssuePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */; };
 		BEC08C0D28EDB68A005AA875 /* HelpIssuePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */; };
 		BEC08C1128EE0892005AA875 /* HelpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */; };
@@ -520,6 +521,7 @@
 		BEB7A590298167A400F72E0D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEB7A592298167A400F72E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB7A5B42984147500F72E0D /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		BEB8A2E92B4DA5510036962A /* Ready_sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ready_sound.caf; sourceTree = "<group>"; };
 		BEC08C0A28EDB681005AA875 /* HelpIssuePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HelpIssuePage.storyboard; sourceTree = "<group>"; };
 		BEC08C0C28EDB68A005AA875 /* HelpIssuePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewController.swift; sourceTree = "<group>"; };
 		BEC08C1028EE0892005AA875 /* HelpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCoordinator.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 		52A423C9285119D9007549BB /* Sharemil */ = {
 			isa = PBXGroup;
 			children = (
+				BEB8A2E92B4DA5510036962A /* Ready_sound.caf */,
 				24C451A22B1CC162004060EC /* Resources */,
 				BEE661662858DDF1007812B2 /* Models */,
 				52A423FC2851E34C007549BB /* Services */,
@@ -2218,6 +2221,7 @@
 				BEA586E528E44A0900D5C8F3 /* PaymentEditOption.storyboard in Resources */,
 				BE214B142861ABBC00B26B50 /* SaveLocation.storyboard in Resources */,
 				BE4CDDBE28532230006AB129 /* Registration.storyboard in Resources */,
+				BEB8A2EA2B4DA5510036962A /* Ready_sound.caf in Resources */,
 				BEA9821B2948A93600828C38 /* ChefBusinessHours.storyboard in Resources */,
 				BE3B1168299D65A30002C347 /* OtherHelp.storyboard in Resources */,
 				BEB13DC2285DBDC800F63933 /* MyLocationListTableViewCell.xib in Resources */,
