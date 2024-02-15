@@ -278,6 +278,9 @@
 		BEF7EB4528699B01002D553E /* CartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7EB4328699B00002D553E /* CartItems.swift */; };
 		BEF816B228BEC7E70094A0EA /* HoursModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF816B028BEC7E70094A0EA /* HoursModel.swift */; };
 		BEFB861C28FEA6B400D340B2 /* HelpIssuePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB861B28FEA6B300D340B2 /* HelpIssuePageViewModel.swift */; };
+		C051B4642B7DA58900946F8D /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4632B7DA58900946F8D /* ConfigModel.swift */; };
+		C051B4672B7DB54B00946F8D /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4662B7DB54B00946F8D /* RegisterService.swift */; };
+		C051B4692B7DB60B00946F8D /* CheckInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4682B7DB60B00946F8D /* CheckInvitation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -579,6 +582,9 @@
 		BEF7EB4328699B00002D553E /* CartItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItems.swift; sourceTree = "<group>"; };
 		BEF816B028BEC7E70094A0EA /* HoursModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursModel.swift; sourceTree = "<group>"; };
 		BEFB861B28FEA6B300D340B2 /* HelpIssuePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIssuePageViewModel.swift; sourceTree = "<group>"; };
+		C051B4632B7DA58900946F8D /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
+		C051B4662B7DB54B00946F8D /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		C051B4682B7DB60B00946F8D /* CheckInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInvitation.swift; sourceTree = "<group>"; };
 		C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAEF31384A4B1A5860C5D532 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -761,6 +767,7 @@
 		52A423EB2851D002007549BB /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				C051B4652B7DB52A00946F8D /* Service */,
 				52A423FA2851E322007549BB /* ViewModel */,
 				52A423F92851E2FC007549BB /* View */,
 				52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */,
@@ -1846,6 +1853,7 @@
 		BEE661662858DDF1007812B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C051B4622B7DA57D00946F8D /* Config */,
 				BE8CD39A28F5A176007A476B /* Support */,
 				BE5B69D9288C7B3E008CC57F /* StripeCard */,
 				BE118337287C8C660073970B /* MyLocation */,
@@ -2060,6 +2068,23 @@
 				BEFB861B28FEA6B300D340B2 /* HelpIssuePageViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C051B4622B7DA57D00946F8D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C051B4632B7DA58900946F8D /* ConfigModel.swift */,
+				C051B4682B7DB60B00946F8D /* CheckInvitation.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		C051B4652B7DB52A00946F8D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C051B4662B7DB54B00946F8D /* RegisterService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2361,6 +2386,7 @@
 				52A423F12851E245007549BB /* Observable.swift in Sources */,
 				52A423E528512C02007549BB /* StringConstants.swift in Sources */,
 				BEAF32122870BCAB0007F9B0 /* PaymentIntentModel.swift in Sources */,
+				C051B4642B7DA58900946F8D /* ConfigModel.swift in Sources */,
 				52A423E828512E42007549BB /* QueueConfig.swift in Sources */,
 				BEA9821E2948A94900828C38 /* ChefBusinessHoursViewModel.swift in Sources */,
 				24C451AF2B1F603C004060EC /* SpecialInstructionViewController.swift in Sources */,
@@ -2382,11 +2408,13 @@
 				BEA586E928E44A2D00D5C8F3 /* PaymentEditOptionCoordinator.swift in Sources */,
 				BEF7EB172865CCAD002D553E /* Southwest.swift in Sources */,
 				BEAF3247287566EA0007F9B0 /* UserModel.swift in Sources */,
+				C051B4672B7DB54B00946F8D /* RegisterService.swift in Sources */,
 				BEC08C1728EE0DEC005AA875 /* HelpIssueFoodListTableViewCell.swift in Sources */,
 				BEA586E728E44A1C00D5C8F3 /* PaymentEditOptionViewController.swift in Sources */,
 				BE7303422883491800CC6383 /* CustomStripeService.swift in Sources */,
 				BEAF322828740DCA0007F9B0 /* OrderModel.swift in Sources */,
 				BEF7EAFE2865C701002D553E /* CheckoutService.swift in Sources */,
+				C051B4692B7DB60B00946F8D /* CheckInvitation.swift in Sources */,
 				BE7303442883492500CC6383 /* CustomStripeCoordinator.swift in Sources */,
 				BE1427132857B42E006E5240 /* HomeViewModel.swift in Sources */,
 				BE7302D2287ED8CF00CC6383 /* OrderDetailSummaryTableViewCell.swift in Sources */,

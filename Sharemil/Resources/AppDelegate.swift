@@ -71,6 +71,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         NotificationCenter.default.addObserver(self, selector: #selector(setupOneSignal), name: Notification.Name.init("NOTIFSETUP"), object: nil)
 //        Messaging.messaging().delegate = self
         
+        //MARK: API Config
+        let url = "config"
+        NetworkManager.shared.request(ConfigModel.self, urlExt: url, method: .get, param: nil, encoding: JSONEncoding.default, headers: nil) { result in
+            print(result)
+            
+            switch result {
+            case .success(let response):
+                guard let validation = response.data?.isValidationEnabled else {return}
+                print("Login Validation Required::", validation)
+                UserDefaults.standard.setValue(validation, forKey: "LoginValidationCheck")
+            case .failure(let error):
+                print("Login Validation Error::",error.localizedDescription)
+                break
+            }
+            
+        }
        
         return true
     }

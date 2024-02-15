@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "26956EE7-67B1-4C2C-9084-0087BE6AC99A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "621C1BBF-6F82-45F2-B691-C5A5DDCEA28F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Resources/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "onOSSubscriptionChanged(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "621C1BBF-6F82-45F2-B691-C5A5DDCEA28F - 46981a5b85a25ffc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "621C1BBF-6F82-45F2-B691-C5A5DDCEA28F - 46981a5b85a25ffc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E3C777E-9604-4E81-A9CB-4E1FA7EFE3A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Resources/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "onOSSubscriptionChanged(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E3C777E-9604-4E81-A9CB-4E1FA7EFE3A9 - 46981a5b85a25e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "824">
+               </Location>
+               <Location
+                  uuid = "8E3C777E-9604-4E81-A9CB-4E1FA7EFE3A9 - 46981a5b85a25e78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "816">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65180357-BFE9-4C42-A703-BA5B8B55E909"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Resources/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "onOSSubscriptionChanged(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "65180357-BFE9-4C42-A703-BA5B8B55E909 - 46981a5b85a25fbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "65180357-BFE9-4C42-A703-BA5B8B55E909 - 46981a5b85a25fbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.AppDelegate.onOSSubscriptionChanged(__C.OSSubscriptionStateChanges) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Resources/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
