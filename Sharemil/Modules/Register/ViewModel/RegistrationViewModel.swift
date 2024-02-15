@@ -21,9 +21,9 @@ class RegistrationViewModel: RegisterService {
             // check phone number from api
             self.checkInvitation(phone) { result in
                 switch result {
-                case .success(let response):
+                case .success( _):
                     self.login(phone: phone)
-                case .failure(let error):
+                case .failure( _):
                     self.loading.value = false
                     self.error.value = "The app is still in development we will be releasing shortly."
                 }
