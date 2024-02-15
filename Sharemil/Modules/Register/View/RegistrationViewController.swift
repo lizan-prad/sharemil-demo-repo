@@ -63,6 +63,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
         viewModel.error.bind { msg in
             self.showToastMsg(msg ?? "", state: .error, location: .bottom)
         }
+        
     }
     
     private func setup() {

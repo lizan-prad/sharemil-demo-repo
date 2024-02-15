@@ -20,4 +20,5 @@ class BaseMappableModel<T: Mappable>: Mappable {
         data <- map["data"]
         status <- map["status"]
     }
+    
 }
