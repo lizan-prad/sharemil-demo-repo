@@ -148,5 +148,53 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8460F5E-346E-4F3A-81C2-5098FC95A11E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Modules/StaticPage/StaticPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "setupWebView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E8460F5E-346E-4F3A-81C2-5098FC95A11E - 86ffe38c66ff5d13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.StaticPageViewController.setupWebView() -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Modules/StaticPage/StaticPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "712">
+               </Location>
+               <Location
+                  uuid = "E8460F5E-346E-4F3A-81C2-5098FC95A11E - 86ffe38c66ff5d13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.StaticPageViewController.setupWebView() -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rojanshrestha/Documents/IOS/Sharemil-iOS/Sharemil/Modules/StaticPage/StaticPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

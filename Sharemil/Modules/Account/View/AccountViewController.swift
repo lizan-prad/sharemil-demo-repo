@@ -11,6 +11,7 @@ import Mixpanel
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var legalView: UIView!
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var supportView: UIView!
@@ -48,6 +49,18 @@ class AccountViewController: UIViewController {
         
         logoutView.isUserInteractionEnabled = true
         logoutView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(logoutAction)))
+        
+        legalView.isUserInteractionEnabled = true
+        legalView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent)))
+    }
+    
+    @objc func handleStaticContent(){
+        let vc = UIStoryboard.init(name: "StaticPage", bundle: nil).instantiateViewController(identifier: "StaticPageViewController") as! StaticPageViewController
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//            vc.urlLink = "https://sharemil.vercel.app/Terms%20Of%20Service.pdf"
+            vc.pageTitle = "Legal"
+        })
+        self.present(vc , animated: true)
     }
     
     @objc func openEnvSettings() {
