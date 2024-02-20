@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-cC-KOS">
-                                <rect key="frame" x="26" y="50" width="32" height="32"/>
+                                <rect key="frame" x="26" y="50" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="Hrr-aL-QKh"/>
-                                    <constraint firstAttribute="height" constant="32" id="wSh-ci-Rmg"/>
+                                    <constraint firstAttribute="width" constant="40" id="Hrr-aL-QKh"/>
+                                    <constraint firstAttribute="height" constant="40" id="wSh-ci-Rmg"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1W-y1-XZ3">
-                                <rect key="frame" x="0.0" y="102" width="393" height="750"/>
+                                <rect key="frame" x="0.0" y="110" width="393" height="742"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
