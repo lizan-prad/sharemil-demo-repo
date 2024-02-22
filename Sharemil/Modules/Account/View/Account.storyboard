@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-Z8-I1j">
-                                <rect key="frame" x="0.0" y="345" width="414" height="201"/>
+                                <rect key="frame" x="0.0" y="345" width="414" height="268"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-7F-QHz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -87,8 +87,32 @@
                                             <constraint firstAttribute="height" constant="1" id="6SP-Yx-TWb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-kq-wHE">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geF-0z-Dwx" userLabel="AccountDelete">
                                         <rect key="frame" x="0.0" y="134" width="414" height="66"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3w-Bu-SUS">
+                                                <rect key="frame" x="20" y="21" width="145.5" height="24.5"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="B6W-zg-1Bn"/>
+                                            <constraint firstItem="k3w-Bu-SUS" firstAttribute="leading" secondItem="geF-0z-Dwx" secondAttribute="leading" constant="20" id="Tk0-nu-6vH"/>
+                                            <constraint firstItem="k3w-Bu-SUS" firstAttribute="centerY" secondItem="geF-0z-Dwx" secondAttribute="centerY" id="lH9-Rs-jPz"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66M-K7-qQM">
+                                        <rect key="frame" x="0.0" y="200" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="SQI-qB-Hi9"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-kq-wHE">
+                                        <rect key="frame" x="0.0" y="201" width="414" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSi-hl-2f0">
                                                 <rect key="frame" x="20" y="21" width="81.5" height="24.5"/>
@@ -105,7 +129,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ7-zd-BxH">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="267" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="xyE-CS-ioC"/>
@@ -156,6 +180,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fqO-Yb-Sjg"/>
                     <connections>
+                        <outlet property="deleteAccountView" destination="geF-0z-Dwx" id="b7K-FL-p8X"/>
                         <outlet property="legalView" destination="Oeo-9n-W7H" id="wuE-cG-5E4"/>
                         <outlet property="logoutView" destination="o9W-kq-wHE" id="Tof-2n-ek4"/>
                         <outlet property="nameLabel" destination="6PR-2J-dwu" id="jO4-Zu-PaL"/>

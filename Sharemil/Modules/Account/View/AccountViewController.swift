@@ -15,6 +15,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var supportView: UIView!
+    @IBOutlet weak var deleteAccountView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
     
@@ -35,6 +36,12 @@ class AccountViewController: UIViewController {
         }
     }
     
+    var deleteSuccess: String?{
+        didSet{
+            logoutAction() 
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
@@ -52,6 +59,18 @@ class AccountViewController: UIViewController {
         
         legalView.isUserInteractionEnabled = true
         legalView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent)))
+        
+        
+        deleteAccountView.isUserInteractionEnabled = true
+        deleteAccountView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleAccountDelete)))
+        
+    }
+    
+    @objc func handleAccountDelete(){
+        self.alertWithOkCancel(message: "Are you sure you want to delete the account?",okAction: {
+            self.viewModel.deleteUserProfile()
+        })
+      
     }
     
     @objc func handleStaticContent(){
@@ -87,6 +106,9 @@ class AccountViewController: UIViewController {
         }
         self.viewModel.user.bind { user in
             self.user = user
+        }
+        self.viewModel.deleteSuccess.bind{ success in
+            self.deleteSuccess = success
         }
     }
     
