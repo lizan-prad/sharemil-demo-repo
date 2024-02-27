@@ -11,9 +11,11 @@ import Mixpanel
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var legalView: UIView!
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var supportView: UIView!
+    @IBOutlet weak var deleteAccountView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     var viewModel: AccountViewModel!
     
@@ -34,6 +36,12 @@ class AccountViewController: UIViewController {
         }
     }
     
+    var deleteSuccess: String?{
+        didSet{
+            logoutAction() 
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
@@ -48,6 +56,30 @@ class AccountViewController: UIViewController {
         
         logoutView.isUserInteractionEnabled = true
         logoutView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(logoutAction)))
+        
+        legalView.isUserInteractionEnabled = true
+        legalView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent)))
+        
+        
+        deleteAccountView.isUserInteractionEnabled = true
+        deleteAccountView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleAccountDelete)))
+        
+    }
+    
+    @objc func handleAccountDelete(){
+        self.alertWithOkCancel(message: "Are you sure you want to delete the account?",okAction: {
+            self.viewModel.deleteUserProfile()
+        })
+      
+    }
+    
+    @objc func handleStaticContent(){
+        let vc = UIStoryboard.init(name: "StaticPage", bundle: nil).instantiateViewController(identifier: "StaticPageViewController") as! StaticPageViewController
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//            vc.urlLink = "https://sharemil.vercel.app/Terms%20Of%20Service.pdf"
+            vc.pageTitle = "Legal"
+        })
+        self.present(vc , animated: true)
     }
     
     @objc func openEnvSettings() {
@@ -74,6 +106,9 @@ class AccountViewController: UIViewController {
         }
         self.viewModel.user.bind { user in
             self.user = user
+        }
+        self.viewModel.deleteSuccess.bind{ success in
+            self.deleteSuccess = success
         }
     }
     

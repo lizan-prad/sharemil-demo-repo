@@ -282,6 +282,8 @@
 		C051B4642B7DA58900946F8D /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4632B7DA58900946F8D /* ConfigModel.swift */; };
 		C051B4672B7DB54B00946F8D /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4662B7DB54B00946F8D /* RegisterService.swift */; };
 		C051B4692B7DB60B00946F8D /* CheckInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C051B4682B7DB60B00946F8D /* CheckInvitation.swift */; };
+		C06E137F2B83972100AE2420 /* StaticPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C06E137E2B83972100AE2420 /* StaticPage.storyboard */; };
+		C06E13812B83977000AE2420 /* StaticPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E13802B83977000AE2420 /* StaticPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -587,6 +589,8 @@
 		C051B4632B7DA58900946F8D /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		C051B4662B7DB54B00946F8D /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C051B4682B7DB60B00946F8D /* CheckInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInvitation.swift; sourceTree = "<group>"; };
+		C06E137E2B83972100AE2420 /* StaticPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaticPage.storyboard; sourceTree = "<group>"; };
+		C06E13802B83977000AE2420 /* StaticPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticPageViewController.swift; sourceTree = "<group>"; };
 		C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAEF31384A4B1A5860C5D532 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -722,6 +726,7 @@
 		52A423DF285129E0007549BB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C06E137D2B83971300AE2420 /* StaticPage */,
 				24C451A62B1F5F2C004060EC /* SpecialInstruction */,
 				BE7302D8287FF07A00CC6383 /* Confirmation */,
 				BE2954C9286E43C80048E9DD /* PaymentOptions */,
@@ -2090,6 +2095,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C06E137D2B83971300AE2420 /* StaticPage */ = {
+			isa = PBXGroup;
+			children = (
+				C06E137E2B83972100AE2420 /* StaticPage.storyboard */,
+				C06E13802B83977000AE2420 /* StaticPageViewController.swift */,
+			);
+			path = StaticPage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2201,6 +2215,7 @@
 				BE5B6A1F28902659008CC57F /* ConfirmationAsk.storyboard in Resources */,
 				BEB13DB1285C548F00F63933 /* MyLocation.storyboard in Resources */,
 				BE214B2C2862EEBB00B26B50 /* ChefMenuOptionRadioTableViewCell.xib in Resources */,
+				C06E137F2B83972100AE2420 /* StaticPage.storyboard in Resources */,
 				BE4CDDB628530D7E006AB129 /* Inter-Regular.ttf in Resources */,
 				BE4CDDD1285342A1006AB129 /* Home.storyboard in Resources */,
 				BE7302BF287EC80F00CC6383 /* OrderDetails.storyboard in Resources */,
@@ -2506,6 +2521,7 @@
 				BE7C727C285F94C90008161B /* ChefMenuViewController.swift in Sources */,
 				BE4CDDCD28533485006AB129 /* OtpVerificationViewModel.swift in Sources */,
 				BEB13DCC285DFDE700F63933 /* GoogleMapsServices.swift in Sources */,
+				C06E13812B83977000AE2420 /* StaticPageViewController.swift in Sources */,
 				BE4CDDCB28533474006AB129 /* OtpValidationCoordinator.swift in Sources */,
 				BE8CD3A928F5A2AC007A476B /* HelpService.swift in Sources */,
 				BEF7EB0F2865CCAD002D553E /* End_location.swift in Sources */,

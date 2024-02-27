@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UmG-LD-KoL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UmG-LD-KoL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,13 +26,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uau-Z3-QXC">
-                                <rect key="frame" x="20" y="84" width="374" height="24.5"/>
+                                <rect key="frame" x="20" y="88" width="374" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSs-hO-yJD">
-                                <rect key="frame" x="120" y="143.5" width="269" height="40"/>
+                                <rect key="frame" x="120" y="147.5" width="269" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-6G-2xT" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
                                         <rect key="frame" x="14" y="11" width="241" height="18.5"/>
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-h1-HMy">
-                                <rect key="frame" x="42" y="221.5" width="330" height="55"/>
+                                <rect key="frame" x="42" y="225.5" width="330" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Gjc-O5-lRY"/>
@@ -64,21 +64,21 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="1jx-70-mvZ">
-                                <rect key="frame" x="325" y="237" width="24" height="24"/>
+                                <rect key="frame" x="325" y="241" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="TiV-sq-Uy7"/>
                                     <constraint firstAttribute="width" constant="24" id="jpd-gb-5fn"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1i-Dw-q33">
-                                <rect key="frame" x="24" y="314.5" width="366" height="1"/>
+                                <rect key="frame" x="24" y="318.5" width="366" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Xzq-9r-OVx"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-7s-V3k">
-                                <rect key="frame" x="42" y="353.5" width="330" height="135"/>
+                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-7s-V3k">
+                                <rect key="frame" x="42" y="357.5" width="330" height="135"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ku-DiD">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="55"/>
@@ -106,22 +106,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="nUY-07-hFP">
-                                <rect key="frame" x="65" y="369" width="24" height="24"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="nUY-07-hFP">
+                                <rect key="frame" x="65" y="373" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="5up-vc-60h"/>
                                     <constraint firstAttribute="width" constant="24" id="KhU-MM-rH0"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-Dm-gZB">
-                                <rect key="frame" x="65" y="449" width="24" height="24"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-Dm-gZB">
+                                <rect key="frame" x="65" y="453" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="SkT-qz-QaC"/>
                                     <constraint firstAttribute="height" constant="24" id="hNC-SN-LjV"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-Je-E6S">
-                                <rect key="frame" x="35" y="143.5" width="65" height="40"/>
+                                <rect key="frame" x="35" y="147.5" width="65" height="40"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="AP0-VJ-B81"/>
@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I91-ey-ZJA">
-                                <rect key="frame" x="120" y="187.5" width="269" height="0.0"/>
+                                <rect key="frame" x="120" y="191.5" width="269" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="10"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                                                         <constraint firstAttribute="trailing" secondItem="cx0-HK-iZT" secondAttribute="trailing" id="kjh-yb-s4y"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VR-8Z-ecr" customClass="SkyFloatingLabelTextField" customModule="CreditCardViewSwift" customModuleProvider="target">
+                                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VR-8Z-ecr" customClass="SkyFloatingLabelTextField" customModule="Sharemil" customModuleProvider="target">
                                                                     <rect key="frame" x="38" y="0.0" width="304" height="34"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -292,7 +292,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-KT-h0W">
                                                             <rect key="frame" x="0.0" y="27.5" width="177" height="46"/>
                                                             <subviews>
-                                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FH1-kV-fF0" customClass="SkyFloatingLabelTextField" customModule="CreditCardViewSwift" customModuleProvider="target">
+                                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FH1-kV-fF0" customClass="SkyFloatingLabelTextField" customModule="Sharemil" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="0.0" width="145" height="34"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -355,7 +355,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwk-pJ-kbx">
                                                             <rect key="frame" x="0.0" y="27.5" width="177" height="46"/>
                                                             <subviews>
-                                                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-gj-DLD" customClass="SkyFloatingLabelTextField" customModule="CreditCardViewSwift" customModuleProvider="target">
+                                                                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-gj-DLD" customClass="SkyFloatingLabelTextField" customModule="Sharemil" customModuleProvider="target">
                                                                     <rect key="frame" x="16" y="0.0" width="145" height="34"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -451,7 +451,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07n-N9-1G9">
                                                     <rect key="frame" x="0.0" y="27.5" width="374" height="46"/>
                                                     <subviews>
-                                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-S5-nnR" customClass="SkyFloatingLabelTextField" customModule="CreditCardViewSwift" customModuleProvider="target">
+                                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-S5-nnR" customClass="SkyFloatingLabelTextField" customModule="Sharemil" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="0.0" width="342" height="34"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>

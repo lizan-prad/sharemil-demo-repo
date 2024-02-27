@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     @objc func setupOneSignal() {
         
         if UserDefaults.standard.string(forKey: "ENV") == nil {
-            UserDefaults.standard.set("D", forKey: "ENV")
+            UserDefaults.standard.set("P", forKey: "ENV")
         }
         OneSignal.add(self)
         OneSignal.setAppId(UserDefaults.standard.string(forKey: "ENV") == "D" ? "5abbae8b-137a-444c-8977-1e61fd5cdf1f" : "25e41f3e-d9ad-4107-a042-f2cff3bcd6eb")
