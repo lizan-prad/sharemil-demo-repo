@@ -11,6 +11,7 @@ import Mixpanel
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var termsView: UIView!
     @IBOutlet weak var legalView: UIView!
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var profilePic: UIImageView!
@@ -58,7 +59,10 @@ class AccountViewController: UIViewController {
         logoutView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(logoutAction)))
         
         legalView.isUserInteractionEnabled = true
-        legalView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent)))
+        legalView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent2)))
+        
+        termsView.isUserInteractionEnabled = true
+        termsView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleStaticContent)))
         
         
         deleteAccountView.isUserInteractionEnabled = true
@@ -73,11 +77,20 @@ class AccountViewController: UIViewController {
       
     }
     
+    @objc func handleStaticContent2(){
+        let vc = UIStoryboard.init(name: "StaticPage", bundle: nil).instantiateViewController(identifier: "StaticPageViewController") as! StaticPageViewController
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            vc.urlLink = "https://doc-hosting.flycricket.io/sharemil-terms-of-use/bf93f32b-e2fb-4fdb-bedf-ec348d9ab4cf/terms"
+            vc.pageTitle = "Terms and Conditions"
+        })
+        self.present(vc , animated: true)
+    }
+    
     @objc func handleStaticContent(){
         let vc = UIStoryboard.init(name: "StaticPage", bundle: nil).instantiateViewController(identifier: "StaticPageViewController") as! StaticPageViewController
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-//            vc.urlLink = "https://sharemil.vercel.app/Terms%20Of%20Service.pdf"
-            vc.pageTitle = "Legal"
+            vc.urlLink = "https://doc-hosting.flycricket.io/sharemil-privacy-policy/cc3c8099-81ac-4e30-9f46-22a2f387d911/privacy"
+            vc.pageTitle = "Privacy Policy"
         })
         self.present(vc , animated: true)
     }

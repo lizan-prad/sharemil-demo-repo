@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kop-N9-3KG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kop-N9-3KG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-Z8-I1j">
-                                <rect key="frame" x="0.0" y="345" width="414" height="268"/>
+                                <rect key="frame" x="0.0" y="345" width="414" height="335"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-7F-QHz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -66,8 +66,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-9n-W7H">
                                         <rect key="frame" x="0.0" y="67" width="414" height="66"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hs-lA-rWv">
-                                                <rect key="frame" x="20" y="21" width="51.5" height="24.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hs-lA-rWv">
+                                                <rect key="frame" x="20" y="21" width="206.5" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -80,15 +80,39 @@
                                             <constraint firstItem="5Hs-lA-rWv" firstAttribute="centerY" secondItem="Oeo-9n-W7H" secondAttribute="centerY" id="dQ0-Jj-IVj"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-jJ-Src">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaX-1z-94A">
                                         <rect key="frame" x="0.0" y="133" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="hkE-Nl-l6j"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-YO-ZqS">
+                                        <rect key="frame" x="0.0" y="134" width="414" height="66"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vST-yu-YLs">
+                                                <rect key="frame" x="20" y="21" width="131.5" height="24.5"/>
+                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="vST-yu-YLs" firstAttribute="centerY" secondItem="aC5-YO-ZqS" secondAttribute="centerY" id="6pZ-5C-JPN"/>
+                                            <constraint firstAttribute="height" constant="66" id="LqH-i4-ZWN"/>
+                                            <constraint firstItem="vST-yu-YLs" firstAttribute="leading" secondItem="aC5-YO-ZqS" secondAttribute="leading" constant="20" id="TH5-xj-sy1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nI-jJ-Src">
+                                        <rect key="frame" x="0.0" y="200" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="6SP-Yx-TWb"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geF-0z-Dwx" userLabel="AccountDelete">
-                                        <rect key="frame" x="0.0" y="134" width="414" height="66"/>
+                                        <rect key="frame" x="0.0" y="201" width="414" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3w-Bu-SUS">
                                                 <rect key="frame" x="20" y="21" width="145.5" height="24.5"/>
@@ -105,14 +129,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66M-K7-qQM">
-                                        <rect key="frame" x="0.0" y="200" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="267" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SQI-qB-Hi9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-kq-wHE">
-                                        <rect key="frame" x="0.0" y="201" width="414" height="66"/>
+                                        <rect key="frame" x="0.0" y="268" width="414" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSi-hl-2f0">
                                                 <rect key="frame" x="20" y="21" width="81.5" height="24.5"/>
@@ -129,7 +153,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJ7-zd-BxH">
-                                        <rect key="frame" x="0.0" y="267" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="334" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="xyE-CS-ioC"/>
@@ -186,6 +210,7 @@
                         <outlet property="nameLabel" destination="6PR-2J-dwu" id="jO4-Zu-PaL"/>
                         <outlet property="profilePic" destination="9Yw-9d-kHm" id="JQV-hn-E7l"/>
                         <outlet property="supportView" destination="VrP-7F-QHz" id="FXA-1J-CwX"/>
+                        <outlet property="termsView" destination="aC5-YO-ZqS" id="jaH-Uq-4WA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

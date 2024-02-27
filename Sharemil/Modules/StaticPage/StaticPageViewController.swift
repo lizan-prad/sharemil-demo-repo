@@ -9,7 +9,9 @@ import UIKit
 import WebKit
 class StaticPageViewController: UIViewController {
     
-    var urlLink = "https://sharemil.vercel.app/Terms%20Of%20Service.pdf"
+    var urlLink: String?
+    
+//    var urlLink = "https://sharemil.vercel.app/Terms%20Of%20Service.pdf"
     
     var pageTitle:String?{
         didSet{
@@ -27,7 +29,7 @@ class StaticPageViewController: UIViewController {
     
     private func setupWebView() {
         
-        if let url = URL.init(string: urlLink) {
+        if let url = URL.init(string: urlLink ?? "") {
             let request = URLRequest(url: url)
             self.webView.load(request)
         }
