@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UmG-LD-KoL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UmG-LD-KoL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -77,49 +77,6 @@
                                     <constraint firstAttribute="height" constant="1" id="Xzq-9r-OVx"/>
                                 </constraints>
                             </view>
-                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2jV-7s-V3k">
-                                <rect key="frame" x="42" y="357.5" width="330" height="135"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ku-DiD">
-                                        <rect key="frame" x="0.0" y="0.0" width="330" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="3L3-Eu-h9a"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue with Apple">
-                                            <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="12"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8g8-mO-NSw">
-                                        <rect key="frame" x="0.0" y="80" width="330" height="55"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="kOV-NF-HD3"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue with Google">
-                                            <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="12"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="nUY-07-hFP">
-                                <rect key="frame" x="65" y="373" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="5up-vc-60h"/>
-                                    <constraint firstAttribute="width" constant="24" id="KhU-MM-rH0"/>
-                                </constraints>
-                            </imageView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-Dm-gZB">
-                                <rect key="frame" x="65" y="453" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="SkT-qz-QaC"/>
-                                    <constraint firstAttribute="height" constant="24" id="hNC-SN-LjV"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-Je-E6S">
                                 <rect key="frame" x="35" y="147.5" width="65" height="40"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,19 +102,14 @@
                         <viewLayoutGuide key="safeArea" id="2LE-Od-CTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9uv-Dm-gZB" firstAttribute="leading" secondItem="8g8-mO-NSw" secondAttribute="leading" constant="23" id="4mv-y2-yO0"/>
-                            <constraint firstItem="nUY-07-hFP" firstAttribute="centerY" secondItem="Pmf-Ku-DiD" secondAttribute="centerY" id="8EW-BK-kI4"/>
                             <constraint firstItem="1jx-70-mvZ" firstAttribute="centerY" secondItem="7uh-h1-HMy" secondAttribute="centerY" id="8Ea-t6-xcM"/>
-                            <constraint firstItem="nUY-07-hFP" firstAttribute="leading" secondItem="Pmf-Ku-DiD" secondAttribute="leading" constant="23" id="9Gv-2s-qI4"/>
                             <constraint firstItem="I91-ey-ZJA" firstAttribute="top" secondItem="dSs-hO-yJD" secondAttribute="bottom" constant="4" id="C1c-8n-JX8"/>
                             <constraint firstItem="1jx-70-mvZ" firstAttribute="trailing" secondItem="7uh-h1-HMy" secondAttribute="trailing" constant="-23" id="D6w-on-XEo"/>
-                            <constraint firstItem="2jV-7s-V3k" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="42" id="EbZ-Zn-W36"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="dSs-hO-yJD" secondAttribute="trailing" constant="25" id="GoA-Y2-d0R"/>
                             <constraint firstItem="7uh-h1-HMy" firstAttribute="top" secondItem="dSs-hO-yJD" secondAttribute="bottom" constant="38" id="Hrf-9Z-Fwh"/>
                             <constraint firstItem="7uh-h1-HMy" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="42" id="J78-gA-rlh"/>
                             <constraint firstItem="Uau-Z3-QXC" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="20" id="NSG-7E-4Ij"/>
                             <constraint firstItem="ER4-Je-E6S" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="35" id="P5p-LU-xnT"/>
-                            <constraint firstItem="9uv-Dm-gZB" firstAttribute="centerY" secondItem="8g8-mO-NSw" secondAttribute="centerY" id="QF9-Ax-ZIN"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="x1i-Dw-q33" secondAttribute="trailing" constant="24" id="aYI-21-cUT"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="7uh-h1-HMy" secondAttribute="trailing" constant="42" id="dh2-Zt-Gj5"/>
                             <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="Uau-Z3-QXC" secondAttribute="trailing" constant="20" id="eMd-7L-ohX"/>
@@ -167,17 +119,13 @@
                             <constraint firstItem="dSs-hO-yJD" firstAttribute="leading" secondItem="ER4-Je-E6S" secondAttribute="trailing" constant="20" id="jYy-go-bxh"/>
                             <constraint firstItem="I91-ey-ZJA" firstAttribute="leading" secondItem="dSs-hO-yJD" secondAttribute="leading" id="kvr-KR-w8o"/>
                             <constraint firstItem="ER4-Je-E6S" firstAttribute="top" secondItem="Uau-Z3-QXC" secondAttribute="bottom" constant="35" id="mt8-aq-SWd"/>
-                            <constraint firstItem="2jV-7s-V3k" firstAttribute="top" secondItem="x1i-Dw-q33" secondAttribute="bottom" constant="38" id="vs5-Hh-pjZ"/>
-                            <constraint firstItem="2LE-Od-CTO" firstAttribute="trailing" secondItem="2jV-7s-V3k" secondAttribute="trailing" constant="42" id="vuJ-93-r7G"/>
                             <constraint firstItem="Uau-Z3-QXC" firstAttribute="top" secondItem="2LE-Od-CTO" secondAttribute="top" constant="40" id="y8o-V9-PHn"/>
                             <constraint firstItem="x1i-Dw-q33" firstAttribute="leading" secondItem="2LE-Od-CTO" secondAttribute="leading" constant="24" id="ziO-nO-1wq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appleBtn" destination="Pmf-Ku-DiD" id="1qd-3H-O8J"/>
                         <outlet property="errorLabel" destination="I91-ey-ZJA" id="n1a-0R-5Xu"/>
                         <outlet property="flagBtn" destination="ER4-Je-E6S" id="a1f-QG-jto"/>
-                        <outlet property="googleBtn" destination="8g8-mO-NSw" id="cdZ-Of-QNn"/>
                         <outlet property="nextBtn" destination="7uh-h1-HMy" id="JFy-cs-3NR"/>
                         <outlet property="phoneContainer" destination="dSs-hO-yJD" id="659-l9-Gbi"/>
                         <outlet property="phoneField" destination="3iw-6G-2xT" id="wV9-wB-kxf"/>
@@ -527,10 +475,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple" width="64" height="64"/>
         <image name="chevron-down" width="7.5" height="5"/>
         <image name="chevron-right" width="48" height="48"/>
-        <image name="google" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

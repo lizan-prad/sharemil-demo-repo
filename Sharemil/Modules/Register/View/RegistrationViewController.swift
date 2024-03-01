@@ -18,8 +18,8 @@ class RegistrationViewController: UIViewController, Storyboarded {
     
 
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var googleBtn: UIButton!
-    @IBOutlet weak var appleBtn: UIButton!
+//    @IBOutlet weak var googleBtn: UIButton!
+//    @IBOutlet weak var appleBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
   
     @IBOutlet weak var phoneContainer: UIView!
@@ -74,29 +74,29 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     private func setupViews() {
-        googleBtn.addStandardBorder()
+//        googleBtn.addStandardBorder()
         phoneContainer.addStandardBorder()
-        appleBtn.addStandardBorder()
+//        appleBtn.addStandardBorder()
         self.selectedCOuntry = countryList.getCountry(code: self.phoneField.currentRegion)
         self.flagBtn.setTitle(countryList.getCountry(code: self.phoneField.currentRegion )?.flag ?? "", for: .normal)
-        self.googleBtn.addTarget(self, action: #selector(googleSignAction), for: .touchUpInside)
-        self.appleBtn.addTarget(self, action: #selector(appleSignAction), for: .touchUpInside)
+//        self.googleBtn.addTarget(self, action: #selector(googleSignAction), for: .touchUpInside)
+//        self.appleBtn.addTarget(self, action: #selector(appleSignAction), for: .touchUpInside)
         self.phoneField.placeholder = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + "XXXXXXXXXX"
     }
     
-    @objc func appleSignAction() {
-        self.startSignInWithAppleFlow()
-    }
-    
-    @objc func googleSignAction() {
-        GIDSignIn.sharedInstance.signIn(withPresenting: self)
-//        GIDSignIn.sharedInstance.signIn(
-//            with: GIDConfiguration.init(clientID: StringConstants.googleClientID),
-//            presenting: self) { user, error in
-//                guard let signInUser = user else {return}
-//                print(signInUser)
-//            }
-    }
+//    @objc func appleSignAction() {
+//        self.startSignInWithAppleFlow()
+//    }
+//    
+//    @objc func googleSignAction() {
+//        GIDSignIn.sharedInstance.signIn(withPresenting: self)
+////        GIDSignIn.sharedInstance.signIn(
+////            with: GIDConfiguration.init(clientID: StringConstants.googleClientID),
+////            presenting: self) { user, error in
+////                guard let signInUser = user else {return}
+////                print(signInUser)
+////            }
+//    }
     
     private func setupPhoneField() {
 //        phoneField.withExamplePlaceholder = true
