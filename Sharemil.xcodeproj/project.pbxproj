@@ -2750,7 +2750,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Sharemil would like to access your camera for adding your profile picture.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
@@ -2794,7 +2794,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sharemil/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "To scan cards";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Sharemil would like to access your camera for adding your profile picture.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sharemil would like to access your location to show the nearby restaurants.";
