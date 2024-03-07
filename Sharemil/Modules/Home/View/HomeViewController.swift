@@ -360,8 +360,8 @@ extension HomeViewController: LocationManagerDelegate {
     
     
     func didUpdateLocation(_ manager: LocationManager, currentLocation location: LLocation?) {
-        UserDefaults.standard.set("\(34.065239706594824) \(-118.29397656141781)", forKey: "CURLOC")
-        self.currentLocation = LLocation.init(location: CLLocation.init(latitude: 34.065239706594824, longitude: -118.29397656141781))
+        UserDefaults.standard.set("\(location?.location?.coordinate.latitude ?? 0) \(location?.location?.coordinate.longitude ?? 0)", forKey: "CURLOC")
+        self.currentLocation = location
         LocationManager.shared.locationManager?.stopUpdatingLocation()
     }
 }
