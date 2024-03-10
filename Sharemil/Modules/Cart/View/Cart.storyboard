@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CjI-jI-7tg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CjI-jI-7tg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Cart View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -19,21 +24,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9bk-O2-otc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSb-Gz-Muc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-VH-gPH">
+                                        <rect key="frame" x="42" y="420.5" width="330" height="55"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="2yJ-CH-Xaw"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Register">
+                                            <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Zzo-v4-TzS"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register first to start adding items to cart" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faF-4d-e7a">
+                                        <rect key="frame" x="40" y="346.5" width="334" height="44"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Yp1-VH-gPH" firstAttribute="centerY" secondItem="wSb-Gz-Muc" secondAttribute="centerY" id="As4-oU-VSx"/>
+                                    <constraint firstAttribute="trailing" secondItem="faF-4d-e7a" secondAttribute="trailing" constant="40" id="Lsf-Q0-Hn4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yp1-VH-gPH" secondAttribute="trailing" constant="42" id="ZgM-Df-khd"/>
+                                    <constraint firstItem="faF-4d-e7a" firstAttribute="leading" secondItem="wSb-Gz-Muc" secondAttribute="leading" constant="40" id="a1R-cR-1hV"/>
+                                    <constraint firstItem="Yp1-VH-gPH" firstAttribute="top" secondItem="faF-4d-e7a" secondAttribute="bottom" constant="30" id="bbV-5A-FxN"/>
+                                    <constraint firstItem="Yp1-VH-gPH" firstAttribute="centerX" secondItem="wSb-Gz-Muc" secondAttribute="centerX" id="eQT-hg-McC"/>
+                                    <constraint firstItem="Yp1-VH-gPH" firstAttribute="leading" secondItem="wSb-Gz-Muc" secondAttribute="leading" constant="42" id="mot-iy-M3V"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wSb-Gz-Muc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9TF-Bq-4Ft"/>
+                            <constraint firstAttribute="bottom" secondItem="wSb-Gz-Muc" secondAttribute="bottom" id="Ee4-9A-Yom"/>
                             <constraint firstItem="9bk-O2-otc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="MFZ-fH-x1q"/>
+                            <constraint firstItem="wSb-Gz-Muc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="NFP-Bh-CEn"/>
                             <constraint firstItem="9bk-O2-otc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e9G-tS-lat"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9bk-O2-otc" secondAttribute="trailing" id="fyI-ba-JPF"/>
                             <constraint firstAttribute="bottom" secondItem="9bk-O2-otc" secondAttribute="bottom" id="piz-Pw-y1L"/>
+                            <constraint firstItem="wSb-Gz-Muc" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tI0-oO-LfJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qiT-Vj-jYc"/>
                     <connections>
+                        <outlet property="registerView" destination="wSb-Gz-Muc" id="dAt-Vk-v0I"/>
                         <outlet property="tableView" destination="9bk-O2-otc" id="Gip-HL-UTF"/>
                     </connections>
                 </viewController>
@@ -51,7 +97,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Q5-Pa-KN5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -117,6 +117,13 @@ class RegistrationViewController: UIViewController, Storyboarded {
         self.title = ""
     }
     
+    @IBAction func skipRegistrationAction(_ sender: Any) {
+        guard let nav = self.navigationController else {return}
+        UserDefaults.standard.set(StringConstants.staticToken, forKey: StringConstants.userIDToken)
+        let vc = BaseTabbarCoordinator.init(navigationController: nav).getMainView()
+        appdelegate.window?.rootViewController = vc
+    }
+    
     @objc func textCHanged() {
         if (phoneField.text?.count ?? 0) > 0 && !(phoneField.text?.contains(self.selectedCOuntry?.phoneExtension ?? "") ?? false) {
             self.phoneField.text = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + (self.phoneField.text ?? "")

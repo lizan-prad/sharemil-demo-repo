@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class OrdersViewController: UIViewController, Storyboarded{
     
+    @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: OrdersViewModel!
     
@@ -24,13 +25,19 @@ class OrdersViewController: UIViewController, Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()
+        
         if let loc = loc {
             self.viewModel.fetchChefBy(location: loc, name: "")
         }
         self.getOrderStatusUpdate()
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        appdelegate.loadRegistration()
     }
     
     private func bindViewModel() {

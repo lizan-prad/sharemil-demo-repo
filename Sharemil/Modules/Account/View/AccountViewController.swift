@@ -11,6 +11,7 @@ import Mixpanel
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var termsView: UIView!
     @IBOutlet weak var legalView: UIView!
     @IBOutlet weak var logoutView: UIView!
@@ -43,8 +44,11 @@ class AccountViewController: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
         self.viewModel = AccountViewModel()
         profilePic.rounded()
         profilePic.clipsToBounds = true
@@ -68,6 +72,10 @@ class AccountViewController: UIViewController {
         deleteAccountView.isUserInteractionEnabled = true
         deleteAccountView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleAccountDelete)))
         
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        appdelegate.loadRegistration()
     }
     
     @objc func handleAccountDelete(){

@@ -185,30 +185,36 @@ extension ChefMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.viewModel.chef?.isOpen == false {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "eee"
-            let now = formatter.string(from: Date()).lowercased()
-            let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
-            formatter.dateFormat = "HH:mm:ss"
-            let nowStrDate = formatter.string(from: Date())
-            let nowDate = formatter.date(from: nowStrDate)
-            let date = formatter.date(from: hour?.endTime ?? "")
-            let sdate = formatter.date(from: hour?.startTime ?? "")
-            formatter.dateFormat = "hh:mm a"
-            self.showToastMsg("The restaurant is closed. Restaurant hours are from \(formatter.string(from: sdate ?? Date())) - \(formatter.string(from: date ?? Date()))", state: .info, location: .bottom)
+        if UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken {
+            alertWithOkCancel(message: "You must first register to start adding items to cart.", title: "Registration needed!", okAction:  {
+                appdelegate.loadRegistration()
+            })
         } else {
-            let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
-            coordinator.menuItemModel = self.menuItems?[indexPath.row]
-            coordinator.cartModel = cartItems
-            
-            coordinator.didAddToCart = { model in
-                NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
-                //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
-                self.viewModel.fetchCarts()
-                //            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+            if self.viewModel.chef?.isOpen == false {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "eee"
+                let now = formatter.string(from: Date()).lowercased()
+                let hour = viewModel.chef?.hours?.filter({($0.day?.lowercased() ?? "") == now.prefix(3)}).first
+                formatter.dateFormat = "HH:mm:ss"
+                let nowStrDate = formatter.string(from: Date())
+                let nowDate = formatter.date(from: nowStrDate)
+                let date = formatter.date(from: hour?.endTime ?? "")
+                let sdate = formatter.date(from: hour?.startTime ?? "")
+                formatter.dateFormat = "hh:mm a"
+                self.showToastMsg("The restaurant is closed. Restaurant hours are from \(formatter.string(from: sdate ?? Date())) - \(formatter.string(from: date ?? Date()))", state: .info, location: .bottom)
+            } else {
+                let coordinator = MenuItemCoordinator.init(navigationController: UINavigationController())
+                coordinator.menuItemModel = self.menuItems?[indexPath.row]
+                coordinator.cartModel = cartItems
+                
+                coordinator.didAddToCart = { model in
+                    NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
+                    //            UserDefaults.standard.set(model?.cart?.id, forKey: model?.cart?.chefId ?? "")
+                    self.viewModel.fetchCarts()
+                    //            self.viewModel.fetchCarts(model?.cart?.id ?? "")
+                }
+                self.present(coordinator.getMainView(), animated: true)
             }
-            self.present(coordinator.getMainView(), animated: true)
         }
     }
     

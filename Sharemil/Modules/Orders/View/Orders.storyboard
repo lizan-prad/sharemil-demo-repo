@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uih-iT-1wC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uih-iT-1wC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Orders View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -19,21 +24,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GIp-yB-VO2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okf-62-fGC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpG-UH-7Eb">
+                                        <rect key="frame" x="42" y="420.5" width="330" height="55"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="xmX-Jy-vPe"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Register">
+                                            <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IOE-C8-si3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register first to start seeing your order history" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKj-av-FFw">
+                                        <rect key="frame" x="40" y="346.5" width="334" height="44"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FKj-av-FFw" secondAttribute="trailing" constant="40" id="DiO-N2-sTf"/>
+                                    <constraint firstItem="tpG-UH-7Eb" firstAttribute="leading" secondItem="okf-62-fGC" secondAttribute="leading" constant="42" id="JLU-M0-93b"/>
+                                    <constraint firstItem="tpG-UH-7Eb" firstAttribute="centerY" secondItem="okf-62-fGC" secondAttribute="centerY" id="RMn-F5-EPh"/>
+                                    <constraint firstItem="FKj-av-FFw" firstAttribute="leading" secondItem="okf-62-fGC" secondAttribute="leading" constant="40" id="ZSa-Ph-VZL"/>
+                                    <constraint firstItem="tpG-UH-7Eb" firstAttribute="centerX" secondItem="okf-62-fGC" secondAttribute="centerX" id="axb-hq-Vv3"/>
+                                    <constraint firstAttribute="trailing" secondItem="tpG-UH-7Eb" secondAttribute="trailing" constant="42" id="lIm-XE-ngG"/>
+                                    <constraint firstItem="tpG-UH-7Eb" firstAttribute="top" secondItem="FKj-av-FFw" secondAttribute="bottom" constant="30" id="mzz-3V-hDP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="okf-62-fGC" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="5nc-Mc-cGJ"/>
                             <constraint firstItem="GIp-yB-VO2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Aiv-MS-W4c"/>
+                            <constraint firstItem="okf-62-fGC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HJW-xj-Ijd"/>
+                            <constraint firstAttribute="bottom" secondItem="okf-62-fGC" secondAttribute="bottom" id="aB6-i4-Xqn"/>
                             <constraint firstAttribute="bottom" secondItem="GIp-yB-VO2" secondAttribute="bottom" id="biR-kz-28O"/>
+                            <constraint firstItem="okf-62-fGC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="cV1-zv-Rfh"/>
                             <constraint firstItem="GIp-yB-VO2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hQq-um-ruH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GIp-yB-VO2" secondAttribute="trailing" id="pHV-iI-NyY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wI4-Nq-hLc"/>
                     <connections>
+                        <outlet property="registerView" destination="okf-62-fGC" id="wCT-lb-fXA"/>
                         <outlet property="tableView" destination="GIp-yB-VO2" id="lEg-Yb-leh"/>
                     </connections>
                 </viewController>
@@ -51,7 +97,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MgW-fh-zvz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

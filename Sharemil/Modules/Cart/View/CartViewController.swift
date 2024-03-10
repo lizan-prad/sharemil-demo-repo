@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class CartViewController: UIViewController {
 
+    @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: CartViewModel!
@@ -25,6 +26,7 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         viewModel = CartViewModel()
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartItems), name: Notification.Name.init("CARTUPDATE"), object: nil)
+        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
         bindViewModel()
         setTableView()
     }
@@ -49,6 +51,10 @@ class CartViewController: UIViewController {
             NotificationCenter.default.post(name: Notification.Name.init(rawValue: "CARTBADGE"), object: nil)
             self.viewModel.fetchCarts()
         }
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        appdelegate.loadRegistration()
     }
     
     @objc func updateCartItems() {

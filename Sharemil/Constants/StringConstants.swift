@@ -13,6 +13,7 @@ enum StringConstants {
     static let controller = "ViewController"
     static let verificationToken = "VERIFYID"
     static let userIDToken = "UserIDToken"
+    static let staticToken = "firebaseId:kJwGwwTSQURQBZQwf0d53ujGYzF3"
     static let apnsToken = "apnsToken"
     
     static let googleClientID = "611582434850-jgc15q38s9fpdtn2rvkpkf4fqtp9250g.apps.googleusercontent.com"

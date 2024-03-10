@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Inter-Regular.ttf">
+        <array key="Inter-VariableFont_slnt,wght.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -183,16 +183,56 @@
                                     <action selector="editAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pej-vS-0D1"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-r5-fO7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woS-Qu-7wb">
+                                        <rect key="frame" x="42" y="420.5" width="330" height="55"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="pf6-D2-DS5"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Register">
+                                            <fontDescription key="titleFontDescription" name="Inter-Regular" family="Inter" pointSize="20"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="registerAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0gK-fd-KLm"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register first to view your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h6-C5-Q93">
+                                        <rect key="frame" x="40" y="368.5" width="334" height="22"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="woS-Qu-7wb" firstAttribute="centerY" secondItem="sDC-r5-fO7" secondAttribute="centerY" id="Rfe-iu-fDF"/>
+                                    <constraint firstAttribute="trailing" secondItem="0h6-C5-Q93" secondAttribute="trailing" constant="40" id="U8y-N8-F0d"/>
+                                    <constraint firstItem="woS-Qu-7wb" firstAttribute="top" secondItem="0h6-C5-Q93" secondAttribute="bottom" constant="30" id="Wad-KG-3KZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="woS-Qu-7wb" secondAttribute="trailing" constant="42" id="dwQ-hY-BGG"/>
+                                    <constraint firstItem="woS-Qu-7wb" firstAttribute="leading" secondItem="sDC-r5-fO7" secondAttribute="leading" constant="42" id="lDu-hJ-Hce"/>
+                                    <constraint firstItem="woS-Qu-7wb" firstAttribute="centerX" secondItem="sDC-r5-fO7" secondAttribute="centerX" id="sxr-4g-hGx"/>
+                                    <constraint firstItem="0h6-C5-Q93" firstAttribute="leading" secondItem="sDC-r5-fO7" secondAttribute="leading" constant="40" id="uDW-kC-4Ih"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ynz-AI-u4F" firstAttribute="top" secondItem="92J-lW-iYI" secondAttribute="bottom" constant="30" id="Bfu-Jh-qrF"/>
                             <constraint firstItem="92J-lW-iYI" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HPN-aM-php"/>
+                            <constraint firstItem="sDC-r5-fO7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NIj-ao-mhw"/>
+                            <constraint firstItem="sDC-r5-fO7" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="OfC-50-zYU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6PR-2J-dwu" secondAttribute="trailing" constant="20" id="Rdu-Dr-fjm"/>
+                            <constraint firstAttribute="bottom" secondItem="sDC-r5-fO7" secondAttribute="bottom" id="Rnr-Xf-25O"/>
                             <constraint firstItem="ynz-AI-u4F" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="UNC-UT-sLx"/>
                             <constraint firstItem="GeR-Z8-I1j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZDo-Sm-crg"/>
                             <constraint firstItem="92J-lW-iYI" firstAttribute="top" secondItem="6PR-2J-dwu" secondAttribute="bottom" constant="14" id="aZF-NW-cDo"/>
+                            <constraint firstItem="sDC-r5-fO7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="epg-cn-Qr0"/>
                             <constraint firstItem="GeR-Z8-I1j" firstAttribute="top" secondItem="ynz-AI-u4F" secondAttribute="bottom" id="ey4-cS-xlx"/>
                             <constraint firstItem="6PR-2J-dwu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="j4y-6h-i6R"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ynz-AI-u4F" secondAttribute="trailing" id="kbq-fM-VP7"/>
@@ -209,6 +249,7 @@
                         <outlet property="logoutView" destination="o9W-kq-wHE" id="Tof-2n-ek4"/>
                         <outlet property="nameLabel" destination="6PR-2J-dwu" id="jO4-Zu-PaL"/>
                         <outlet property="profilePic" destination="9Yw-9d-kHm" id="JQV-hn-E7l"/>
+                        <outlet property="registerView" destination="sDC-r5-fO7" id="6Eq-sZ-HgH"/>
                         <outlet property="supportView" destination="VrP-7F-QHz" id="FXA-1J-CwX"/>
                         <outlet property="termsView" destination="aC5-YO-ZqS" id="jaH-Uq-4WA"/>
                     </connections>
