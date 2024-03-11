@@ -25,7 +25,7 @@ class OrdersViewController: UIViewController, Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
+        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()

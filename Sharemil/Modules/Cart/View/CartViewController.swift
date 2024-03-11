@@ -26,7 +26,7 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         viewModel = CartViewModel()
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartItems), name: Notification.Name.init("CARTUPDATE"), object: nil)
-        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
+        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
         bindViewModel()
         setTableView()
     }

@@ -120,6 +120,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     @IBAction func skipRegistrationAction(_ sender: Any) {
         guard let nav = self.navigationController else {return}
         UserDefaults.standard.set(StringConstants.staticToken, forKey: StringConstants.userIDToken)
+        UserDefaults.standard.set(nil, forKey: StringConstants.verificationToken)
         let vc = BaseTabbarCoordinator.init(navigationController: nav).getMainView()
         appdelegate.window?.rootViewController = vc
     }

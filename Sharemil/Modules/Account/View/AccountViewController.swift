@@ -48,7 +48,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.isHidden = !(UserDefaults.standard.string(forKey: StringConstants.userIDToken) == StringConstants.staticToken)
+        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
         self.viewModel = AccountViewModel()
         profilePic.rounded()
         profilePic.clipsToBounds = true
@@ -149,6 +149,7 @@ class AccountViewController: UIViewController {
     }
     
     @objc func logoutAction() {
+        UserDefaults.standard.set(nil, forKey: StringConstants.userIDToken)
         UserDefaults.standard.set(nil, forKey: StringConstants.verificationToken)
         appdelegate.loadRegistration()
     }
