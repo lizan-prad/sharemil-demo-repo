@@ -30,7 +30,9 @@ class BaseTabbarViewController: UITabBarController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        self.viewModel.fetchCarts()
+        if UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken {
+            self.viewModel.fetchCarts()
+        }
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 1
         tabBar.layer.shadowColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor

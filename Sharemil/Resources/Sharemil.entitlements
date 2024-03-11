@@ -16,9 +16,7 @@
 	<key>com.apple.security.app-sandbox</key>
 	<true/>
 	<key>com.apple.security.application-groups</key>
-	<array>
-		<string>group.com.sharemil.sharemil.onesignal</string>
-	</array>
+	<array/>
 	<key>com.apple.security.device.camera</key>
 	<true/>
 	<key>com.apple.security.network.client</key>

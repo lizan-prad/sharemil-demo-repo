@@ -22,7 +22,6 @@
 		52A423F42851E28D007549BB /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F32851E28D007549BB /* RegistrationViewController.swift */; };
 		52A423F62851E29E007549BB /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F52851E29E007549BB /* RegistrationViewModel.swift */; };
 		52A423F82851E2A9007549BB /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A423F72851E2A9007549BB /* RegistrationCoordinator.swift */; };
-		A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
 		BE11832D287C865C0073970B /* SaveLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11832C287C865C0073970B /* SaveLocationService.swift */; };
 		BE118332287C87250073970B /* SaveLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE118331287C87250073970B /* SaveLocationViewModel.swift */; };
 		BE118335287C893A0073970B /* MyLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE118334287C893A0073970B /* MyLocationService.swift */; };
@@ -118,6 +117,7 @@
 		BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */; };
 		BE5B6A2F28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */; };
 		BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */; };
+		BE6592F92B9EE7A300BA83FF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
 		BE727E3F28ACFE8800B7C068 /* ShowDirection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE727E3E28ACFE8800B7C068 /* ShowDirection.storyboard */; };
 		BE727E4128ACFEA000B7C068 /* ShowDirectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE727E4028ACFEA000B7C068 /* ShowDirectionViewController.swift */; };
 		BE727E4328AD02D000B7C068 /* ShowDirectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE727E4228AD02D000B7C068 /* ShowDirectionCoordinator.swift */; };
@@ -430,6 +430,7 @@
 		BE63844229C3AD1E00265A1D /* SharemilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITests.swift; sourceTree = "<group>"; };
 		BE63844429C3AD1E00265A1D /* SharemilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE63845129C3AD2C00265A1D /* SharemilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilTests.swift; sourceTree = "<group>"; };
+		BE6592F72B9EE74E00BA83FF /* libswiftCoreGraphics.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreGraphics.tbd; path = usr/lib/swift/libswiftCoreGraphics.tbd; sourceTree = SDKROOT; };
 		BE727E3E28ACFE8800B7C068 /* ShowDirection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowDirection.storyboard; sourceTree = "<group>"; };
 		BE727E4028ACFEA000B7C068 /* ShowDirectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDirectionViewController.swift; sourceTree = "<group>"; };
 		BE727E4228AD02D000B7C068 /* ShowDirectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDirectionCoordinator.swift; sourceTree = "<group>"; };
@@ -603,13 +604,13 @@
 				BEA7BCBE293108F100E0E5C9 /* FirebaseMessaging in Frameworks */,
 				BEA7BCBA293108F100E0E5C9 /* FirebaseDatabase in Frameworks */,
 				BEA7BCC0293108F100E0E5C9 /* FirebaseStorage in Frameworks */,
-				A7AD202F20055C75EF58FAEF /* Pods_Sharemil.framework in Frameworks */,
 				BE8CD3C228F61EFF007A476B /* GoogleSignIn in Frameworks */,
 				BEA7BCB8293108F100E0E5C9 /* FirebaseCrashlytics in Frameworks */,
 				BEAEB04B293532F300C3E289 /* Mixpanel in Frameworks */,
 				BEA7BCB4293108F100E0E5C9 /* FirebaseAnalytics in Frameworks */,
 				BEA7BCB6293108F100E0E5C9 /* FirebaseAuth in Frameworks */,
 				BEA7BCBC293108F100E0E5C9 /* FirebaseFirestore in Frameworks */,
+				BE6592F92B9EE7A300BA83FF /* Pods_Sharemil.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +671,7 @@
 		51BA570F4EA87D1522C67AE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE6592F72B9EE74E00BA83FF /* libswiftCoreGraphics.tbd */,
 				1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */,
 				C14F7F977B3B1173D7F038D0 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
@@ -2764,6 +2766,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				MARKETING_VERSION = 0.3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
@@ -2808,6 +2814,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				MARKETING_VERSION = 0.3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sharemil.sharemil;
@@ -2836,7 +2846,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = sharemil;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2848,7 +2858,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2868,7 +2880,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = sharemil;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2880,7 +2892,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

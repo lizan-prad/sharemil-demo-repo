@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
 //        UserDefaults.standard.set("P", forKey: "ENV")
+        UserDefaults.standard.set("P", forKey: "ENV")
         StripeAPI.defaultPublishableKey = UserDefaults.standard.string(forKey: "ENV") == "D" ? "pk_test_51KgHBhEYsFc3t3viMQOBYoGfyFWgPIruKiWjSIO7IKqU0GREnosyUh3HeGw0hxc7lAQ3emeODmvUUjiRUXHvDZ5U00egomEJjd" : "pk_live_51KgHBhEYsFc3t3vi6dtj1unr25ctwTJkY9Ua5r3WHk2J89Ign01VESp7y10ueKtd87kPEoPwXc1xF4jDqh3PQxsy00ZSHHjRxx"
         IQKeyboardManager.shared().isEnabled = true
         Mixpanel.initialize(token: "0e14a883d35c0890cd38ef768ea7d10c", trackAutomaticEvents: true)
@@ -93,9 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
     
     @objc func setupOneSignal() {
         
-        if UserDefaults.standard.string(forKey: "ENV") == nil {
-            UserDefaults.standard.set("P", forKey: "ENV")
-        }
+       
         OneSignal.add(self)
         OneSignal.setAppId(UserDefaults.standard.string(forKey: "ENV") == "D" ? "5abbae8b-137a-444c-8977-1e61fd5cdf1f" : "25e41f3e-d9ad-4107-a042-f2cff3bcd6eb")
           

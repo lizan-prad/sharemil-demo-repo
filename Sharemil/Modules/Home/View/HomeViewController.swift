@@ -81,14 +81,18 @@ class HomeViewController: UIViewController, GMSMapViewDelegate, UITextFieldDeleg
     }
     
     private func start() {
-        self.showProgressHud()
-        Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
-                self.viewModel.fetchUserProfile()
-                self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
-            }
-        })
+        if UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken {
+            self.showProgressHud()
+            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                    UserDefaults.standard.set(token, forKey: StringConstants.userIDToken)
+                    self.viewModel.fetchUserProfile()
+                    self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+                }
+            })
+        } else {
+            self.viewModel.fetchChefBy(location: self.currentLocation!, name: "")
+        }
     }
     
     var filtered: [ChefListModel]? {
