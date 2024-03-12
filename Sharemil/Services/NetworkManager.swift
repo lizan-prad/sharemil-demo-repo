@@ -42,7 +42,12 @@ class NetworkManager {
                                 }
                             })
                         }
-                    } else {
+                    }
+                    else if(405 ... 505 ).contains(response.response?.statusCode ?? 0){
+                        print(String(describing: "Somethingwent wrong!"))
+                        completion(.failure(NSError.init(domain: "something went wrong", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: "Something went wrong!"]  )))
+                    }
+                    else {
                         completion(.success(model))
                     }
                 }
