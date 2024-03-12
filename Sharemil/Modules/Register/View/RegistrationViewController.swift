@@ -79,6 +79,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
 //        appleBtn.addStandardBorder()
         self.selectedCOuntry = countryList.getCountry(code: self.phoneField.currentRegion)
         self.flagBtn.setTitle(countryList.getCountry(code: self.phoneField.currentRegion )?.flag ?? "", for: .normal)
+//        self.phoneField.text = "+" + (self.selectedCOuntry?.phoneExtension ?? "")
 //        self.googleBtn.addTarget(self, action: #selector(googleSignAction), for: .touchUpInside)
 //        self.appleBtn.addTarget(self, action: #selector(appleSignAction), for: .touchUpInside)
         self.phoneField.placeholder = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + "XXXXXXXXXX"
@@ -126,7 +127,7 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     @objc func textCHanged() {
-        if (phoneField.text?.count ?? 0) > 0 && !(phoneField.text?.contains(self.selectedCOuntry?.phoneExtension ?? "") ?? false) {
+        if (phoneField.text?.count ?? 0) > 0 && !(phoneField.text?.contains("+" + (self.selectedCOuntry?.phoneExtension ?? "")) ?? false) {
             self.phoneField.text = "+" + (self.selectedCOuntry?.phoneExtension ?? "") + (self.phoneField.text ?? "")
         }
            if !phoneField.isValidNumber {
@@ -222,6 +223,12 @@ extension RegistrationViewController: UITextFieldDelegate, UIAdaptivePresentatio
     
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
         return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let c = self.selectedCOuntry {
+            self.selectedCountry(country: c)
+        }
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

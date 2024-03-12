@@ -14,6 +14,8 @@
 		<string>merchant.group.com.sharemil.sharemil.onesignal</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
-	<array/>
+	<array>
+		<string>group.com.sharemil.sharemil.onesignal</string>
+	</array>
 </dict>
 </plist>
