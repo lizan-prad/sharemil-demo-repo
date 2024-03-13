@@ -82,6 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
                 guard let validation = response.data?.isValidationEnabled else {return}
                 print("Login Validation Required::", validation)
                 UserDefaults.standard.setValue(validation, forKey: "LoginValidationCheck")
+                UserDefaults.standard.setValue(response.data?.skipRegistration ?? false, forKey: "SkipRegistrationCheck")
+                NotificationCenter.default.post(name:  Notification.Name.init("VALIDATION"), object: nil)
             case .failure(let error):
                 print("Login Validation Error::",error.localizedDescription)
                 break

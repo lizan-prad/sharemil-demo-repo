@@ -17,6 +17,7 @@ import Mixpanel
 class RegistrationViewController: UIViewController, Storyboarded {
     
 
+    @IBOutlet weak var skipRegistrationBtn: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
 //    @IBOutlet weak var googleBtn: UIButton!
 //    @IBOutlet weak var appleBtn: UIButton!
@@ -67,15 +68,25 @@ class RegistrationViewController: UIViewController, Storyboarded {
     }
     
     private func setup() {
+        NotificationCenter.default.addObserver(self, selector: #selector(validationSetup), name:  Notification.Name.init("VALIDATION"), object: nil)
+        validationSetup()
         countryList.delegate = self
         phoneField.delegate = self
         self.nextBtn.disable()
         self.errorLabel.text = ""
     }
     
+    @objc func validationSetup() {
+        self.skipRegistrationBtn.isHidden = UserDefaults.standard.bool(forKey: "SkipRegistrationCheck")
+    }
+    
     private func setupViews() {
 //        googleBtn.addStandardBorder()
         phoneContainer.addStandardBorder()
+    
+        if UserDefaults.standard.bool(forKey: "SkipRegistrationCheck") {
+            
+        }
 //        appleBtn.addStandardBorder()
         self.selectedCOuntry = countryList.getCountry(code: self.phoneField.currentRegion)
         self.flagBtn.setTitle(countryList.getCountry(code: self.phoneField.currentRegion )?.flag ?? "", for: .normal)

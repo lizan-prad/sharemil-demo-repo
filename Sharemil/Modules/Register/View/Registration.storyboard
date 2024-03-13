@@ -12,7 +12,7 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
-        <array key="Inter-VariableFont_slnt,wght.ttf">
+        <array key="Inter-Regular.ttf">
             <string>Inter-Regular</string>
         </array>
     </customFonts>
@@ -148,6 +148,7 @@
                         <outlet property="nextBtn" destination="7uh-h1-HMy" id="JFy-cs-3NR"/>
                         <outlet property="phoneContainer" destination="dSs-hO-yJD" id="659-l9-Gbi"/>
                         <outlet property="phoneField" destination="3iw-6G-2xT" id="wV9-wB-kxf"/>
+                        <outlet property="skipRegistrationBtn" destination="mvz-IV-yeK" id="zI1-Mm-T7q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvI-tk-530" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -500,10 +501,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

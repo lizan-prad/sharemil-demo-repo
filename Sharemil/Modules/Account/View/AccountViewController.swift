@@ -48,7 +48,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        validationSetup()
         self.viewModel = AccountViewModel()
         profilePic.rounded()
         profilePic.clipsToBounds = true
@@ -72,6 +72,14 @@ class AccountViewController: UIViewController {
         deleteAccountView.isUserInteractionEnabled = true
         deleteAccountView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleAccountDelete)))
         
+    }
+    
+    func validationSetup() {
+        if UserDefaults.standard.bool(forKey: "SkipRegistrationCheck") {
+            registerView.isHidden = true
+        } else {
+            registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        }
     }
     
     @IBAction func registerAction(_ sender: Any) {

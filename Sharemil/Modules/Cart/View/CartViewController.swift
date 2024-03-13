@@ -26,9 +26,17 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         viewModel = CartViewModel()
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartItems), name: Notification.Name.init("CARTUPDATE"), object: nil)
-        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        validationSetup()
         bindViewModel()
         setTableView()
+    }
+    
+    func validationSetup() {
+        if UserDefaults.standard.bool(forKey: "SkipRegistrationCheck") {
+            registerView.isHidden = true
+        } else {
+            registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        }
     }
     
     private func bindViewModel() {

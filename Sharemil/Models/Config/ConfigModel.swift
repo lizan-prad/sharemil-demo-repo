@@ -25,11 +25,13 @@ struct ConfigModel : Mappable {
 
 struct ConfigData: Mappable {
     var isValidationEnabled: Bool?
+    var skipRegistration: Bool?
     
     init?(map: ObjectMapper.Map) {
     }
     
     mutating func mapping(map: ObjectMapper.Map) {
         isValidationEnabled <- map["isValidationEnabled"]
+        skipRegistration <- map["skipRegistration"]
     }
 }

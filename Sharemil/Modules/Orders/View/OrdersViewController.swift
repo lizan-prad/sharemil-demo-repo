@@ -25,7 +25,7 @@ class OrdersViewController: UIViewController, Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        validationSetup()
         viewModel = OrdersViewModel()
         bindViewModel()
         setTableView()
@@ -34,6 +34,14 @@ class OrdersViewController: UIViewController, Storyboarded{
             self.viewModel.fetchChefBy(location: loc, name: "")
         }
         self.getOrderStatusUpdate()
+    }
+    
+    func validationSetup() {
+        if UserDefaults.standard.bool(forKey: "SkipRegistrationCheck") {
+            registerView.isHidden = true
+        } else {
+            registerView.isHidden = (UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken)
+        }
     }
     
     @IBAction func registerAction(_ sender: Any) {

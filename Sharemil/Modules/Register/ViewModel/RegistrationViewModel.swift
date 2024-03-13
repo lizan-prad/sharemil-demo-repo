@@ -23,9 +23,9 @@ class RegistrationViewModel: RegisterService {
                 switch result {
                 case .success( _):
                     self.login(phone: phone)
-                case .failure( _):
+                case .failure(let error):
                     self.loading.value = false
-                    self.error.value = "The app is still in development we will be releasing shortly."
+                    self.error.value = error.localizedDescription
                 }
             }
         }else {
