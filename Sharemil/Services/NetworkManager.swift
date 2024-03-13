@@ -45,7 +45,8 @@ class NetworkManager {
                     }
                     else if(406 ... 505 ).contains(response.response?.statusCode ?? 0){
                         print(String(describing: "Somethingwent wrong!"))
-                        completion(.failure(NSError.init(domain: "something went wrong", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: "Something went wrong!"]  )))
+                        let errorDict = (data as? [String:Any])?["error"] as? [String: Any]
+                        completion(.failure(NSError.init(domain: "something went wrong", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: (errorDict?["message"] as? String) ?? ""]  )))
                     }
                     else {
                         completion(.success(model))
