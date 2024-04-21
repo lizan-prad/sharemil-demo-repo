@@ -20,7 +20,7 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
     var model: OrderModel? {
         didSet {
             let chef = model?.cart?.chef
-            self.chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
+            self.chefName.text = "\(chef?.businessName ?? "")"
             self.location.text = chef?.address
             self.note.text = model?.deliverAddress
         }

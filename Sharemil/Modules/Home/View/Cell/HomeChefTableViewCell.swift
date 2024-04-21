@@ -25,8 +25,8 @@ class HomeChefTableViewCell: UITableViewCell {
             self.offerText.text = chef?.note
             closedView.rounded()
             businessName.text = chef?.businessName
-            
-            chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
+            chefName.isHidden = true
+//            chefName.text = "\(chef?.firsName ?? "") \(chef?.lastName ?? "")"
             chefImage.sd_setImage(with: URL.init(string: chef?.mainImageUrl ?? ""))
             
             let formatter = DateFormatter()

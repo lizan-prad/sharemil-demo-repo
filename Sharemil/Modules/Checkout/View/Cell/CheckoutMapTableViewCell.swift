@@ -52,7 +52,7 @@ class CheckoutMapTableViewCell: UITableViewCell {
                 addressView.isHidden = true
                 deliveryAddressView.isHidden = false
             } else {
-                standardContainer.isHidden = (chef?.isOpen == false) || containsOutOfStockItem
+                standardContainer.isHidden = containsOutOfStockItem
                 mapView.isHidden = false
                 addressView.isHidden = false
                 deliveryAddressView.isHidden = true

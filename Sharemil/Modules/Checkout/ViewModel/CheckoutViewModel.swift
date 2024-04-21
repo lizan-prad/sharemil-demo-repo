@@ -22,6 +22,7 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
     var method: Observable<PaymentMethods> = Observable(nil)
     var cusines: Observable<[CusineListModel]> = Observable([])
     var chefs: Observable<[ChefListModel]> = Observable([])
+    var chef: Observable<ChefListModel> = Observable(nil)
     var refresh: Observable<String> = Observable(nil)
     var user: Observable<UserModel> = Observable(nil)
     
@@ -34,6 +35,24 @@ class CheckoutViewModel: CheckoutService, ChefMenuService, PaymentOptionsService
                 self.user.value = model.data?.user
             case .failure(let error):
                 self.error.value = error.localizedDescription
+            }
+        }
+    }
+    
+    func fetchChefBy(id: String, name: String?) {
+        self.loading.value = true
+        self.fetchChefBy(id) { result in
+            self.loading.value = false
+            switch result {
+            case .success(let model):
+                self.cusines.value = model.data?.cuisines
+                self.chef.value = model.data?.chef
+            case .failure(let error):
+                if error.code == 401 {
+                    self.refresh.value = error.localizedDescription
+                } else {
+                    self.error.value = error.localizedDescription
+                }
             }
         }
     }

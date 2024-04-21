@@ -196,7 +196,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
             self.placeOrderBtn.enable()
         }
         self.viewModel.getDefaultMethod()
-        self.viewModel.fetchChefBy(location: loc ?? LLocation(location: nil), name: nil)
+        self.viewModel.fetchChefBy(id: self.chef?.id ?? "", name: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -272,6 +272,11 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         self.viewModel.chefs.bind { chefs in
             self.chef = chefs?.filter({$0.id == self.chef?.id}).first
+            self.deliveryStack.isHidden = !(self.chef?.deliverySettings?.deliveryEnabled ?? false)
+            self.tableView.reloadData()
+        }
+        self.viewModel.chef.bind { chefs in
+            self.chef = chefs
             self.deliveryStack.isHidden = !(self.chef?.deliverySettings?.deliveryEnabled ?? false)
             self.tableView.reloadData()
         }
