@@ -104,6 +104,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     @IBOutlet weak var deliveryStack: UIView!
     @IBOutlet weak var deliveryPickupSegment: CustomSegmentedControl!
     
+    @IBOutlet weak var tipField: UILabel!
     @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var cardLabel: UILabel!
@@ -177,6 +178,20 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
     var didCheckoutComplete: (() -> ())?
     var orderModel: OrderModel?
     
+    var tipAmount: Double?
+    
+    func setTotalWithTips(_ tipVal: Double, manual: Bool) {
+        let val = self.getTotalVals(cartItems)
+        let totalPrice = val.reduce(0, +)
+        let service = (totalPrice*(4.9/100))
+        let tip = manual ? tipVal : (tipVal/100)*totalPrice
+        self.tipAmount = tip
+        self.serviceLabel.text = "$\(service.withDecimal(2))"
+        self.subTotal.text = "$\(totalPrice.withDecimal(2))"
+        self.tipField.text = "$\(tip.withDecimal(2))"
+        self.total.text = "$\((totalPrice + service + tip).withDecimal(2))"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -239,6 +254,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         
         tableView.register(UINib.init(nibName: "CheckoutMapTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutMapTableViewCell")
         tableView.register(UINib.init(nibName: "CheckoutOrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutOrdersTableViewCell")
+        tableView.register(UINib.init(nibName: "CheckoutTipsTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutTipsTableViewCell")
         
     }
     
@@ -285,13 +301,14 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         }
         
         self.viewModel.cartList.bind { cartItems in
-            let val = self.getTotalVals(cartItems)
+            let val = self.getTotalVals(cartItems?.cartItems)
             let totalPrice = val.reduce(0, +)
             let service = (totalPrice*(4.9/100))
             self.serviceLabel.text = "$\(service.withDecimal(2))"
             self.subTotal.text = "$\(totalPrice.withDecimal(2))"
-            self.total.text = "$\((totalPrice + service).withDecimal(2))"
-            self.placeOrderBtn.setTitle("Place order · \("$\(totalPrice.withDecimal(2))")", for: .normal)
+            var tip = self.tipAmount ?? 0
+            self.total.text = "$\((totalPrice + service + tip).withDecimal(2))"
+            self.placeOrderBtn.setTitle("Place order · \(self.total.text ?? "")", for: .normal)
             self.cartItems = cartItems?.cartItems
             self.tableView.reloadRows(at: [IndexPath.init(row: 1, section: 0)], with: .automatic)
             if self.cartItems?.filter({$0.menuItem?.remainingItems == 0}).count != 0 {
@@ -378,8 +395,8 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
         self.openConfirmation()
     }
     
-    func getTotalVals(_ cart: Cart?) -> [Double] {
-        let val = cart?.cartItems?.compactMap({ item in
+    func getTotalVals(_ cartItems: [CartItems]?) -> [Double] {
+        let val = cartItems?.compactMap({ item in
             let opt = item.options?.map({ a in
                 var b = a.choices?.map({ m in
                     return ((m.price ?? 0)*Double(m.quantity ?? 0))
@@ -410,9 +427,9 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
                 self.navigationController?.pushViewController(coordinator.getMainView(), animated: true)
             } else {
                 if self.defaultCheckoutType == .delivery {
-                    self.viewModel.createOrderWithDelivery(self.selectedDeliveryLocation?.id, self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                    self.viewModel.createOrderWithDelivery(self.selectedDeliveryLocation?.id, self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "", self.tipAmount ?? 0.0)
                 } else {
-                    self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "")
+                    self.viewModel.createOrderWith(self.selectedScheduleDate, self.selectedPayment?.id ?? "", self.cartItems?.first?.cartId ?? "", self.tipAmount ?? 0.0)
                 }
                
             }
@@ -462,7 +479,7 @@ class CheckoutViewController: UIViewController, Storyboarded, ApplePayContextDel
 extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -529,8 +546,19 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
                 coordinator.start()
             }
             return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutTipsTableViewCell") as! CheckoutTipsTableViewCell
+            cell.setup()
+            cell.didSelectTip = { tip in
+                self.setTotalWithTips(tip, manual: false)
+            }
+            cell.didSelectTipManual = { tip in
+                self.setTotalWithTips(tip, manual: true)
+            }
+            return cell
         default: return UITableViewCell()
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -539,6 +567,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableView.automaticDimension
         case 1:
             return 109 + (CGFloat(self.cartItems?.count ?? 0) * 65)
+        case 2:
+            return 190
         default: return 0
         }
     }

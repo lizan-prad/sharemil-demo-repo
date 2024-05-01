@@ -117,6 +117,8 @@
 		BE5B6A2C28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2A28904B04008CC57F /* ConfirmationOrderSummaryTableViewCell.xib */; };
 		BE5B6A2F28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B6A2D28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.swift */; };
 		BE5B6A3028904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5B6A2E28904B8B008CC57F /* ConfirmationSummaryListTableViewCell.xib */; };
+		BE6588B72BE1E717004BD94B /* CheckoutTipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6588B52BE1E717004BD94B /* CheckoutTipsTableViewCell.swift */; };
+		BE6588B82BE1E717004BD94B /* CheckoutTipsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6588B62BE1E717004BD94B /* CheckoutTipsTableViewCell.xib */; };
 		BE6592F92B9EE7A300BA83FF /* Pods_Sharemil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F406B350C98F56FC5BBC9FF /* Pods_Sharemil.framework */; };
 		BE727E3F28ACFE8800B7C068 /* ShowDirection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE727E3E28ACFE8800B7C068 /* ShowDirection.storyboard */; };
 		BE727E4128ACFEA000B7C068 /* ShowDirectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE727E4028ACFEA000B7C068 /* ShowDirectionViewController.swift */; };
@@ -430,6 +432,8 @@
 		BE63844229C3AD1E00265A1D /* SharemilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITests.swift; sourceTree = "<group>"; };
 		BE63844429C3AD1E00265A1D /* SharemilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE63845129C3AD2C00265A1D /* SharemilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharemilTests.swift; sourceTree = "<group>"; };
+		BE6588B52BE1E717004BD94B /* CheckoutTipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTipsTableViewCell.swift; sourceTree = "<group>"; };
+		BE6588B62BE1E717004BD94B /* CheckoutTipsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutTipsTableViewCell.xib; sourceTree = "<group>"; };
 		BE6592F72B9EE74E00BA83FF /* libswiftCoreGraphics.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreGraphics.tbd; path = usr/lib/swift/libswiftCoreGraphics.tbd; sourceTree = SDKROOT; };
 		BE727E3E28ACFE8800B7C068 /* ShowDirection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowDirection.storyboard; sourceTree = "<group>"; };
 		BE727E4028ACFEA000B7C068 /* ShowDirectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDirectionViewController.swift; sourceTree = "<group>"; };
@@ -1997,6 +2001,8 @@
 				BEF7EAEA2865AFD3002D553E /* CheckoutMapTableViewCell.xib */,
 				BEF7EAF12865B029002D553E /* CheckoutOrdersTableViewCell.swift */,
 				BEF7EAF22865B029002D553E /* CheckoutOrdersTableViewCell.xib */,
+				BE6588B52BE1E717004BD94B /* CheckoutTipsTableViewCell.swift */,
+				BE6588B62BE1E717004BD94B /* CheckoutTipsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2243,6 +2249,7 @@
 				BED11BB42953389800EA0855 /* CustomPickerCollectionViewCell.xib in Resources */,
 				BE4CDDDA285342DF006AB129 /* BaseTabbar.storyboard in Resources */,
 				BEF7EADF28647982002D553E /* CartDetailTableViewCell.xib in Resources */,
+				BE6588B82BE1E717004BD94B /* CheckoutTipsTableViewCell.xib in Resources */,
 				BE7302CF287ED8BF00CC6383 /* OrderDetailMapTableViewCell.xib in Resources */,
 				BE5B6A1A288DE3FF008CC57F /* PaymentOptionsListTableViewCell.xib in Resources */,
 				BE4CDDE5285345DA006AB129 /* Cart.storyboard in Resources */,
@@ -2491,6 +2498,7 @@
 				BE4CDDC128532A6A006AB129 /* FirebaseService.swift in Sources */,
 				BEF7EB4528699B01002D553E /* CartItems.swift in Sources */,
 				BE7C7282285F94F40008161B /* ChefMenuTableViewCell.swift in Sources */,
+				BE6588B72BE1E717004BD94B /* CheckoutTipsTableViewCell.swift in Sources */,
 				BE4CDDA22853048C006AB129 /* URLConfig.swift in Sources */,
 				BEF7EB0E2865CCAD002D553E /* Polyline.swift in Sources */,
 				BE7302E5287FF22900CC6383 /* ConfirmationCoordinator.swift in Sources */,

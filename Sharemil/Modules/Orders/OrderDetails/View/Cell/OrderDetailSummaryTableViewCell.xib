@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,52 +19,125 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="215" id="KGk-i7-Jjw" customClass="OrderDetailSummaryTableViewCell" customModule="Sharemil" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="288" id="KGk-i7-Jjw" customClass="OrderDetailSummaryTableViewCell" customModule="Sharemil" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="288"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="288"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llU-zN-0rL">
-                        <rect key="frame" x="20" y="20" width="280" height="19.5"/>
+                        <rect key="frame" x="20" y="20" width="280" height="1"/>
                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yqa-yf-jG0">
-                        <rect key="frame" x="0.0" y="55.5" width="320" height="100"/>
+                        <rect key="frame" x="0.0" y="37" width="320" height="100"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="MQY-Nc-dps"/>
                         </constraints>
                     </tableView>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BCw-CK-i0R">
-                        <rect key="frame" x="54" y="171.5" width="246" height="19.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bBa-J9-EE4">
+                        <rect key="frame" x="54" y="153.5" width="250" height="111"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5R-7t-rMP">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="19.5"/>
-                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vag-RG-EpH">
-                                <rect key="frame" x="48" y="0.0" width="198" height="19.5"/>
-                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="JKa-wd-QkO">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="SubTotal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKA-Ve-cWY">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qc-p4-pzW">
+                                        <rect key="frame" x="73" y="0.0" width="177" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kzV-mB-VJp">
+                                <rect key="frame" x="0.0" y="23" width="250" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tax:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86m-O8-xuY">
+                                        <rect key="frame" x="0.0" y="0.0" width="29" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-FM-0Sq">
+                                        <rect key="frame" x="35" y="0.0" width="215" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NAO-pT-UW4">
+                                <rect key="frame" x="0.0" y="46" width="250" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Fee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wS-Rk-b0G">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMO-Zj-4h3">
+                                        <rect key="frame" x="37" y="0.0" width="213" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="xko-Xs-jM7">
+                                <rect key="frame" x="0.0" y="69" width="250" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tip:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRI-Ed-QBb">
+                                        <rect key="frame" x="0.0" y="0.0" width="27" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBC-6g-iTQ">
+                                        <rect key="frame" x="33" y="0.0" width="217" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BCw-CK-i0R">
+                                <rect key="frame" x="0.0" y="92" width="250" height="19"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5R-7t-rMP">
+                                        <rect key="frame" x="0.0" y="0.0" width="38.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34.66" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vag-RG-EpH">
+                                        <rect key="frame" x="44.5" y="0.0" width="205.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hng-DU-erK">
-                        <rect key="frame" x="0.0" y="214" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="287" width="320" height="1"/>
                         <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="GIE-EI-Fg4"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="total" translatesAutoresizingMaskIntoConstraints="NO" id="MHc-85-XhB">
-                        <rect key="frame" x="24" y="171.5" width="20" height="20"/>
+                        <rect key="frame" x="24" y="245" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="TX6-qJ-GZz"/>
                             <constraint firstAttribute="height" constant="20" id="nD6-sm-oa4"/>
@@ -73,29 +146,33 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="hng-DU-erK" secondAttribute="trailing" id="1Dp-p7-lOJ"/>
-                    <constraint firstItem="MHc-85-XhB" firstAttribute="centerY" secondItem="L5R-7t-rMP" secondAttribute="centerY" id="5Vm-cY-gcu"/>
+                    <constraint firstItem="MHc-85-XhB" firstAttribute="centerY" secondItem="L5R-7t-rMP" secondAttribute="centerY" id="2Ih-ZY-6Bn"/>
                     <constraint firstItem="hng-DU-erK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6qo-LO-9VJ"/>
-                    <constraint firstAttribute="bottom" secondItem="BCw-CK-i0R" secondAttribute="bottom" constant="24" id="8b1-QL-DWg"/>
-                    <constraint firstAttribute="trailing" secondItem="BCw-CK-i0R" secondAttribute="trailing" constant="20" id="BC2-LW-cxG"/>
+                    <constraint firstAttribute="trailing" secondItem="bBa-J9-EE4" secondAttribute="trailing" constant="16" id="I10-d1-jpC"/>
+                    <constraint firstItem="bBa-J9-EE4" firstAttribute="top" secondItem="Yqa-yf-jG0" secondAttribute="bottom" constant="16.5" id="Odb-z2-vnU"/>
                     <constraint firstItem="MHc-85-XhB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Pdu-kN-uNO"/>
+                    <constraint firstItem="bBa-J9-EE4" firstAttribute="leading" secondItem="MHc-85-XhB" secondAttribute="trailing" constant="10" id="QvO-zA-BTO"/>
                     <constraint firstItem="Yqa-yf-jG0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RRb-bp-yPp"/>
                     <constraint firstItem="llU-zN-0rL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="XhJ-d0-gWo"/>
                     <constraint firstAttribute="trailing" secondItem="Yqa-yf-jG0" secondAttribute="trailing" id="YF4-F7-Pd1"/>
                     <constraint firstItem="llU-zN-0rL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="YMI-C4-O4T"/>
+                    <constraint firstItem="hng-DU-erK" firstAttribute="top" secondItem="bBa-J9-EE4" secondAttribute="bottom" constant="22.5" id="Yd1-Cd-drb"/>
                     <constraint firstAttribute="trailing" secondItem="llU-zN-0rL" secondAttribute="trailing" constant="20" id="cRZ-U7-56F"/>
-                    <constraint firstItem="BCw-CK-i0R" firstAttribute="top" secondItem="Yqa-yf-jG0" secondAttribute="bottom" constant="16" id="dSj-HX-oE0"/>
-                    <constraint firstItem="BCw-CK-i0R" firstAttribute="leading" secondItem="MHc-85-XhB" secondAttribute="trailing" constant="10" id="hwS-pm-yHX"/>
                     <constraint firstAttribute="bottom" secondItem="hng-DU-erK" secondAttribute="bottom" id="j7s-Is-iec"/>
                     <constraint firstItem="Yqa-yf-jG0" firstAttribute="top" secondItem="llU-zN-0rL" secondAttribute="bottom" constant="16" id="vIe-2e-p7P"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="fee" destination="pMO-Zj-4h3" id="nLU-WI-a5h"/>
+                <outlet property="subTotal" destination="4Qc-p4-pzW" id="uoT-6O-Pog"/>
                 <outlet property="tableView" destination="Yqa-yf-jG0" id="PpM-9h-KaI"/>
                 <outlet property="tableViewHeight" destination="MQY-Nc-dps" id="vvd-Kx-pxk"/>
+                <outlet property="tax" destination="Ibq-FM-0Sq" id="xCJ-Fp-zBG"/>
+                <outlet property="tip" destination="fBC-6g-iTQ" id="Cwx-Mp-aaM"/>
                 <outlet property="total" destination="Vag-RG-EpH" id="bC1-m7-47R"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="171.76339285714286"/>
+            <point key="canvasLocation" x="137.68115942028987" y="196.20535714285714"/>
         </tableViewCell>
     </objects>
     <resources>

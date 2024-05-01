@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A19ED7E-9881-496E-ABC7-AE8994F20C3F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharemil/Modules/Checkout/Service/CheckoutService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "createOrder(_:_:_:_:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A19ED7E-9881-496E-ABC7-AE8994F20C3F - 3eb90893ffbe669c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharemil.CheckoutService.createOrder(_: Swift.Optional&lt;Swift.String&gt;, _: Swift.String, _: Swift.String, _: Swift.Double, completion: (Swift.Result&lt;Sharemil.BaseMappableModel&lt;Sharemil.OrdersContainerModel&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizan/Documents/Sharemil-iOS/Sharemil/Modules/Checkout/Service/CheckoutService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "884">
+               </Location>
+               <Location
+                  uuid = "6A19ED7E-9881-496E-ABC7-AE8994F20C3F - b61128660f87201b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Sharemil.BaseMappableModel&lt;Sharemil.OrdersContainerModel&gt;, __C.NSError&gt;) -&gt; () in Sharemil.CheckoutService.createOrder(_: Swift.Optional&lt;Swift.String&gt;, _: Swift.String, _: Swift.String, _: Swift.Double, completion: (Swift.Result&lt;Sharemil.BaseMappableModel&lt;Sharemil.OrdersContainerModel&gt;, __C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Sharemil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizan/Documents/Sharemil-iOS/Sharemil/Modules/Checkout/Service/CheckoutService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

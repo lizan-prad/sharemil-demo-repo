@@ -93,7 +93,7 @@ extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailSummaryTableViewCell") as! OrderDetailSummaryTableViewCell
-            cell.cartItems = self.model?.cart?.cartItems
+            cell.model = self.model
             cell.setTable()
             return cell
         default: return UITableViewCell()

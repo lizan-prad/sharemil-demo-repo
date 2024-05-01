@@ -7,8 +7,10 @@ struct OrderModel : Mappable {
 	var createdAt : String?
 	var cartId : String?
 	var subTotal : Double?
-	var tax : Int?
+	var tax : Double?
 	var total : Double?
+    var tip: Double?
+    var fee: Double?
 	var currency : String?
     var pickupTime: String?
 	var status : String?
@@ -32,6 +34,8 @@ struct OrderModel : Mappable {
 		subTotal <- map["subTotal"]
 		tax <- map["tax"]
 		total <- map["total"]
+        fee <- map["fee"]
+        tip <- map["tip"]
 		currency <- map["currency"]
         customerIsHere <- map["customerIsHere"]
         customerNote <- map["customerNote"]
