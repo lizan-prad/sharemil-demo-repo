@@ -1071,8 +1071,8 @@
 		BE1C0084DCC7CB88418A3EE10CA01DEC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A579970E389E9DA622B7EBA0DD774B /* CoreLocation.framework */; };
 		BE245408D77A4203D15B66A607B27C97 /* STPLabeledFormTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953D293776C28D87E8F4D4A083EE0B46 /* STPLabeledFormTextFieldView.swift */; };
 		BE649A29E5FB32C54FDAE55994804F6D /* SDWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ABB1D1534B423AD7AAAD05A33800CD /* SDWebImageOperation.m */; };
-		BE6588B42BE1E5DB004BD94B /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CC67B2AFD556E000BCD23 /* CardManager.swift */; };
-		BE6CC67E2AFD556E000BCD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6CC67C2AFD556E000BCD23 /* Assets.xcassets */; };
+		BE6588BB2BE42107004BD94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6588B92BE42106004BD94B /* Assets.xcassets */; };
+		BE6588BC2BE42107004BD94B /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6588BA2BE42107004BD94B /* CardManager.swift */; };
 		BEB39D3E4751B663230AB77670E14288 /* STPPaymentMethodPayPalParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0B2069E3E5A763B497A97F4C1E010 /* STPPaymentMethodPayPalParams.swift */; };
 		BF29391C091B52104FD38FC8747C2929 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2AC49A18BE3ED1BEE8DBE5336F29A /* FormView.swift */; };
 		BF9A6E2CB8F67686C4B7E04538664919 /* UIImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 29398E7F201664B944819AF6522B1CC6 /* UIImage+Transform.m */; };
@@ -2838,8 +2838,8 @@
 		BDEF68284511884A7D281412A6DD7062 /* STDSCustomization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STDSCustomization.m; path = Stripe3DS2/Stripe3DS2/STDSCustomization.m; sourceTree = "<group>"; };
 		BDF1298AAC3909B19F0D4D64EB75708B /* SDImageCoderHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoderHelper.h; path = SDWebImage/Core/SDImageCoderHelper.h; sourceTree = "<group>"; };
 		BE428195F5E451D9C4F851D5A6D3B08E /* STDSAuthenticationRequestParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSAuthenticationRequestParameters.h; path = Stripe3DS2/Stripe3DS2/include/STDSAuthenticationRequestParameters.h; sourceTree = "<group>"; };
-		BE6CC67B2AFD556E000BCD23 /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardManager.swift; path = ../../../CreditCardViewSwift/CardManager.swift; sourceTree = "<group>"; };
-		BE6CC67C2AFD556E000BCD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../CreditCardViewSwift/Assets.xcassets; sourceTree = "<group>"; };
+		BE6588B92BE42106004BD94B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE6588BA2BE42107004BD94B /* CardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 		BE95A11D5FACFB2820FE6F83682EAD01 /* STDSBundleLocator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSBundleLocator.h; path = Stripe3DS2/Stripe3DS2/STDSBundleLocator.h; sourceTree = "<group>"; };
 		BED1737DCA93499348A280F3B1E87F7A /* STDSJSONDecodable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STDSJSONDecodable.h; path = Stripe3DS2/Stripe3DS2/include/STDSJSONDecodable.h; sourceTree = "<group>"; };
 		BED94D69EBF237072D99CC851B5D8201 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = hu.lproj; path = StripeUICore/StripeUICore/Resources/Localizations/hu.lproj; sourceTree = "<group>"; };
@@ -3741,14 +3741,14 @@
 		30EFFA3077D7D90D9BD1E602A5F6097F /* CreditCardViewSwift */ = {
 			isa = PBXGroup;
 			children = (
+				BE6588B92BE42106004BD94B /* Assets.xcassets */,
+				BE6588BA2BE42107004BD94B /* CardManager.swift */,
 				153C9B88BC612A669B8B8001EA4CB5DB /* contents.xcworkspacedata */,
 				CD02C2454F319A9371C6394FF6404512 /* contents.xcworkspacedata */,
 				416A2EFCE29BDC4213978F7CF6B2D06B /* CreditCardViewSwift.h */,
 				5575C58D58FB051FB4645B02438D75E8 /* CreditCardViewSwift.podspec */,
 				C29419D3CA33C1306FD97E2C7B1C441C /* CreditCardViewSwift.swift */,
 				F36BF204560CAA8A93061A983B66FBB1 /* CreditCardViewSwift.xib */,
-				BE6CC67C2AFD556E000BCD23 /* Assets.xcassets */,
-				BE6CC67B2AFD556E000BCD23 /* CardManager.swift */,
 				800BE9FBBA53F65DBB0DE66A3B5307B6 /* Enums.swift */,
 				70077ED44191DB59F29377DDB2219D26 /* LICENSE */,
 				9D94049512A043201928494C42983785 /* Manifest.lock */,
@@ -6889,7 +6889,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6CC67E2AFD556E000BCD23 /* Assets.xcassets in Resources */,
+				BE6588BB2BE42107004BD94B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8028,7 +8028,7 @@
 				41AE6FCAD91D687763C95257A8E27471 /* Podfile in Sources */,
 				6C17DBD0C02015A9F4679EFF62F929B3 /* Podfile.lock in Sources */,
 				484E072D11696AA14237240F87452B22 /* Pods-CreditCardViewSwift.modulemap in Sources */,
-				BE6588B42BE1E5DB004BD94B /* CardManager.swift in Sources */,
+				BE6588BC2BE42107004BD94B /* CardManager.swift in Sources */,
 				DAE9D0426C43B4A7BAB119E90100F309 /* Pods-CreditCardViewSwift.xcscheme in Sources */,
 				0F5CDDA5DEEFED9B2B4DDCF1CB5DC819 /* Pods-CreditCardViewSwift-acknowledgements.markdown in Sources */,
 				2CB0172F4420F5D158168BEA9A92D05B /* Pods-CreditCardViewSwift-dummy.m in Sources */,
