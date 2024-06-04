@@ -15,16 +15,13 @@ class OrderDetailCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    
     var model: OrderModel?
-    
     
     func getMainView() -> OrderDetailsViewController {
         let vc = OrderDetailsViewController.instantiate()
         let viewModel = OrderDetailsViewModel()
         vc.viewModel = viewModel
         vc.model = model
-
         return vc
     }
     
@@ -32,7 +29,6 @@ class OrderDetailCoordinator: Coordinator {
         let vc = OrderDetailsViewController.instantiate()
         let viewModel = OrderDetailsViewModel()
         vc.viewModel = viewModel
-        
         navigationController.pushViewController(vc, animated: true)
     }
 

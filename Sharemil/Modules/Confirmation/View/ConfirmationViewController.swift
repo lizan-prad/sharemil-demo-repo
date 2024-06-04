@@ -62,7 +62,6 @@ class ConfirmationViewController: UIViewController, Storyboarded {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let time = formatter.date(from: model?.deliverTime == nil ? model?.pickupTime ?? "" : model?.deliverTime ?? "")
-//            formatter.timeZone = TimeZone(secondsFromGMT: 0)
             formatter.dateFormat = "yyyy-MM-dd"
             let todayDate = formatter.string(from: Date())
             let timeDate = formatter.string(from: time ?? Date())
@@ -81,7 +80,6 @@ class ConfirmationViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setTableView()
         bindViewModel()
-//        self.viewModel.getOrder(self.id ?? "")
         self.getOrderStatusUpdate()
     }
     

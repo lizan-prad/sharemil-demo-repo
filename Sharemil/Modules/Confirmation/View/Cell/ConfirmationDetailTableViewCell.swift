@@ -32,7 +32,6 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
             marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
             marker.isFlat = true
             marker.icon = UIImage.init(named: "open_restaurant")?.withTintColor(.green, renderingMode: .alwaysTemplate)
-//            marker.rotation = angle
             marker.map = self.mapView
         }
     }
@@ -64,7 +63,5 @@ class ConfirmationDetailTableViewCell: UITableViewCell {
         locationMarker.isFlat = true
         locationMarker.icon = UIImage.init(named: "start")
         locationMarker.map = self.mapView
-//            marker.rotation = angle
-//        locationMarker.map = self.mapView
     }
 }

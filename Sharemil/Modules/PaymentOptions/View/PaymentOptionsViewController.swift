@@ -12,13 +12,12 @@ import PassKit
 
 class PaymentOptionsViewController: UIViewController, Storyboarded {
     
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addCardView: UIView!
     var viewModel: PaymentOptionsViewModel!
     var model: PaymentIntentModel?
     var cartId: String?
-//    var paymentSheet: PaymentSheet?
     
     var models: [PaymentMethods]? {
         didSet {
@@ -56,7 +55,7 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         self.viewModel.success.bind { msg in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 self.viewModel.getPaymentMethods()
-//                self.navigationController?.popViewController(animated: true)
+                //                self.navigationController?.popViewController(animated: true)
             }
         }
         self.viewModel.methods.bind { models in
@@ -75,32 +74,6 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
                 })
             }
         }
-        
-        self.viewModel.payment.bind { model in
-            self.model = model
-            self.openCustomStripeUI()
-//            STPAPIClient.shared.publishableKey = model?.publishableKey ?? ""
-//            // MARK: Create a PaymentSheet instance
-//            var configuration = PaymentSheet.Configuration()
-//            configuration.merchantDisplayName = "Example, Inc."
-//            configuration.customer = .init(id: model?.customer ?? "", ephemeralKeySecret: model?.ephemeralKey ?? "")
-//            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
-//            // methods that complete payment after a delay, like SEPA Debit and Sofort.
-//            configuration.allowsDelayedPaymentMethods = true
-//            self.paymentSheet = PaymentSheet(paymentIntentClientSecret: model?.paymentIntent ?? "", configuration: configuration)
-//            self.paymentSheet?.present(from: self) { paymentResult in
-//                // MARK: Handle the payment result
-//                switch paymentResult {
-//                case .completed:
-//                  print("Your order is confirmed")
-//                case .canceled:
-//                  print("Canceled!")
-//                case .failed(let error):
-//                  print("Payment failed: \(error)")
-//                }
-//              }
-        }
-        
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -111,25 +84,11 @@ class PaymentOptionsViewController: UIViewController, Storyboarded {
         addCardView.isUserInteractionEnabled = true
         addCardView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:          #selector(openCardView)))
     }
-  
+    
     @objc private func openCardView() {
         guard let nav = self.navigationController else {return}
-                let coordinator = CustomStripeCoordinator.init(navigationController: nav)
-                coordinator.start()
-//        self.viewModel.proceedPayment(cartId ?? "")
-    }
-    
-    private func openCustomStripeUI() {
-        let config = STPPaymentConfiguration()
-        config.requiredBillingAddressFields = .none
-//        let viewController = STPPaymentOptionsViewController.init(configuration: config, theme: .defaultTheme, customerContext: STPCustomerContext.init(keyProvider: STPCustomerEphemeralKeyProvider), delegate: self)
-        
-//        let viewController = STPAddCardViewController(configuration: config, theme: STPTheme.defaultTheme)
-//        viewController.delegate = self
-//
-//        let navigationController = UINavigationController(rootViewController: viewController)
-//        present(navigationController, animated: true, completion: nil)
-//
+        let coordinator = CustomStripeCoordinator.init(navigationController: nav)
+        coordinator.start()
     }
 }
 

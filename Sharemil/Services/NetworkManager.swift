@@ -10,6 +10,7 @@ import ObjectMapper
 import Alamofire
 import SwiftyJSON
 import FirebaseAuth
+
 class NetworkManager {
     
     static let shared = NetworkManager()
@@ -20,14 +21,14 @@ class NetworkManager {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         var header = headers == nil ? [.authorization(bearerToken: UserDefaults.standard.string(forKey: StringConstants.userIDToken) ?? "")] : headers
         header?["app-version"] = appVersion ?? ""
-        print(header)
         
         AF.request(URLConfig.baseUrl + urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseJSON { (response) in
             switch response.result {
             case .success(let data):
                 if let data = data as? [String:Any], let model = Mapper<T>().map(JSON: data) {
                     print(data)
-                    if (400 ... 405).contains(response.response?.statusCode ?? 0) {
+                    switch response.response?.statusCode ?? 0 {
+                    case 400 ... 405:
                         if UserDefaults.standard.string(forKey: StringConstants.userIDToken) != StringConstants.staticToken {
                             Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { token, error in
                                 if error != nil {
@@ -42,14 +43,10 @@ class NetworkManager {
                                 }
                             })
                         }
-                    }
-                    else if(406 ... 505 ).contains(response.response?.statusCode ?? 0){
-                        print(String(describing: "Somethingwent wrong!"))
-                        let errorDict = (data as? [String:Any])?["error"] as? [String: Any]
+                    case 406 ... 505:
+                        let errorDict = data["error"] as? [String: Any]
                         completion(.failure(NSError.init(domain: "something went wrong", code: response.response?.statusCode ?? 0, userInfo:   [NSLocalizedDescriptionKey: (errorDict?["message"] as? String) ?? ""]  )))
-                    }
-                    else {
-                        completion(.success(model))
+                    default: completion(.success(model))
                     }
                 }
             case .failure(let error):
@@ -62,7 +59,7 @@ class NetworkManager {
     func requestData(urlExt: String, method: HTTPMethod, param: Parameters?, encoding: ParameterEncoding, headers: HTTPHeaders?, completion: @escaping (Data) -> ()){
         
         let header = headers == nil ? ["Accept" : "application/json", "Authorization":  "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"] : headers
-
+        
         AF.request(urlExt, method: method, parameters: param, encoding: encoding, headers: header).responseData { data in
             if let data = data.data {
                 completion(data)
@@ -71,7 +68,7 @@ class NetworkManager {
     }
     
     func requestMultipart<T: Mappable>(_value: T.Type, param:[String: Any],arrImage:[UIImage],imageKey:String,URlName:String,controller:UIViewController, withblock:@escaping (_ response: AnyObject?)->Void){
-
+        
         let headers: HTTPHeaders
         headers = ["Content-type": "multipart/form-data",
                    "Content-Disposition" : "form-data", "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "AT") ?? "")"]
@@ -89,8 +86,8 @@ class NetworkManager {
             
             
         },to: URL.init(string: URLConfig.baseUrl + URlName)!, usingThreshold: UInt64.init(),
-          method: .post,
-          headers: headers).response{ response in
+                  method: .post,
+                  headers: headers).response{ response in
             
             if((response.error != nil)){
                 do{
@@ -115,9 +112,9 @@ class NetworkManager {
                     print("error message")
                 }
             }else{
-                 print(response.error!.localizedDescription)
+                print(response.error!.localizedDescription)
             }
         }
     }
-       
+    
 }

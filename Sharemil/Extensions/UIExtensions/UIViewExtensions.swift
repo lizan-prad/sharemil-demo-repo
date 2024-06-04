@@ -55,7 +55,6 @@ extension UIView {
         self.layer.cornerRadius = 4
     }
     
-    
     func activityStartAnimating(_ activityColor: UIColor? = .white, backgroundColor: UIColor? = .clear) {
         let backgroundView = UIView()
         backgroundView.frame = CGRect.init(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
@@ -222,7 +221,6 @@ extension UIColor {
 
 extension UIView {
     
-    
     func addCornerRadius(_ radius: CGFloat) {
         self.layer.cornerRadius = radius
     }
@@ -277,8 +275,8 @@ struct Associate {
 }
 
 extension UIViewController{
+    
     private func setProgressHud() -> MBProgressHUD {
-        
         let progressHud:  MBProgressHUD = MBProgressHUD.showAdded(to: self.view, animated: true)
         progressHud.tintColor = UIColor.darkGray
         progressHud.removeFromSuperViewOnHide = true
@@ -317,38 +315,6 @@ extension UIViewController{
         }
         self.progressHud.hide(animated: false)
     }
-    
-}
-
-extension UIButton {
-    func disable() {
-        self.backgroundColor = .lightGray
-        self.tintColor = .black
-        self.isEnabled = false
-    }
-    
-    func enable() {
-        self.backgroundColor = .black
-        self.tintColor = .white
-        self.isEnabled = true
-    }
-}
-
-extension UIDevice {
-    /// Returns `true` if the device has a notch
-    var hasNotch: Bool {
-        guard #available(iOS 11.0, *), let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return false }
-        if UIDevice.current.orientation.isPortrait {
-            return window.safeAreaInsets.top >= 44
-        } else {
-            return window.safeAreaInsets.left > 0 || window.safeAreaInsets.right > 0
-        }
-    }
-}
-
-
-
-extension UIViewController {
     
     func feedbackAlert(title: String?, message: String?, textFieldTitles: [String], okTitle: String, cancelTitle: String, okCompletion: @escaping ([String?]) -> (), cancelAction: (() -> ())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -435,6 +401,32 @@ extension UIViewController {
             }
         }
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIButton {
+    func disable() {
+        self.backgroundColor = .lightGray
+        self.tintColor = .black
+        self.isEnabled = false
+    }
+    
+    func enable() {
+        self.backgroundColor = .black
+        self.tintColor = .white
+        self.isEnabled = true
+    }
+}
+
+extension UIDevice {
+    /// Returns `true` if the device has a notch
+    var hasNotch: Bool {
+        guard #available(iOS 11.0, *), let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return false }
+        if UIDevice.current.orientation.isPortrait {
+            return window.safeAreaInsets.top >= 44
+        } else {
+            return window.safeAreaInsets.left > 0 || window.safeAreaInsets.right > 0
+        }
     }
 }
 

@@ -73,7 +73,6 @@ class SpecialInstructionViewController: UIViewController {
         })
     }
     
-    
     @objc private func dismissPopUp() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.bgView.alpha = 0.0

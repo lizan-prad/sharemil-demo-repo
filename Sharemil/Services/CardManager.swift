@@ -29,8 +29,6 @@ class CardManager {
     }
 }
 
-
-
 /**
  *  x || X -> Any character
  *  c || C -> Alphabetic character

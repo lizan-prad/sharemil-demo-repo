@@ -12,7 +12,6 @@ class PaymentOptionsViewModel: PaymentOptionsService, CustomStripeService {
     var loading: Observable<Bool> = Observable(nil)
     var error: Observable<String> = Observable(nil)
     var success: Observable<String> = Observable(nil)
-    var payment: Observable<PaymentIntentModel> = Observable(nil)
     var methods: Observable<[PaymentMethods]> = Observable([])
     
     func proceedPayment(_ cartId: String) {

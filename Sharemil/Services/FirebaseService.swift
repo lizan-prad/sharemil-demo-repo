@@ -32,6 +32,7 @@ func MD5(string: String) -> Data {
     }
     return digestData
 }
+
 class FirebaseService {
     
     static let shared = FirebaseService()
@@ -74,9 +75,6 @@ class FirebaseService {
             withVerificationID: verificationID,
             verificationCode: otpCode
         )
-//        Messaging.messaging().token { token, error in
-//            UserDefaults.standard.set(token ?? "", forKey: StringConstants.userIDToken)
-//        }
         
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
