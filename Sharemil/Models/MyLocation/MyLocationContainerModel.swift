@@ -17,8 +17,6 @@ struct MyLocationContainerModel : Mappable {
     }
 
     mutating func mapping(map: Map) {
-
-        
         locations <- map["locations"]
     }
 
